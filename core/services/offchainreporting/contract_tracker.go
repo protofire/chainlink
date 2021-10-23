@@ -238,7 +238,7 @@ func (t *OCRContractTracker) processLogs() {
 func (t *OCRContractTracker) HandleLog(lb log.Broadcast) {
 	was, err := t.logBroadcaster.WasAlreadyConsumed(t.gdb, lb)
 	if err != nil {
-		t.logger.Errorw("OCRContract: could not determine if log was already consumed", "error", err)
+		t.logger.Errorw("could not determine if log was already consumed", "error", err)
 		return
 	} else if was {
 		return
@@ -247,12 +247,16 @@ func (t *OCRContractTracker) HandleLog(lb log.Broadcast) {
 	raw := lb.RawLog()
 	if raw.Address != t.contract.Address() {
 		t.logger.Errorf("log address of 0x%x does not match configured contract address of 0x%x", raw.Address, t.contract.Address())
-		t.logger.ErrorIfCalling(func() error { return t.logBroadcaster.MarkConsumed(t.gdb, lb) })
+		if err2 := t.logBroadcaster.MarkConsumed(t.gdb, lb); err2 != nil {
+			t.logger.Errorw("failed to mark log consumed", "error", err2)
+		}
 		return
 	}
 	topics := raw.Topics
 	if len(topics) == 0 {
-		t.logger.ErrorIfCalling(func() error { return t.logBroadcaster.MarkConsumed(t.gdb, lb) })
+		if err2 := t.logBroadcaster.MarkConsumed(t.gdb, lb); err2 != nil {
+			t.logger.Errorw("failed to mark log consumed", "error", err2)
+		}
 		return
 	}
 
@@ -263,7 +267,9 @@ func (t *OCRContractTracker) HandleLog(lb log.Broadcast) {
 		configSet, err = t.contractFilterer.ParseConfigSet(raw)
 		if err != nil {
 			t.logger.Errorw("could not parse config set", "err", err)
-			t.logger.ErrorIfCalling(func() error { return t.logBroadcaster.MarkConsumed(t.gdb, lb) })
+			if err2 := t.logBroadcaster.MarkConsumed(t.gdb, lb); err2 != nil {
+				t.logger.Errorw("failed to mark log consumed", "error", err2)
+			}
 			return
 		}
 		configSet.Raw = lb.RawLog()
@@ -278,7 +284,9 @@ func (t *OCRContractTracker) HandleLog(lb log.Broadcast) {
 		rr, err = t.contractFilterer.ParseRoundRequested(raw)
 		if err != nil {
 			t.logger.Errorw("could not parse round requested", "err", err)
-			t.logger.ErrorIfCalling(func() error { return t.logBroadcaster.MarkConsumed(t.gdb, lb) })
+			if err2 := t.logBroadcaster.MarkConsumed(t.gdb, lb); err2 != nil {
+				t.logger.Errorw("failed to mark log consumed", "error", err2)
+			}
 			return
 		}
 		if IsLaterThan(raw, t.latestRoundRequested.Raw) {
@@ -289,24 +297,26 @@ func (t *OCRContractTracker) HandleLog(lb log.Broadcast) {
 				return t.logBroadcaster.MarkConsumed(tx, lb)
 			})
 			if err != nil {
-				logger.Error(err)
+				t.logger.Error(err)
 				return
 			}
 			consumed = true
 			t.lrrMu.Lock()
 			t.latestRoundRequested = *rr
 			t.lrrMu.Unlock()
-			t.logger.Infow("OCRContractTracker: received new latest RoundRequested event", "latestRoundRequested", *rr)
+			t.logger.Infow("received new latest RoundRequested event", "latestRoundRequested", *rr)
 		} else {
-			t.logger.Warnw("OCRContractTracker: ignoring out of date RoundRequested event", "latestRoundRequested", t.latestRoundRequested, "roundRequested", rr)
+			t.logger.Warnw("ignoring out of date RoundRequested event", "latestRoundRequested", t.latestRoundRequested, "roundRequested", rr)
 		}
 	default:
-		logger.Debugw("OCRContractTracker: got unrecognised log topic", "topic", topics[0])
+		t.logger.Debugw("got unrecognised log topic", "topic", topics[0])
 	}
 	if !consumed {
 		ctx, cancel := postgres.DefaultQueryCtx()
 		defer cancel()
-		t.logger.ErrorIfCalling(func() error { return t.logBroadcaster.MarkConsumed(t.gdb.WithContext(ctx), lb) })
+		if err := t.logBroadcaster.MarkConsumed(t.gdb.WithContext(ctx), lb); err != nil {
+			t.logger.Errorw("failed to mark log consumed", "error", err)
+		}
 	}
 }
 
@@ -394,7 +404,7 @@ func (t *OCRContractTracker) LatestBlockHeight(ctx context.Context) (blockheight
 		return uint64(latestBlockHeight), nil
 	}
 
-	t.logger.Debugw("OCRContractTracker: still waiting for first head, falling back to on-chain lookup")
+	t.logger.Debugw("still waiting for first head, falling back to on-chain lookup")
 
 	var cancel context.CancelFunc
 	ctx, cancel = utils.CombinedContext(t.ctx, ctx)

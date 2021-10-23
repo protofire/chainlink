@@ -5,21 +5,24 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/chainlink"
 	"github.com/smartcontractkit/chainlink/core/web/presenters"
 )
 
 // OCRKeysController manages OCR key bundles
 type OCRKeysController struct {
-	App chainlink.Application
+	controller
+}
+
+func NewOCRKeysController(app chainlink.Application) OCRKeysController {
+	return OCRKeysController{newController(app)}
 }
 
 // Index lists OCR key bundles
 // Example:
 // "GET <application>/keys/ocr"
 func (ocrkc *OCRKeysController) Index(c *gin.Context) {
-	ekbs, err := ocrkc.App.GetKeyStore().OCR().GetAll()
+	ekbs, err := ocrkc.app.GetKeyStore().OCR().GetAll()
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -31,7 +34,7 @@ func (ocrkc *OCRKeysController) Index(c *gin.Context) {
 // Example:
 // "POST <application>/keys/ocr"
 func (ocrkc *OCRKeysController) Create(c *gin.Context) {
-	key, err := ocrkc.App.GetKeyStore().OCR().Create()
+	key, err := ocrkc.app.GetKeyStore().OCR().Create()
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -45,12 +48,12 @@ func (ocrkc *OCRKeysController) Create(c *gin.Context) {
 // "DELETE <application>/keys/ocr/:keyID?hard=true"
 func (ocrkc *OCRKeysController) Delete(c *gin.Context) {
 	id := c.Param("keyID")
-	key, err := ocrkc.App.GetKeyStore().OCR().Get(id)
+	key, err := ocrkc.app.GetKeyStore().OCR().Get(id)
 	if err != nil {
 		jsonAPIError(c, http.StatusNotFound, err)
 		return
 	}
-	_, err = ocrkc.App.GetKeyStore().OCR().Delete(id)
+	_, err = ocrkc.app.GetKeyStore().OCR().Delete(id)
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -62,7 +65,7 @@ func (ocrkc *OCRKeysController) Delete(c *gin.Context) {
 // Example:
 // "Post <application>/keys/ocr/import"
 func (ocrkc *OCRKeysController) Import(c *gin.Context) {
-	defer logger.ErrorIfCalling(c.Request.Body.Close)
+	defer ocrkc.lggr.ErrorIfClosing(c.Request.Body, "Import request body")
 
 	bytes, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
@@ -70,7 +73,7 @@ func (ocrkc *OCRKeysController) Import(c *gin.Context) {
 		return
 	}
 	oldPassword := c.Query("oldpassword")
-	encryptedOCRKeyBundle, err := ocrkc.App.GetKeyStore().OCR().Import(bytes, oldPassword)
+	encryptedOCRKeyBundle, err := ocrkc.app.GetKeyStore().OCR().Import(bytes, oldPassword)
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -83,11 +86,11 @@ func (ocrkc *OCRKeysController) Import(c *gin.Context) {
 // Example:
 // "Post <application>/keys/ocr/export"
 func (ocrkc *OCRKeysController) Export(c *gin.Context) {
-	defer logger.ErrorIfCalling(c.Request.Body.Close)
+	defer ocrkc.lggr.ErrorIfClosing(c.Request.Body, "Export response body")
 
 	stringID := c.Param("ID")
 	newPassword := c.Query("newpassword")
-	bytes, err := ocrkc.App.GetKeyStore().OCR().Export(stringID, newPassword)
+	bytes, err := ocrkc.app.GetKeyStore().OCR().Export(stringID, newPassword)
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return

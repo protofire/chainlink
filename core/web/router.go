@@ -67,7 +67,7 @@ func Router(app chainlink.Application, prometheus *ginprom.Prometheus) *gin.Engi
 
 	engine.Use(
 		limits.RequestSizeLimiter(config.DefaultHTTPLimit()),
-		loggerFunc(),
+		loggerFunc(app.GetLogger()),
 		gin.Recovery(),
 		cors,
 		secureMiddleware(config),
@@ -217,7 +217,7 @@ func healthRoutes(app chainlink.Application, r *gin.RouterGroup) {
 func v2Routes(app chainlink.Application, r *gin.RouterGroup) {
 	unauthedv2 := r.Group("/v2")
 
-	prc := PipelineRunsController{app}
+	prc := NewPipelineRunsController(app)
 	psec := PipelineJobSpecErrorsController{app}
 	unauthedv2.PATCH("/resume/:runID", prc.Resume)
 
@@ -228,7 +228,7 @@ func v2Routes(app chainlink.Application, r *gin.RouterGroup) {
 		authv2.POST("/user/token", uc.NewAPIToken)
 		authv2.POST("/user/token/delete", uc.DeleteAPIToken)
 
-		wa := WebAuthnController{app, nil}
+		wa := NewWebAuthnController(app)
 		authv2.GET("/enroll_webauthn", wa.BeginRegistration)
 		authv2.POST("/enroll_webauthn", wa.FinishRegistration)
 
@@ -267,32 +267,32 @@ func v2Routes(app chainlink.Application, r *gin.RouterGroup) {
 		rc := ReplayController{app}
 		authv2.POST("/replay_from_block/:number", rc.ReplayFromBlock)
 
-		ekc := ETHKeysController{app}
+		ekc := NewETHKeysController(app)
 		authv2.GET("/keys/eth", ekc.Index)
 		authv2.POST("/keys/eth", ekc.Create)
 		authv2.DELETE("/keys/eth/:keyID", ekc.Delete)
 		authv2.POST("/keys/eth/import", ekc.Import)
 		authv2.POST("/keys/eth/export/:address", ekc.Export)
 
-		ocrkc := OCRKeysController{app}
+		ocrkc := NewOCRKeysController(app)
 		authv2.GET("/keys/ocr", ocrkc.Index)
 		authv2.POST("/keys/ocr", ocrkc.Create)
 		authv2.DELETE("/keys/ocr/:keyID", ocrkc.Delete)
 		authv2.POST("/keys/ocr/import", ocrkc.Import)
 		authv2.POST("/keys/ocr/export/:ID", ocrkc.Export)
 
-		p2pkc := P2PKeysController{app}
+		p2pkc := NewP2pKeysController(app)
 		authv2.GET("/keys/p2p", p2pkc.Index)
 		authv2.POST("/keys/p2p", p2pkc.Create)
 		authv2.DELETE("/keys/p2p/:keyID", p2pkc.Delete)
 		authv2.POST("/keys/p2p/import", p2pkc.Import)
 		authv2.POST("/keys/p2p/export/:ID", p2pkc.Export)
 
-		csakc := CSAKeysController{app}
+		csakc := NewCSAKeysController(app)
 		authv2.GET("/keys/csa", csakc.Index)
 		authv2.POST("/keys/csa", csakc.Create)
 
-		vrfkc := VRFKeysController{app}
+		vrfkc := NewVRFKeysController(app)
 		authv2.GET("/keys/vrf", vrfkc.Index)
 		authv2.POST("/keys/vrf", vrfkc.Create)
 		authv2.DELETE("/keys/vrf/:keyID", vrfkc.Delete)
@@ -305,7 +305,7 @@ func v2Routes(app chainlink.Application, r *gin.RouterGroup) {
 		authv2.POST("/jobs", jc.Create)
 		authv2.DELETE("/jobs/:ID", jc.Delete)
 
-		jpc := JobProposalsController{app}
+		jpc := NewJobProposalsController(app)
 		authv2.GET("/job_proposals", jpc.Index)
 		authv2.GET("/job_proposals/:id", jpc.Show)
 		authv2.POST("/job_proposals/:id/approve", jpc.Approve)
@@ -419,7 +419,7 @@ func guiAssetRoutes(box packr.Box, engine *gin.Engine, config config.GeneralConf
 			}
 
 		}
-		defer logger.ErrorIfCalling(file.Close)
+		defer logger.ErrorIfClosing(file, "file")
 
 		http.ServeContent(c.Writer, c.Request, path, time.Time{}, file)
 	})
@@ -428,11 +428,11 @@ func guiAssetRoutes(box packr.Box, engine *gin.Engine, config config.GeneralConf
 }
 
 // Inspired by https://github.com/gin-gonic/gin/issues/961
-func loggerFunc() gin.HandlerFunc {
+func loggerFunc(lggr logger.Logger) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		buf, err := ioutil.ReadAll(c.Request.Body)
 		if err != nil {
-			logger.Error("Web request log error: ", err.Error())
+			lggr.Error("Web request log error: ", err.Error())
 			// Implicitly relies on limits.RequestSizeLimiter
 			// overriding of c.Request.Body to abort gin's Context
 			// inside ioutil.ReadAll.
@@ -450,7 +450,7 @@ func loggerFunc() gin.HandlerFunc {
 		c.Next()
 		end := time.Now()
 
-		logger.Infow(fmt.Sprintf("%s %s", c.Request.Method, c.Request.URL.Path),
+		lggr.Infow(fmt.Sprintf("%s %s", c.Request.Method, c.Request.URL.Path),
 			"method", c.Request.Method,
 			"status", c.Writer.Status(),
 			"path", c.Request.URL.Path,

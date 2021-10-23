@@ -9,21 +9,18 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/chainlink"
 	clsessions "github.com/smartcontractkit/chainlink/core/sessions"
 )
 
 // SessionsController manages session requests.
 type SessionsController struct {
-	app      chainlink.Application
-	lggr     logger.Logger
+	controller
 	sessions *clsessions.WebAuthnSessionStore
 }
 
 func NewSessionsController(app chainlink.Application) *SessionsController {
-	return &SessionsController{app,
-		app.GetLogger().Named("SessionsController"),
+	return &SessionsController{namedController(app, "SessionsController"),
 		clsessions.NewWebAuthnSessionStore()}
 }
 

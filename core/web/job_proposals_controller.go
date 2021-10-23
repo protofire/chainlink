@@ -14,14 +14,18 @@ import (
 
 // JobProposalsController manages the job proposals
 type JobProposalsController struct {
-	App chainlink.Application
+	controller
+}
+
+func NewJobProposalsController(app chainlink.Application) JobProposalsController {
+	return JobProposalsController{newController(app)}
 }
 
 // Index returns JobProposals
 // Example:
 //  "<application>/job_proposals
 func (jpc *JobProposalsController) Index(c *gin.Context) {
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	jps, err := feedsSvc.ListJobProposals()
 	if err != nil {
@@ -42,7 +46,7 @@ func (jpc *JobProposalsController) Show(c *gin.Context) {
 		return
 	}
 
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	jp, err := feedsSvc.GetJobProposal(id)
 	if err != nil {
@@ -63,7 +67,7 @@ func (jpc *JobProposalsController) Approve(c *gin.Context) {
 		return
 	}
 
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	err = feedsSvc.ApproveJobProposal(c.Request.Context(), id)
 	if err != nil {
@@ -105,7 +109,7 @@ func (jpc *JobProposalsController) Reject(c *gin.Context) {
 		return
 	}
 
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	err = feedsSvc.RejectJobProposal(c.Request.Context(), id)
 	if err != nil {
@@ -140,7 +144,7 @@ func (jpc *JobProposalsController) Reject(c *gin.Context) {
 // Example:
 // "POST <application>/job_proposals/<id>/cancel"
 func (jpc *JobProposalsController) Cancel(c *gin.Context) {
-	jpc.App.GetLogger().Debug("Cancelling Job Proposal")
+	jpc.lggr.Debug("Cancelling Job Proposal")
 
 	id, err := strconv.ParseInt(c.Param("id"), 10, 32)
 	if err != nil {
@@ -148,7 +152,7 @@ func (jpc *JobProposalsController) Cancel(c *gin.Context) {
 		return
 	}
 
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	err = feedsSvc.CancelJobProposal(c.Request.Context(), id)
 	if err != nil {
@@ -200,7 +204,7 @@ func (jpc *JobProposalsController) UpdateSpec(c *gin.Context) {
 		return
 	}
 
-	feedsSvc := jpc.App.GetFeedsService()
+	feedsSvc := jpc.app.GetFeedsService()
 
 	err = feedsSvc.UpdateJobProposalSpec(c.Request.Context(), id, request.Spec)
 	if err != nil {

@@ -21,7 +21,11 @@ import (
 
 // PipelineRunsController manages V2 job run requests.
 type PipelineRunsController struct {
-	App chainlink.Application
+	controller
+}
+
+func NewPipelineRunsController(app chainlink.Application) PipelineRunsController {
+	return PipelineRunsController{namedController(app, "PipelineRunsController")}
 }
 
 // Index returns all pipeline runs for a job.
@@ -40,7 +44,7 @@ func (prc *PipelineRunsController) Index(c *gin.Context, size, page, offset int)
 	var err error
 
 	if id == "" {
-		pipelineRuns, count, err = prc.App.JobORM().PipelineRuns(offset, size)
+		pipelineRuns, count, err = prc.app.JobORM().PipelineRuns(offset, size)
 	} else {
 		jobSpec := job.Job{}
 		err = jobSpec.SetID(c.Param("ID"))
@@ -49,7 +53,7 @@ func (prc *PipelineRunsController) Index(c *gin.Context, size, page, offset int)
 			return
 		}
 
-		pipelineRuns, count, err = prc.App.JobORM().PipelineRunsByJobID(jobSpec.ID, offset, size)
+		pipelineRuns, count, err = prc.app.JobORM().PipelineRunsByJobID(jobSpec.ID, offset, size)
 	}
 
 	if err != nil {
@@ -57,7 +61,7 @@ func (prc *PipelineRunsController) Index(c *gin.Context, size, page, offset int)
 		return
 	}
 
-	res := presenters.NewPipelineRunResources(pipelineRuns, prc.App.GetLogger())
+	res := presenters.NewPipelineRunResources(pipelineRuns, prc.lggr)
 	paginatedResponse(c, "pipelineRun", size, page, res, count, err)
 }
 
@@ -72,13 +76,13 @@ func (prc *PipelineRunsController) Show(c *gin.Context) {
 		return
 	}
 
-	pipelineRun, err = prc.App.PipelineORM().FindRun(pipelineRun.ID)
+	pipelineRun, err = prc.app.PipelineORM().FindRun(pipelineRun.ID)
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
 	}
 
-	res := presenters.NewPipelineRunResource(pipelineRun, prc.App.GetLogger())
+	res := presenters.NewPipelineRunResource(pipelineRun, prc.lggr)
 	jsonAPIResponse(c, res, "pipelineRun")
 }
 
@@ -87,12 +91,12 @@ func (prc *PipelineRunsController) Show(c *gin.Context) {
 // "POST <application>/jobs/:ID/runs"
 func (prc *PipelineRunsController) Create(c *gin.Context) {
 	respondWithPipelineRun := func(jobRunID int64) {
-		pipelineRun, err := prc.App.PipelineORM().FindRun(jobRunID)
+		pipelineRun, err := prc.app.PipelineORM().FindRun(jobRunID)
 		if err != nil {
 			jsonAPIError(c, http.StatusInternalServerError, err)
 			return
 		}
-		res := presenters.NewPipelineRunResource(pipelineRun, prc.App.GetLogger())
+		res := presenters.NewPipelineRunResource(pipelineRun, prc.lggr)
 		jsonAPIResponse(c, res, "pipelineRun")
 	}
 
@@ -105,18 +109,18 @@ func (prc *PipelineRunsController) Create(c *gin.Context) {
 
 	user, isUser := authenticatedUser(c)
 	ei, _ := authenticatedEI(c)
-	authorizer := webhook.NewAuthorizer(postgres.UnwrapGormDB(prc.App.GetDB()).DB, user, ei)
+	authorizer := webhook.NewAuthorizer(postgres.UnwrapGormDB(prc.app.GetDB()).DB, user, ei)
 
 	// Is it a UUID? Then process it as a webhook job
 	jobUUID, err := uuid.FromString(idStr)
 	if err == nil {
-		canRun, err2 := authorizer.CanRun(c.Request.Context(), prc.App.GetConfig(), jobUUID)
+		canRun, err2 := authorizer.CanRun(c.Request.Context(), prc.app.GetConfig(), jobUUID)
 		if err2 != nil {
 			jsonAPIError(c, http.StatusInternalServerError, err2)
 			return
 		}
 		if canRun {
-			jobRunID, err3 := prc.App.RunWebhookJobV2(c.Request.Context(), jobUUID, string(bodyBytes), pipeline.JSONSerializable{})
+			jobRunID, err3 := prc.app.RunWebhookJobV2(c.Request.Context(), jobUUID, string(bodyBytes), pipeline.JSONSerializable{})
 			if errors.Is(err3, webhook.ErrJobNotExists) {
 				jsonAPIError(c, http.StatusNotFound, err3)
 				return
@@ -138,7 +142,7 @@ func (prc *PipelineRunsController) Create(c *gin.Context) {
 		jobID64, err := strconv.ParseInt(idStr, 10, 32)
 		if err == nil {
 			jobID = int32(jobID64)
-			jobRunID, err := prc.App.RunJobV2(c.Request.Context(), jobID, nil)
+			jobRunID, err := prc.app.RunJobV2(c.Request.Context(), jobID, nil)
 			if err != nil {
 				jsonAPIError(c, http.StatusInternalServerError, err)
 				return
@@ -174,7 +178,7 @@ func (prc *PipelineRunsController) Resume(c *gin.Context) {
 		return
 	}
 
-	if err := prc.App.ResumeJobV2(context.Background(), taskID, result); err != nil {
+	if err := prc.app.ResumeJobV2(context.Background(), taskID, result); err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
 	}

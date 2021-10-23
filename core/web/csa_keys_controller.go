@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/chainlink"
 	"github.com/smartcontractkit/chainlink/core/services/keystore"
 	"github.com/smartcontractkit/chainlink/core/web/presenters"
@@ -13,14 +12,18 @@ import (
 
 // CSAKeysController manages CSA keys
 type CSAKeysController struct {
-	App chainlink.Application
+	controller
+}
+
+func NewCSAKeysController(app chainlink.Application) CSAKeysController {
+	return CSAKeysController{newController(app)}
 }
 
 // Index lists CSA keys
 // Example:
 // "GET <application>/keys/csa"
 func (ctrl *CSAKeysController) Index(c *gin.Context) {
-	keys, err := ctrl.App.GetKeyStore().CSA().GetAll()
+	keys, err := ctrl.app.GetKeyStore().CSA().GetAll()
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
@@ -32,7 +35,7 @@ func (ctrl *CSAKeysController) Index(c *gin.Context) {
 // Example:
 // "POST <application>/keys/csa"
 func (ctrl *CSAKeysController) Create(c *gin.Context) {
-	key, err := ctrl.App.GetKeyStore().CSA().Create()
+	key, err := ctrl.app.GetKeyStore().CSA().Create()
 	if err != nil {
 		if errors.Is(err, keystore.ErrCSAKeyExists) {
 			jsonAPIError(c, http.StatusBadRequest, err)
@@ -47,12 +50,12 @@ func (ctrl *CSAKeysController) Create(c *gin.Context) {
 
 // Exports a key
 func (ctrl *CSAKeysController) Export(c *gin.Context) {
-	defer logger.ErrorIfCalling(c.Request.Body.Close)
+	defer ctrl.lggr.ErrorIfClosing(c.Request.Body, "Export request body")
 
 	keyID := c.Param("keyID")
 	newPassword := c.Query("newpassword")
 
-	bytes, err := ctrl.App.GetKeyStore().CSA().Export(keyID, newPassword)
+	bytes, err := ctrl.app.GetKeyStore().CSA().Export(keyID, newPassword)
 	if err != nil {
 		jsonAPIError(c, http.StatusInternalServerError, err)
 		return
