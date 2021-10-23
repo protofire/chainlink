@@ -39,14 +39,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/web/schema"
 )
 
-func init() {
-	gin.DebugPrintRouteFunc = printRoutes
-}
-
-func printRoutes(httpMethod, absolutePath, handlerName string, nuHandlers int) {
-	logger.Debugf("%-6s %-25s --> %s (%d handlers)", httpMethod, absolutePath, handlerName, nuHandlers)
-}
-
 const (
 	// SessionName is the session name
 	SessionName = "clsession"
