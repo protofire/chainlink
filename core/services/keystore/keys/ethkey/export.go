@@ -3,8 +3,8 @@ package ethkey
 import (
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/google/uuid"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
@@ -30,7 +30,7 @@ type EncryptedEthKeyExport struct {
 
 func (key KeyV2) ToEncryptedJSON(password string, scryptParams utils.ScryptParams) (export []byte, err error) {
 	// DEV: uuid is derived directly from the address, since it is not stored internally
-	id, err := uuid.FromBytes(key.Address.Bytes()[:16])
+	id, err := uuid.ParseBytes(key.Address.Bytes()[:16])
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not generate ethkey UUID")
 	}

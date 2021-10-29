@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
+	gethkeystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
