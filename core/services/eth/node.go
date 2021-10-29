@@ -6,11 +6,11 @@ import (
 	"math/big"
 	"net/url"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/ethclient"
+	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/logger"
 )
@@ -323,14 +323,16 @@ func (n node) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error)
 	n.log.Debugw("eth.Client#SuggestGasTipCap(...)",
 		"mode", switching(n),
 	)
-	if n.http != nil {
-		tipCap, err = n.http.geth.SuggestGasTipCap(ctx)
-		err = n.wrapHTTP(err)
-	} else {
-		tipCap, err = n.ws.geth.SuggestGasTipCap(ctx)
-		err = n.wrapWS(err)
-	}
 	return
+	// TODO koteld: contact the celo team for support for the SuggestGasTipCap method in the eth client
+	//if n.http != nil {
+	//	tipCap, err = n.http.geth.SuggestGasTipCap(ctx)
+	//	err = n.wrapHTTP(err)
+	//} else {
+	//	tipCap, err = n.ws.geth.SuggestGasTipCap(ctx)
+	//	err = n.wrapWS(err)
+	//}
+	//return
 }
 
 func (n node) wrapWS(err error) error {
