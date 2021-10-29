@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
 )
 
 const (
