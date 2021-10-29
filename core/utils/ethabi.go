@@ -8,11 +8,11 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
 
 	"github.com/pkg/errors"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/tidwall/gjson"
 )
 

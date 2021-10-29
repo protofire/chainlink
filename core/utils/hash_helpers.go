@@ -3,7 +3,7 @@ package utils
 import (
 	"math/rand"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 )
 
 func randomBytes(n int) []byte {
