@@ -21,14 +21,14 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
-	exchainutils "github.com/okex/exchain-ethereum-compatible/utils"
+	"github.com/celo-org/celo-blockchain/common"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 	uuid "github.com/satori/go.uuid"
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
+	exchainutils "github.com/smartcontractkit/chainlink/core/external/okex/exchain-ethereum-compatible/utils"
 	"gorm.io/gorm"
 )
 
@@ -353,16 +353,14 @@ func SendEther(db *gorm.DB, from, to common.Address, value assets.Eth, gasLimit 
 func newAttempt(ethClient eth.Client, ks KeyStore, chainID *big.Int, etx EthTx, gasPrice *big.Int, gasLimit uint64) (EthTxAttempt, error) {
 	attempt := EthTxAttempt{}
 
-	tx := newLegacyTransaction(
+	transaction := gethTypes.NewTransactionEthCompatible(
 		uint64(*etx.Nonce),
 		etx.ToAddress,
 		etx.Value.ToInt(),
 		gasLimit,
 		gasPrice,
-		etx.EncodedPayload,
-	)
+		etx.EncodedPayload)
 
-	transaction := gethTypes.NewTx(&tx)
 	hash, signedTxBytes, err := SignTx(ks, etx.FromAddress, transaction, chainID)
 	if err != nil {
 		return attempt, errors.Wrapf(err, "error using account %s to sign transaction %v", etx.FromAddress.String(), etx.ID)
@@ -375,17 +373,6 @@ func newAttempt(ethClient eth.Client, ks KeyStore, chainID *big.Int, etx EthTx, 
 	attempt.Hash = hash
 
 	return attempt, nil
-}
-
-func newLegacyTransaction(nonce uint64, to common.Address, value *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte) gethTypes.LegacyTx {
-	return gethTypes.LegacyTx{
-		Nonce:    nonce,
-		To:       &to,
-		Value:    value,
-		Gas:      gasLimit,
-		GasPrice: gasPrice,
-		Data:     data,
-	}
 }
 
 func SignTx(keyStore KeyStore, address common.Address, tx *gethTypes.Transaction, chainID *big.Int) (common.Hash, []byte, error) {
@@ -467,7 +454,7 @@ func sendEmptyTransaction(
 func makeEmptyTransaction(keyStore KeyStore, nonce uint64, gasLimit uint64, gasPriceWei *big.Int, fromAddress common.Address, chainID *big.Int) (*gethTypes.Transaction, error) {
 	value := big.NewInt(0)
 	payload := []byte{}
-	tx := gethTypes.NewTransaction(nonce, fromAddress, value, gasLimit, gasPriceWei, payload)
+	tx := gethTypes.NewTransactionEthCompatible(nonce, fromAddress, value, gasLimit, gasPriceWei, payload)
 	return keyStore.SignTx(fromAddress, tx, chainID)
 }
 
