@@ -18,7 +18,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"gopkg.in/guregu/null.v4"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )
