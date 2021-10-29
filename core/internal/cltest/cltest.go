@@ -18,13 +18,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/trie"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/gin-gonic/gin"
 	"github.com/gobuffalo/packr"
 	"github.com/gorilla/securecookie"
@@ -1026,9 +1025,10 @@ func TransactionsFromGasPrices(gasPrices ...int64) []gas.Transaction {
 func BlockWithTransactions(gasPrices ...int64) *types.Block {
 	txs := make([]*types.Transaction, len(gasPrices))
 	for i, gasPrice := range gasPrices {
-		txs[i] = types.NewTransaction(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
+		txs[i] = types.NewTransactionEthCompatible(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
 	}
-	return types.NewBlock(&types.Header{}, txs, nil, nil, new(trie.Trie))
+	// TODO koteld: check if nil for randomness here is correct
+	return types.NewBlock(&types.Header{}, txs, nil, nil)
 }
 
 type TransactionReceipter interface {

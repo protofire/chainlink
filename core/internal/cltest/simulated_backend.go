@@ -11,15 +11,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
@@ -64,8 +64,10 @@ func MustNewSimulatedBackendKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey)
 
 func MustNewKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey, chainID int64) *bind.TransactOpts {
 	t.Helper()
-	transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
-	require.NoError(t, err)
+	// TODO koteld: ask celo team to support 	transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
+	//transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
+	transactor := bind.NewKeyedTransactor(key)
+	//require.NoError(t, err)
 	return transactor
 }
 
@@ -210,7 +212,7 @@ func (c *SimulatedBackendClient) GetERC20Balance(address common.Address, contrac
 		return nil, errors.Wrapf(err, "while calling ERC20 balanceOf method on %s "+
 			"for balance of %s", contractAddress, address)
 	}
-	err = balanceOfABI.UnpackIntoInterface(balance, "balanceOf", b)
+	err = balanceOfABI.Unpack(balance, "balanceOf", b)
 	if err != nil {
 		return nil, errors.New("unable to unpack balance")
 	}
