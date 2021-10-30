@@ -16,7 +16,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/gin-gonic/contrib/sessions"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/multiformats/go-multiaddr"
