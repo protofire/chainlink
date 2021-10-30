@@ -14,7 +14,7 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/araddon/dateparse"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/fxamacker/cbor/v2"
 	"github.com/pkg/errors"
 	"github.com/robfig/cron/v3"
