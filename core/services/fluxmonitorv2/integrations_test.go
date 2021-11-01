@@ -21,6 +21,7 @@ import (
 	"github.com/celo-org/celo-blockchain/crypto"
 	// TODO: that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"github.com/onsi/gomega"
+	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flags_wrapper"
 	faw "github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flux_aggregator_wrapper"
@@ -118,8 +119,7 @@ func setupFluxAggregatorUniverse(t *testing.T, configOptions ...func(cfg *fluxAg
 		f.ned.From:     {Balance: oneEth},
 		f.nallory.From: {Balance: oneEth},
 	}
-	// TODO koteld: check if it is acceptable
-	//gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
+	gasLimit := celoextended.MinerGasCeil * 2
 	f.backend = backends.NewSimulatedBackend(genesisData)
 
 	f.aggregatorABI, err = abi.JSON(strings.NewReader(faw.FluxAggregatorABI))
@@ -141,8 +141,7 @@ func setupFluxAggregatorUniverse(t *testing.T, configOptions ...func(cfg *fluxAg
 	waitTimeMs := int64(faTimeout * 5000)
 	time.Sleep(time.Duration((waitTimeMs + waitTimeMs/20) * int64(time.Millisecond)))
 	oldGasLimit := f.sergey.GasLimit
-	// TODO koteld: check if it is acceptable
-	//f.sergey.GasLimit = gasLimit
+	f.sergey.GasLimit = gasLimit
 	f.aggregatorContractAddress, _, f.aggregatorContract, err = faw.DeployFluxAggregator(
 		f.sergey,
 		f.backend,

@@ -247,8 +247,7 @@ func (ks *eth) SignTx(address common.Address, tx *types.Transaction, chainID *bi
 		return nil, err
 	}
 
-	// TODO koteld: verify if it is acceptable replace: geth->LatestSignerForChainID to HomesteadSigner{}
-	signer := types.HomesteadSigner{}
+	signer := types.NewEIP155Signer(chainID)
 	return types.SignTx(tx, signer, key.ToEcdsaPrivKey())
 }
 
