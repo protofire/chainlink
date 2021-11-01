@@ -1027,7 +1027,6 @@ func BlockWithTransactions(gasPrices ...int64) *types.Block {
 	for i, gasPrice := range gasPrices {
 		txs[i] = types.NewTransactionEthCompatible(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
 	}
-	// TODO koteld: check if nil for randomness here is correct
 	return types.NewBlock(&types.Header{}, txs, nil, nil)
 }
 

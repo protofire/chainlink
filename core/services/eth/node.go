@@ -12,6 +12,7 @@ import (
 	"github.com/celo-org/celo-blockchain/ethclient"
 	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/logger"
 )
 
@@ -323,8 +324,8 @@ func (n node) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error)
 	n.log.Debugw("eth.Client#SuggestGasTipCap(...)",
 		"mode", switching(n),
 	)
-	return
-	// TODO koteld: contact the celo team for support for the SuggestGasTipCap method in the eth client
+	err = celoextended.ErrMethodNotSupported
+	tipCap = nil
 	//if n.http != nil {
 	//	tipCap, err = n.http.geth.SuggestGasTipCap(ctx)
 	//	err = n.wrapHTTP(err)
@@ -332,7 +333,7 @@ func (n node) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error)
 	//	tipCap, err = n.ws.geth.SuggestGasTipCap(ctx)
 	//	err = n.wrapWS(err)
 	//}
-	//return
+	return
 }
 
 func (n node) wrapWS(err error) error {
