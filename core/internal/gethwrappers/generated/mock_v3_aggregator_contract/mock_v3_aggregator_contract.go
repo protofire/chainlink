@@ -7,12 +7,13 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/event"
+	"github.com/smartcontractkit/chainlink/core/celoextended"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -199,7 +200,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) Decimals(opts *
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *celoextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -230,7 +231,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) Description(opt
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *celoextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -261,7 +262,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) GetAnswer(opts 
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -352,7 +353,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) GetTimestamp(op
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -383,7 +384,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) LatestAnswer(op
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -414,7 +415,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) LatestRound(opt
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -505,7 +506,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) LatestTimestamp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -536,7 +537,7 @@ func (_MockV3AggregatorContract *MockV3AggregatorContractCaller) Version(opts *b
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
