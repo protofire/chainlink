@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
@@ -1117,7 +1117,8 @@ func TestEthBroadcaster_ProcessUnstartedEthTxs_KeystoreErrors(t *testing.T) {
 		}
 		require.NoError(t, db.Save(&etx).Error)
 
-		tx := *gethTypes.NewTx(&gethTypes.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		tx := *new(gethTypes.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.AnythingOfType("*types.Transaction"),
