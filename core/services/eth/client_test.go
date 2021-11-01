@@ -18,10 +18,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -271,7 +271,7 @@ func TestEthClient_HeaderByNumber(t *testing.T) {
 func TestEthClient_SendTransaction_NoSecondaryURL(t *testing.T) {
 	t.Parallel()
 
-	tx := types.NewTransaction(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransactionEthCompatible(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 
 	_, url, cleanup := cltest.NewWSServer(`{
   "id": 1,
@@ -296,7 +296,7 @@ func TestEthClient_SendTransaction_NoSecondaryURL(t *testing.T) {
 func TestEthClient_SendTransaction_WithSecondaryURLs(t *testing.T) {
 	t.Parallel()
 
-	tx := types.NewTransaction(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransactionEthCompatible(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 
 	response := `{
   "id": 1,
