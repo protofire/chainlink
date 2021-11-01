@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/smartcontractkit/chainlink/core/cmd"
 	cmdMocks "github.com/smartcontractkit/chainlink/core/cmd/mocks"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
