@@ -1,6 +1,8 @@
 package celoextended
 
 import (
+	"context"
+	"crypto/ecdsa"
 	"errors"
 	"fmt"
 	"math/big"
@@ -9,7 +11,22 @@ import (
 	"sync"
 
 	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/crypto"
 )
+
+// ErrNoChainID is returned whenever the user failed to specify a chain id.
+var ErrNoChainID = errors.New("no chain id specified")
+
+// ErrNotAuthorized is returned when an account is not properly unlocked.
+var ErrNotAuthorized = errors.New("not authorized to sign this account")
+
+// ErrMethodNotSupported is returned when a method is not supported.
+var ErrMethodNotSupported = errors.New("method is not supported")
+
+var MinerGasCeil uint64 = 8000000
 
 // ConvertType copy of github.com/ethereum/go-ethereum/accounts/abi method
 func ConvertType(in interface{}, proto interface{}) interface{} {
@@ -122,4 +139,27 @@ func (m *MetaData) GetAbi() (*abi.ABI, error) {
 		m.ab = &parsed
 	}
 	return m.ab, nil
+}
+
+// NewKeyedTransactorWithChainID is a utility method to easily create a transaction signer
+// from a single private key.
+func NewKeyedTransactorWithChainID(key *ecdsa.PrivateKey, chainID *big.Int) (*bind.TransactOpts, error) {
+	keyAddr := crypto.PubkeyToAddress(key.PublicKey)
+	if chainID == nil {
+		return nil, ErrNoChainID
+	}
+	return &bind.TransactOpts{
+		From: keyAddr,
+		Signer: func(signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
+			if address != keyAddr {
+				return nil, ErrNotAuthorized
+			}
+			signature, err := crypto.Sign(signer.Hash(tx).Bytes(), key)
+			if err != nil {
+				return nil, err
+			}
+			return tx.WithSignature(signer, signature)
+		},
+		Context: context.Background(),
+	}, nil
 }
