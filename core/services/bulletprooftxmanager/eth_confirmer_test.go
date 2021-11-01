@@ -1285,7 +1285,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 	})
 
 	t.Run("does nothing and continues on fatal error", func(t *testing.T) {
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1319,7 +1318,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 	bulletprooftxmanager.SetEthClientOnEthConfirmer(ethClient, ec)
 
 	t.Run("does nothing and continues if bumped attempt transaction was too expensive", func(t *testing.T) {
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1363,7 +1361,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(20000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_1.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1416,7 +1413,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(25000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_2.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1459,7 +1455,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(30000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_2.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		receipt := bulletprooftxmanager.Receipt{BlockNumber: big.NewInt(40)}
 		kst.On("SignTx",
@@ -1517,7 +1512,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(20000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt2_1.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		n := *etx2.Nonce
 		kst.On("SignTx",
@@ -1589,7 +1583,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(25000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt2_1.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		n := *etx2.Nonce
 		kst.On("SignTx",
@@ -1636,7 +1629,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(42000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_1.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1678,7 +1670,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(50400000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_1.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
@@ -1722,7 +1713,6 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(60480000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_2.GasPrice.ToInt().Int64())
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,

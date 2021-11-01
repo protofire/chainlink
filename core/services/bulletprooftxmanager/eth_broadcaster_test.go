@@ -1117,7 +1117,6 @@ func TestEthBroadcaster_ProcessUnstartedEthTxs_KeystoreErrors(t *testing.T) {
 		}
 		require.NoError(t, db.Save(&etx).Error)
 
-		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
 		tx := *new(gethTypes.Transaction)
 		kst.On("SignTx",
 			fromAddress,

@@ -24,6 +24,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
+	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
@@ -64,10 +65,8 @@ func MustNewSimulatedBackendKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey)
 
 func MustNewKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey, chainID int64) *bind.TransactOpts {
 	t.Helper()
-	// TODO koteld: ask celo team to support 	transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
-	//transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
-	transactor := bind.NewKeyedTransactor(key)
-	//require.NoError(t, err)
+	transactor, err := celoextended.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
+	require.NoError(t, err)
 	return transactor
 }
 
