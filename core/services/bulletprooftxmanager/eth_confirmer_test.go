@@ -22,10 +22,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"gorm.io/gorm"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rpc"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -1285,7 +1285,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 	})
 
 	t.Run("does nothing and continues on fatal error", func(t *testing.T) {
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1318,7 +1319,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 	bulletprooftxmanager.SetEthClientOnEthConfirmer(ethClient, ec)
 
 	t.Run("does nothing and continues if bumped attempt transaction was too expensive", func(t *testing.T) {
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1361,7 +1363,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(20000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_1.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1413,7 +1416,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(25000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_2.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1455,7 +1459,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(30000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt1_2.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		receipt := bulletprooftxmanager.Receipt{BlockNumber: big.NewInt(40)}
 		kst.On("SignTx",
 			fromAddress,
@@ -1512,7 +1517,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(20000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt2_1.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		n := *etx2.Nonce
 		kst.On("SignTx",
 			fromAddress,
@@ -1583,7 +1589,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(25000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt2_1.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		n := *etx2.Nonce
 		kst.On("SignTx",
 			fromAddress,
@@ -1629,7 +1636,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(42000000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_1.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1670,7 +1678,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(50400000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_1.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
@@ -1713,7 +1722,8 @@ func TestEthConfirmer_RebroadcastWhereNecessary(t *testing.T) {
 		expectedBumpedGasPrice := big.NewInt(60480000000)
 		require.Greater(t, expectedBumpedGasPrice.Int64(), attempt3_2.GasPrice.ToInt().Int64())
 
-		ethTx := *types.NewTx(&types.LegacyTx{})
+		// TODO koteld: check if it acceptable replacing: geth->LegacyTx to celo->Transaction
+		ethTx := *new(types.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.MatchedBy(func(tx *types.Transaction) bool {
