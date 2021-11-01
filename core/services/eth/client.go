@@ -335,5 +335,6 @@ func (client *client) RoundRobinBatchCallContext(ctx context.Context, b []rpc.Ba
 }
 
 func (client *client) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error) {
+	// TODO koteld: that method can be removed
 	return client.primary.SuggestGasTipCap(ctx)
 }
