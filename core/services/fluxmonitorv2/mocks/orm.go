@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 	fluxmonitorv2 "github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
 	gorm "gorm.io/gorm"
 
