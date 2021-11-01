@@ -10,9 +10,9 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum"
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	ethereum "github.com/celo-org/celo-blockchain"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
