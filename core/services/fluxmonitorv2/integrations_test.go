@@ -19,7 +19,7 @@ import (
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
-	// TODO: that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
+	// that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
