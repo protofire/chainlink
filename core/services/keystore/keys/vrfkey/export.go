@@ -4,7 +4,7 @@ import (
 	"crypto/ecdsa"
 	"encoding/json"
 
-	keystore "github.com/ethereum/go-ethereum/accounts/keystore"
+	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"

@@ -6,9 +6,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	"gorm.io/gorm"
@@ -246,7 +246,9 @@ func (ks *eth) SignTx(address common.Address, tx *types.Transaction, chainID *bi
 	if err != nil {
 		return nil, err
 	}
-	signer := types.LatestSignerForChainID(chainID)
+
+	// TODO koteld: verify if it is acceptable replace: geth->LatestSignerForChainID to HomesteadSigner{}
+	signer := types.HomesteadSigner{}
 	return types.SignTx(tx, signer, key.ToEcdsaPrivKey())
 }
 
