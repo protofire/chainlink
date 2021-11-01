@@ -3,7 +3,7 @@ package assets
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/celo-org/celo-blockchain/params"
 )
 
 func Wei(n int64) *big.Int {
