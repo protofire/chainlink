@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
+	ethereum "github.com/celo-org/celo-blockchain"
 	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
@@ -333,7 +333,9 @@ func logRevertReason(logger *logger.Logger, err error) {
 }
 
 func constructPerformUpkeepTxData(checkUpkeepResult []byte, upkeepID int64) ([]byte, error) {
-	unpackedResult, err := RegistryABI.Unpack(checkUpkeep, checkUpkeepResult)
+	// TODO koteld: note
+	var unpackedResult = []interface{}(nil)
+	err := RegistryABI.Unpack(unpackedResult, checkUpkeep, checkUpkeepResult)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to unpack check upkeep result")
 	}
