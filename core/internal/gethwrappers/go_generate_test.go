@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	gethParams "github.com/ethereum/go-ethereum/params"
+	gethParams "github.com/celo-org/celo-blockchain/params"
 	"github.com/fatih/color"
 
 	"github.com/smartcontractkit/chainlink/core/utils"
