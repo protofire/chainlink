@@ -22,7 +22,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"gorm.io/gorm"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 )
 
 type (
