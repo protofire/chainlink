@@ -25,15 +25,15 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_coordinator_interface"
 
 	"github.com/smartcontractkit/chainlink/core/services/keystore"
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
 	bptxmmocks "github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager/mocks"
 	eth_mocks "github.com/smartcontractkit/chainlink/core/services/eth/mocks"
 	"github.com/smartcontractkit/chainlink/core/services/log"
