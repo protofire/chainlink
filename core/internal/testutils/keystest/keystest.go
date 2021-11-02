@@ -4,9 +4,9 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/google/uuid"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
 )
 
@@ -17,7 +17,7 @@ func NewKey() (key keystore.Key, err error) {
 		return key, err
 	}
 
-	id := uuid.New()
+	id := uuid.NewRandom()
 	if err != nil {
 		return key, errors.Errorf("Could not create random uuid: %v", err)
 	}
