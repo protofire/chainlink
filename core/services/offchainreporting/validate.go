@@ -7,8 +7,8 @@ import (
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/chains"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting"
 	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/libocr/offchainreporting"
 	"go.uber.org/multierr"
 )
 
