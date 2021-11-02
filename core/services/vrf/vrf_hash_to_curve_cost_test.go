@@ -7,21 +7,19 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_verifier_wrapper"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/crypto"
+	ethereum "github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core"
+	"github.com/celo-org/celo-blockchain/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -43,8 +41,7 @@ func deployVRFContract(t *testing.T) (contract, common.Address) {
 	}
 	auth := cltest.MustNewSimulatedBackendKeyedTransactor(t, &key)
 	genesisData := core.GenesisAlloc{auth.From: {Balance: assets.Ether(100)}}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
-	backend := backends.NewSimulatedBackend(genesisData, gasLimit)
+	backend := backends.NewSimulatedBackend(genesisData)
 	parsed, err := abi.JSON(strings.NewReader(
 		solidity_vrf_verifier_wrapper.VRFTestHelperABI))
 	require.NoError(t, err, "could not parse VRF ABI")

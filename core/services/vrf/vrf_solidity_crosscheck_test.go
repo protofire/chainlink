@@ -9,11 +9,9 @@ import (
 
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
+	"github.com/celo-org/celo-blockchain/core"
+	"github.com/celo-org/celo-blockchain/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.dedis.ch/kyber/v3"
@@ -46,8 +44,7 @@ func deployVRFTestHelper(t *testing.T) *solidity_vrf_verifier_wrapper.VRFTestHel
 	require.NoError(t, err, "failed to create root ethereum identity")
 	auth := cltest.MustNewSimulatedBackendKeyedTransactor(t, key)
 	genesisData := core.GenesisAlloc{auth.From: {Balance: assets.Ether(100)}}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
-	backend := backends.NewSimulatedBackend(genesisData, gasLimit)
+	backend := backends.NewSimulatedBackend(genesisData)
 	_, _, verifier, err := solidity_vrf_verifier_wrapper.DeployVRFTestHelper(auth, backend)
 	require.NoError(t, err, "failed to deploy VRF contract to simulated blockchain")
 	backend.Commit()
