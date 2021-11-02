@@ -13,8 +13,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	gethParams "github.com/ethereum/go-ethereum/params"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	gethParams "github.com/celo-org/celo-blockchain/params"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"golang.org/x/tools/go/ast/astutil"
 )
