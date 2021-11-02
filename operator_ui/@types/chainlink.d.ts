@@ -39,7 +39,7 @@ declare module 'core/web/sessions_controller' {
   }
 }
 
-declare module 'github.com/ethereum/go-ethereum/common/hexutil' {
+declare module 'github.com/celo-org/celo-blockchain/common/hexutil' {
   /**
    * Bytes marshals/unmarshals as a JSON string with 0x prefix.
    * The empty slice marshals as "0x".
@@ -73,7 +73,7 @@ declare module 'time' {
   export type Duration = number
 }
 
-declare module 'github.com/ethereum/go-ethereum/common' {
+declare module 'github.com/celo-org/celo-blockchain/common' {
   /**
    * Hash represents the 32 byte Keccak256 hash of arbitrary data.
    */
