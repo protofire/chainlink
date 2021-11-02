@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	offchainaggregator "github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
+	offchainaggregator "github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	mock "github.com/stretchr/testify/mock"
 
 	sql "database/sql"
