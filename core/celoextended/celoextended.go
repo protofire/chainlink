@@ -150,10 +150,12 @@ func NewKeyedTransactorWithChainID(key *ecdsa.PrivateKey, chainID *big.Int) (*bi
 	}
 	return &bind.TransactOpts{
 		From: keyAddr,
-		Signer: func(signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
+		Signer: func(_signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
 			if address != keyAddr {
 				return nil, ErrNotAuthorized
 			}
+			// TODO koteld: should we use generated or passed signer?
+			signer := types.NewEIP155Signer(chainID)
 			signature, err := crypto.Sign(signer.Hash(tx).Bytes(), key)
 			if err != nil {
 				return nil, err
