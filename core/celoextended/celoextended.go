@@ -148,12 +148,17 @@ func NewKeyedTransactorWithChainID(key *ecdsa.PrivateKey, chainID *big.Int) (*bi
 	if chainID == nil {
 		return nil, ErrNoChainID
 	}
+
+	// TODO koteld: is it the proper way to do that? according to SignerFn signature I've found no other way
+	signerWithChainID := types.NewEIP155Signer(chainID)
+
 	return &bind.TransactOpts{
 		From: keyAddr,
 		Signer: func(signer types.Signer, address common.Address, tx *types.Transaction) (*types.Transaction, error) {
 			if address != keyAddr {
 				return nil, ErrNotAuthorized
 			}
+			signer = signerWithChainID
 			signature, err := crypto.Sign(signer.Hash(tx).Bytes(), key)
 			if err != nil {
 				return nil, err
