@@ -179,7 +179,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) CurrentPrice(opts *bind.CallO
 		return *new([]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]byte)).(*[]byte)
+	out0 := *abi.ConvertType(out[0], new([]byte)).(*[]byte)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) Eur(opts *bind.CallOpts) ([32
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -223,7 +223,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) EurInt(opts *bind.CallOpts) (
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -245,7 +245,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) Jpy(opts *bind.CallOpts) ([32
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -267,7 +267,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) JpyInt(opts *bind.CallOpts) (
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -289,7 +289,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) Usd(opts *bind.CallOpts) ([32
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -311,7 +311,7 @@ func (_MultiWordConsumer *MultiWordConsumerCaller) UsdInt(opts *bind.CallOpts) (
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

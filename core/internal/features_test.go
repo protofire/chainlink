@@ -351,9 +351,7 @@ func TestIntegration_DirectRequest(t *testing.T) {
 	n, err := b.NonceAt(context.Background(), operatorContracts.user.From, nil)
 	require.NoError(t, err)
 	tx = types.NewTransactionEthCompatible(n, sendingKeys[0].Address.Address(), big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	// TODO koteld: note
-	signer := types.NewEIP155Signer(config.ChainID())
-	signedTx, err := operatorContracts.user.Signer(signer, operatorContracts.user.From, tx)
+	signedTx, err := operatorContracts.user.Signer(operatorContracts.user.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)
@@ -506,9 +504,7 @@ func setupNode(t *testing.T, owner *bind.TransactOpts, port int, dbName string, 
 	require.NoError(t, err)
 
 	tx := types.NewTransactionEthCompatible(n, transmitter, big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	// TODO koteld: note
-	signer := types.NewEIP155Signer(config.ChainID())
-	signedTx, err := owner.Signer(signer, owner.From, tx)
+	signedTx, err := owner.Signer(owner.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)

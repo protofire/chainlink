@@ -179,7 +179,7 @@ func (_Operator *OperatorCaller) GetAuthorizedSenders(opts *bind.CallOpts) ([]co
 		return *new([]common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_Operator *OperatorCaller) GetChainlinkToken(opts *bind.CallOpts) (common.
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -223,7 +223,7 @@ func (_Operator *OperatorCaller) GetExpiryTime(opts *bind.CallOpts) (*big.Int, e
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -245,7 +245,7 @@ func (_Operator *OperatorCaller) IsAuthorizedSender(opts *bind.CallOpts, sender 
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -267,7 +267,7 @@ func (_Operator *OperatorCaller) Owner(opts *bind.CallOpts) (common.Address, err
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -289,7 +289,7 @@ func (_Operator *OperatorCaller) Withdrawable(opts *bind.CallOpts) (*big.Int, er
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

@@ -12,7 +12,7 @@ require (
 	github.com/aristanetworks/goarista v0.0.0-20191023202215-f096da5361bb // indirect
 	github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff // indirect
 	github.com/btcsuite/btcd v0.22.0-beta
-	github.com/celo-org/celo-blockchain v1.4.1
+	github.com/celo-org/celo-blockchain v0.0.0-20211102213517-1557fe681d7d
 	github.com/cespare/cp v1.1.1 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
 	github.com/coreos/go-semver v0.3.0
@@ -32,7 +32,6 @@ require (
 	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/gobuffalo/packr v1.30.1
 	github.com/golang/protobuf v1.5.2
-	github.com/google/gofuzz v1.1.1-0.20200604201612-c04b05f3adfa // indirect
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/gorilla/securecookie v1.1.1

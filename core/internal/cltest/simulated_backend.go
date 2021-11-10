@@ -24,7 +24,6 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
@@ -65,7 +64,7 @@ func MustNewSimulatedBackendKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey)
 
 func MustNewKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey, chainID int64) *bind.TransactOpts {
 	t.Helper()
-	transactor, err := celoextended.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
+	transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
 	require.NoError(t, err)
 	return transactor
 }
@@ -211,7 +210,7 @@ func (c *SimulatedBackendClient) GetERC20Balance(address common.Address, contrac
 		return nil, errors.Wrapf(err, "while calling ERC20 balanceOf method on %s "+
 			"for balance of %s", contractAddress, address)
 	}
-	err = balanceOfABI.Unpack(balance, "balanceOf", b)
+	err = balanceOfABI.UnpackIntoInterface(balance, "balanceOf", b)
 	if err != nil {
 		return nil, errors.New("unable to unpack balance")
 	}
