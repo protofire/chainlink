@@ -24,6 +24,7 @@ import (
 	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/rpc"
+	"github.com/celo-org/celo-blockchain/trie"
 	"github.com/gin-gonic/gin"
 	"github.com/gobuffalo/packr"
 	"github.com/gorilla/securecookie"
@@ -1027,7 +1028,7 @@ func BlockWithTransactions(gasPrices ...int64) *types.Block {
 	for i, gasPrice := range gasPrices {
 		txs[i] = types.NewTransactionEthCompatible(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
 	}
-	return types.NewBlock(&types.Header{}, txs, nil, nil)
+	return types.NewBlock(&types.Header{}, txs, nil, nil, new(trie.Trie))
 }
 
 type TransactionReceipter interface {

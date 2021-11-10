@@ -333,8 +333,7 @@ func logRevertReason(logger *logger.Logger, err error) {
 }
 
 func constructPerformUpkeepTxData(checkUpkeepResult []byte, upkeepID int64) ([]byte, error) {
-	var unpackedResult []interface{}
-	err := RegistryABI.Unpack(unpackedResult, checkUpkeep, checkUpkeepResult)
+	unpackedResult, err := RegistryABI.Unpack(checkUpkeep, checkUpkeepResult)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to unpack check upkeep result")
 	}

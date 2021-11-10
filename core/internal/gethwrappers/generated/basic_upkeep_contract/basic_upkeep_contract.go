@@ -13,7 +13,6 @@ import (
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/event"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -200,7 +199,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) BytesToSend(opts *bind.Ca
 		return *new([]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]byte)).(*[]byte)
+	out0 := *abi.ConvertType(out[0], new([]byte)).(*[]byte)
 
 	return out0, err
 
@@ -231,7 +230,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) ReceivedBytes(opts *bind.
 		return *new([]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]byte)).(*[]byte)
+	out0 := *abi.ConvertType(out[0], new([]byte)).(*[]byte)
 
 	return out0, err
 
@@ -262,7 +261,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) ShouldPerformUpkeep(opts 
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 

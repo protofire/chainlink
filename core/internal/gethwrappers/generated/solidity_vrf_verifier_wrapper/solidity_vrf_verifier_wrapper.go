@@ -177,7 +177,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) PROOFLENGTH(opts *bind.CallOpts) (*bi
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -199,7 +199,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) AffineECAdd(opts *bind.CallOpts, p1 [
 		return *new([2]*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
+	out0 := *abi.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
 
 	return out0, err
 
@@ -221,7 +221,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) BigModExp(opts *bind.CallOpts, base *
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -243,7 +243,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) EcmulVerify(opts *bind.CallOpts, x [2
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -265,7 +265,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) FieldHash(opts *bind.CallOpts, b []by
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -287,7 +287,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) HashToCurve(opts *bind.CallOpts, pk [
 		return *new([2]*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
+	out0 := *abi.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
 
 	return out0, err
 
@@ -309,7 +309,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) LinearCombination(opts *bind.CallOpts
 		return *new([2]*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
+	out0 := *abi.ConvertType(out[0], new([2]*big.Int)).(*[2]*big.Int)
 
 	return out0, err
 
@@ -331,9 +331,9 @@ func (_VRFTestHelper *VRFTestHelperCaller) ProjectiveECAdd(opts *bind.CallOpts, 
 		return *new(*big.Int), *new(*big.Int), *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	out1 := *celoextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	out2 := *celoextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out1 := *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	out2 := *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
 
 	return out0, out1, out2, err
 
@@ -355,7 +355,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) RandomValueFromVRFProof(opts *bind.Ca
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -377,7 +377,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) ScalarFromCurvePoints(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -399,7 +399,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) SquareRoot(opts *bind.CallOpts, x *bi
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -421,7 +421,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) VerifyLinearCombinationWithGenerator(
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -463,7 +463,7 @@ func (_VRFTestHelper *VRFTestHelperCaller) YSquared(opts *bind.CallOpts, x *big.
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

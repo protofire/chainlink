@@ -179,7 +179,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) PRESEEDOFFSET(opts *bind.CallOpts) 
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) PROOFLENGTH(opts *bind.CallOpts) (*
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -223,7 +223,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) PUBLICKEYOFFSET(opts *bind.CallOpts
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -248,9 +248,9 @@ func (_VRFCoordinator *VRFCoordinatorCaller) Callbacks(opts *bind.CallOpts, arg0
 		return *outstruct, err
 	}
 
-	outstruct.CallbackContract = *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
-	outstruct.RandomnessFee = *celoextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.SeedAndBlockNum = *celoextended.ConvertType(out[2], new([32]byte)).(*[32]byte)
+	outstruct.CallbackContract = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.RandomnessFee = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.SeedAndBlockNum = *abi.ConvertType(out[2], new([32]byte)).(*[32]byte)
 
 	return *outstruct, err
 
@@ -276,7 +276,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) HashOfKey(opts *bind.CallOpts, _pub
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -298,7 +298,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) IsOwner(opts *bind.CallOpts) (bool,
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -320,7 +320,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) Owner(opts *bind.CallOpts) (common.
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -345,9 +345,9 @@ func (_VRFCoordinator *VRFCoordinatorCaller) ServiceAgreements(opts *bind.CallOp
 		return *outstruct, err
 	}
 
-	outstruct.VRFOracle = *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
-	outstruct.Fee = *celoextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.JobID = *celoextended.ConvertType(out[2], new([32]byte)).(*[32]byte)
+	outstruct.VRFOracle = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.Fee = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.JobID = *abi.ConvertType(out[2], new([32]byte)).(*[32]byte)
 
 	return *outstruct, err
 
@@ -373,7 +373,7 @@ func (_VRFCoordinator *VRFCoordinatorCaller) WithdrawableTokens(opts *bind.CallO
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
