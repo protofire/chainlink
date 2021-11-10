@@ -199,7 +199,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) BLOCKHASHSTORE(opts *bind.CallO
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -221,7 +221,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) LINK(opts *bind.CallOpts) (comm
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -243,7 +243,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) LINKETHFEED(opts *bind.CallOpts
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -265,7 +265,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) PROOFLENGTH(opts *bind.CallOpts
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -287,7 +287,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) GetCommitment(opts *bind.CallOp
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -312,13 +312,13 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) GetConfig(opts *bind.CallOpts) 
 		return *outstruct, err
 	}
 
-	outstruct.MinimumRequestConfirmations = *celoextended.ConvertType(out[0], new(uint16)).(*uint16)
-	outstruct.FulfillmentFlatFeeLinkPPM = *celoextended.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.MaxGasLimit = *celoextended.ConvertType(out[2], new(uint32)).(*uint32)
-	outstruct.StalenessSeconds = *celoextended.ConvertType(out[3], new(uint32)).(*uint32)
-	outstruct.GasAfterPaymentCalculation = *celoextended.ConvertType(out[4], new(uint32)).(*uint32)
-	outstruct.MinimumSubscriptionBalance = *celoextended.ConvertType(out[5], new(*big.Int)).(**big.Int)
-	outstruct.FallbackWeiPerUnitLink = *celoextended.ConvertType(out[6], new(*big.Int)).(**big.Int)
+	outstruct.MinimumRequestConfirmations = *abi.ConvertType(out[0], new(uint16)).(*uint16)
+	outstruct.FulfillmentFlatFeeLinkPPM = *abi.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.MaxGasLimit = *abi.ConvertType(out[2], new(uint32)).(*uint32)
+	outstruct.StalenessSeconds = *abi.ConvertType(out[3], new(uint32)).(*uint32)
+	outstruct.GasAfterPaymentCalculation = *abi.ConvertType(out[4], new(uint32)).(*uint32)
+	outstruct.MinimumSubscriptionBalance = *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
+	outstruct.FallbackWeiPerUnitLink = *abi.ConvertType(out[6], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -347,9 +347,9 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) GetSubscription(opts *bind.Call
 		return *outstruct, err
 	}
 
-	outstruct.Balance = *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Owner = *celoextended.ConvertType(out[1], new(common.Address)).(*common.Address)
-	outstruct.Consumers = *celoextended.ConvertType(out[2], new([]common.Address)).(*[]common.Address)
+	outstruct.Balance = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Owner = *abi.ConvertType(out[1], new(common.Address)).(*common.Address)
+	outstruct.Consumers = *abi.ConvertType(out[2], new([]common.Address)).(*[]common.Address)
 
 	return *outstruct, err
 
@@ -375,7 +375,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) HashOfKey(opts *bind.CallOpts, 
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -397,7 +397,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) Owner(opts *bind.CallOpts) (com
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -419,7 +419,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) STotalBalance(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -441,7 +441,7 @@ func (_VRFCoordinatorV2 *VRFCoordinatorV2Caller) TypeAndVersion(opts *bind.CallO
 		return *new(string), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(string)).(*string)
+	out0 := *abi.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 

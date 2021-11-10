@@ -179,7 +179,7 @@ func (_Consumer *ConsumerCaller) CurrentPrice(opts *bind.CallOpts) ([32]byte, er
 		return *new([32]byte), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_Consumer *ConsumerCaller) CurrentPriceInt(opts *bind.CallOpts) (*big.Int,
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

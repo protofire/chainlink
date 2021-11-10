@@ -14,7 +14,6 @@ import (
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/event"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated"
 )
 
@@ -169,7 +168,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) FASTGASFEED(opts *bind.CallOpts) (c
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -191,7 +190,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) LINK(opts *bind.CallOpts) (common.A
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -213,7 +212,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) LINKETHFEED(opts *bind.CallOpts) (c
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -235,7 +234,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetCanceledUpkeepList(opts *bind.Ca
 		return *new([]*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]*big.Int)).(*[]*big.Int)
+	out0 := *abi.ConvertType(out[0], new([]*big.Int)).(*[]*big.Int)
 
 	return out0, err
 
@@ -260,13 +259,13 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetConfig(opts *bind.CallOpts) (Get
 		return *outstruct, err
 	}
 
-	outstruct.PaymentPremiumPPB = *celoextended.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.BlockCountPerTurn = *celoextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.CheckGasLimit = *celoextended.ConvertType(out[2], new(uint32)).(*uint32)
-	outstruct.StalenessSeconds = *celoextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.GasCeilingMultiplier = *celoextended.ConvertType(out[4], new(uint16)).(*uint16)
-	outstruct.FallbackGasPrice = *celoextended.ConvertType(out[5], new(*big.Int)).(**big.Int)
-	outstruct.FallbackLinkPrice = *celoextended.ConvertType(out[6], new(*big.Int)).(**big.Int)
+	outstruct.PaymentPremiumPPB = *abi.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.BlockCountPerTurn = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.CheckGasLimit = *abi.ConvertType(out[2], new(uint32)).(*uint32)
+	outstruct.StalenessSeconds = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.GasCeilingMultiplier = *abi.ConvertType(out[4], new(uint16)).(*uint16)
+	outstruct.FallbackGasPrice = *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
+	outstruct.FallbackLinkPrice = *abi.ConvertType(out[6], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -295,9 +294,9 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetKeeperInfo(opts *bind.CallOpts, 
 		return *outstruct, err
 	}
 
-	outstruct.Payee = *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
-	outstruct.Active = *celoextended.ConvertType(out[1], new(bool)).(*bool)
-	outstruct.Balance = *celoextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.Payee = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.Active = *abi.ConvertType(out[1], new(bool)).(*bool)
+	outstruct.Balance = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -323,7 +322,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetKeeperList(opts *bind.CallOpts) 
 		return *new([]common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
 
 	return out0, err
 
@@ -345,7 +344,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetRegistrar(opts *bind.CallOpts) (
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -370,13 +369,13 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetUpkeep(opts *bind.CallOpts, id *
 		return *outstruct, err
 	}
 
-	outstruct.Target = *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
-	outstruct.ExecuteGas = *celoextended.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.CheckData = *celoextended.ConvertType(out[2], new([]byte)).(*[]byte)
-	outstruct.Balance = *celoextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.LastKeeper = *celoextended.ConvertType(out[4], new(common.Address)).(*common.Address)
-	outstruct.Admin = *celoextended.ConvertType(out[5], new(common.Address)).(*common.Address)
-	outstruct.MaxValidBlocknumber = *celoextended.ConvertType(out[6], new(uint64)).(*uint64)
+	outstruct.Target = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.ExecuteGas = *abi.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.CheckData = *abi.ConvertType(out[2], new([]byte)).(*[]byte)
+	outstruct.Balance = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.LastKeeper = *abi.ConvertType(out[4], new(common.Address)).(*common.Address)
+	outstruct.Admin = *abi.ConvertType(out[5], new(common.Address)).(*common.Address)
+	outstruct.MaxValidBlocknumber = *abi.ConvertType(out[6], new(uint64)).(*uint64)
 
 	return *outstruct, err
 
@@ -402,7 +401,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) GetUpkeepCount(opts *bind.CallOpts)
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -424,7 +423,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) Owner(opts *bind.CallOpts) (common.
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -446,7 +445,7 @@ func (_KeeperRegistry *KeeperRegistryCaller) Paused(opts *bind.CallOpts) (bool, 
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 

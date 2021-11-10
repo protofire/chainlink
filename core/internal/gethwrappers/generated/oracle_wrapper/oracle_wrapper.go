@@ -179,7 +179,7 @@ func (_Oracle *OracleCaller) EXPIRYTIME(opts *bind.CallOpts) (*big.Int, error) {
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_Oracle *OracleCaller) GetAuthorizationStatus(opts *bind.CallOpts, _node c
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -223,7 +223,7 @@ func (_Oracle *OracleCaller) GetChainlinkToken(opts *bind.CallOpts) (common.Addr
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -245,7 +245,7 @@ func (_Oracle *OracleCaller) IsOwner(opts *bind.CallOpts) (bool, error) {
 		return *new(bool), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -267,7 +267,7 @@ func (_Oracle *OracleCaller) Owner(opts *bind.CallOpts) (common.Address, error) 
 		return *new(common.Address), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -289,7 +289,7 @@ func (_Oracle *OracleCaller) Withdrawable(opts *bind.CallOpts) (*big.Int, error)
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

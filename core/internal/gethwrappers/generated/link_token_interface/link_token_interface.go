@@ -179,7 +179,7 @@ func (_LinkToken *LinkTokenCaller) Allowance(opts *bind.CallOpts, _owner common.
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -201,7 +201,7 @@ func (_LinkToken *LinkTokenCaller) BalanceOf(opts *bind.CallOpts, _owner common.
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -223,7 +223,7 @@ func (_LinkToken *LinkTokenCaller) Decimals(opts *bind.CallOpts) (uint8, error) 
 		return *new(uint8), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -245,7 +245,7 @@ func (_LinkToken *LinkTokenCaller) Name(opts *bind.CallOpts) (string, error) {
 		return *new(string), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(string)).(*string)
+	out0 := *abi.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -267,7 +267,7 @@ func (_LinkToken *LinkTokenCaller) Symbol(opts *bind.CallOpts) (string, error) {
 		return *new(string), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(string)).(*string)
+	out0 := *abi.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -289,7 +289,7 @@ func (_LinkToken *LinkTokenCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, e
 		return *new(*big.Int), err
 	}
 
-	out0 := *celoextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
