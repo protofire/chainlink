@@ -47,6 +47,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/jpillora/backoff v1.0.0
 	github.com/karalabe/usb v0.0.0-20191104083709-911d15fe12a9 // indirect
+	github.com/klaytn/klaytn v1.7.1 // indirect
 	github.com/koron/go-ssdp v0.0.2 // indirect
 	github.com/leanovate/gopter v0.2.10-0.20210127095200-9abe2343507a
 	github.com/lib/pq v1.10.2
