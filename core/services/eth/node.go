@@ -6,13 +6,13 @@ import (
 	"math/big"
 	"net/url"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/ethclient"
-	"github.com/celo-org/celo-blockchain/rpc"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	ethclient "github.com/klaytn/klaytn/client"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/logger"
 )
 
@@ -108,7 +108,7 @@ func (n node) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
 
 func (n node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
 	n.log.Debugw("eth.Client#EthSubscribe", "mode", "websocket")
-	return n.ws.rpc.EthSubscribe(ctx, channel, args...)
+	return n.ws.rpc.KlaySubscribe(ctx, channel, args...)
 }
 
 func (n node) Close() {
@@ -324,7 +324,7 @@ func (n node) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error)
 	n.log.Debugw("eth.Client#SuggestGasTipCap(...)",
 		"mode", switching(n),
 	)
-	err = celoextended.ErrMethodNotSupported
+	err = klaytnextended.ErrMethodNotSupported
 	tipCap = nil
 	//if n.http != nil {
 	//	tipCap, err = n.http.geth.SuggestGasTipCap(ctx)

@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	gethcommon "github.com/celo-org/celo-blockchain/common"
-	gethtypes "github.com/celo-org/celo-blockchain/core/types"
+	gethtypes "github.com/klaytn/klaytn/blockchain/types"
+	gethcommon "github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
@@ -413,7 +413,7 @@ func TestBulletproofTxManager_SignTx(t *testing.T) {
 
 	addr := gethcommon.HexToAddress("0xb921F7763960b296B9cbAD586ff066A18D749724")
 	to := gethcommon.HexToAddress("0xb921F7763960b296B9cbAD586ff066A18D749724")
-	tx := gethtypes.NewTransactionEthCompatible(
+	tx := gethtypes.NewTransaction(
 		42,
 		to,
 		big.NewInt(142),

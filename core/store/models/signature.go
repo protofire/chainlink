@@ -10,8 +10,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 )
 
 const (

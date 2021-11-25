@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/ethclient"
-	"github.com/celo-org/celo-blockchain/rpc"
+	"github.com/klaytn/klaytn/blockchain/types"
+	ethclient "github.com/klaytn/klaytn/client"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/smartcontractkit/chainlink/core/logger"
 )
 

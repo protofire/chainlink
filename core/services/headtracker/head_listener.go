@@ -8,7 +8,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	ethereum "github.com/klaytn/klaytn"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"

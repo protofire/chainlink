@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/crypto/curve25519"

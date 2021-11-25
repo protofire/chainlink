@@ -6,7 +6,7 @@ import (
 
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"

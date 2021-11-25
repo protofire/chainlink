@@ -18,10 +18,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -49,7 +49,6 @@ func TestEthClient_TransactionReceipt(t *testing.T) {
 		receipt, err := ethClient.TransactionReceipt(context.Background(), hash)
 		assert.NoError(t, err)
 		assert.Equal(t, hash, receipt.TxHash)
-		assert.Equal(t, big.NewInt(11), receipt.BlockNumber)
 	})
 
 	t.Run("no tx hash, returns ethereum.NotFound", func(t *testing.T) {
@@ -271,7 +270,7 @@ func TestEthClient_HeaderByNumber(t *testing.T) {
 func TestEthClient_SendTransaction_NoSecondaryURL(t *testing.T) {
 	t.Parallel()
 
-	tx := types.NewTransactionEthCompatible(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransaction(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 
 	_, url, cleanup := cltest.NewWSServer(`{
   "id": 1,
@@ -296,7 +295,7 @@ func TestEthClient_SendTransaction_NoSecondaryURL(t *testing.T) {
 func TestEthClient_SendTransaction_WithSecondaryURLs(t *testing.T) {
 	t.Parallel()
 
-	tx := types.NewTransactionEthCompatible(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransaction(uint64(42), cltest.NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 
 	response := `{
   "id": 1,

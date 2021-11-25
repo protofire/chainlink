@@ -13,20 +13,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core"
-	"github.com/celo-org/celo-blockchain/crypto"
-	// that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
+	// that package doesn't exist in klaytn: "github.com/klaytn/klaytn/eth/ethconfig"
 	"github.com/onsi/gomega"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flags_wrapper"
 	faw "github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flux_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/link_token_interface"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
@@ -119,7 +119,7 @@ func setupFluxAggregatorUniverse(t *testing.T, configOptions ...func(cfg *fluxAg
 		f.ned.From:     {Balance: oneEth},
 		f.nallory.From: {Balance: oneEth},
 	}
-	gasLimit := celoextended.MinerGasCeil * 2
+	gasLimit := klaytnextended.MinerGasCeil * 2
 	f.backend = backends.NewSimulatedBackend(genesisData)
 
 	f.aggregatorABI, err = abi.JSON(strings.NewReader(faw.FluxAggregatorABI))
@@ -251,7 +251,8 @@ type answerParams struct {
 func checkSubmission(t *testing.T, p answerParams, currentBalance int64, receiptBlock uint64) {
 	t.Helper()
 	if receiptBlock == 0 {
-		receiptBlock = p.fa.backend.Blockchain().CurrentBlock().Number().Uint64()
+		// TODO koteld: NOTE context could be nil
+		receiptBlock, _ = p.fa.backend.CurrentBlockNumber(nil)
 	}
 	blockRange := &bind.FilterOpts{Start: 0, End: &receiptBlock}
 
@@ -401,7 +402,7 @@ func checkLogWasConsumed(t *testing.T, fa fluxAggregatorUniverse, db *gorm.DB, p
 
 	g := gomega.NewGomegaWithT(t)
 	g.Eventually(func() bool {
-		block := fa.backend.Blockchain().GetBlockByNumber(blockNumber)
+		block, _ := fa.backend.BlockByNumber(nil, new(big.Int).SetUint64(blockNumber))
 		require.NotNil(t, block)
 		consumed, err := log.NewORM(db).WasBroadcastConsumed(db, block.Hash(), 0, pipelineSpecID)
 		require.NoError(t, err)

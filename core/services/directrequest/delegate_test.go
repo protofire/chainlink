@@ -10,8 +10,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"gorm.io/gorm"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/operator_wrapper"

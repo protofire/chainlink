@@ -5,9 +5,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	gethCommon "github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"

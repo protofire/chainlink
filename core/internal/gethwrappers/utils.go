@@ -7,8 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 )
 
 // VersionHash is the hash used to detect changes in the underlying contract

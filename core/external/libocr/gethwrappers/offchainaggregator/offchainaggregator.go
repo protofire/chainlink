@@ -7,12 +7,13 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/event"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/event"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -182,7 +183,7 @@ func (_AccessControllerInterface *AccessControllerInterfaceCaller) HasAccess(opt
 		return *new(bool), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *klaytnextended.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 
@@ -358,7 +359,7 @@ func (_AggregatorInterface *AggregatorInterfaceCaller) GetAnswer(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -389,7 +390,7 @@ func (_AggregatorInterface *AggregatorInterfaceCaller) GetTimestamp(opts *bind.C
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -420,7 +421,7 @@ func (_AggregatorInterface *AggregatorInterfaceCaller) LatestAnswer(opts *bind.C
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -451,7 +452,7 @@ func (_AggregatorInterface *AggregatorInterfaceCaller) LatestRound(opts *bind.Ca
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -482,7 +483,7 @@ func (_AggregatorInterface *AggregatorInterfaceCaller) LatestTimestamp(opts *bin
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -966,7 +967,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) Decimals(opts *bi
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -997,7 +998,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) Description(opts 
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -1028,7 +1029,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) GetAnswer(opts *b
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1072,11 +1073,11 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) GetRoundData(opts
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -1119,7 +1120,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) GetTimestamp(opts
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1150,7 +1151,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) LatestAnswer(opts
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1181,7 +1182,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) LatestRound(opts 
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1225,11 +1226,11 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) LatestRoundData(o
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -1272,7 +1273,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) LatestTimestamp(o
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1303,7 +1304,7 @@ func (_AggregatorV2V3Interface *AggregatorV2V3InterfaceCaller) Version(opts *bin
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -1787,7 +1788,7 @@ func (_AggregatorV3Interface *AggregatorV3InterfaceCaller) Decimals(opts *bind.C
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -1818,7 +1819,7 @@ func (_AggregatorV3Interface *AggregatorV3InterfaceCaller) Description(opts *bin
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -1862,11 +1863,11 @@ func (_AggregatorV3Interface *AggregatorV3InterfaceCaller) GetRoundData(opts *bi
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -1922,11 +1923,11 @@ func (_AggregatorV3Interface *AggregatorV3InterfaceCaller) LatestRoundData(opts 
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -1969,7 +1970,7 @@ func (_AggregatorV3Interface *AggregatorV3InterfaceCaller) Version(opts *bind.Ca
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -2311,7 +2312,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) Allowance(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -2342,7 +2343,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) BalanceOf(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -2373,7 +2374,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) Decimals(opts *bind.CallOpt
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -2404,7 +2405,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) Name(opts *bind.CallOpts) (
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -2435,7 +2436,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) Symbol(opts *bind.CallOpts)
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -2466,7 +2467,7 @@ func (_LinkTokenInterface *LinkTokenInterfaceCaller) TotalSupply(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -2785,7 +2786,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) BillingAccessController(opt
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -2816,7 +2817,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Decimals(opts *bind.CallOpt
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -2847,7 +2848,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Description(opts *bind.Call
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -2878,7 +2879,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -2922,11 +2923,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetBilling(opts *bind.CallO
 		return *outstruct, err
 	}
 
-	outstruct.MaximumGasPrice = *abi.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.ReasonableGasPrice = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.MicroLinkPerEth = *abi.ConvertType(out[2], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerObservation = *abi.ConvertType(out[3], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerTransmission = *abi.ConvertType(out[4], new(uint32)).(*uint32)
+	outstruct.MaximumGasPrice = *klaytnextended.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.ReasonableGasPrice = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.MicroLinkPerEth = *klaytnextended.ConvertType(out[2], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerObservation = *klaytnextended.ConvertType(out[3], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerTransmission = *klaytnextended.ConvertType(out[4], new(uint32)).(*uint32)
 
 	return *outstruct, err
 
@@ -2969,7 +2970,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetLinkToken(opts *bind.Cal
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -3013,11 +3014,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetRoundData(opts *bind.Cal
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -3060,7 +3061,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetTimestamp(opts *bind.Cal
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3091,7 +3092,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestAnswer(opts *bind.Cal
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3131,9 +3132,9 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestConfigDetails(opts *b
 		return *outstruct, err
 	}
 
-	outstruct.ConfigCount = *abi.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.BlockNumber = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.ConfigDigest = *abi.ConvertType(out[2], new([16]byte)).(*[16]byte)
+	outstruct.ConfigCount = *klaytnextended.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.BlockNumber = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.ConfigDigest = *klaytnextended.ConvertType(out[2], new([16]byte)).(*[16]byte)
 
 	return *outstruct, err
 
@@ -3172,7 +3173,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestRound(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3216,11 +3217,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestRoundData(opts *bind.
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -3263,7 +3264,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestTimestamp(opts *bind.
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3307,11 +3308,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestTransmissionDetails(o
 		return *outstruct, err
 	}
 
-	outstruct.ConfigDigest = *abi.ConvertType(out[0], new([16]byte)).(*[16]byte)
-	outstruct.Epoch = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.Round = *abi.ConvertType(out[2], new(uint8)).(*uint8)
-	outstruct.LatestAnswer = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.LatestTimestamp = *abi.ConvertType(out[4], new(uint64)).(*uint64)
+	outstruct.ConfigDigest = *klaytnextended.ConvertType(out[0], new([16]byte)).(*[16]byte)
+	outstruct.Epoch = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.Round = *klaytnextended.ConvertType(out[2], new(uint8)).(*uint8)
+	outstruct.LatestAnswer = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.LatestTimestamp = *klaytnextended.ConvertType(out[4], new(uint64)).(*uint64)
 
 	return *outstruct, err
 
@@ -3354,7 +3355,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LinkAvailableForPayment(opt
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3385,7 +3386,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) MaxAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3416,7 +3417,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) MinAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3447,7 +3448,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) OracleObservationCount(opts
 		return *new(uint16), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint16)).(*uint16)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint16)).(*uint16)
 
 	return out0, err
 
@@ -3478,7 +3479,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) OwedPayment(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -3509,7 +3510,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Owner(opts *bind.CallOpts) 
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -3540,7 +3541,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) RequesterAccessController(o
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -3571,7 +3572,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Transmitters(opts *bind.Cal
 		return *new([]common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
 
 	return out0, err
 
@@ -3602,7 +3603,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) TypeAndVersion(opts *bind.C
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -3640,8 +3641,8 @@ func (_OffchainAggregator *OffchainAggregatorCaller) ValidatorConfig(opts *bind.
 		return *outstruct, err
 	}
 
-	outstruct.Validator = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
-	outstruct.GasLimit = *abi.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.Validator = *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.GasLimit = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
 
 	return *outstruct, err
 
@@ -3678,7 +3679,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Version(opts *bind.CallOpts
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -6443,7 +6444,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) BillingAccess
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -6487,11 +6488,11 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) GetBilling(op
 		return *outstruct, err
 	}
 
-	outstruct.MaximumGasPrice = *abi.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.ReasonableGasPrice = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.MicroLinkPerEth = *abi.ConvertType(out[2], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerObservation = *abi.ConvertType(out[3], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerTransmission = *abi.ConvertType(out[4], new(uint32)).(*uint32)
+	outstruct.MaximumGasPrice = *klaytnextended.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.ReasonableGasPrice = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.MicroLinkPerEth = *klaytnextended.ConvertType(out[2], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerObservation = *klaytnextended.ConvertType(out[3], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerTransmission = *klaytnextended.ConvertType(out[4], new(uint32)).(*uint32)
 
 	return *outstruct, err
 
@@ -6534,7 +6535,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) GetLinkToken(
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -6565,7 +6566,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) LinkAvailable
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -6596,7 +6597,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) OracleObserva
 		return *new(uint16), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint16)).(*uint16)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint16)).(*uint16)
 
 	return out0, err
 
@@ -6627,7 +6628,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) OwedPayment(o
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -6658,7 +6659,7 @@ func (_OffchainAggregatorBilling *OffchainAggregatorBillingCaller) Owner(opts *b
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -8282,7 +8283,7 @@ func (_Owned *OwnedCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -8806,7 +8807,7 @@ func (_TypeAndVersionInterface *TypeAndVersionInterfaceCaller) TypeAndVersion(op
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 

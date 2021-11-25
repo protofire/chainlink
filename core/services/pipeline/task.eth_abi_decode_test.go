@@ -7,8 +7,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"

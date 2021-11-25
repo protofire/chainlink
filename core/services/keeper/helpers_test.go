@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	ethereum "github.com/celo-org/celo-blockchain"
+	ethereum "github.com/klaytn/klaytn"
 )
 
 func (rs *RegistrySynchronizer) ExportedFullSync() {

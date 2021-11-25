@@ -20,7 +20,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/web"
 
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
 	"github.com/robfig/cron/v3"
 	"github.com/stretchr/testify/assert"
 )

@@ -2,11 +2,9 @@ package bulletprooftxmanager
 
 import (
 	"encoding/json"
-	"math/big"
-
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
@@ -18,18 +16,15 @@ import (
 // We use our own version because Geth's version specifies various
 // gencodec:"required" fields which cause unhelpful errors when unmarshalling
 // from an empty JSON object which can happen in the batch fetcher.
+
+// TODO koteld: NOTE removed all the fields not supported by Klaytn Receipt type
 type Receipt struct {
-	PostState         []byte          `json:"root"`
-	Status            uint64          `json:"status"`
-	CumulativeGasUsed uint64          `json:"cumulativeGasUsed"`
-	Bloom             gethTypes.Bloom `json:"logsBloom"`
-	Logs              []*Log          `json:"logs"`
-	TxHash            common.Hash     `json:"transactionHash"`
-	ContractAddress   common.Address  `json:"contractAddress"`
-	GasUsed           uint64          `json:"gasUsed"`
-	BlockHash         common.Hash     `json:"blockHash,omitempty"`
-	BlockNumber       *big.Int        `json:"blockNumber,omitempty"`
-	TransactionIndex  uint            `json:"transactionIndex"`
+	Status          uint64          `json:"status"`
+	Bloom           gethTypes.Bloom `json:"logsBloom"`
+	Logs            []*Log          `json:"logs"`
+	TxHash          common.Hash     `json:"transactionHash"`
+	ContractAddress common.Address  `json:"contractAddress"`
+	GasUsed         uint64          `json:"gasUsed"`
 }
 
 // FromGethReceipt converts a gethTypes.Receipt to a Receipt
@@ -42,17 +37,12 @@ func FromGethReceipt(gr *gethTypes.Receipt) *Receipt {
 		logs[i] = FromGethLog(glog)
 	}
 	return &Receipt{
-		gr.PostState,
-		gr.Status,
-		gr.CumulativeGasUsed,
+		uint64(gr.Status),
 		gr.Bloom,
 		logs,
 		gr.TxHash,
 		gr.ContractAddress,
 		gr.GasUsed,
-		gr.BlockHash,
-		gr.BlockNumber,
-		gr.TransactionIndex,
 	}
 }
 
@@ -64,72 +54,47 @@ func (r Receipt) IsZero() bool {
 	return r.TxHash == utils.EmptyHash
 }
 
-// IsUnmined returns true if the receipt is for a TX that has not been mined yet.
-// Supposedly according to the spec this should never happen, but Parity does
-// it anyway.
-func (r Receipt) IsUnmined() bool {
-	return r.BlockHash == utils.EmptyHash
-}
-
 // MarshalJSON marshals Receipt as JSON.
 // Copied from: https://github.com/ethereum/go-ethereum/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/gen_receipt_json.go
 func (r Receipt) MarshalJSON() ([]byte, error) {
 	type Receipt struct {
-		PostState         hexutil.Bytes   `json:"root"`
-		Status            hexutil.Uint64  `json:"status"`
-		CumulativeGasUsed hexutil.Uint64  `json:"cumulativeGasUsed"`
-		Bloom             gethTypes.Bloom `json:"logsBloom"`
-		Logs              []*Log          `json:"logs"`
-		TxHash            common.Hash     `json:"transactionHash"`
-		ContractAddress   common.Address  `json:"contractAddress"`
-		GasUsed           hexutil.Uint64  `json:"gasUsed"`
-		BlockHash         common.Hash     `json:"blockHash,omitempty"`
-		BlockNumber       *hexutil.Big    `json:"blockNumber,omitempty"`
-		TransactionIndex  hexutil.Uint    `json:"transactionIndex"`
+		Status          hexutil.Uint64  `json:"status"`
+		Bloom           gethTypes.Bloom `json:"logsBloom"`
+		Logs            []*Log          `json:"logs"`
+		TxHash          common.Hash     `json:"transactionHash"`
+		ContractAddress common.Address  `json:"contractAddress"`
+		GasUsed         hexutil.Uint64  `json:"gasUsed"`
 	}
 	var enc Receipt
-	enc.PostState = r.PostState
 	enc.Status = hexutil.Uint64(r.Status)
-	enc.CumulativeGasUsed = hexutil.Uint64(r.CumulativeGasUsed)
 	enc.Bloom = r.Bloom
 	enc.Logs = r.Logs
 	enc.TxHash = r.TxHash
 	enc.ContractAddress = r.ContractAddress
 	enc.GasUsed = hexutil.Uint64(r.GasUsed)
-	enc.BlockHash = r.BlockHash
-	enc.BlockNumber = (*hexutil.Big)(r.BlockNumber)
-	enc.TransactionIndex = hexutil.Uint(r.TransactionIndex)
 	return json.Marshal(&enc)
 }
 
 // UnmarshalJSON unmarshals from JSON.
 func (r *Receipt) UnmarshalJSON(input []byte) error {
 	type Receipt struct {
-		PostState         *hexutil.Bytes   `json:"root"`
-		Status            *hexutil.Uint64  `json:"status"`
-		CumulativeGasUsed *hexutil.Uint64  `json:"cumulativeGasUsed"`
-		Bloom             *gethTypes.Bloom `json:"logsBloom"`
-		Logs              []*Log           `json:"logs"`
-		TxHash            *common.Hash     `json:"transactionHash"`
-		ContractAddress   *common.Address  `json:"contractAddress"`
-		GasUsed           *hexutil.Uint64  `json:"gasUsed"`
-		BlockHash         *common.Hash     `json:"blockHash,omitempty"`
-		BlockNumber       *hexutil.Big     `json:"blockNumber,omitempty"`
-		TransactionIndex  *hexutil.Uint    `json:"transactionIndex"`
+		Status          *hexutil.Uint64  `json:"status"`
+		Bloom           *gethTypes.Bloom `json:"logsBloom"`
+		Logs            []*Log           `json:"logs"`
+		TxHash          *common.Hash     `json:"transactionHash"`
+		ContractAddress *common.Address  `json:"contractAddress"`
+		GasUsed         *hexutil.Uint64  `json:"gasUsed"`
 	}
 	var dec Receipt
 	if err := json.Unmarshal(input, &dec); err != nil {
 		return errors.Wrap(err, "could not unmarshal receipt")
 	}
-	if dec.PostState != nil {
-		r.PostState = *dec.PostState
-	}
 	if dec.Status != nil {
 		r.Status = uint64(*dec.Status)
 	}
-	if dec.CumulativeGasUsed != nil {
-		r.CumulativeGasUsed = uint64(*dec.CumulativeGasUsed)
-	}
+	//if dec.CumulativeGasUsed != nil {
+	//	r.CumulativeGasUsed = uint64(*dec.CumulativeGasUsed)
+	//}
 	if dec.Bloom != nil {
 		r.Bloom = *dec.Bloom
 	}
@@ -142,15 +107,6 @@ func (r *Receipt) UnmarshalJSON(input []byte) error {
 	}
 	if dec.GasUsed != nil {
 		r.GasUsed = uint64(*dec.GasUsed)
-	}
-	if dec.BlockHash != nil {
-		r.BlockHash = *dec.BlockHash
-	}
-	if dec.BlockNumber != nil {
-		r.BlockNumber = (*big.Int)(dec.BlockNumber)
-	}
-	if dec.TransactionIndex != nil {
-		r.TransactionIndex = uint(*dec.TransactionIndex)
 	}
 	return nil
 }

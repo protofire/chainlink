@@ -5,10 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core"
-	// that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"

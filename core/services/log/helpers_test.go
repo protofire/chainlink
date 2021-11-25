@@ -15,9 +15,9 @@ import (
 	"gopkg.in/guregu/null.v4"
 	"gorm.io/gorm"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flux_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/core/internal/mocks"

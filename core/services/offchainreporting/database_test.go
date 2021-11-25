@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"

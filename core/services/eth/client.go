@@ -15,11 +15,11 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/rpc"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
 )
 

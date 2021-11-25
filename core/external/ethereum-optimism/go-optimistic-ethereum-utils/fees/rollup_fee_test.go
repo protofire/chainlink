@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/celo-org/celo-blockchain/params"
+	"github.com/klaytn/klaytn/params"
 )
 
 var l1GasLimitTests = map[string]struct {

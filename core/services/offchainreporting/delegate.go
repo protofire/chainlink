@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"gorm.io/gorm"

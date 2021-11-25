@@ -40,8 +40,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	webPresenters "github.com/smartcontractkit/chainlink/core/web/presenters"
 
-	gethCommon "github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	gethCommon "github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	clipkg "github.com/urfave/cli"
 	"gorm.io/gorm"
 )

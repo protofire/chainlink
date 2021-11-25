@@ -4,12 +4,13 @@ import (
 	"context"
 	"encoding/hex"
 	"fmt"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"math/big"
 	"strings"
 	"sync"
 	"time"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	ethereum "github.com/klaytn/klaytn"
 	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"
 
@@ -333,7 +334,7 @@ func logRevertReason(logger *logger.Logger, err error) {
 }
 
 func constructPerformUpkeepTxData(checkUpkeepResult []byte, upkeepID int64) ([]byte, error) {
-	unpackedResult, err := RegistryABI.Unpack(checkUpkeep, checkUpkeepResult)
+	unpackedResult, err := klaytnextended.AbiUnpack(RegistryABI, checkUpkeep, checkUpkeepResult)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to unpack check upkeep result")
 	}

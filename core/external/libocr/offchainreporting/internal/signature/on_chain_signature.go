@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"crypto/ecdsa"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/crypto"
-	"github.com/celo-org/celo-blockchain/crypto/secp256k1"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
+	"github.com/klaytn/klaytn/crypto/secp256k1"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )

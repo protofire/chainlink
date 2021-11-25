@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/rpc"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/lib/pq"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/logger"

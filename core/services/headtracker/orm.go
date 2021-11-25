@@ -3,7 +3,7 @@ package headtracker
 import (
 	"context"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"gorm.io/gorm"

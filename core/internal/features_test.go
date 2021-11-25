@@ -16,14 +16,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/crypto"
-	// that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
-	"github.com/celo-org/celo-blockchain/rpc"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
 	"github.com/smartcontractkit/chainlink/core/assets"
@@ -350,8 +349,9 @@ func TestIntegration_DirectRequest(t *testing.T) {
 	// Fund node account with ETH.
 	n, err := b.NonceAt(context.Background(), operatorContracts.user.From, nil)
 	require.NoError(t, err)
-	tx = types.NewTransactionEthCompatible(n, sendingKeys[0].Address.Address(), big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	signedTx, err := operatorContracts.user.Signer(operatorContracts.user.From, tx)
+	tx = types.NewTransaction(n, sendingKeys[0].Address.Address(), big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
+	// TODO koteld: NOTE, signer is set to nil here, due to the SignerFn definition (look: klaytnextended.NewKeyedTransactorWithChainID)
+	signedTx, err := operatorContracts.user.Signer(nil, operatorContracts.user.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)
@@ -503,8 +503,9 @@ func setupNode(t *testing.T, owner *bind.TransactOpts, port int, dbName string, 
 	n, err := b.NonceAt(context.Background(), owner.From, nil)
 	require.NoError(t, err)
 
-	tx := types.NewTransactionEthCompatible(n, transmitter, big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	signedTx, err := owner.Signer(owner.From, tx)
+	tx := types.NewTransaction(n, transmitter, big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
+	// TODO koteld: NOTE, signer is set to nil here, due to the SignerFn definition (look: klaytnextended.NewKeyedTransactorWithChainID)
+	signedTx, err := owner.Signer(nil, owner.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)

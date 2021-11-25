@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

@@ -3,8 +3,8 @@ package log
 import (
 	"database/sql"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

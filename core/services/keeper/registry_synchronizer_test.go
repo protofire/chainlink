@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

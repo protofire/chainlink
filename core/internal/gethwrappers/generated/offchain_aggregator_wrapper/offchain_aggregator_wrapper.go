@@ -9,14 +9,14 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/event"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/event"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 var (
@@ -30,7 +30,7 @@ var (
 	_ = event.NewSubscription
 )
 
-var OffchainAggregatorMetaData = &celoextended.MetaData{
+var OffchainAggregatorMetaData = &klaytnextended.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"_maximumGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_reasonableGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_microLinkPerEth\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_linkGweiPerObservation\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_linkGweiPerTransmission\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"_link\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_validator\",\"type\":\"address\"},{\"internalType\":\"int192\",\"name\":\"_minAnswer\",\"type\":\"int192\"},{\"internalType\":\"int192\",\"name\":\"_maxAnswer\",\"type\":\"int192\"},{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"_billingAccessController\",\"type\":\"address\"},{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"_requesterAccessController\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"_decimals\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"}],\"name\":\"AnswerUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contractAccessControllerInterface\",\"name\":\"old\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contractAccessControllerInterface\",\"name\":\"current\",\"type\":\"address\"}],\"name\":\"BillingAccessControllerSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"maximumGasPrice\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"reasonableGasPrice\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"microLinkPerEth\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"linkGweiPerObservation\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"linkGweiPerTransmission\",\"type\":\"uint32\"}],\"name\":\"BillingSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"previousConfigBlockNumber\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"configCount\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"signers\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"transmitters\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"threshold\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"encodedConfigVersion\",\"type\":\"uint64\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"encoded\",\"type\":\"bytes\"}],\"name\":\"ConfigSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"}],\"name\":\"NewRound\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint32\",\"name\":\"aggregatorRoundId\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"int192\",\"name\":\"answer\",\"type\":\"int192\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"transmitter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"int192[]\",\"name\":\"observations\",\"type\":\"int192[]\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"observers\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"rawReportContext\",\"type\":\"bytes32\"}],\"name\":\"NewTransmission\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"transmitter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"OraclePaid\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferRequested\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"transmitter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"current\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proposed\",\"type\":\"address\"}],\"name\":\"PayeeshipTransferRequested\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"transmitter\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previous\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"current\",\"type\":\"address\"}],\"name\":\"PayeeshipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contractAccessControllerInterface\",\"name\":\"old\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contractAccessControllerInterface\",\"name\":\"current\",\"type\":\"address\"}],\"name\":\"RequesterAccessControllerSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes16\",\"name\":\"configDigest\",\"type\":\"bytes16\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"epoch\",\"type\":\"uint32\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"round\",\"type\":\"uint8\"}],\"name\":\"RoundRequested\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previous\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"current\",\"type\":\"address\"}],\"name\":\"ValidatorUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"LINK\",\"outputs\":[{\"internalType\":\"contractLinkTokenInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_transmitter\",\"type\":\"address\"}],\"name\":\"acceptPayeeship\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"billingAccessController\",\"outputs\":[{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\"}],\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBilling\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"maximumGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"reasonableGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"microLinkPerEth\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"linkGweiPerObservation\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"linkGweiPerTransmission\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\"}],\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\"}],\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestConfigDetails\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"configCount\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"blockNumber\",\"type\":\"uint32\"},{\"internalType\":\"bytes16\",\"name\":\"configDigest\",\"type\":\"bytes16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestTransmissionDetails\",\"outputs\":[{\"internalType\":\"bytes16\",\"name\":\"configDigest\",\"type\":\"bytes16\"},{\"internalType\":\"uint32\",\"name\":\"epoch\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"round\",\"type\":\"uint8\"},{\"internalType\":\"int192\",\"name\":\"latestAnswer\",\"type\":\"int192\"},{\"internalType\":\"uint64\",\"name\":\"latestTimestamp\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"linkAvailableForPayment\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"availableBalance\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxAnswer\",\"outputs\":[{\"internalType\":\"int192\",\"name\":\"\",\"type\":\"int192\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minAnswer\",\"outputs\":[{\"internalType\":\"int192\",\"name\":\"\",\"type\":\"int192\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_signerOrTransmitter\",\"type\":\"address\"}],\"name\":\"oracleObservationCount\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_transmitter\",\"type\":\"address\"}],\"name\":\"owedPayment\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"addresspayable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"requestNewRound\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"requesterAccessController\",\"outputs\":[{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"_maximumGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_reasonableGasPrice\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_microLinkPerEth\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_linkGweiPerObservation\",\"type\":\"uint32\"},{\"internalType\":\"uint32\",\"name\":\"_linkGweiPerTransmission\",\"type\":\"uint32\"}],\"name\":\"setBilling\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"_billingAccessController\",\"type\":\"address\"}],\"name\":\"setBillingAccessController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_signers\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_transmitters\",\"type\":\"address[]\"},{\"internalType\":\"uint8\",\"name\":\"_threshold\",\"type\":\"uint8\"},{\"internalType\":\"uint64\",\"name\":\"_encodedConfigVersion\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"_encoded\",\"type\":\"bytes\"}],\"name\":\"setConfig\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_transmitters\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_payees\",\"type\":\"address[]\"}],\"name\":\"setPayees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contractAccessControllerInterface\",\"name\":\"_requesterAccessController\",\"type\":\"address\"}],\"name\":\"setRequesterAccessController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newValidator\",\"type\":\"address\"}],\"name\":\"setValidator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_transmitter\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_proposed\",\"type\":\"address\"}],\"name\":\"transferPayeeship\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_report\",\"type\":\"bytes\"},{\"internalType\":\"bytes32[]\",\"name\":\"_rs\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32[]\",\"name\":\"_ss\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32\",\"name\":\"_rawVs\",\"type\":\"bytes32\"}],\"name\":\"transmit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"transmitters\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"validator\",\"outputs\":[{\"internalType\":\"contractAggregatorValidatorInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdrawFunds\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_transmitter\",\"type\":\"address\"}],\"name\":\"withdrawPayment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
@@ -160,7 +160,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LINK(opts *bind.CallOpts) (
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -182,7 +182,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) BillingAccessController(opt
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -204,7 +204,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Decimals(opts *bind.CallOpt
 		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
@@ -226,7 +226,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Description(opts *bind.Call
 		return *new(string), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(string)).(*string)
+	out0 := *klaytnextended.ConvertType(out[0], new(string)).(*string)
 
 	return out0, err
 
@@ -248,7 +248,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -273,11 +273,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetBilling(opts *bind.CallO
 		return *outstruct, err
 	}
 
-	outstruct.MaximumGasPrice = *abi.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.ReasonableGasPrice = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.MicroLinkPerEth = *abi.ConvertType(out[2], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerObservation = *abi.ConvertType(out[3], new(uint32)).(*uint32)
-	outstruct.LinkGweiPerTransmission = *abi.ConvertType(out[4], new(uint32)).(*uint32)
+	outstruct.MaximumGasPrice = *klaytnextended.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.ReasonableGasPrice = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.MicroLinkPerEth = *klaytnextended.ConvertType(out[2], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerObservation = *klaytnextended.ConvertType(out[3], new(uint32)).(*uint32)
+	outstruct.LinkGweiPerTransmission = *klaytnextended.ConvertType(out[4], new(uint32)).(*uint32)
 
 	return *outstruct, err
 
@@ -306,11 +306,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetRoundData(opts *bind.Cal
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -336,7 +336,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) GetTimestamp(opts *bind.Cal
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -358,7 +358,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestAnswer(opts *bind.Cal
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -383,9 +383,9 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestConfigDetails(opts *b
 		return *outstruct, err
 	}
 
-	outstruct.ConfigCount = *abi.ConvertType(out[0], new(uint32)).(*uint32)
-	outstruct.BlockNumber = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.ConfigDigest = *abi.ConvertType(out[2], new([16]byte)).(*[16]byte)
+	outstruct.ConfigCount = *klaytnextended.ConvertType(out[0], new(uint32)).(*uint32)
+	outstruct.BlockNumber = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.ConfigDigest = *klaytnextended.ConvertType(out[2], new([16]byte)).(*[16]byte)
 
 	return *outstruct, err
 
@@ -411,7 +411,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestRound(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -436,11 +436,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestRoundData(opts *bind.
 		return *outstruct, err
 	}
 
-	outstruct.RoundId = *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-	outstruct.Answer = *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
-	outstruct.StartedAt = *abi.ConvertType(out[2], new(*big.Int)).(**big.Int)
-	outstruct.UpdatedAt = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.AnsweredInRound = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.RoundId = *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	outstruct.Answer = *klaytnextended.ConvertType(out[1], new(*big.Int)).(**big.Int)
+	outstruct.StartedAt = *klaytnextended.ConvertType(out[2], new(*big.Int)).(**big.Int)
+	outstruct.UpdatedAt = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.AnsweredInRound = *klaytnextended.ConvertType(out[4], new(*big.Int)).(**big.Int)
 
 	return *outstruct, err
 
@@ -466,7 +466,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestTimestamp(opts *bind.
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -491,11 +491,11 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LatestTransmissionDetails(o
 		return *outstruct, err
 	}
 
-	outstruct.ConfigDigest = *abi.ConvertType(out[0], new([16]byte)).(*[16]byte)
-	outstruct.Epoch = *abi.ConvertType(out[1], new(uint32)).(*uint32)
-	outstruct.Round = *abi.ConvertType(out[2], new(uint8)).(*uint8)
-	outstruct.LatestAnswer = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
-	outstruct.LatestTimestamp = *abi.ConvertType(out[4], new(uint64)).(*uint64)
+	outstruct.ConfigDigest = *klaytnextended.ConvertType(out[0], new([16]byte)).(*[16]byte)
+	outstruct.Epoch = *klaytnextended.ConvertType(out[1], new(uint32)).(*uint32)
+	outstruct.Round = *klaytnextended.ConvertType(out[2], new(uint8)).(*uint8)
+	outstruct.LatestAnswer = *klaytnextended.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.LatestTimestamp = *klaytnextended.ConvertType(out[4], new(uint64)).(*uint64)
 
 	return *outstruct, err
 
@@ -521,7 +521,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) LinkAvailableForPayment(opt
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -543,7 +543,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) MaxAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -565,7 +565,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) MinAnswer(opts *bind.CallOp
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -587,7 +587,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) OracleObservationCount(opts
 		return *new(uint16), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint16)).(*uint16)
+	out0 := *klaytnextended.ConvertType(out[0], new(uint16)).(*uint16)
 
 	return out0, err
 
@@ -609,7 +609,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) OwedPayment(opts *bind.Call
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -631,7 +631,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Owner(opts *bind.CallOpts) 
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -653,7 +653,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) RequesterAccessController(o
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -675,7 +675,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Transmitters(opts *bind.Cal
 		return *new([]common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new([]common.Address)).(*[]common.Address)
 
 	return out0, err
 
@@ -697,7 +697,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Validator(opts *bind.CallOp
 		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out0 := *klaytnextended.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
@@ -719,7 +719,7 @@ func (_OffchainAggregator *OffchainAggregatorCaller) Version(opts *bind.CallOpts
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

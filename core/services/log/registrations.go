@@ -3,8 +3,8 @@ package log
 import (
 	"sync"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated"
 	"github.com/smartcontractkit/chainlink/core/logger"

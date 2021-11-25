@@ -10,9 +10,9 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	gethCommon "github.com/celo-org/celo-blockchain/common"
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
@@ -640,9 +640,9 @@ func TestHeadTracker_Backfill(t *testing.T) {
 	gethHead0 := &gethTypes.Header{
 		Number:     big.NewInt(0),
 		ParentHash: gethCommon.BigToHash(big.NewInt(0)),
-		Time:       now,
+		Time:       new(big.Int).SetUint64(now),
 	}
-	head0 := models.NewHead(gethHead0.Number, utils.NewHash(), gethHead0.ParentHash, gethHead0.Time)
+	head0 := models.NewHead(gethHead0.Number, utils.NewHash(), gethHead0.ParentHash, gethHead0.Time.Uint64())
 
 	h1 := *cltest.Head(1)
 	h1.ParentHash = head0.Hash
@@ -650,9 +650,9 @@ func TestHeadTracker_Backfill(t *testing.T) {
 	gethHead8 := &gethTypes.Header{
 		Number:     big.NewInt(8),
 		ParentHash: utils.NewHash(),
-		Time:       now,
+		Time:       new(big.Int).SetUint64(now),
 	}
-	head8 := models.NewHead(gethHead8.Number, utils.NewHash(), gethHead8.ParentHash, gethHead8.Time)
+	head8 := models.NewHead(gethHead8.Number, utils.NewHash(), gethHead8.ParentHash, gethHead8.Time.Uint64())
 
 	h9 := *cltest.Head(9)
 	h9.ParentHash = head8.Hash
@@ -660,9 +660,9 @@ func TestHeadTracker_Backfill(t *testing.T) {
 	gethHead10 := &gethTypes.Header{
 		Number:     big.NewInt(10),
 		ParentHash: h9.Hash,
-		Time:       now,
+		Time:       new(big.Int).SetUint64(now),
 	}
-	head10 := models.NewHead(gethHead10.Number, utils.NewHash(), gethHead10.ParentHash, gethHead10.Time)
+	head10 := models.NewHead(gethHead10.Number, utils.NewHash(), gethHead10.ParentHash, gethHead10.Time.Uint64())
 
 	h11 := *cltest.Head(11)
 	h11.ParentHash = head10.Hash

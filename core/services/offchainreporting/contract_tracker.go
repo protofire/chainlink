@@ -13,11 +13,11 @@ import (
 
 	"gorm.io/gorm"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	gethCommon "github.com/celo-org/celo-blockchain/common"
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/confighelper"

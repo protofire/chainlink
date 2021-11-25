@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/testdata/testspecs"
 
 	"github.com/pelletier/go-toml"

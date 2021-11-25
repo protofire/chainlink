@@ -3,8 +3,8 @@ package presenters
 import (
 	"strconv"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
 )
 

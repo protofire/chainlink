@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	ethCore "github.com/celo-org/celo-blockchain/core"
+	ethCore "github.com/klaytn/klaytn/blockchain"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/chains"

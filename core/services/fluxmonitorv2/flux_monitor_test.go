@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"

@@ -10,12 +10,12 @@ import (
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_consumer_interface_v08"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_request_id_v08"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core"
-	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

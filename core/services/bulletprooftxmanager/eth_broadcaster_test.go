@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	gethCommon "github.com/celo-org/celo-blockchain/common"
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"

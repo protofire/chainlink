@@ -9,9 +9,9 @@ import (
 
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/core"
-	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.dedis.ch/kyber/v3"

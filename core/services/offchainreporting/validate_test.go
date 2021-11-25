@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/manyminds/api2go/jsonapi"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
 	"github.com/smartcontractkit/chainlink/core/services/job"

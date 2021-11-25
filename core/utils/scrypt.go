@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/klaytn/klaytn/accounts/keystore"
 )
 
 const (

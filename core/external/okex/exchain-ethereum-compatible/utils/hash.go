@@ -5,13 +5,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/external/okex/exchain-ethereum-compatible/internal"
 )
 
 func Hash(signtx *types.Transaction) (common.Hash, error) {
-	v, r, s := signtx.RawSignatureValues()
+	// TODO koteld: NOTE
+	txSignatures := signtx.RawSignatureValues()[0]
 	msg := internal.NewMsgEthereumTx(
 		signtx.Nonce(),
 		signtx.GasPrice(),
@@ -19,9 +20,9 @@ func Hash(signtx *types.Transaction) (common.Hash, error) {
 		signtx.To(),
 		signtx.Value(),
 		signtx.Data(),
-		v,
-		r,
-		s,
+		txSignatures.V,
+		txSignatures.R,
+		txSignatures.S,
 	)
 
 	bins, err := marshal(msg)

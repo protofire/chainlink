@@ -3,8 +3,8 @@ package pipeline
 import (
 	"context"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/common"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/common"
 
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"

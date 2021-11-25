@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	gethCommon "github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/chains"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"

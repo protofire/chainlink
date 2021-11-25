@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/lib/pq"
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
 	uuid "github.com/satori/go.uuid"
@@ -265,7 +265,7 @@ func MustInsertUnconfirmedEthTxWithBroadcastAttempt(t *testing.T, db *gorm.DB, n
 	etx := MustInsertUnconfirmedEthTx(t, db, nonce, fromAddress, opts...)
 	attempt := NewEthTxAttempt(t, etx.ID)
 
-	tx := types.NewTransactionEthCompatible(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransaction(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 	rlp := new(bytes.Buffer)
 	require.NoError(t, tx.EncodeRLP(rlp))
 	attempt.SignedRawTx = rlp.Bytes()
@@ -297,7 +297,7 @@ func MustInsertUnconfirmedEthTxWithInsufficientEthAttempt(t *testing.T, db *gorm
 	require.NoError(t, db.Save(&etx).Error)
 	attempt := NewEthTxAttempt(t, etx.ID)
 
-	tx := types.NewTransactionEthCompatible(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransaction(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 	rlp := new(bytes.Buffer)
 	require.NoError(t, tx.EncodeRLP(rlp))
 	attempt.SignedRawTx = rlp.Bytes()
@@ -333,7 +333,7 @@ func MustInsertInProgressEthTxWithAttempt(t *testing.T, db *gorm.DB, nonce int64
 	etx.State = bulletprooftxmanager.EthTxInProgress
 	require.NoError(t, db.Save(&etx).Error)
 	attempt := NewEthTxAttempt(t, etx.ID)
-	tx := types.NewTransactionEthCompatible(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTransaction(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
 	rlp := new(bytes.Buffer)
 	require.NoError(t, tx.EncodeRLP(rlp))
 	attempt.SignedRawTx = rlp.Bytes()

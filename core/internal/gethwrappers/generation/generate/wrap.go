@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	gethParams "github.com/celo-org/celo-blockchain/params"
+	gethParams "github.com/klaytn/klaytn/params"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers"
 )
 

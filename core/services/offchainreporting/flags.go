@@ -1,7 +1,7 @@
 package offchainreporting
 
 import (
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flags_wrapper"
 	"github.com/smartcontractkit/chainlink/core/services/eth"

@@ -9,8 +9,8 @@ import (
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/logger"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flux_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	ethmocks "github.com/smartcontractkit/chainlink/core/services/eth/mocks"

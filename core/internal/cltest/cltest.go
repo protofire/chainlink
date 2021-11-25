@@ -18,18 +18,17 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/celo-org/celo-blockchain"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/core/types"
-	"github.com/celo-org/celo-blockchain/rpc"
-	"github.com/celo-org/celo-blockchain/trie"
 	"github.com/gin-gonic/gin"
 	"github.com/gobuffalo/packr"
 	"github.com/gorilla/securecookie"
 	"github.com/gorilla/sessions"
 	"github.com/gorilla/websocket"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	cryptop2p "github.com/libp2p/go-libp2p-core/crypto"
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
 	"github.com/manyminds/api2go/jsonapi"
@@ -1026,9 +1025,9 @@ func TransactionsFromGasPrices(gasPrices ...int64) []gas.Transaction {
 func BlockWithTransactions(gasPrices ...int64) *types.Block {
 	txs := make([]*types.Transaction, len(gasPrices))
 	for i, gasPrice := range gasPrices {
-		txs[i] = types.NewTransactionEthCompatible(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
+		txs[i] = types.NewTransaction(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
 	}
-	return types.NewBlock(&types.Header{}, txs, nil, nil, new(trie.Trie))
+	return types.NewBlock(&types.Header{}, txs, nil)
 }
 
 type TransactionReceipter interface {

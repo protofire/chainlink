@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"golang.org/x/crypto/curve25519"
 )
 

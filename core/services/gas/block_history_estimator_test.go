@@ -12,8 +12,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/rpc"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/gas"
 	gumocks "github.com/smartcontractkit/chainlink/core/services/gas/mocks"

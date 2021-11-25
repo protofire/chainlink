@@ -12,9 +12,9 @@ import (
 	"github.com/smartcontractkit/chainlink/core/null"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/common/hexutil"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 )
 
 // Head represents a BlockNumber, BlockHash.
@@ -205,7 +205,7 @@ var emptyHash = common.Hash{}
 
 // Unconfirmed returns true if the transaction is not confirmed.
 func ReceiptIsUnconfirmed(txr *types.Receipt) bool {
-	return txr == nil || txr.TxHash == emptyHash || txr.BlockNumber == nil
+	return txr == nil || txr.TxHash == emptyHash
 }
 
 // ChainlinkFulfilledTopic is the signature for the event emitted after calling

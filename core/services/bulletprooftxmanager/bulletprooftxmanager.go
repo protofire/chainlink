@@ -21,8 +21,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/celo-org/celo-blockchain/common"
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -353,7 +353,7 @@ func SendEther(db *gorm.DB, from, to common.Address, value assets.Eth, gasLimit 
 func newAttempt(ethClient eth.Client, ks KeyStore, chainID *big.Int, etx EthTx, gasPrice *big.Int, gasLimit uint64) (EthTxAttempt, error) {
 	attempt := EthTxAttempt{}
 
-	transaction := gethTypes.NewTransactionEthCompatible(
+	transaction := gethTypes.NewTransaction(
 		uint64(*etx.Nonce),
 		etx.ToAddress,
 		etx.Value.ToInt(),
@@ -454,7 +454,7 @@ func sendEmptyTransaction(
 func makeEmptyTransaction(keyStore KeyStore, nonce uint64, gasLimit uint64, gasPriceWei *big.Int, fromAddress common.Address, chainID *big.Int) (*gethTypes.Transaction, error) {
 	value := big.NewInt(0)
 	payload := []byte{}
-	tx := gethTypes.NewTransactionEthCompatible(nonce, fromAddress, value, gasLimit, gasPriceWei, payload)
+	tx := gethTypes.NewTransaction(nonce, fromAddress, value, gasLimit, gasPriceWei, payload)
 	return keyStore.SignTx(fromAddress, tx, chainID)
 }
 

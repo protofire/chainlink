@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 )
 
 // MsgEthereumTx encapsulates an Ethereum transaction as an SDK message.

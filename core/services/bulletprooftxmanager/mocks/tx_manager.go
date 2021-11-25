@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	common "github.com/celo-org/celo-blockchain/common"
+	common "github.com/klaytn/klaytn/common"
 	bulletprooftxmanager "github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
 
 	context "context"

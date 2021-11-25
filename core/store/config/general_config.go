@@ -16,8 +16,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
 	"github.com/gin-gonic/contrib/sessions"
+	"github.com/klaytn/klaytn/common"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/multiformats/go-multiaddr"
 	"github.com/pkg/errors"

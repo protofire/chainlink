@@ -3,8 +3,8 @@ package log
 import (
 	"math"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	heaps "github.com/theodesp/go-heaps"
 	pairingHeap "github.com/theodesp/go-heaps/pairing"
 )

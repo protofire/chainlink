@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common/hexutil"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	optimismfees "github.com/smartcontractkit/chainlink/core/external/ethereum-optimism/go-optimistic-ethereum-utils/fees"
 	"github.com/smartcontractkit/chainlink/core/logger"

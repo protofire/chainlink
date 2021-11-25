@@ -3,8 +3,8 @@ package fees
 import (
 	"math/big"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/params"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/params"
 )
 
 // overhead represents the fixed cost of batch submission of a single

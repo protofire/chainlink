@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/keeper_registry_wrapper"
 	"github.com/smartcontractkit/chainlink/core/logger"

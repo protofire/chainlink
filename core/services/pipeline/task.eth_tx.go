@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strconv"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/mitchellh/mapstructure"
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"

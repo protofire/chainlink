@@ -5,21 +5,18 @@ go 1.16
 require (
 	github.com/DATA-DOG/go-txdb v0.1.4
 	github.com/Depado/ginprom v1.2.1-0.20200115153638-53bbba851bd8
-	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/VictoriaMetrics/fastcache v1.6.0 // indirect
 	github.com/allegro/bigcache v1.2.1 // indirect
 	github.com/araddon/dateparse v0.0.0-20190622164848-0fb0a474d195
 	github.com/aristanetworks/goarista v0.0.0-20191023202215-f096da5361bb // indirect
 	github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff // indirect
 	github.com/btcsuite/btcd v0.22.0-beta
-	github.com/celo-org/celo-blockchain v0.0.0-20211102213517-1557fe681d7d
 	github.com/cespare/cp v1.1.1 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
 	github.com/coreos/go-semver v0.3.0
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
 	github.com/danielkov/gin-helmet v0.0.0-20171108135313-1387e224435e
 	github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c // indirect
-	github.com/deckarep/golang-set v1.7.1 // indirect
 	github.com/fatih/color v1.12.0
 	github.com/fjl/memsize v0.0.0-20190710130421-bcb5799ab5e5 // indirect
 	github.com/fxamacker/cbor/v2 v2.3.0
@@ -29,9 +26,9 @@ require (
 	github.com/gin-contrib/size v0.0.0-20190528085907-355431950c57
 	github.com/gin-gonic/contrib v0.0.0-20190526021735-7fb7810ed2a0
 	github.com/gin-gonic/gin v1.7.2
-	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/gobuffalo/packr v1.30.1
 	github.com/golang/protobuf v1.5.2
+	github.com/google/gofuzz v1.1.1-0.20200604201612-c04b05f3adfa // indirect
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/gorilla/securecookie v1.1.1
@@ -39,15 +36,13 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.5-0.20210104140557-80c98217689d // indirect
-	github.com/holiman/uint256 v1.2.0 // indirect
 	github.com/huin/goupnp v1.0.2 // indirect
 	github.com/jackc/pgconn v1.10.0
 	github.com/jackc/pgtype v1.8.1
 	github.com/jackc/pgx/v4 v4.12.1-0.20210724153913-640aa07df17c
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/jpillora/backoff v1.0.0
-	github.com/karalabe/usb v0.0.0-20191104083709-911d15fe12a9 // indirect
-	github.com/klaytn/klaytn v1.7.1 // indirect
+	github.com/klaytn/klaytn v1.7.1
 	github.com/koron/go-ssdp v0.0.2 // indirect
 	github.com/leanovate/gopter v0.2.10-0.20210127095200-9abe2343507a
 	github.com/lib/pq v1.10.2
@@ -77,7 +72,6 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pressly/goose/v3 v3.1.0
 	github.com/prometheus/client_golang v1.10.0
-	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/robfig/cron/v3 v3.0.1
@@ -85,7 +79,6 @@ require (
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/satori/go.uuid v1.2.0
 	github.com/scylladb/go-reflectx v1.0.1
-	github.com/shirou/gopsutil v3.21.4-0.20210419000835-c7a38de76ee5+incompatible // indirect
 	github.com/shopspring/decimal v1.2.0
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/smartcontractkit/sqlx v1.3.5-0.20210805004948-4be295aacbeb
@@ -98,7 +91,6 @@ require (
 	github.com/theodesp/go-heaps v0.0.0-20190520121037-88e35354fe0a
 	github.com/tidwall/gjson v1.8.1
 	github.com/tidwall/sjson v1.1.7
-	github.com/tklauser/go-sysconf v0.3.5 // indirect
 	github.com/ulule/limiter v0.0.0-20190417201358-7873d115fc4e
 	github.com/unrolled/secure v0.0.0-20190624173513-716474489ad3
 	github.com/urfave/cli v1.22.5

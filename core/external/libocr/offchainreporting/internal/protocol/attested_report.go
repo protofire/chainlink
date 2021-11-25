@@ -9,8 +9,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/signature"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi"
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 )
 

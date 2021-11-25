@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	gethParams "github.com/celo-org/celo-blockchain/params"
 	"github.com/fatih/color"
+	gethParams "github.com/klaytn/klaytn/params"
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 

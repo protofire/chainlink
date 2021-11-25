@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 

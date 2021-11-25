@@ -18,7 +18,7 @@ import (
 	"math/big"
 
 	secp256k1BTCD "github.com/btcsuite/btcd/btcec"
-	"github.com/celo-org/celo-blockchain/common"
+	"github.com/klaytn/klaytn/common"
 
 	"go.dedis.ch/kyber/v3"
 	"go.dedis.ch/kyber/v3/util/random"
