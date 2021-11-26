@@ -5,11 +5,12 @@ import (
 
 	"github.com/klaytn/klaytn/common"
 	"github.com/klaytn/klaytn/params"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 // overhead represents the fixed cost of batch submission of a single
 // transaction in gas.
-const overhead uint64 = 4200 + 200*params.TxDataNonZeroGasEIP2028
+const overhead uint64 = 4200 + 200*klaytnextended.TxDataNonZeroGasEIP2028
 
 // feeScalar is used to scale the calculations in EncodeL2GasLimit
 // to prevent them from being too large
@@ -94,7 +95,7 @@ func DecodeL2GasLimitU64(gasLimit uint64) uint64 {
 func calculateL1GasLimit(data []byte, overhead uint64) *big.Int {
 	zeroes, ones := zeroesAndOnes(data)
 	zeroesCost := zeroes * params.TxDataZeroGas
-	onesCost := ones * params.TxDataNonZeroGasEIP2028
+	onesCost := ones * klaytnextended.TxDataNonZeroGasEIP2028
 	gasLimit := zeroesCost + onesCost + overhead
 	return new(big.Int).SetUint64(gasLimit)
 }

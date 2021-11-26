@@ -37,19 +37,19 @@ var feeTests = map[string]struct {
 }{
 	"simple": {
 		dataLen:    10,
-		l1GasPrice: params.GWei,
+		l1GasPrice: params.Gpeb,
 		l2GasLimit: 437118,
-		l2GasPrice: params.GWei,
+		l2GasPrice: params.Gpeb,
 	},
 	"zero-l2-gasprice": {
 		dataLen:    10,
-		l1GasPrice: params.GWei,
+		l1GasPrice: params.Gpeb,
 		l2GasLimit: 196205,
 		l2GasPrice: 0,
 	},
 	"one-l2-gasprice": {
 		dataLen:    10,
-		l1GasPrice: params.GWei,
+		l1GasPrice: params.Gpeb,
 		l2GasLimit: 196205,
 		l2GasPrice: 1,
 	},
@@ -57,13 +57,13 @@ var feeTests = map[string]struct {
 		dataLen:    10,
 		l1GasPrice: 0,
 		l2GasLimit: 196205,
-		l2GasPrice: params.GWei,
+		l2GasPrice: params.Gpeb,
 	},
 	"one-l1-gasprice": {
 		dataLen:    10,
 		l1GasPrice: 1,
 		l2GasLimit: 23255,
-		l2GasPrice: params.GWei,
+		l2GasPrice: params.Gpeb,
 	},
 	"zero-gasprices": {
 		dataLen:    10,
@@ -73,9 +73,9 @@ var feeTests = map[string]struct {
 	},
 	"max-gaslimit": {
 		dataLen:    10,
-		l1GasPrice: params.GWei,
+		l1GasPrice: params.Gpeb,
 		l2GasLimit: 99_970_000,
-		l2GasPrice: params.GWei,
+		l2GasPrice: params.Gpeb,
 	},
 	"larger-divisor": {
 		dataLen:    10,
