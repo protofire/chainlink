@@ -6,8 +6,8 @@
 set -e
 
 # Version of abigen to install. Must be run within chainlink project
-GETH_VERSION=$(go list -json -m github.com/celo-org/celo-blockchain | jq -r .Version)
-GETH_REPO_URL="https://github.com/celo-org/celo-blockchain"
+GETH_VERSION=$(go list -json -m github.com/klaytn/klaytn | jq -r .Version)
+GETH_REPO_URL="https://github.com/klaytn/klaytn"
 
 function realpath { echo $(cd $(dirname $1); pwd)/$(basename $1); }
 THIS_DIR="$(realpath "$(dirname $0)")"

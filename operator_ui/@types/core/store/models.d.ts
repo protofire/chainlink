@@ -1,6 +1,6 @@
 declare module 'core/store/models' {
   import * as assets from 'core/store/assets'
-  import * as common from 'github.com/celo-org/celo-blockchain/common'
+  import * as common from 'github.com/klaytn/klaytn/common'
   import * as gorm from 'github.com/jinzhu/gorm'
   import * as clnull from 'github.com/smartcontractkit/chainlink/core/null'
   import * as nullable from 'gopkg.in/guregu/null.v3'

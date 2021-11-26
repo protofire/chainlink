@@ -2,8 +2,8 @@ declare module 'core/store/presenters' {
   import * as assets from 'core/store/assets'
   import * as models from 'core/store/models'
   import * as orm from 'core/store/orm'
-  import * as common from 'github.com/celo-org/celo-blockchain/common'
-  import * as hexutil from 'github.com/celo-org/celo-blockchain/common/hexutil'
+  import * as common from 'github.com/klaytn/klaytn/common'
+  import * as hexutil from 'github.com/klaytn/klaytn/common/hexutil'
   import * as big from 'math/big'
   import * as time from 'time'
 
