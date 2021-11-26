@@ -11,7 +11,7 @@ import (
 	"log"
 	"math/big"
 
-	"github.com/celo-org/celo-blockchain/crypto/secp256k1"
+	"github.com/klaytn/klaytn/crypto/secp256k1"
 	"github.com/pkg/errors"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/crypto/curve25519"

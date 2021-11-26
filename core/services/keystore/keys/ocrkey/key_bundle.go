@@ -12,9 +12,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"golang.org/x/crypto/curve25519"
@@ -159,7 +159,7 @@ func (pk *KeyBundle) encrypt(auth string, scryptParams utils.ScryptParams) (*Enc
 	if err != nil {
 		return nil, err
 	}
-	cryptoJSON, err := keystore.EncryptDataV3(
+	cryptoJSON, err := klaytnextended.EncryptDataV3(
 		marshalledPrivK,
 		[]byte(adulteratedPassword(auth)),
 		scryptParams.N,
@@ -183,12 +183,12 @@ func (pk *KeyBundle) encrypt(auth string, scryptParams utils.ScryptParams) (*Enc
 
 // Decrypt returns the PrivateKeys in e, decrypted via auth, or an error
 func (ekb *EncryptedKeyBundle) Decrypt(auth string) (*KeyBundle, error) {
-	var cryptoJSON keystore.CryptoJSON
+	var cryptoJSON klaytnextended.CryptoJSON
 	err := json.Unmarshal(ekb.EncryptedPrivateKeys, &cryptoJSON)
 	if err != nil {
 		return nil, errors.Wrapf(err, "invalid cryptoJSON for OCR key bundle")
 	}
-	marshalledPrivK, err := keystore.DecryptDataV3(cryptoJSON, adulteratedPassword(auth))
+	marshalledPrivK, err := klaytnextended.DecryptDataV3(cryptoJSON, adulteratedPassword(auth))
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not decrypt OCR key bundle")
 	}

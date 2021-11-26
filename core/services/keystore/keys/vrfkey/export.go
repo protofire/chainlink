@@ -4,9 +4,10 @@ import (
 	"crypto/ecdsa"
 	"encoding/json"
 
-	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/google/uuid"
+	keystore "github.com/klaytn/klaytn/accounts/keystore"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
@@ -22,10 +23,10 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 	// the keystore.DecryptKey from the geth which requires it
 	// as of 1.10.0.
 	keyJSON, err := json.Marshal(struct {
-		Address string              `json:"address"`
-		Crypto  keystore.CryptoJSON `json:"crypto"`
-		Version int                 `json:"version"`
-		Id      string              `json:"id"`
+		Address string                    `json:"address"`
+		Crypto  klaytnextended.CryptoJSON `json:"crypto"`
+		Version int                       `json:"version"`
+		Id      string                    `json:"id"`
 	}{
 		Address: export.VRFKey.Address,
 		Crypto:  export.VRFKey.Crypto,
@@ -41,7 +42,7 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 		return KeyV2{}, errors.Wrapf(err, "could not decrypt key %s", export.PublicKey.String())
 	}
 
-	key := Raw(gethKey.PrivateKey.D.Bytes()).Key()
+	key := Raw(gethKey.GetPrivateKey().D.Bytes()).Key()
 	return key, nil
 }
 
@@ -67,8 +68,8 @@ func (key KeyV2) ToEncryptedJSON(password string, scryptParams utils.ScryptParam
 	return json.Marshal(encryptedOCRKExport)
 }
 
-func (key KeyV2) toGethKey() *keystore.Key {
-	return &keystore.Key{
+func (key KeyV2) toGethKey() *keystore.KeyV3 {
+	return &keystore.KeyV3{
 		Address:    key.PublicKey.Address(),
 		PrivateKey: &ecdsa.PrivateKey{D: secp256k1.ToInt(*key.k)},
 	}

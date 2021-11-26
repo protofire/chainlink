@@ -11,10 +11,11 @@ import (
 
 	"gorm.io/gorm"
 
-	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	cryptop2p "github.com/libp2p/go-libp2p-core/crypto"
 	peer "github.com/libp2p/go-libp2p-core/peer"
 	"github.com/pkg/errors"
+
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 // Key represents a libp2p private key
@@ -126,12 +127,12 @@ func (ep2pk *EncryptedP2PKey) SetID(value string) error {
 
 // Decrypt returns the PrivateKey in e, decrypted via auth, or an error
 func (ep2pk EncryptedP2PKey) Decrypt(auth string) (k Key, err error) {
-	var cryptoJSON keystore.CryptoJSON
+	var cryptoJSON klaytnextended.CryptoJSON
 	err = json.Unmarshal(ep2pk.EncryptedPrivKey, &cryptoJSON)
 	if err != nil {
 		return k, errors.Wrapf(err, "invalid JSON for key 0x%x", ep2pk.PubKey)
 	}
-	marshalledPrivK, err := keystore.DecryptDataV3(cryptoJSON, adulteratedPassword(auth))
+	marshalledPrivK, err := klaytnextended.DecryptDataV3(cryptoJSON, adulteratedPassword(auth))
 	if err != nil {
 		return k, errors.Wrapf(err, "could not decrypt key 0x%x", ep2pk.PubKey)
 	}

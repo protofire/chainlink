@@ -3,9 +3,10 @@ package ethkey
 import (
 	"encoding/json"
 
-	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/klaytn/klaytn/accounts/keystore"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
@@ -14,7 +15,7 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 	if err := json.Unmarshal(keyJSON, &export); err != nil {
 		return KeyV2{}, err
 	}
-	privKey, err := keystore.DecryptDataV3(export.Crypto, adulteratedPassword(password))
+	privKey, err := klaytnextended.DecryptDataV3(export.Crypto, adulteratedPassword(password))
 	if err != nil {
 		return KeyV2{}, errors.Wrap(err, "failed to decrypt Eth key")
 	}
@@ -23,9 +24,9 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 }
 
 type EncryptedEthKeyExport struct {
-	KeyType string              `json:"keyType"`
-	Address EIP55Address        `json:"address"`
-	Crypto  keystore.CryptoJSON `json:"crypto"`
+	KeyType string                    `json:"keyType"`
+	Address EIP55Address              `json:"address"`
+	Crypto  klaytnextended.CryptoJSON `json:"crypto"`
 }
 
 func (key KeyV2) ToEncryptedJSON(password string, scryptParams utils.ScryptParams) (export []byte, err error) {
@@ -34,12 +35,12 @@ func (key KeyV2) ToEncryptedJSON(password string, scryptParams utils.ScryptParam
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not generate ethkey UUID")
 	}
-	dKey := &keystore.Key{
+	dKey := &keystore.KeyV3{
 		Id:         id,
 		Address:    key.Address.Address(),
 		PrivateKey: key.privateKey,
 	}
-	return keystore.EncryptKey(dKey, password, scryptParams.N, scryptParams.P)
+	return klaytnextended.EncryptKey(dKey, password, scryptParams.N, scryptParams.P)
 }
 
 func adulteratedPassword(password string) string {

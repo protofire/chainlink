@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/klaytn/klaytn/crypto"
 )
 
 var curve = crypto.S256()

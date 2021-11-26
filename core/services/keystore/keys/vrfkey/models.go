@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
 
-	"github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"gorm.io/gorm"
@@ -49,9 +49,9 @@ func (e *EncryptedVRFKey) WriteToDisk(path string) error {
 
 // Copied from go-ethereum/accounts/keystore/key.go's encryptedKeyJSONV3
 type gethKeyStruct struct {
-	Address string              `json:"address"`
-	Crypto  keystore.CryptoJSON `json:"crypto"`
-	Version int                 `json:"version"`
+	Address string                    `json:"address"`
+	Crypto  klaytnextended.CryptoJSON `json:"crypto"`
+	Version int                       `json:"version"`
 }
 
 func (k gethKeyStruct) Value() (driver.Value, error) {

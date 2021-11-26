@@ -3,7 +3,7 @@ package ocrkey
 import (
 	"crypto/ecdsa"
 
-	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/klaytn/klaytn/crypto"
 )
 
 type onChainPrivateKey ecdsa.PrivateKey

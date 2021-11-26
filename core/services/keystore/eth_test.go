@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/celo-org/celo-blockchain/common"
-	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	"github.com/smartcontractkit/chainlink/core/services/eth"
@@ -178,7 +178,7 @@ func Test_EthKeyStore_SignTx(t *testing.T) {
 	k, _ := cltest.MustAddRandomKeyToKeystore(t, ethKeyStore)
 
 	chainID := big.NewInt(eth.NullClientChainID)
-	tx := types.NewTransactionEthCompatible(0, cltest.NewAddress(), big.NewInt(53), 21000, big.NewInt(1000000000), []byte{1, 2, 3, 4})
+	tx := types.NewTransaction(0, cltest.NewAddress(), big.NewInt(53), 21000, big.NewInt(1000000000), []byte{1, 2, 3, 4})
 
 	randomAddress := cltest.NewAddress()
 	_, err := ethKeyStore.SignTx(randomAddress, tx, chainID)

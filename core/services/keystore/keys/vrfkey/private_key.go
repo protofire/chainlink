@@ -3,10 +3,11 @@ package vrfkey
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"math/big"
 
-	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/google/uuid"
+	keystore "github.com/klaytn/klaytn/accounts/keystore"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
 	"go.dedis.ch/kyber/v3"
@@ -56,7 +57,7 @@ func (k PrivateKey) ToV2() KeyV2 {
 
 // fromGethKey returns the vrfkey representation of gethKey. Do not abuse this
 // to convert an ethereum key into a VRF key!
-func fromGethKey(gethKey *keystore.Key) *PrivateKey {
+func fromGethKey(gethKey *keystore.KeyV3) *PrivateKey {
 	secretKey := secp256k1.IntToScalar(gethKey.PrivateKey.D)
 	rawPublicKey, err := secp256k1.ScalarToPublicPoint(secretKey).MarshalBinary()
 	if err != nil {
@@ -83,10 +84,10 @@ func Decrypt(e EncryptedVRFKey, auth string) (*PrivateKey, error) {
 	// the keystore.DecryptKey from the geth which requires it
 	// as of 1.10.0.
 	keyJSON, err := json.Marshal(struct {
-		Address string              `json:"address"`
-		Crypto  keystore.CryptoJSON `json:"crypto"`
-		Version int                 `json:"version"`
-		Id      string              `json:"id"`
+		Address string                    `json:"address"`
+		Crypto  klaytnextended.CryptoJSON `json:"crypto"`
+		Version int                       `json:"version"`
+		Id      string                    `json:"id"`
 	}{
 		Address: e.VRFKey.Address,
 		Crypto:  e.VRFKey.Crypto,
@@ -96,7 +97,7 @@ func Decrypt(e EncryptedVRFKey, auth string) (*PrivateKey, error) {
 	if err != nil {
 		return nil, errors.Wrapf(err, "while marshaling key for decryption")
 	}
-	gethKey, err := keystore.DecryptKey(keyJSON, adulteratedPassword(auth))
+	gethKey, err := klaytnextended.DecryptKey(keyJSON, adulteratedPassword(auth))
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not decrypt key %s",
 			e.PublicKey.String())
