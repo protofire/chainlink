@@ -103,7 +103,6 @@ require (
 	golang.org/x/exp v0.0.0-20201008143054-e3b2a7f2fdc7 // indirect
 	golang.org/x/net v0.0.0-20210805182204-aaa1db679c0d // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	golang.org/x/sys v0.0.0-20210816183151-1e6c022a8912 // indirect
 	golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1
 	golang.org/x/text v0.3.6
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
@@ -129,3 +128,5 @@ replace github.com/dgrijalva/jwt-go => github.com/form3tech-oss/jwt-go v3.2.1+in
 // Use our fork that supports out-of-order migrations
 // https://github.com/pressly/goose/issues/262
 replace github.com/pressly/goose/v3 => github.com/smartcontractkit/goose/v3 v3.1.1-0.20210921045349-e8cd8fc6557b
+
+replace github.com/klaytn/klaytn => github.com/protofire/klaytn v1.7.0-rc.4.0.20211206162225-b863bde25f27

@@ -378,12 +378,22 @@ func (ec *EthConfirmer) batchFetchReceipts(ctx context.Context, attempts []EthTx
 			continue
 		}
 
-		l = l.With("status", receipt.Status, "transactionIndex")
+		l = l.With("blockHash", receipt.BlockHash.Hex(), "status", receipt.Status, "transactionIndex", receipt.TransactionIndex)
 
-		l.Debugw("EthConfirmer#batchFetchReceipts: got receipt for transaction", "gasUsed", receipt.GasUsed)
+		if receipt.IsUnmined() {
+			l.Debugw("EthConfirmer#batchFetchReceipts: got receipt for transaction but it's still in the mempool and not included in a block yet")
+			continue
+		}
+
+		l.Debugw("EthConfirmer#batchFetchReceipts: got receipt for transaction", "blockNumber", receipt.BlockNumber, "gasUsed", receipt.GasUsed)
 
 		if receipt.TxHash != attempt.Hash {
 			l.Errorf("EthConfirmer#batchFetchReceipts: invariant violation, expected receipt with hash %s to have same hash as attempt with hash %s", receipt.TxHash.Hex(), attempt.Hash.Hex())
+			continue
+		}
+
+		if receipt.BlockNumber == nil {
+			l.Error("EthConfirmer#batchFetchReceipts: invariant violation, receipt was missing block number")
 			continue
 		}
 
@@ -439,8 +449,8 @@ func (ec *EthConfirmer) saveFetchedReceipts(receipts []Receipt) (err error) {
 		if err != nil {
 			return errors.Wrap(err, "saveFetchedReceipts failed to marshal JSON")
 		}
-		valueStrs = append(valueStrs, "(?,?,NOW())")
-		valueArgs = append(valueArgs, r.TxHash, receiptJSON)
+		valueStrs = append(valueStrs, "(?,?,?,?,?,NOW())")
+		valueArgs = append(valueArgs, r.TxHash, r.BlockHash, r.BlockNumber.Int64(), r.TransactionIndex, receiptJSON)
 	}
 
 	/* #nosec G201 */

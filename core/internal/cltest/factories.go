@@ -384,7 +384,10 @@ func MustInsertEthReceipt(t *testing.T, db *gorm.DB, blockNumber int64, blockHas
 	transactionIndex := uint(NewRandomInt64())
 
 	receipt := bulletprooftxmanager.Receipt{
-		TxHash: txHash,
+		BlockNumber:      big.NewInt(blockNumber),
+		BlockHash:        blockHash,
+		TxHash:           txHash,
+		TransactionIndex: transactionIndex,
 	}
 
 	data, err := json.Marshal(receipt)
