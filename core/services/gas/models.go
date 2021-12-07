@@ -1,10 +1,8 @@
 package gas
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
-	"math"
 	"math/big"
 
 	"github.com/klaytn/klaytn/common"
@@ -159,22 +157,21 @@ func (b *Block) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-type TxType uint8
+type TxType string
 
-// NOTE: Need to roll out own unmarshaller since geth's hexutil.Uint64 does not
-// handle double zeroes e.g. 0x00
-func (txt *TxType) UnmarshalJSON(data []byte) error {
-	if bytes.Equal(data, []byte(`"0x00"`)) {
-		data = []byte(`"0x0"`)
-	}
-	var hx hexutil.Uint64
-	if err := (&hx).UnmarshalJSON(data); err != nil {
-		return err
-	}
-	if hx > math.MaxUint8 {
-		return errors.Errorf("expected 'type' to fit into a single byte, got: '%s'", data)
-	}
-	*txt = TxType(hx)
+// TODO koteld: NOTE Klaytn transaction type is string, nothing to unmarshal
+func (txt *TxType) UnmarshalJSON(_ []byte) error {
+	//if bytes.Equal(data, []byte(`"0x00"`)) {
+	//	data = []byte(`"0x0"`)
+	//}
+	//var hx hexutil.Uint64
+	//if err := (&hx).UnmarshalJSON(data); err != nil {
+	//	return err
+	//}
+	//if hx > math.MaxUint8 {
+	//	return errors.Errorf("expected 'type' to fit into a single byte, got: '%s'", data)
+	//}
+	//*txt = TxType(hx)
 	return nil
 }
 
@@ -200,7 +197,7 @@ type Transaction struct {
 	Hash                 common.Hash
 }
 
-const LegacyTxType = TxType(0x0)
+const LegacyTxType = TxType("TxTypeLegacyTransaction")
 
 // UnmarshalJSON unmarshals a Transaction
 func (t *Transaction) UnmarshalJSON(data []byte) error {
