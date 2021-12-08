@@ -333,7 +333,7 @@ func (ec *EthConfirmer) batchFetchReceipts(ctx context.Context, attempts []EthTx
 	var reqs []rpc.BatchElem
 	for _, attempt := range attempts {
 		req := rpc.BatchElem{
-			Method: "eth_getTransactionReceipt",
+			Method: "klay_getTransactionReceipt",
 			Args:   []interface{}{attempt.Hash},
 			Result: &Receipt{},
 		}

@@ -1381,7 +1381,7 @@ func MustNewJSONSerializable(t *testing.T, s string) pipeline.JSONSerializable {
 }
 
 func BatchElemMatchesHash(req rpc.BatchElem, hash common.Hash) bool {
-	return req.Method == "eth_getTransactionReceipt" &&
+	return req.Method == "klay_getTransactionReceipt" &&
 		len(req.Args) == 1 && req.Args[0] == hash
 }
 

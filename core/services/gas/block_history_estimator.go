@@ -262,7 +262,7 @@ func (b *BlockHistoryEstimator) FetchBlocks(ctx context.Context, head models.Hea
 		}
 
 		req := rpc.BatchElem{
-			Method: "eth_getBlockByNumber",
+			Method: "klay_getBlockByNumber",
 			Args:   []interface{}{Int64ToHex(i), true},
 			Result: &Block{},
 		}

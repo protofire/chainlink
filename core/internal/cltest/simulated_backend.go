@@ -405,8 +405,8 @@ func (c *SimulatedBackendClient) SuggestGasPrice(ctx context.Context) (*big.Int,
 
 func (c *SimulatedBackendClient) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
 	for i, elem := range b {
-		if elem.Method != "eth_getTransactionReceipt" || len(elem.Args) != 1 {
-			return errors.New("SimulatedBackendClient BatchCallContext only supports eth_getTransactionReceipt")
+		if elem.Method != "klay_getTransactionReceipt" || len(elem.Args) != 1 {
+			return errors.New("SimulatedBackendClient BatchCallContext only supports klay_getTransactionReceipt")
 		}
 		switch v := elem.Result.(type) {
 		case *bulletprooftxmanager.Receipt:
