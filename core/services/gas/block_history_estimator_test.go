@@ -876,7 +876,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
 	assert.Equal(t, 900000, int(block.Transactions[0].GasLimit))
 	assert.Nil(t, block.Transactions[0].MaxFeePerGas)
 	assert.Nil(t, block.Transactions[0].MaxPriorityFeePerGas)
-	assert.Equal(t, gas.TxType("TxTypeLegacyTransaction"), block.Transactions[0].Type)
+	assert.Equal(t, "TxTypeLegacyTransaction", block.Transactions[0].Type)
 	assert.Equal(t, "0x8e58af889f4e831ef9a67df84058bcfb7090cbcb5c6f1046c211dafee6050944", block.Transactions[0].Hash.String())
 
 	assert.Equal(t, big.NewInt(3000000000000), block.Transactions[1].GasPrice)
@@ -886,7 +886,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
 	assert.Equal(t, 21000, int(block.Transactions[2].GasLimit))
 	assert.Equal(t, int64(500000000000), block.Transactions[2].MaxFeePerGas.Int64())
 	assert.Equal(t, int64(500000000000), block.Transactions[2].MaxPriorityFeePerGas.Int64())
-	assert.Equal(t, gas.TxType("TxTypeValueTransferMemo"), block.Transactions[2].Type)
+	assert.Equal(t, "TxTypeValueTransferMemo", block.Transactions[2].Type)
 	assert.Equal(t, "0x136aa666e6b8109b2b4aca8008ecad8df2047f4e2aced4808248fa8927a13395", block.Transactions[2].Hash.String())
 
 	assert.Nil(t, block.Transactions[3].GasPrice)
