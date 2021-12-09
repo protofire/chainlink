@@ -10,7 +10,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/store/models"
 
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 )

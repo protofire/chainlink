@@ -6,16 +6,16 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 type EncryptedPrivateKey struct {
-	keystore.CryptoJSON
+	klaytnextended.CryptoJSON
 }
 
 func NewEncryptedPrivateKey(data []byte, passphrase string, scryptParams utils.ScryptParams) (*EncryptedPrivateKey, error) {
-	cryptoJSON, err := keystore.EncryptDataV3(data, []byte(passphrase), scryptParams.N, scryptParams.P)
+	cryptoJSON, err := klaytnextended.EncryptDataV3(data, []byte(passphrase), scryptParams.N, scryptParams.P)
 	if err != nil {
 		return nil, fmt.Errorf("could not encrypt key: %w", err)
 	}
@@ -25,7 +25,7 @@ func NewEncryptedPrivateKey(data []byte, passphrase string, scryptParams utils.S
 
 // Decrypt returns the PrivateKey decrypted via auth, or an error
 func (k EncryptedPrivateKey) Decrypt(passphrase string) (privkey []byte, err error) {
-	privkey, err = keystore.DecryptDataV3(k.CryptoJSON, passphrase)
+	privkey, err = klaytnextended.DecryptDataV3(k.CryptoJSON, passphrase)
 	if err != nil {
 		return privkey, fmt.Errorf("could not decrypt private key: %w", err)
 	}

@@ -10,8 +10,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/gracefulpanic"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/vrf_coordinator_v2"
 	"github.com/smartcontractkit/chainlink/core/logger"

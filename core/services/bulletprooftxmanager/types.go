@@ -2,13 +2,12 @@ package bulletprooftxmanager
 
 import (
 	"encoding/json"
-	"math/big"
-
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
+	"math/big"
 )
 
 // Receipt represents an ethereum receipt.
@@ -18,6 +17,7 @@ import (
 // We use our own version because Geth's version specifies various
 // gencodec:"required" fields which cause unhelpful errors when unmarshalling
 // from an empty JSON object which can happen in the batch fetcher.
+
 type Receipt struct {
 	PostState         []byte          `json:"root"`
 	Status            uint64          `json:"status"`
@@ -43,7 +43,7 @@ func FromGethReceipt(gr *gethTypes.Receipt) *Receipt {
 	}
 	return &Receipt{
 		gr.PostState,
-		gr.Status,
+		uint64(gr.Status),
 		gr.CumulativeGasUsed,
 		gr.Bloom,
 		logs,

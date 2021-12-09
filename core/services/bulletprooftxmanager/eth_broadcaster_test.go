@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
@@ -1117,7 +1117,7 @@ func TestEthBroadcaster_ProcessUnstartedEthTxs_KeystoreErrors(t *testing.T) {
 		}
 		require.NoError(t, db.Save(&etx).Error)
 
-		tx := *gethTypes.NewTx(&gethTypes.LegacyTx{})
+		tx := *new(gethTypes.Transaction)
 		kst.On("SignTx",
 			fromAddress,
 			mock.AnythingOfType("*types.Transaction"),

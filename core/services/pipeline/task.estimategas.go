@@ -6,8 +6,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/logger"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 	"go.uber.org/multierr"

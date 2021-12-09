@@ -13,12 +13,15 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	gethTypes "github.com/klaytn/klaytn/blockchain/types"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/confighelper"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/offchain_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/eth"
@@ -26,9 +29,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/log"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting/confighelper"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 // configMailboxSanityLimit is the maximum number of configs that can be held

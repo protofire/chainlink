@@ -12,7 +12,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/common"
 )
 
 const offChainPublicKeyPrefix = "ocroff_"

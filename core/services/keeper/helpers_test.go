@@ -1,6 +1,8 @@
 package keeper
 
-import "github.com/ethereum/go-ethereum"
+import (
+	ethereum "github.com/klaytn/klaytn"
+)
 
 func (rs *RegistrySynchronizer) ExportedFullSync() {
 	rs.fullSync()

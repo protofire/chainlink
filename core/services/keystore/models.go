@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"time"
 
-	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey"
@@ -24,12 +24,12 @@ func (ekr encryptedKeyRing) Decrypt(password string) (keyRing, error) {
 	if len(ekr.EncryptedKeys) == 0 {
 		return newKeyRing(), nil
 	}
-	var cryptoJSON gethkeystore.CryptoJSON
+	var cryptoJSON klaytnextended.CryptoJSON
 	err := json.Unmarshal(ekr.EncryptedKeys, &cryptoJSON)
 	if err != nil {
 		return keyRing{}, err
 	}
-	marshalledRawKeyRingJson, err := gethkeystore.DecryptDataV3(cryptoJSON, adulteratedPassword(password))
+	marshalledRawKeyRingJson, err := klaytnextended.DecryptDataV3(cryptoJSON, adulteratedPassword(password))
 	if err != nil {
 		return keyRing{}, err
 	}
@@ -89,7 +89,7 @@ func (kr *keyRing) Encrypt(password string, scryptParams utils.ScryptParams) (ek
 	if err != nil {
 		return ekr, err
 	}
-	cryptoJSON, err := gethkeystore.EncryptDataV3(
+	cryptoJSON, err := klaytnextended.EncryptDataV3(
 		marshalledRawKeyRingJson,
 		[]byte(adulteratedPassword(password)),
 		scryptParams.N,

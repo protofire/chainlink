@@ -15,11 +15,11 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
 )
 
@@ -165,7 +165,7 @@ func (client *client) GetERC20Balance(address common.Address, contractAddress co
 		To:   contractAddress,
 		Data: data,
 	}
-	err := client.Call(&result, "eth_call", args, "latest")
+	err := client.Call(&result, "klay_call", args, "latest")
 	if err != nil {
 		return numLinkBigInt, err
 	}
@@ -265,7 +265,7 @@ func (client *client) BlockByNumber(ctx context.Context, number *big.Int) (*type
 
 func (client *client) HeadByNumber(ctx context.Context, number *big.Int) (head *models.Head, err error) {
 	hex := toBlockNumArg(number)
-	err = client.primary.CallContext(ctx, &head, "eth_getBlockByNumber", hex, false)
+	err = client.primary.CallContext(ctx, &head, "klay_getBlockByNumber", hex, false)
 	if err == nil && head == nil {
 		err = ethereum.NotFound
 	}

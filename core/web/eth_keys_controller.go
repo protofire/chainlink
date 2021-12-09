@@ -12,8 +12,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	"github.com/smartcontractkit/chainlink/core/web/presenters"
 
-	"github.com/ethereum/go-ethereum/common"
 	"github.com/gin-gonic/gin"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 )
 

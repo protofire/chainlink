@@ -3,8 +3,8 @@ package pipeline
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 )

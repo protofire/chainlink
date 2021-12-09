@@ -14,8 +14,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
@@ -262,7 +262,7 @@ func (b *BlockHistoryEstimator) FetchBlocks(ctx context.Context, head models.Hea
 		}
 
 		req := rpc.BatchElem{
-			Method: "eth_getBlockByNumber",
+			Method: "klay_getBlockByNumber",
 			Args:   []interface{}{Int64ToHex(i), true},
 			Result: &Block{},
 		}

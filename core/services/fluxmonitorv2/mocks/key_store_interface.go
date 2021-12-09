@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/klaytn/klaytn/common"
 	ethkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 
 	mock "github.com/stretchr/testify/mock"

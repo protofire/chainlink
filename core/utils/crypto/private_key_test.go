@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,7 +31,7 @@ func Test_EncryptedPrivateKey_Decrypt(t *testing.T) {
 	passphrase := []byte("passphrase")
 	_, privkey, err := ed25519.GenerateKey(nil)
 	require.NoError(t, err)
-	encprivkey, err := keystore.EncryptDataV3(privkey, passphrase, 2, 1)
+	encprivkey, err := klaytnextended.EncryptDataV3(privkey, passphrase, 2, 1)
 	require.NoError(t, err)
 
 	ecp := EncryptedPrivateKey{CryptoJSON: encprivkey}
@@ -48,7 +48,7 @@ func Test_EncryptedPrivateKey_Scan(t *testing.T) {
 	_, privKey, err := ed25519.GenerateKey(nil)
 	require.NoError(t, err)
 
-	encPrivkey, err := keystore.EncryptDataV3(privKey, []byte("passphrase"), 2, 1)
+	encPrivkey, err := klaytnextended.EncryptDataV3(privKey, []byte("passphrase"), 2, 1)
 	require.NoError(t, err)
 	b, err := json.Marshal(encPrivkey)
 	require.NoError(t, err)
@@ -79,7 +79,7 @@ func Test_EncryptedPrivateKey_Value(t *testing.T) {
 	_, privKey, err := ed25519.GenerateKey(nil)
 	require.NoError(t, err)
 
-	cryptoJSON, err := keystore.EncryptDataV3(privKey, []byte("passphrase"), 2, 1)
+	cryptoJSON, err := klaytnextended.EncryptDataV3(privKey, []byte("passphrase"), 2, 1)
 	require.NoError(t, err)
 
 	encPrivkey := EncryptedPrivateKey{CryptoJSON: cryptoJSON}

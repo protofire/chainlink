@@ -11,20 +11,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/crypto"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/configtest"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
 	"github.com/smartcontractkit/chainlink/core/services/eth"
@@ -46,10 +47,10 @@ func NewApplicationWithConfigAndKeyOnSimulatedBlockchain(
 	backend *backends.SimulatedBackend,
 	flagsAndDeps ...interface{},
 ) (app *TestApplication, cleanup func()) {
-	chainId := backend.Blockchain().Config().ChainID.Int64()
-	tc.GeneralConfig.Overrides.SetChainID(chainId)
+	chainId, _ := backend.ChainID(context.Background())
+	tc.GeneralConfig.Overrides.SetChainID(chainId.Int64())
 
-	client := &SimulatedBackendClient{b: backend, t: t, chainId: int(chainId)}
+	client := &SimulatedBackendClient{b: backend, t: t, chainId: int(chainId.Int64())}
 	flagsAndDeps = append(flagsAndDeps, client)
 
 	app, appCleanup := NewApplicationWithConfigAndKey(t, tc, flagsAndDeps...)
@@ -64,7 +65,7 @@ func MustNewSimulatedBackendKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey)
 
 func MustNewKeyedTransactor(t *testing.T, key *ecdsa.PrivateKey, chainID int64) *bind.TransactOpts {
 	t.Helper()
-	transactor, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
+	transactor, err := klaytnextended.NewKeyedTransactorWithChainID(key, big.NewInt(chainID))
 	require.NoError(t, err)
 	return transactor
 }
@@ -160,7 +161,8 @@ func (c *SimulatedBackendClient) GetEthBalance(ctx context.Context, account comm
 
 // currentBlockNumber returns index of *pending* block in simulated blockchain
 func (c *SimulatedBackendClient) currentBlockNumber() *big.Int {
-	return c.b.Blockchain().CurrentBlock().Number()
+	blockNumber, _ := c.b.CurrentBlockNumber(context.Background())
+	return new(big.Int).SetUint64(blockNumber)
 }
 
 var balanceOfABIString = `[
@@ -210,7 +212,7 @@ func (c *SimulatedBackendClient) GetERC20Balance(address common.Address, contrac
 		return nil, errors.Wrapf(err, "while calling ERC20 balanceOf method on %s "+
 			"for balance of %s", contractAddress, address)
 	}
-	err = balanceOfABI.UnpackIntoInterface(balance, "balanceOf", b)
+	err = klaytnextended.UnpackIntoInterface(balanceOfABI, balance, "balanceOf", b)
 	if err != nil {
 		return nil, errors.New("unable to unpack balance")
 	}
@@ -403,8 +405,8 @@ func (c *SimulatedBackendClient) SuggestGasPrice(ctx context.Context) (*big.Int,
 
 func (c *SimulatedBackendClient) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
 	for i, elem := range b {
-		if elem.Method != "eth_getTransactionReceipt" || len(elem.Args) != 1 {
-			return errors.New("SimulatedBackendClient BatchCallContext only supports eth_getTransactionReceipt")
+		if elem.Method != "klay_getTransactionReceipt" || len(elem.Args) != 1 {
+			return errors.New("SimulatedBackendClient BatchCallContext only supports klay_getTransactionReceipt")
 		}
 		switch v := elem.Result.(type) {
 		case *bulletprooftxmanager.Receipt:

@@ -11,8 +11,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/null"
 	"gorm.io/gorm"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/tevino/abool"
 
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated"

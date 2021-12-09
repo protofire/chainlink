@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/klaytn/klaytn/crypto"
 )
 
 var curve = crypto.S256()

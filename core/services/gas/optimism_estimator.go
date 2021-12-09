@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	optimismfees "github.com/ethereum-optimism/go-optimistic-ethereum-utils/fees"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
+	optimismfees "github.com/smartcontractkit/chainlink/core/external/ethereum-optimism/go-optimistic-ethereum-utils/fees"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"

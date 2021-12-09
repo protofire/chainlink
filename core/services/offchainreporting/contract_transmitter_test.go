@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/offchainreporting"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

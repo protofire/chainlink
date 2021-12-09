@@ -1,7 +1,7 @@
 package fluxmonitorv2
 
 import (
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
 	"gorm.io/gorm"

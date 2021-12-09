@@ -3,7 +3,7 @@ package ocrkey
 import (
 	"crypto/ecdsa"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/klaytn/klaytn/crypto"
 )
 
 type OnChainPublicKey ecdsa.PublicKey

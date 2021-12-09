@@ -21,9 +21,9 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/rpc"
+	gethCommon "github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 	"gorm.io/gorm"
@@ -333,7 +333,7 @@ func (ec *EthConfirmer) batchFetchReceipts(ctx context.Context, attempts []EthTx
 	var reqs []rpc.BatchElem
 	for _, attempt := range attempts {
 		req := rpc.BatchElem{
-			Method: "eth_getTransactionReceipt",
+			Method: "klay_getTransactionReceipt",
 			Args:   []interface{}{attempt.Hash},
 			Result: &Receipt{},
 		}

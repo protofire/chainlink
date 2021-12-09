@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/klaytn/klaytn/accounts/keystore"
 )
 
 const (

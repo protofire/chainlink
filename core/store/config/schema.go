@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
+	ocrnetworking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
 	"github.com/smartcontractkit/chainlink/core/store/models"
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
 )
 
 // ConfigSchema records the schema of configuration at the type level

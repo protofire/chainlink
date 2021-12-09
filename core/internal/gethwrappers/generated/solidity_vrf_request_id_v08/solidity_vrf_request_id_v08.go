@@ -8,12 +8,13 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/event"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 var (
@@ -27,7 +28,7 @@ var (
 	_ = event.NewSubscription
 )
 
-var VRFRequestIDBaseTestHelperMetaData = &bind.MetaData{
+var VRFRequestIDBaseTestHelperMetaData = &klaytnextended.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_keyHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_vRFInputSeed\",\"type\":\"uint256\"}],\"name\":\"makeRequestId_\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_keyHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_userSeed\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"makeVRFInputSeed_\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}]",
 	Bin: "0x608060405234801561001057600080fd5b50610170806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806337ab429a1461003b578063bda087ae146100af575b600080fd5b61009d61004936600461010b565b604080516020808201969096528082019490945273ffffffffffffffffffffffffffffffffffffffff9290921660608401526080808401919091528151808403909101815260a09092019052805191012090565b60405190815260200160405180910390f35b61009d6100bd3660046100e9565b604080516020808201949094528082019290925280518083038201815260609092019052805191012090565b600080604083850312156100fc57600080fd5b50508035926020909101359150565b6000806000806080858703121561012157600080fd5b8435935060208501359250604085013573ffffffffffffffffffffffffffffffffffffffff8116811461015357600080fd5b939692955092936060013592505056fea164736f6c6343000806000a",
 }
@@ -176,7 +177,7 @@ func (_VRFRequestIDBaseTestHelper *VRFRequestIDBaseTestHelperCaller) MakeRequest
 		return *new([32]byte), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *klaytnextended.ConvertType(out[0], new([32]byte)).(*[32]byte)
 
 	return out0, err
 
@@ -198,7 +199,7 @@ func (_VRFRequestIDBaseTestHelper *VRFRequestIDBaseTestHelperCaller) MakeVRFInpu
 		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+	out0 := *klaytnextended.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 

@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	gethcommon "github.com/ethereum/go-ethereum/common"
-	gethtypes "github.com/ethereum/go-ethereum/core/types"
+	gethtypes "github.com/klaytn/klaytn/blockchain/types"
+	gethcommon "github.com/klaytn/klaytn/common"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
@@ -413,14 +413,14 @@ func TestBulletproofTxManager_SignTx(t *testing.T) {
 
 	addr := gethcommon.HexToAddress("0xb921F7763960b296B9cbAD586ff066A18D749724")
 	to := gethcommon.HexToAddress("0xb921F7763960b296B9cbAD586ff066A18D749724")
-	tx := gethtypes.NewTx(&gethtypes.LegacyTx{
-		Nonce:    42,
-		To:       &to,
-		Value:    big.NewInt(142),
-		Gas:      242,
-		GasPrice: big.NewInt(342),
-		Data:     []byte{1, 2, 3},
-	})
+	tx := gethtypes.NewTransaction(
+		42,
+		to,
+		big.NewInt(142),
+		242,
+		big.NewInt(342),
+		[]byte{1, 2, 3},
+	)
 
 	t.Run("returns correct hash for non-okex chains", func(t *testing.T) {
 		chainID := big.NewInt(1)

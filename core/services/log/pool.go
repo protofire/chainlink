@@ -3,8 +3,8 @@ package log
 import (
 	"math"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	heaps "github.com/theodesp/go-heaps"
 	pairingHeap "github.com/theodesp/go-heaps/pairing"
 )

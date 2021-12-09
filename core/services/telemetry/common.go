@@ -1,8 +1,8 @@
 package telemetry
 
 import (
-	"github.com/ethereum/go-ethereum/common"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/klaytn/klaytn/common"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 type MonitoringEndpointGenerator interface {

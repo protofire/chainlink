@@ -5,14 +5,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"
 
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/link_token_interface"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/basic_upkeep_contract"
@@ -21,7 +21,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/keeper"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	webpresenters "github.com/smartcontractkit/chainlink/core/web/presenters"
-	"github.com/smartcontractkit/libocr/gethwrappers/link_token_interface"
 )
 
 var (
@@ -55,8 +54,7 @@ func TestKeeperEthIntegration(t *testing.T) {
 		nodeAddress: {Balance: oneEth},
 	}
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
-	backend := backends.NewSimulatedBackend(genesisData, gasLimit)
+	backend := backends.NewSimulatedBackend(genesisData)
 	defer backend.Close()
 
 	stopMining := cltest.Mine(backend, 1*time.Second) // >> 2 seconds and the test gets slow, << 1 second and the app may miss heads

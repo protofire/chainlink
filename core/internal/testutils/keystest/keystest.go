@@ -4,25 +4,25 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/google/uuid"
+	"github.com/klaytn/klaytn/accounts/keystore"
+	"github.com/klaytn/klaytn/crypto"
+	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
 )
 
 // NewKey pulled from geth
-func NewKey() (key keystore.Key, err error) {
+func NewKey() (key keystore.KeyV3, err error) {
 	privateKeyECDSA, err := ecdsa.GenerateKey(crypto.S256(), rand.Reader)
 	if err != nil {
 		return key, err
 	}
 
-	id := uuid.New()
+	id := uuid.NewRandom()
 	if err != nil {
 		return key, errors.Errorf("Could not create random uuid: %v", err)
 	}
 
-	return keystore.Key{
+	return keystore.KeyV3{
 		Id:         id,
 		Address:    crypto.PubkeyToAddress(privateKeyECDSA.PublicKey),
 		PrivateKey: privateKeyECDSA,

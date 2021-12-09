@@ -5,13 +5,13 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	gethCommon "github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/services/log"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 var (

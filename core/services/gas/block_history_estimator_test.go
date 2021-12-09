@@ -12,8 +12,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/gas"
 	gumocks "github.com/smartcontractkit/chainlink/core/services/gas/mocks"
@@ -795,7 +795,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
         "to": "0x4d246be90c2f36730bb853ad41d0a189061192d3",
         "transactionIndex": "0x0",
         "value": "0x0",
-        "type": "0x0",
+        "type": "TxTypeLegacyTransaction",
         "v": "0x25",
         "r": "0x9f8af9e6424f264daaba992c09c2b38d05444cbb5e6bd5e26c965393e287c9fa",
         "s": "0x76802388299eb0baa80a678831ef0722c5b1e1212f5eca26a5e911cb81388b2b"
@@ -812,7 +812,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
         "to": "0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c",
         "transactionIndex": "0x1",
         "value": "0x62967a5c8460000",
-        "type": "0x0",
+        "type": "TxTypeLegacyTransaction",
         "v": "0x26",
         "r": "0xd06f53ad57d61543526b529c2532903ac0d45b1d727567d04dc9b2f4e6340521",
         "s": "0x6332bcec6a66abf4bed4df24e25e1e4dfc61c5d5bc32a441033c285c14c402d"
@@ -831,7 +831,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
         "to": "0xb5d85cbf7cb3ee0d56b3bb207d5fc4b82f43f511",
         "transactionIndex": "0x3b",
         "value": "0x1302a5a6ad330400",
-        "type": "0x2",
+        "type": "TxTypeValueTransferMemo",
         "accessList": [],
         "chainId": "0x1",
         "v": "0x1",
@@ -851,7 +851,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
         "to": "0xb5d85cbf7cb3ee0d56b3bb207d5fc4b82f43f511",
         "transactionIndex": "0x3c",
         "value": "0xe95497bc358fe60",
-        "type": "0x2",
+        "type": "TxTypeValueTransferMemo",
         "accessList": [],
         "chainId": "0x1",
         "v": "0x1",
@@ -876,7 +876,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
 	assert.Equal(t, 900000, int(block.Transactions[0].GasLimit))
 	assert.Nil(t, block.Transactions[0].MaxFeePerGas)
 	assert.Nil(t, block.Transactions[0].MaxPriorityFeePerGas)
-	assert.Equal(t, gas.TxType(0x0), block.Transactions[0].Type)
+	assert.Equal(t, "TxTypeLegacyTransaction", block.Transactions[0].Type)
 	assert.Equal(t, "0x8e58af889f4e831ef9a67df84058bcfb7090cbcb5c6f1046c211dafee6050944", block.Transactions[0].Hash.String())
 
 	assert.Equal(t, big.NewInt(3000000000000), block.Transactions[1].GasPrice)
@@ -886,7 +886,7 @@ func TestBlockHistoryEstimator_EIP1559Block(t *testing.T) {
 	assert.Equal(t, 21000, int(block.Transactions[2].GasLimit))
 	assert.Equal(t, int64(500000000000), block.Transactions[2].MaxFeePerGas.Int64())
 	assert.Equal(t, int64(500000000000), block.Transactions[2].MaxPriorityFeePerGas.Int64())
-	assert.Equal(t, gas.TxType(0x2), block.Transactions[2].Type)
+	assert.Equal(t, "TxTypeValueTransferMemo", block.Transactions[2].Type)
 	assert.Equal(t, "0x136aa666e6b8109b2b4aca8008ecad8df2047f4e2aced4808248fa8927a13395", block.Transactions[2].Hash.String())
 
 	assert.Nil(t, block.Transactions[3].GasPrice)

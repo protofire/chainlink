@@ -11,12 +11,11 @@ import (
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/vrf_malicious_consumer_v2"
 	"github.com/smartcontractkit/chainlink/core/services/bulletprooftxmanager"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/common"
 	"github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
 	"github.com/shopspring/decimal"
@@ -81,14 +80,13 @@ func newVRFCoordinatorV2Universe(t *testing.T, key ethkey.KeyV2) coordinatorV2Un
 		carol.From:   {Balance: oneEth},
 		nallory.From: {Balance: oneEth},
 	}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
 	consumerABI, err := abi.JSON(strings.NewReader(
 		vrf_consumer_v2.VRFConsumerV2ABI))
 	require.NoError(t, err)
 	coordinatorABI, err := abi.JSON(strings.NewReader(
 		vrf_coordinator_v2.VRFCoordinatorV2ABI))
 	require.NoError(t, err)
-	backend := backends.NewSimulatedBackend(genesisData, gasLimit)
+	backend := backends.NewSimulatedBackend(genesisData)
 	// Deploy link
 	linkAddress, _, linkContract, err := link_token_interface.DeployLinkToken(
 		sergey, backend)

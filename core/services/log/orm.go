@@ -3,8 +3,8 @@ package log
 import (
 	"database/sql"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

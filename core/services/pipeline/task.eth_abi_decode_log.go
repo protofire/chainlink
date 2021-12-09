@@ -3,7 +3,7 @@ package pipeline
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi"
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 )

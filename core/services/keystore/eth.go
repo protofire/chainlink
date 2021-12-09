@@ -6,9 +6,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/klaytn/klaytn/accounts/keystore"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	"gorm.io/gorm"
@@ -174,7 +174,7 @@ func (ks *eth) Import(keyJSON []byte, password string) (ethkey.KeyV2, error) {
 	if err != nil {
 		return ethkey.KeyV2{}, errors.Wrap(err, "EthKeyStore#ImportKey failed to decrypt key")
 	}
-	key := ethkey.FromPrivateKey(dKey.PrivateKey)
+	key := ethkey.FromPrivateKey(dKey.GetPrivateKey())
 	if _, found := ks.keyRing.Eth[key.ID()]; found {
 		return ethkey.KeyV2{}, fmt.Errorf("key with ID %s already exists", key.ID())
 	}
@@ -246,7 +246,8 @@ func (ks *eth) SignTx(address common.Address, tx *types.Transaction, chainID *bi
 	if err != nil {
 		return nil, err
 	}
-	signer := types.LatestSignerForChainID(chainID)
+
+	signer := types.NewEIP155Signer(chainID)
 	return types.SignTx(tx, signer, key.ToEcdsaPrivKey())
 }
 
@@ -353,7 +354,7 @@ func (ks *eth) GetV1KeysAsV2() (keys []ethkey.KeyV2, states []ethkey.State, _ er
 		if err != nil {
 			return keys, states, err
 		}
-		keyV2 := ethkey.FromPrivateKey(dKey.PrivateKey)
+		keyV2 := ethkey.FromPrivateKey(dKey.GetPrivateKey())
 		keys = append(keys, keyV2)
 		state := ethkey.State{
 			Address:   keyV1.Address,

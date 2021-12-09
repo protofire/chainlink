@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/lib/pq"
 	"github.com/pelletier/go-toml"
 	uuid "github.com/satori/go.uuid"

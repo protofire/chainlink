@@ -6,12 +6,13 @@ import (
 	"math/big"
 	"net/url"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	ethclient "github.com/klaytn/klaytn/client"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/logger"
 )
 
@@ -107,7 +108,7 @@ func (n node) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
 
 func (n node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
 	n.log.Debugw("eth.Client#EthSubscribe", "mode", "websocket")
-	return n.ws.rpc.EthSubscribe(ctx, channel, args...)
+	return n.ws.rpc.KlaySubscribe(ctx, channel, args...)
 }
 
 func (n node) Close() {
@@ -323,13 +324,15 @@ func (n node) SuggestGasTipCap(ctx context.Context) (tipCap *big.Int, err error)
 	n.log.Debugw("eth.Client#SuggestGasTipCap(...)",
 		"mode", switching(n),
 	)
-	if n.http != nil {
-		tipCap, err = n.http.geth.SuggestGasTipCap(ctx)
-		err = n.wrapHTTP(err)
-	} else {
-		tipCap, err = n.ws.geth.SuggestGasTipCap(ctx)
-		err = n.wrapWS(err)
-	}
+	err = klaytnextended.ErrMethodNotSupported
+	tipCap = nil
+	//if n.http != nil {
+	//	tipCap, err = n.http.geth.SuggestGasTipCap(ctx)
+	//	err = n.wrapHTTP(err)
+	//} else {
+	//	tipCap, err = n.ws.geth.SuggestGasTipCap(ctx)
+	//	err = n.wrapWS(err)
+	//}
 	return
 }
 

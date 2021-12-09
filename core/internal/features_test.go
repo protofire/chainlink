@@ -16,18 +16,21 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	core "github.com/klaytn/klaytn/blockchain"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/crypto"
+	"github.com/klaytn/klaytn/networks/rpc"
 	"github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/auth"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/testoffchainaggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/confighelper"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/consumer_wrapper"
@@ -47,10 +50,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/smartcontractkit/chainlink/core/web"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
-	"github.com/smartcontractkit/libocr/gethwrappers/testoffchainaggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting/confighelper"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -286,8 +285,7 @@ func setupOperatorContracts(t *testing.T) OperatorContracts {
 	genesisData := core.GenesisAlloc{
 		user.From: {Balance: sb}, // 1 eth
 	}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
-	b := backends.NewSimulatedBackend(genesisData, gasLimit)
+	b := backends.NewSimulatedBackend(genesisData)
 	linkTokenAddress, _, linkContract, err := link_token_interface.DeployLinkToken(user, b)
 	require.NoError(t, err)
 	b.Commit()
@@ -352,7 +350,8 @@ func TestIntegration_DirectRequest(t *testing.T) {
 	n, err := b.NonceAt(context.Background(), operatorContracts.user.From, nil)
 	require.NoError(t, err)
 	tx = types.NewTransaction(n, sendingKeys[0].Address.Address(), big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	signedTx, err := operatorContracts.user.Signer(operatorContracts.user.From, tx)
+	// TODO koteld: NOTE, signer is set to nil here, due to the SignerFn definition (look: klaytnextended.NewKeyedTransactorWithChainID)
+	signedTx, err := operatorContracts.user.Signer(nil, operatorContracts.user.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)
@@ -444,8 +443,7 @@ func setupOCRContracts(t *testing.T) (*bind.TransactOpts, *backends.SimulatedBac
 	genesisData := core.GenesisAlloc{
 		owner.From: {Balance: sb},
 	}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
-	b := backends.NewSimulatedBackend(genesisData, gasLimit)
+	b := backends.NewSimulatedBackend(genesisData)
 	linkTokenAddress, _, linkContract, err := link_token_interface.DeployLinkToken(owner, b)
 	require.NoError(t, err)
 	accessAddress, _, _, err :=
@@ -506,7 +504,8 @@ func setupNode(t *testing.T, owner *bind.TransactOpts, port int, dbName string, 
 	require.NoError(t, err)
 
 	tx := types.NewTransaction(n, transmitter, big.NewInt(1000000000000000000), 21000, big.NewInt(1000000000), nil)
-	signedTx, err := owner.Signer(owner.From, tx)
+	// TODO koteld: NOTE, signer is set to nil here, due to the SignerFn definition (look: klaytnextended.NewKeyedTransactorWithChainID)
+	signedTx, err := owner.Signer(nil, owner.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)
 	require.NoError(t, err)

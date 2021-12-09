@@ -18,18 +18,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/trie"
 	"github.com/gin-gonic/gin"
 	"github.com/gobuffalo/packr"
 	"github.com/gorilla/securecookie"
 	"github.com/gorilla/sessions"
 	"github.com/gorilla/websocket"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi/bind/backends"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
+	"github.com/klaytn/klaytn/networks/rpc"
 	cryptop2p "github.com/libp2p/go-libp2p-core/crypto"
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
 	"github.com/manyminds/api2go/jsonapi"
@@ -37,6 +36,7 @@ import (
 	uuid "github.com/satori/go.uuid"
 	"github.com/smartcontractkit/chainlink/core/auth"
 	"github.com/smartcontractkit/chainlink/core/cmd"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/gracefulpanic"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/flux_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/core/internal/mocks"
@@ -64,7 +64,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/smartcontractkit/chainlink/core/web"
 	webpresenters "github.com/smartcontractkit/chainlink/core/web/presenters"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -1028,7 +1027,7 @@ func BlockWithTransactions(gasPrices ...int64) *types.Block {
 	for i, gasPrice := range gasPrices {
 		txs[i] = types.NewTransaction(0, common.Address{}, nil, 0, big.NewInt(gasPrice), nil)
 	}
-	return types.NewBlock(&types.Header{}, txs, nil, nil, new(trie.Trie))
+	return types.NewBlock(&types.Header{}, txs, nil)
 }
 
 type TransactionReceipter interface {
@@ -1382,7 +1381,7 @@ func MustNewJSONSerializable(t *testing.T, s string) pipeline.JSONSerializable {
 }
 
 func BatchElemMatchesHash(req rpc.BatchElem, hash common.Hash) bool {
-	return req.Method == "eth_getTransactionReceipt" &&
+	return req.Method == "klay_getTransactionReceipt" &&
 		len(req.Args) == 1 && req.Args[0] == hash
 }
 

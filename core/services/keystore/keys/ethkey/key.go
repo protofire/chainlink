@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/common"
 	"github.com/tidwall/gjson"
 	"go.uber.org/multierr"
 	"gorm.io/datatypes"

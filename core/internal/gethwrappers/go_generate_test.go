@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	gethParams "github.com/ethereum/go-ethereum/params"
 	"github.com/fatih/color"
+	gethParams "github.com/klaytn/klaytn/params"
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 

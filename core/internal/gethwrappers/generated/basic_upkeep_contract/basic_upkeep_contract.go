@@ -7,12 +7,13 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi/bind"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/event"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -199,7 +200,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) BytesToSend(opts *bind.Ca
 		return *new([]byte), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([]byte)).(*[]byte)
+	out0 := *klaytnextended.ConvertType(out[0], new([]byte)).(*[]byte)
 
 	return out0, err
 
@@ -230,7 +231,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) ReceivedBytes(opts *bind.
 		return *new([]byte), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([]byte)).(*[]byte)
+	out0 := *klaytnextended.ConvertType(out[0], new([]byte)).(*[]byte)
 
 	return out0, err
 
@@ -261,7 +262,7 @@ func (_BasicUpkeepContract *BasicUpkeepContractCaller) ShouldPerformUpkeep(opts 
 		return *new(bool), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *klaytnextended.ConvertType(out[0], new(bool)).(*bool)
 
 	return out0, err
 

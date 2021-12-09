@@ -3,9 +3,9 @@ package telemetry
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/klaytn/klaytn/common"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/services/synchronization"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type ExplorerAgent struct {

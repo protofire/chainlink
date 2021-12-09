@@ -18,10 +18,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
+	ethereum "github.com/klaytn/klaytn"
+	"github.com/klaytn/klaytn/blockchain/types"
+	"github.com/klaytn/klaytn/common"
+	"github.com/klaytn/klaytn/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -34,7 +34,7 @@ func TestEthClient_TransactionReceipt(t *testing.T) {
 		response := cltest.MustReadFile(t, "../../testdata/jsonrpc/getTransactionReceipt.json")
 		_, wsUrl, wsCleanup := cltest.NewWSServer(string(response), func(data []byte) {
 			resp := cltest.ParseJSON(t, bytes.NewReader(data))
-			require.Equal(t, "eth_getTransactionReceipt", resp.Get("method").String())
+			require.Equal(t, "klay_getTransactionReceipt", resp.Get("method").String())
 			require.True(t, resp.Get("params").IsArray())
 			require.Equal(t, txHash, resp.Get("params").Get("0").String())
 		})
@@ -49,14 +49,13 @@ func TestEthClient_TransactionReceipt(t *testing.T) {
 		receipt, err := ethClient.TransactionReceipt(context.Background(), hash)
 		assert.NoError(t, err)
 		assert.Equal(t, hash, receipt.TxHash)
-		assert.Equal(t, big.NewInt(11), receipt.BlockNumber)
 	})
 
 	t.Run("no tx hash, returns ethereum.NotFound", func(t *testing.T) {
 		response := cltest.MustReadFile(t, "../../testdata/jsonrpc/getTransactionReceipt_notFound.json")
 		_, wsUrl, wsCleanup := cltest.NewWSServer(string(response), func(data []byte) {
 			resp := cltest.ParseJSON(t, bytes.NewReader(data))
-			require.Equal(t, "eth_getTransactionReceipt", resp.Get("method").String())
+			require.Equal(t, "klay_getTransactionReceipt", resp.Get("method").String())
 			require.True(t, resp.Get("params").IsArray())
 			require.Equal(t, txHash, resp.Get("params").Get("0").String())
 		})
@@ -84,7 +83,7 @@ func TestEthClient_PendingNonceAt(t *testing.T) {
       "result": "0x100"
     }`, func(data []byte) {
 		resp := cltest.ParseJSON(t, bytes.NewReader(data))
-		require.Equal(t, "eth_getTransactionCount", resp.Get("method").String())
+		require.Equal(t, "klay_getTransactionCount", resp.Get("method").String())
 		require.True(t, resp.Get("params").IsArray())
 		require.Equal(t, strings.ToLower(address.Hex()), strings.ToLower(resp.Get("params").Get("0").String()))
 		require.Equal(t, "pending", resp.Get("params").Get("1").String())

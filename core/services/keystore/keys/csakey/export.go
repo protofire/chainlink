@@ -3,8 +3,8 @@ package csakey
 import (
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/klaytnextended"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
@@ -15,7 +15,7 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 	if err := json.Unmarshal(keyJSON, &export); err != nil {
 		return KeyV2{}, err
 	}
-	privKey, err := keystore.DecryptDataV3(export.Crypto, adulteratedPassword(password))
+	privKey, err := klaytnextended.DecryptDataV3(export.Crypto, adulteratedPassword(password))
 	if err != nil {
 		return KeyV2{}, errors.Wrap(err, "failed to decrypt CSA key")
 	}
@@ -24,13 +24,13 @@ func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
 }
 
 type EncryptedCSAKeyExport struct {
-	KeyType   string              `json:"keyType"`
-	PublicKey string              `json:"publicKey"`
-	Crypto    keystore.CryptoJSON `json:"crypto"`
+	KeyType   string                    `json:"keyType"`
+	PublicKey string                    `json:"publicKey"`
+	Crypto    klaytnextended.CryptoJSON `json:"crypto"`
 }
 
 func (key KeyV2) ToEncryptedJSON(password string, scryptParams utils.ScryptParams) (export []byte, err error) {
-	cryptoJSON, err := keystore.EncryptDataV3(
+	cryptoJSON, err := klaytnextended.EncryptDataV3(
 		key.Raw(),
 		[]byte(adulteratedPassword(password)),
 		scryptParams.N,

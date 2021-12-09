@@ -3,7 +3,7 @@ package eth
 import (
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/klaytn/klaytn/accounts/abi"
 )
 
 func MustGetABI(json string) abi.ABI {
