@@ -2,6 +2,7 @@ package vrf_test
 
 import (
 	"crypto/ecdsa"
+	"github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"math/big"
 	mrand "math/rand"
 	"strings"
@@ -12,6 +13,7 @@ import (
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.dedis.ch/kyber/v3"
@@ -44,7 +46,9 @@ func deployVRFTestHelper(t *testing.T) *solidity_vrf_verifier_wrapper.VRFTestHel
 	require.NoError(t, err, "failed to create root ethereum identity")
 	auth := cltest.MustNewSimulatedBackendKeyedTransactor(t, key)
 	genesisData := core.GenesisAlloc{auth.From: {Balance: assets.Ether(100)}}
-	backend := backends.NewSimulatedBackend(genesisData)
+
+	gasLimit := ethconfig.Defaults.Miner.GasCeil
+	backend := cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 	_, _, verifier, err := solidity_vrf_verifier_wrapper.DeployVRFTestHelper(auth, backend)
 	require.NoError(t, err, "failed to deploy VRF contract to simulated blockchain")
 	backend.Commit()

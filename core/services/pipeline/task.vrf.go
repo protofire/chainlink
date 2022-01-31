@@ -7,15 +7,21 @@ import (
 	"fmt"
 	"math/big"
 
+
 	"github.com/celo-org/celo-blockchain/common/hexutil"
 
+	"go.uber.org/multierr"
+
+
+	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"
+
 
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
+
 	"github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1"
 	"github.com/smartcontractkit/chainlink/core/services/vrf/proof"
-	"go.uber.org/multierr"
 )
 
 type VRFTask struct {
@@ -38,16 +44,16 @@ func (t *VRFTask) Type() TaskType {
 	return TaskTypeVRF
 }
 
-func (t *VRFTask) Run(_ context.Context, vars Vars, inputs []Result) (result Result) {
+func (t *VRFTask) Run(_ context.Context, _ logger.Logger, vars Vars, inputs []Result) (result Result, runInfo RunInfo) {
 	if len(inputs) != 1 {
-		return Result{Error: ErrWrongInputCardinality}
+		return Result{Error: ErrWrongInputCardinality}, runInfo
 	}
 	if inputs[0].Error != nil {
-		return Result{Error: ErrInputTaskErrored}
+		return Result{Error: ErrInputTaskErrored}, runInfo
 	}
 	logValues, ok := inputs[0].Value.(map[string]interface{})
 	if !ok {
-		return Result{Error: errors.Wrap(ErrBadInput, "expected map input")}
+		return Result{Error: errors.Wrap(ErrBadInput, "expected map input")}, runInfo
 	}
 	var (
 		pubKey             BytesParam
@@ -62,34 +68,34 @@ func (t *VRFTask) Run(_ context.Context, vars Vars, inputs []Result) (result Res
 		errors.Wrap(ResolveParam(&topics, From(VarExpr(t.Topics, vars))), "topics"),
 	)
 	if err != nil {
-		return Result{Error: err}
+		return Result{Error: err}, runInfo
 	}
 
 	requestKeyHash, ok := logValues["keyHash"].([32]byte)
 	if !ok {
-		return Result{Error: errors.Wrapf(ErrBadInput, "invalid keyHash")}
+		return Result{Error: errors.Wrapf(ErrBadInput, "invalid keyHash")}, runInfo
 	}
 	requestPreSeed, ok := logValues["seed"].(*big.Int)
 	if !ok {
-		return Result{Error: errors.Wrapf(ErrBadInput, "invalid preSeed")}
+		return Result{Error: errors.Wrapf(ErrBadInput, "invalid preSeed")}, runInfo
 	}
 	requestJobID, ok := logValues["jobID"].([32]byte)
 	if !ok {
-		return Result{Error: errors.Wrapf(ErrBadInput, "invalid requestJobID")}
+		return Result{Error: errors.Wrapf(ErrBadInput, "invalid requestJobID")}, runInfo
 	}
 	var pk secp256k1.PublicKey
 	copy(pk[:], pubKey[:])
 	pkh := pk.MustHash()
 	// Validate the key against the spec
 	if !bytes.Equal(requestKeyHash[:], pkh[:]) {
-		return Result{Error: fmt.Errorf("invalid key hash %v expected %v", hex.EncodeToString(requestKeyHash[:]), hex.EncodeToString(pkh[:]))}
+		return Result{Error: fmt.Errorf("invalid key hash %v expected %v", hex.EncodeToString(requestKeyHash[:]), hex.EncodeToString(pkh[:]))}, runInfo
 	}
 	preSeed, err := proof.BigToSeed(requestPreSeed)
 	if err != nil {
-		return Result{Error: fmt.Errorf("unable to parse preseed %v", preSeed)}
+		return Result{Error: fmt.Errorf("unable to parse preseed %v", preSeed)}, runInfo
 	}
 	if !bytes.Equal(topics[0][:], requestJobID[:]) && !bytes.Equal(topics[1][:], requestJobID[:]) {
-		return Result{Error: fmt.Errorf("request jobID %v doesn't match expected %v or %v", requestJobID[:], topics[0][:], topics[1][:])}
+		return Result{Error: fmt.Errorf("request jobID %v doesn't match expected %v or %v", requestJobID[:], topics[0][:], topics[1][:])}, runInfo
 	}
 	preSeedData := proof.PreSeedData{
 		PreSeed:   preSeed,
@@ -99,14 +105,14 @@ func (t *VRFTask) Run(_ context.Context, vars Vars, inputs []Result) (result Res
 	finalSeed := proof.FinalSeed(preSeedData)
 	p, err := t.keyStore.GenerateProof(pk.String(), finalSeed)
 	if err != nil {
-		return Result{Error: err}
+		return Result{Error: err}, runInfo
 	}
 	onChainProof, err := proof.GenerateProofResponseFromProof(p, preSeedData)
 	if err != nil {
-		return Result{Error: err}
+		return Result{Error: err}, retryableRunInfo()
 	}
 	var results = make(map[string]interface{})
 	results["onChainProof"] = hexutil.Encode(onChainProof[:])
 
-	return Result{Value: hexutil.Encode(onChainProof[:])}
+	return Result{Value: hexutil.Encode(onChainProof[:])}, runInfo
 }

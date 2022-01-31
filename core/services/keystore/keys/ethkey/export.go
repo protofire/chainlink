@@ -1,26 +1,14 @@
 package ethkey
 
 import (
-	"encoding/json"
 
 	"github.com/celo-org/celo-blockchain/accounts/keystore"
-	"github.com/pborman/uuid"
+"github.com/google/uuid"
+
+
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
-
-func FromEncryptedJSON(keyJSON []byte, password string) (KeyV2, error) {
-	var export EncryptedEthKeyExport
-	if err := json.Unmarshal(keyJSON, &export); err != nil {
-		return KeyV2{}, err
-	}
-	privKey, err := keystore.DecryptDataV3(export.Crypto, adulteratedPassword(password))
-	if err != nil {
-		return KeyV2{}, errors.Wrap(err, "failed to decrypt Eth key")
-	}
-	key := Raw(privKey).Key()
-	return key, nil
-}
 
 type EncryptedEthKeyExport struct {
 	KeyType string              `json:"keyType"`

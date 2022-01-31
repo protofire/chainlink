@@ -7,21 +7,23 @@ import (
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
+
+	"github.com/ethereum/go-ethereum/eth/ethconfig"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_verifier_wrapper"
+	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	"github.com/stretchr/testify/require"
 )
 
 func TestMarshaledProof(t *testing.T) {
-	store, cleanup := cltest.NewStore(t)
-	defer cleanup()
-	keyStore := cltest.NewKeyStore(t, store.DB)
+	db := pgtest.NewSqlxDB(t)
+	cfg := cltest.NewTestGeneralConfig(t)
+	keyStore := cltest.NewKeyStore(t, db, cfg)
 	key := cltest.DefaultVRFKey
 	keyStore.VRF().Add(key)
 	blockHash := common.Hash{}
@@ -42,7 +44,9 @@ func TestMarshaledProof(t *testing.T) {
 	auth, err := bind.NewKeyedTransactorWithChainID(ethereumKey, big.NewInt(1337))
 	require.NoError(t, err)
 	genesisData := core.GenesisAlloc{auth.From: {Balance: assets.Ether(100)}}
-	backend := backends.NewSimulatedBackend(genesisData)
+
+	gasLimit := ethconfig.Defaults.Miner.GasCeil
+	backend := cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 	_, _, verifier, err := solidity_vrf_verifier_wrapper.DeployVRFTestHelper(auth, backend)
 	if err != nil {
 		panic(errors.Wrapf(err, "while initializing EVM contract wrapper"))
