@@ -1,6 +1,6 @@
 package managed
 
-import "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+import "github.com/smartcontractkit/libocr/offchainreporting/types"
 
 var _ types.ConfigOverrider = ConfigOverriderWrapper{}
 

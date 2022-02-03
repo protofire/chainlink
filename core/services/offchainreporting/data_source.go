@@ -9,7 +9,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/bridges"
 
 	"github.com/pkg/errors"
-	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"

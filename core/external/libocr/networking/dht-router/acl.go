@@ -7,7 +7,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-core/protocol"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/loghelper"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type PermitListACL interface {

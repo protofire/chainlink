@@ -6,7 +6,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol/observation"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/signature"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type SignedObservation struct {

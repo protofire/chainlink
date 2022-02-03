@@ -12,7 +12,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/protocol"
 	ma "github.com/multiformats/go-multiaddr"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/loghelper"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type ACL interface {

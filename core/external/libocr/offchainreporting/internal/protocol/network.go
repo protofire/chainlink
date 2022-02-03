@@ -3,7 +3,7 @@ package protocol
 import (
 	"log"
 
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 // NetworkSender sends messages to other oracles

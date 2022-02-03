@@ -5,7 +5,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-core/protocol"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 // ACLQueryFilter is a filter applied when considering peers to dial when querying

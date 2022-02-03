@@ -3,7 +3,7 @@ package protocol
 import (
 	"container/heap"
 
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 // Type safe wrapper around MinHeapTimeToContractReportInternal

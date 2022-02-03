@@ -11,7 +11,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/config"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol/persist"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/loghelper"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/subprocesses"
 	"golang.org/x/crypto/sha3"
 )

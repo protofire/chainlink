@@ -3,7 +3,7 @@ package loghelper
 import (
 	"context"
 
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type LoggerWithContext interface {

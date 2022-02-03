@@ -10,7 +10,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/exposedoffchainaggregator"
 
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 func makeConfigDigestArgs() abi.Arguments {

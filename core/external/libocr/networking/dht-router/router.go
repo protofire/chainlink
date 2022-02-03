@@ -11,7 +11,7 @@ import (
 
 	"github.com/libp2p/go-libp2p-core/network"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/subprocesses"
 
 	"github.com/libp2p/go-libp2p-core/peer"
