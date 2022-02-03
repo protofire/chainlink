@@ -10,7 +10,6 @@ import (
 
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
-	"github.com/celo-org/celo-blockchain/accounts/abi/bind/backends"
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
 
