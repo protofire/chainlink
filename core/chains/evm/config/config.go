@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	gethcommon "github.com/ethereum/go-ethereum/common"
+	gethcommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/pkg/errors"
 	ocr "github.com/smartcontractkit/libocr/offchainreporting"

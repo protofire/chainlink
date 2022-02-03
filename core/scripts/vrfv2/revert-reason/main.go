@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum"
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/smartcontractkit/chainlink/core/services/eth"
 )

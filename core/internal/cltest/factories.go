@@ -268,7 +268,18 @@ func MustInsertInProgressEthTxWithAttempt(t *testing.T, borm bulletprooftxmanage
 	etx.State = bulletprooftxmanager.EthTxInProgress
 	require.NoError(t, borm.InsertEthTx(&etx))
 	attempt := NewLegacyEthTxAttempt(t, etx.ID)
-	tx := types.NewTransaction(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	to := NewAddress()
+
+	//tx := types.NewTransaction(uint64(nonce), NewAddress(), big.NewInt(142), 242, big.NewInt(342), []byte{1, 2, 3})
+	tx := types.NewTx(&types.LegacyTx{
+		Nonce:         uint64(nonce),
+		To:            &to,
+		Value:         big.NewInt(142),
+		Gas:           242,
+		GasPrice:      big.NewInt(342),
+		Data: 		  []byte{1, 2, 3},
+		EthCompatible: true,
+	})
 	rlp := new(bytes.Buffer)
 	require.NoError(t, tx.EncodeRLP(rlp))
 	attempt.SignedRawTx = rlp.Bytes()

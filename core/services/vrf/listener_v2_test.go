@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"

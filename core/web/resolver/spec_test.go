@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/require"
 

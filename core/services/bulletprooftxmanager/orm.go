@@ -3,8 +3,8 @@ package bulletprooftxmanager
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/lib/pq"
 	"github.com/pkg/errors"
 

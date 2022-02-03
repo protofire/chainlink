@@ -15,7 +15,7 @@ import (
 	gethCommon "github.com/celo-org/celo-blockchain/common"
 	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
+	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/confighelper"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 

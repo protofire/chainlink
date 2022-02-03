@@ -9,7 +9,7 @@ import (
 
 	chains "github.com/smartcontractkit/chainlink/core/chains"
 
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 
 	coreconfig "github.com/smartcontractkit/chainlink/core/config"
 
