@@ -4,7 +4,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol/observation"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/serialization/protobuf"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"

@@ -15,7 +15,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/sec"
 	p2ptls "github.com/libp2p/go-libp2p-tls"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/loghelper"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/crypto/ed25519"
 )
 

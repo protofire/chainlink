@@ -3,7 +3,7 @@ package eth
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum"
+	ethereum "github.com/celo-org/celo-blockchain"
 
 	"github.com/smartcontractkit/chainlink/core/utils"
 )

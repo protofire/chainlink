@@ -26,7 +26,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/sessions"
 	"github.com/smartcontractkit/chainlink/core/store/dialects"
 
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/kylelemons/godebug/diff"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"

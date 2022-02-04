@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/celo-org/celo-blockchain/common"
-	"github.com/smartcontractkit/libocr/gethwrappers/offchainaggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/config"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 // OracleIdentity is identical to the internal type in package config.

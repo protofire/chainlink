@@ -23,9 +23,9 @@ import (
 
 	net "net"
 
-	networking "github.com/smartcontractkit/libocr/networking"
+	networking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 
-	offchainreportingtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	offchainreportingtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 	p2pkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
 

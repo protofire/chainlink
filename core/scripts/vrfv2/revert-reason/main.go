@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum"
+	ethereum "github.com/celo-org/celo-blockchain"
 	gethCommon "github.com/celo-org/celo-blockchain/common"
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/celo-org/celo-blockchain/ethclient"
 	"github.com/smartcontractkit/chainlink/core/services/eth"
 )
 

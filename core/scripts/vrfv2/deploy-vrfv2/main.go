@@ -14,11 +14,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/celo-org/celo-blockchain/core/types"
+	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/celo-org/celo-blockchain/ethclient"
 	"github.com/shopspring/decimal"
 )
 
@@ -40,7 +40,16 @@ func sendEth(chainID int64, ec ethclient.Client, to common.Address, amount int) 
 	panicErr(err)
 	gasPrice, err := ec.SuggestGasPrice(context.Background())
 	panicErr(err)
-	tx := types.NewTransaction(nonce, to, big.NewInt(0).Mul(big.NewInt(int64(amount)), big.NewInt(1000000000000000000)), uint64(21000), gasPrice, nil)
+	//tx := types.NewTransaction(nonce, to, big.NewInt(0).Mul(big.NewInt(int64(amount)), big.NewInt(1000000000000000000)), uint64(21000), gasPrice, nil)
+	//value := big.NewInt(0).Mul(big.NewInt(int64(amount))
+	tx := types.NewTx(&types.LegacyTx{
+		Nonce:         uint64(nonce),
+		To:            &to,
+		Value:  	   big.NewInt(int64(amount)),
+		Gas:           uint64(21000),
+		GasPrice:      gasPrice,
+		EthCompatible: true,
+	})
 	signedTx, err := types.SignTx(tx, types.NewEIP155Signer(big.NewInt(chainID)), key)
 	panicErr(err)
 	err = ec.SendTransaction(context.Background(), signedTx)

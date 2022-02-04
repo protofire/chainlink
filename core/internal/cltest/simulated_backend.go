@@ -403,7 +403,7 @@ func (c *SimulatedBackendClient) SendTransaction(ctx context.Context, tx *types.
 	}
 	// the simulated backend does not gracefully handle tx rebroadcasts (gas bumping) so just
 	// ignore the situation where nonces are reused
-	// github.com/ethereum/go-ethereum/blob/fb2c79df1995b4e8dfe79f9c75464d29d23aaaf4/accounts/abi/bind/backends/simulated.go#L556
+	// github.com/celo-org/celo-blockchain/blob/fb2c79df1995b4e8dfe79f9c75464d29d23aaaf4/accounts/abi/bind/backends/simulated.go#L556
 	if tx.Nonce() < pendingNonce {
 		return nil
 	}

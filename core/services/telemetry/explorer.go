@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/celo-org/celo-blockchain/common"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/services/synchronization"
 )
 

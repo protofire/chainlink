@@ -7,7 +7,7 @@ import (
 
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/crypto/sha3"
 )
 

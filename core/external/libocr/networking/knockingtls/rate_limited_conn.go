@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/time/rate"
 )
 

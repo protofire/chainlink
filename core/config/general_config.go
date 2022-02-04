@@ -30,8 +30,8 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/spf13/viper"
 	"go.uber.org/zap/zapcore"
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrnetworking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 //go:generate mockery --name GeneralConfig --output ./mocks/ --case=underscore

@@ -9,7 +9,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol/observation"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/signature"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 func (repgen *reportGenerationState) followerReportContext() ReportContext {

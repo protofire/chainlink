@@ -10,7 +10,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/chains"
 	//"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting"
 	"github.com/smartcontractkit/chainlink/core/services/job"
-	"github.com/smartcontractkit/libocr/offchainreporting"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm"

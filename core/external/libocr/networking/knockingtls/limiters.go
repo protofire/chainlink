@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	p2ppeer "github.com/libp2p/go-libp2p-core/peer"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"golang.org/x/time/rate"
 )
 

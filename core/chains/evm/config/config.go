@@ -8,10 +8,10 @@ import (
 	"time"
 
 	gethcommon "github.com/celo-org/celo-blockchain/common"
-	"github.com/ethereum/go-ethereum/core"
+	"github.com/celo-org/celo-blockchain/core"
 	"github.com/pkg/errors"
-	ocr "github.com/smartcontractkit/libocr/offchainreporting"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocr "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"go.uber.org/multierr"
 
 	"github.com/smartcontractkit/chainlink/core/assets"

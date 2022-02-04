@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/celo-org/celo-blockchain/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/core/types"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

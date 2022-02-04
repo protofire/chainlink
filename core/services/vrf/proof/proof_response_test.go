@@ -11,7 +11,7 @@ import (
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
 
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
+	"github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"

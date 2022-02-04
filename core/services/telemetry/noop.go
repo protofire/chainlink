@@ -2,7 +2,7 @@ package telemetry
 
 import (
 	"github.com/celo-org/celo-blockchain/common"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 type NoopAgent struct {

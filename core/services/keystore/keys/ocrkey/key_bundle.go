@@ -14,7 +14,7 @@ import (
 
 	"github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"golang.org/x/crypto/curve25519"

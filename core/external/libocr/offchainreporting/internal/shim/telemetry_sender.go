@@ -5,7 +5,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/serialization/protobuf"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/loghelper"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 type TelemetrySender struct {

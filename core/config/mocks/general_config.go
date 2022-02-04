@@ -19,7 +19,7 @@ import (
 
 	net "net"
 
-	networking "github.com/smartcontractkit/libocr/networking"
+	networking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 
 	p2pkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
 
@@ -27,7 +27,7 @@ import (
 
 	time "time"
 
-	types "github.com/smartcontractkit/libocr/offchainreporting/types"
+	types "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 	url "net/url"
 

@@ -87,8 +87,8 @@ const maticBlocks: TestBlocks[] = [
 // 	"math/rand"
 // 	"strings"
 //
-// 	"github.com/ethereum/go-ethereum/ethclient"
-// 	"github.com/ethereum/go-ethereum/rlp"
+// 	"github.com/celo-org/celo-blockchain/ethclient"
+// 	"github.com/celo-org/celo-blockchain/rlp"
 // )
 //
 // var tsBlockTemplate = `

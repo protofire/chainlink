@@ -1,6 +1,6 @@
 package protocol
 
-import "github.com/smartcontractkit/libocr/offchainreporting/types"
+import "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 type TelemetrySender interface {
 	RoundStarted(

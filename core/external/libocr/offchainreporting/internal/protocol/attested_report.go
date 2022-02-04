@@ -7,7 +7,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/protocol/observation"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/internal/signature"
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/common"

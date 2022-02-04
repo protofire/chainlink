@@ -5,7 +5,7 @@ import (
 	"math/big"
 
 	"github.com/celo-org/celo-blockchain/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/services/gas"

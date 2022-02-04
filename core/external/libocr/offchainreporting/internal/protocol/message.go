@@ -1,7 +1,7 @@
 package protocol //
 
 import (
-	"github.com/smartcontractkit/libocr/offchainreporting/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 )
 
 // EventToPacemaker is the interface used to pass in-process events to the
