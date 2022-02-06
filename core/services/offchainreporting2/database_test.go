@@ -14,10 +14,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/sqlx"
 
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	offchainreporting "github.com/smartcontractkit/chainlink/core/services/offchainreporting2"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 	"github.com/stretchr/testify/require"
 )
 

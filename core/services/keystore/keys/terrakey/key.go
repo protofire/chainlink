@@ -7,9 +7,9 @@ import (
 	"io"
 	"math/big"
 
+	"github.com/celo-org/celo-blockchain/crypto"
 	"github.com/cosmos/cosmos-sdk/crypto/hd"
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
-	"github.com/ethereum/go-ethereum/crypto"
 
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	"github.com/smartcontractkit/terra.go/msg"

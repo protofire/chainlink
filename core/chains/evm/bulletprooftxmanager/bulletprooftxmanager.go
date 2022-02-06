@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/common"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	exchainutils "github.com/okex/exchain-ethereum-compatible/utils"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"

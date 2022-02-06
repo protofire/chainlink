@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	keystore "github.com/ethereum/go-ethereum/accounts/keystore"
+	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	cryptop2p "github.com/libp2p/go-libp2p-core/crypto"
 	peer "github.com/libp2p/go-libp2p-core/peer"
 	"github.com/pkg/errors"

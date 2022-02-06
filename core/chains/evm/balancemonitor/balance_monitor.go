@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"

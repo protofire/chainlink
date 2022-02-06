@@ -43,7 +43,7 @@ package gethwrappers
 // To run these commands, you must either install docker, or the correct version
 // of abigen. The latter can be installed with these commands, at least on linux:
 //
-//   git clone https://github.com/ethereum/go-ethereum
+//   git clone https://github.com/celo-org/celo-blockchain
 //   cd go-ethereum/cmd/abigen
 //   git checkout v<version-needed>
 //   go install

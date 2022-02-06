@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
 )

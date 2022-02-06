@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
 	"github.com/smartcontractkit/chainlink/core/utils"

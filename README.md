@@ -55,7 +55,7 @@ Any Ethereum based network will work once you've [configured](https://github.com
 Ethereum node versions currently tested and supported:
 
 - [Parity/Openethereum](https://github.com/openethereum/openethereum)
-- [Geth](https://github.com/ethereum/go-ethereum/releases)
+- [Geth](https://github.com/celo-org/celo-blockchain/releases)
 
 We cannot recommend specific version numbers for ethereum nodes since the software is being continually updated, but you should usually try to run the latest version available.
 

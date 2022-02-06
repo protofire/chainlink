@@ -12,7 +12,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/store/models"
 	"gopkg.in/guregu/null.v4"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

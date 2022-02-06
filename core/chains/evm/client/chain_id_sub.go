@@ -3,8 +3,7 @@ package client
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum"
-
+	ethereum "github.com/celo-org/celo-blockchain"
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )

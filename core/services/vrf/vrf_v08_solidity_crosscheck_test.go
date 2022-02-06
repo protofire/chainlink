@@ -8,10 +8,10 @@ import (
 	"github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_v08_verifier_wrapper"
 	proof2 "github.com/smartcontractkit/chainlink/core/services/vrf/proof"
 
-	"github.com/ethereum/go-ethereum/eth/ethconfig"
+	"github.com/celo-org/celo-blockchain/eth/ethconfig"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/celo-org/celo-blockchain/core"
+	"github.com/celo-org/celo-blockchain/crypto"
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey"

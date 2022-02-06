@@ -8,8 +8,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 
@@ -322,7 +322,7 @@ func BumpDynamicFeeOnly(config Config, lggr logger.Logger, currentTipCap *big.In
 // NOTE: We would prefer to have set a large FeeCap and leave it fixed, bumping
 // the Tip only. Unfortunately due to a flaw of how EIP-1559 is implemented we
 // have to bump FeeCap by at least 10% each time we bump the tip cap.
-// See: https://github.com/ethereum/go-ethereum/issues/24284
+// See: https://github.com/celo-org/celo-blockchain/issues/24284
 func bumpDynamicFee(cfg Config, lggr logger.Logger, currentTipCap, currentBaseFee *big.Int, originalFee DynamicFee) (bumpedFee DynamicFee, err error) {
 	maxGasPrice := cfg.EvmMaxGasPriceWei()
 	baselineTipCap := max(originalFee.TipCap, cfg.EvmGasTipCapDefault())
@@ -351,7 +351,7 @@ func bumpDynamicFee(cfg Config, lggr logger.Logger, currentTipCap, currentBaseFe
 
 	// Always bump the FeeCap by at least the bump percentage (should be greater than or
 	// equal to than geth's configured bump minimum which is 10%)
-	// See: https://github.com/ethereum/go-ethereum/blob/bff330335b94af3643ac2fb809793f77de3069d4/core/tx_list.go#L298
+	// See: https://github.com/celo-org/celo-blockchain/blob/bff330335b94af3643ac2fb809793f77de3069d4/core/tx_list.go#L298
 	bumpedFeeCap := increaseByPercentageOrIncrement(originalFee.FeeCap, cfg.EvmGasBumpPercent(), cfg.EvmGasBumpWei())
 
 	if currentBaseFee != nil {

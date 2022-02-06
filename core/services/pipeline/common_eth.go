@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/utils"
@@ -324,7 +324,7 @@ func convertToETHABIInteger(val interface{}, abiType abi.Type) (interface{}, err
 		// go-ethereum handles in-betweener sizes, i.e 24, 40, 48, and 56 bit integers,
 		// as if they were big.Int, instead of the next largest native integer type that
 		// could hold it. Unsure of why this decision was taken.
-		// See https://github.com/ethereum/go-ethereum/blob/master/accounts/abi/reflect.go#L61 for
+		// See https://github.com/celo-org/celo-blockchain/blob/master/accounts/abi/reflect.go#L61 for
 		// the relevant code.
 		if ty == reflect.TypeOf(&big.Int{}) {
 			return i, nil

@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/rpc"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -224,7 +224,7 @@ func (b *BlockHistoryEstimator) GetDynamicFee(gasLimit uint64) (fee DynamicFee, 
 			// HACK: due to a flaw of how EIP-1559 is implemented we have to
 			// set a much lower FeeCap than the actual maximum we are willing
 			// to pay in order to give ourselves headroom for bumping
-			// See: https://github.com/ethereum/go-ethereum/issues/24284
+			// See: https://github.com/celo-org/celo-blockchain/issues/24284
 			feeCap = calcFeeCap(b.latestBaseFee, b.config, tipCap)
 		} else {
 			// This shouldn't happen on EIP-1559 blocks, since if the tip cap

@@ -9,11 +9,11 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
+	"github.com/smartcontractkit/chainlink/core/external/integrations-framework/actions"
+	"github.com/smartcontractkit/chainlink/core/external/integrations-framework/client"
+	"github.com/smartcontractkit/chainlink/core/external/integrations-framework/utils"
 	"github.com/smartcontractkit/helmenv/environment"
 	"github.com/smartcontractkit/helmenv/tools"
-	"github.com/smartcontractkit/integrations-framework/actions"
-	"github.com/smartcontractkit/integrations-framework/client"
-	"github.com/smartcontractkit/integrations-framework/utils"
 )
 
 var _ = Describe("Cronjob suite @cron", func() {

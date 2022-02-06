@@ -6,9 +6,9 @@ import (
 	"crypto/sha256"
 	"io"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/smartcontractkit/libocr/offchainreporting2/chains/evmutil"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
+	"github.com/celo-org/celo-blockchain/crypto"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/chains/evmutil"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 )
 
 var _ ocrtypes.OnchainKeyring = &solanaKeyring{}

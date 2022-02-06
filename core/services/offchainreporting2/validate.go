@@ -5,11 +5,11 @@ import (
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 
+	libocr2 "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2"
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"
 	"github.com/smartcontractkit/chainlink/core/services/relay"
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2"
 )
 
 // ValidatedOracleSpecToml validates an oracle spec that came from TOML

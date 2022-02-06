@@ -9,7 +9,7 @@ import (
 
 	bulletprooftxmanager "github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager"
 
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 
 	context "context"
 

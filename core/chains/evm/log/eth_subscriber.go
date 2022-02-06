@@ -6,9 +6,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core/types"
 
 	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
 	"github.com/smartcontractkit/chainlink/core/logger"
@@ -87,7 +87,7 @@ func (sub *ethSubscriber) backfillLogs(fromBlockOverride null.Int64, addresses [
 				"fromBlock", fromBlock, "latestHeight", latestHeight)
 		}
 
-		q := ethereum.FilterQuery{
+		q := celo.FilterQuery{
 			FromBlock: big.NewInt(int64(fromBlock)),
 			Addresses: addresses,
 			Topics:    [][]common.Hash{topics},
@@ -99,7 +99,7 @@ func (sub *ethSubscriber) backfillLogs(fromBlockOverride null.Int64, addresses [
 		// of blocks to check for logs. We read the blocks in batches to avoid hitting the websocket
 		// request data limit.
 		// On matic its 5MB [https://github.com/maticnetwork/bor/blob/3de2110886522ab17e0b45f3c4a6722da72b7519/rpc/http.go#L35]
-		// On ethereum its 15MB [https://github.com/ethereum/go-ethereum/blob/master/rpc/websocket.go#L40]
+		// On ethereum its 15MB [https://github.com/celo-org/celo-blockchain/blob/master/rpc/websocket.go#L40]
 		batchSize := int64(sub.config.EvmLogBackfillBatchSize())
 		for from := q.FromBlock.Int64(); from <= latestHeight; from += batchSize {
 
@@ -167,7 +167,7 @@ func (sub *ethSubscriber) backfillLogs(fromBlockOverride null.Int64, addresses [
 	return
 }
 
-func (sub *ethSubscriber) fetchLogBatch(ctx context.Context, query ethereum.FilterQuery, start time.Time) ([]types.Log, error) {
+func (sub *ethSubscriber) fetchLogBatch(ctx context.Context, query celo.FilterQuery, start time.Time) ([]types.Log, error) {
 	var errOuter error
 	var result []types.Log
 	utils.RetryWithBackoff(ctx, func() (retry bool) {
@@ -204,7 +204,7 @@ func (sub *ethSubscriber) createSubscription(addresses []common.Address, topics 
 
 	utils.RetryWithBackoff(ctx, func() (retry bool) {
 
-		filterQuery := ethereum.FilterQuery{
+		filterQuery := celo.FilterQuery{
 			Addresses: addresses,
 			Topics:    [][]common.Hash{topics},
 		}
@@ -242,7 +242,7 @@ type managedSubscription interface {
 }
 
 type managedSubscriptionImpl struct {
-	subscription ethereum.Subscription
+	subscription celo.Subscription
 	chRawLogs    chan types.Log
 }
 

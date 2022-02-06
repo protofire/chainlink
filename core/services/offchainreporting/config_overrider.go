@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey"
 	"github.com/smartcontractkit/chainlink/core/utils"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 type ConfigOverriderImpl struct {

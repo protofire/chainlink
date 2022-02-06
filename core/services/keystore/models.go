@@ -9,7 +9,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/solkey"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/terrakey"
 
-	gethkeystore "github.com/ethereum/go-ethereum/accounts/keystore"
+	gethkeystore "github.com/celo-org/celo-blockchain/accounts/keystore"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey"

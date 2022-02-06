@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 )
 
 const base10 = 10

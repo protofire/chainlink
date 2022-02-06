@@ -6,7 +6,7 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/services/relay/types"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/guregu/null.v4"

@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 	optimismfees "github.com/ethereum-optimism/go-optimistic-ethereum-utils/fees"
-	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
 	"go.uber.org/multierr"

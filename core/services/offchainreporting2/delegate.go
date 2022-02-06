@@ -6,6 +6,8 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm"
+	libocr2 "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/reportingplugin/median"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/services/keystore"
@@ -13,8 +15,6 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/pipeline"
 	"github.com/smartcontractkit/chainlink/core/services/relay/types"
 	"github.com/smartcontractkit/chainlink/core/services/telemetry"
-	libocr2 "github.com/smartcontractkit/libocr/offchainreporting2"
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
 	"github.com/smartcontractkit/sqlx"
 )
 

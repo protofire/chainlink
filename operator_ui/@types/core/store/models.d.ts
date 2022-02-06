@@ -1,5 +1,5 @@
 declare module 'core/store/models' {
-  import * as common from 'github.com/ethereum/go-ethereum/common'
+  import * as common from 'github.com/celo-org/celo-blockchain/common'
   import * as gorm from 'github.com/jinzhu/gorm'
   import * as clnull from 'github.com/smartcontractkit/chainlink/core/null'
   import * as nullable from 'gopkg.in/guregu/null.v3'

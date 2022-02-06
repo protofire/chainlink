@@ -3,7 +3,7 @@ package types
 import (
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
 )
 
 func MustGetABI(json string) abi.ABI {

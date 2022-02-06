@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/jackc/pgconn"
 	"github.com/pkg/errors"
 	"gopkg.in/guregu/null.v4"

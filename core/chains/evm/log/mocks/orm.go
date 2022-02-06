@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 	log "github.com/smartcontractkit/chainlink/core/chains/evm/log"
 	mock "github.com/stretchr/testify/mock"
 

@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	gethcommon "github.com/ethereum/go-ethereum/common"
-	gethtypes "github.com/ethereum/go-ethereum/core/types"
+	gethcommon "github.com/celo-org/celo-blockchain/common"
+	gethtypes "github.com/celo-org/celo-blockchain/core/types"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

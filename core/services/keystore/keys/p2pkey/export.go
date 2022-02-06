@@ -3,8 +3,8 @@ package p2pkey
 import (
 	"encoding/json"
 
-	keystore "github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	keystore "github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )

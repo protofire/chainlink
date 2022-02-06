@@ -5,12 +5,12 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/services/relay/evm"
 
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers2/ocr2aggregator"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/offchainreporting2/testhelpers"
 	"github.com/smartcontractkit/chainlink/core/services/pg"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

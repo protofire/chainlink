@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"time"
 
+	ocrnetworking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
 	"go.uber.org/zap/zapcore"
 
 	"github.com/smartcontractkit/chainlink/core/assets"

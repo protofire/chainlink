@@ -3,7 +3,7 @@ package vrf_test
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
 	"github.com/stretchr/testify/assert"
 )

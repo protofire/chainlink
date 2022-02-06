@@ -7,13 +7,13 @@ import (
 	"sync"
 	"time"
 
-	gethcommon "github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
+	gethcommon "github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/core"
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
-	ocr "github.com/smartcontractkit/libocr/offchainreporting"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
+	ocr "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/chains"

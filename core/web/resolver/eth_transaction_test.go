@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	gqlerrors "github.com/graph-gophers/graphql-go/errors"
 
 	"github.com/smartcontractkit/chainlink/core/assets"

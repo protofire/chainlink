@@ -6,24 +6,24 @@ import (
 
 	types2 "github.com/smartcontractkit/chainlink/core/services/relay/types"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 	txm "github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/chains/evmutil"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/reportingplugin/median/evmreportcodec"
 	offchain_aggregator_wrapper "github.com/smartcontractkit/chainlink/core/internal/gethwrappers2/generated/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting2/chains/evmutil"
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median/evmreportcodec"
 	"gopkg.in/guregu/null.v4"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/reportingplugin/median"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services"
 	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
-	"github.com/smartcontractkit/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/sqlx"
 )
 

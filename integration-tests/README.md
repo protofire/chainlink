@@ -1,6 +1,6 @@
 # Integration Tests
 
-Here lives the integration tests for chainlink, utilizing our [integrations-framework](https://github.com/smartcontractkit/integrations-framework).
+Here lives the integration tests for chainlink, utilizing our [integrations-framework](https://github.com/smartcontractkit/chainlink/core/external/integrations-framework ).
 
 ## How to Run
 

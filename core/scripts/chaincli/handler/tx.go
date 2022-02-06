@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/core/types"
 )
 
 func waitDeployment(ctx context.Context, client bind.DeployBackend, tx *types.Transaction) {

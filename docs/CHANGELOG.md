@@ -33,7 +33,7 @@ Log colorization is now disabled by default because it causes issues when piped 
 
 ### Fixed
 
-Fixed issues with EIP-1559 related to gas bumping. Due to [go-ethereum's implementation](https://github.com/ethereum/go-ethereum/blob/bff330335b94af3643ac2fb809793f77de3069d4/core/tx_list.go#L298) which introduces additional restrictions on top of the EIP-1559 spec, we must bump the FeeCap at least 10% each time in order for the gas bump to be accepted.
+Fixed issues with EIP-1559 related to gas bumping. Due to [go-ethereum's implementation](https://github.com/celo-org/celo-blockchain/blob/bff330335b94af3643ac2fb809793f77de3069d4/core/tx_list.go#L298) which introduces additional restrictions on top of the EIP-1559 spec, we must bump the FeeCap at least 10% each time in order for the gas bump to be accepted.
 
 The new EIP-1559 implementation works as follows:
 

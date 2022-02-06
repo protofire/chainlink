@@ -7,8 +7,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/config/envvar"
 	"github.com/smartcontractkit/chainlink/core/config/parse"
+	ocrnetworking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
 )
 
 type P2PNetworking interface {

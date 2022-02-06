@@ -3,7 +3,7 @@ package fluxmonitorv2
 import (
 	"database/sql"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager"

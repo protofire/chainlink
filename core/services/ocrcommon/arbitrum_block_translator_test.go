@@ -9,7 +9,7 @@ import (
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
 	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"

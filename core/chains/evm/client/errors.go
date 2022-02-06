@@ -68,7 +68,7 @@ var parity = ClientErrors{
 }
 
 // Geth
-// See: https://github.com/ethereum/go-ethereum/blob/b9df7ecdc3d3685180ceb29665bab59e9f614da5/core/tx_pool.go#L516
+// See: https://github.com/celo-org/celo-blockchain/blob/b9df7ecdc3d3685180ceb29665bab59e9f614da5/core/tx_pool.go#L516
 var gethFatal = regexp.MustCompile(`(: |^)(exceeds block gas limit|invalid sender|negative value|oversized data|gas uint64 overflow|intrinsic gas too low|nonce too high)$`)
 var geth = ClientErrors{
 	NonceTooLow:                       regexp.MustCompile(`(: |^)nonce too low$`),

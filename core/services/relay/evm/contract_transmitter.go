@@ -8,14 +8,14 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/logger"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	gethCommon "github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/accounts/abi"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	"github.com/smartcontractkit/libocr/offchainreporting2/chains/evmutil"
-	"github.com/smartcontractkit/libocr/offchainreporting2/reportingplugin/median"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers2/ocr2aggregator"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/chains/evmutil"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/reportingplugin/median"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 )
 
 var (

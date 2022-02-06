@@ -4,8 +4,8 @@ import (
 	"crypto/ecdsa"
 	"crypto/rand"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/celo-org/celo-blockchain/accounts/keystore"
+	"github.com/celo-org/celo-blockchain/crypto"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 )

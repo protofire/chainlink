@@ -4,8 +4,8 @@ import (
 	"context"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/pkg/errors"
 
 	evmclient "github.com/smartcontractkit/chainlink/core/chains/evm/client"
@@ -80,14 +80,14 @@ func (s *SimulateChecker) Check(
 	tx EthTx,
 	a EthTxAttempt,
 ) error {
-	// See: https://github.com/ethereum/go-ethereum/blob/acdf9238fb03d79c9b1c20c2fa476a7e6f4ac2ac/ethclient/gethclient/gethclient.go#L193
+	// See: https://github.com/celo-org/celo-blockchain/blob/acdf9238fb03d79c9b1c20c2fa476a7e6f4ac2ac/ethclient/gethclient/gethclient.go#L193
 	callArg := map[string]interface{}{
 		"from": tx.FromAddress,
 		"to":   &tx.ToAddress,
 		"gas":  hexutil.Uint64(a.ChainSpecificGasLimit),
 		// NOTE: Deliberately do not include gas prices. We never want to fatally error a
 		// transaction just because the wallet has insufficient eth.
-		// Relevant info regarding EIP1559 transactions: https://github.com/ethereum/go-ethereum/pull/23027
+		// Relevant info regarding EIP1559 transactions: https://github.com/celo-org/celo-blockchain/pull/23027
 		"gasPrice":             nil,
 		"maxFeePerGas":         nil,
 		"maxPriorityFeePerGas": nil,

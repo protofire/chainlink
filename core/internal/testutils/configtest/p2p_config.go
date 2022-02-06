@@ -3,7 +3,7 @@ package configtest
 import (
 	"github.com/smartcontractkit/chainlink/core/config"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
-	ocrnetworking "github.com/smartcontractkit/libocr/networking"
+	ocrnetworking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 )
 
 var _ config.P2PNetworking = &TestGeneralConfig{}

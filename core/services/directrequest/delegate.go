@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 
 	"github.com/smartcontractkit/chainlink/core/assets"

@@ -4,7 +4,7 @@ import (
 	cryptorand "crypto/rand"
 	"testing"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/stretchr/testify/require"
 )
 

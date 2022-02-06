@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
+	"github.com/celo-org/celo-blockchain"
 	"github.com/jpillora/backoff"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
@@ -36,7 +36,7 @@ type headListener struct {
 	logger           logger.Logger
 	chStop           chan struct{}
 	chHeaders        chan *evmtypes.Head
-	headSubscription ethereum.Subscription
+	headSubscription celo.Subscription
 	connected        atomic.Bool
 	receivingHeads   atomic.Bool
 }

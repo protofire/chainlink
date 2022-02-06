@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/celo-org/celo-blockchain/common"
 	"github.com/pkg/errors"
 
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"

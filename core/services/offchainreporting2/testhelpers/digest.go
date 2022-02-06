@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"testing"
 
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 )
 
 func MakeConfigDigest(t *testing.T) ocrtypes.ConfigDigest {

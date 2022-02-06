@@ -6,9 +6,9 @@ import (
 	"io"
 
 	"github.com/hdevalence/ed25519consensus"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/chains/evmutil"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/chainlink/core/utils"
-	"github.com/smartcontractkit/libocr/offchainreporting2/chains/evmutil"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 	"golang.org/x/crypto/blake2s"
 )
 

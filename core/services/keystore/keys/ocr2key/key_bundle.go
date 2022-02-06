@@ -9,11 +9,11 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/ethereum/go-ethereum/crypto/secp256k1"
+	"github.com/celo-org/celo-blockchain/crypto/secp256k1"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/chaintype"
 	"github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey"
 	"github.com/smartcontractkit/chainlink/core/store/models"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 )
 
 type KeyBundle interface {

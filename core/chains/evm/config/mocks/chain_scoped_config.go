@@ -9,9 +9,9 @@ import (
 
 	chains "github.com/smartcontractkit/chainlink/core/chains"
 
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 
-	commontypes "github.com/smartcontractkit/libocr/commontypes"
+	commontypes "github.com/smartcontractkit/chainlink/core/external/libocr/commontypes"
 
 	coreconfig "github.com/smartcontractkit/chainlink/core/config"
 
@@ -25,7 +25,7 @@ import (
 
 	net "net"
 
-	networking "github.com/smartcontractkit/libocr/networking"
+	networking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 
 	p2pkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
 

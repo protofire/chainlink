@@ -4,16 +4,16 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	"github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/pkg/errors"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
 // Receipt represents an ethereum receipt.
 //
-// Copied from go-ethereum: https://github.com/ethereum/go-ethereum/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/receipt.go#L50
+// Copied from go-ethereum: https://github.com/celo-org/celo-blockchain/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/receipt.go#L50
 //
 // We use our own version because Geth's version specifies various
 // gencodec:"required" fields which cause unhelpful errors when unmarshalling
@@ -72,7 +72,7 @@ func (r Receipt) IsUnmined() bool {
 }
 
 // MarshalJSON marshals Receipt as JSON.
-// Copied from: https://github.com/ethereum/go-ethereum/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/gen_receipt_json.go
+// Copied from: https://github.com/celo-org/celo-blockchain/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/gen_receipt_json.go
 func (r Receipt) MarshalJSON() ([]byte, error) {
 	type Receipt struct {
 		PostState         hexutil.Bytes   `json:"root"`
@@ -157,7 +157,7 @@ func (r *Receipt) UnmarshalJSON(input []byte) error {
 
 // Log represents a contract log event.
 //
-// Copied from go-ethereum: https://github.com/ethereum/go-ethereum/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/log.go
+// Copied from go-ethereum: https://github.com/celo-org/celo-blockchain/blob/ce9a289fa48e0d2593c4aaa7e207c8a5dd3eaa8a/core/types/log.go
 //
 // We use our own version because Geth's version specifies various
 // gencodec:"required" fields which cause unhelpful errors when unmarshalling

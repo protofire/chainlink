@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	gethCommon "github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	gethTypes "github.com/ethereum/go-ethereum/core/types"
+	gethCommon "github.com/celo-org/celo-blockchain/common"
+	"github.com/celo-org/celo-blockchain/common/hexutil"
+	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/onsi/gomega"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/assert"

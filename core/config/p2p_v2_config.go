@@ -5,8 +5,8 @@ import (
 
 	"github.com/smartcontractkit/chainlink/core/config/envvar"
 	"github.com/smartcontractkit/chainlink/core/config/parse"
+	ocrcommontypes "github.com/smartcontractkit/chainlink/core/external/libocr/commontypes"
 	"github.com/smartcontractkit/chainlink/core/store/models"
-	ocrcommontypes "github.com/smartcontractkit/libocr/commontypes"
 )
 
 type P2PV2Networking interface {

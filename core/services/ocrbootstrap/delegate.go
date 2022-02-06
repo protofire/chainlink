@@ -2,13 +2,13 @@ package ocrbootstrap
 
 import (
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/commontypes"
+	ocr "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/job"
 	"github.com/smartcontractkit/chainlink/core/services/ocrcommon"
 	"github.com/smartcontractkit/chainlink/core/services/offchainreporting2"
 	"github.com/smartcontractkit/chainlink/core/services/relay/types"
-	"github.com/smartcontractkit/libocr/commontypes"
-	ocr "github.com/smartcontractkit/libocr/offchainreporting2"
 	"github.com/smartcontractkit/sqlx"
 )
 

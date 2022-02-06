@@ -7,7 +7,7 @@ import (
 
 	assets "github.com/smartcontractkit/chainlink/core/assets"
 
-	commontypes "github.com/smartcontractkit/libocr/commontypes"
+	commontypes "github.com/smartcontractkit/chainlink/core/external/libocr/commontypes"
 
 	config "github.com/smartcontractkit/chainlink/core/config"
 
@@ -21,7 +21,7 @@ import (
 
 	net "net"
 
-	networking "github.com/smartcontractkit/libocr/networking"
+	networking "github.com/smartcontractkit/chainlink/core/external/libocr/networking"
 
 	p2pkey "github.com/smartcontractkit/chainlink/core/services/keystore/keys/p2pkey"
 

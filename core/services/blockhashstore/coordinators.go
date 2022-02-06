@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/pkg/errors"
 
 	v1 "github.com/smartcontractkit/chainlink/core/internal/gethwrappers/generated/solidity_vrf_coordinator_interface"

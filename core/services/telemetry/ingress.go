@@ -3,8 +3,8 @@ package telemetry
 import (
 	"context"
 
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/commontypes"
 	"github.com/smartcontractkit/chainlink/core/services/synchronization"
-	ocrtypes "github.com/smartcontractkit/libocr/commontypes"
 )
 
 var _ MonitoringEndpointGenerator = &IngressAgentWrapper{}

@@ -1,8 +1,8 @@
 package offchainreporting
 
 import (
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
 	"github.com/smartcontractkit/chainlink/core/services/job"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting/types"
 )
 
 func toLocalConfig(cfg ValidationConfig, spec job.OffchainReportingOracleSpec) ocrtypes.LocalConfig {

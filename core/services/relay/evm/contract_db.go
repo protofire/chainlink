@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 
 	"github.com/pkg/errors"
+	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers2/ocr2aggregator"
+	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting2/types"
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/services/pg"
-	"github.com/smartcontractkit/libocr/gethwrappers2/ocr2aggregator"
-	ocrtypes "github.com/smartcontractkit/libocr/offchainreporting2/types"
 )
 
 var _ OCRContractTrackerDB = &contractDB{}

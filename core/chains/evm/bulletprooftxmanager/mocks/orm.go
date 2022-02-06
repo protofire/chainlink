@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	common "github.com/ethereum/go-ethereum/common"
+	common "github.com/celo-org/celo-blockchain/common"
 	bulletprooftxmanager "github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager"
 
 	mock "github.com/stretchr/testify/mock"
