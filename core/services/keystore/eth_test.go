@@ -212,7 +212,7 @@ func Test_EthKeyStore_SignTx(t *testing.T) {
 	k, _ := cltest.MustAddRandomKeyToKeystore(t, ethKeyStore)
 
 	chainID := big.NewInt(evmclient.NullClientChainID)
-	tx := types.NewTransaction(0, cltest.NewAddress(), big.NewInt(53), 21000, big.NewInt(1000000000), []byte{1, 2, 3, 4})
+	tx := types.NewTransaction(0, cltest.NewAddress(), big.NewInt(53), 21000, big.NewInt(1000000000), nil, nil, nil, []byte{1, 2, 3, 4})
 
 	randomAddress := cltest.NewAddress()
 	_, err := ethKeyStore.SignTx(randomAddress, tx, chainID)

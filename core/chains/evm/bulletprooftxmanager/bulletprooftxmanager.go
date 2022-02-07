@@ -459,7 +459,7 @@ func sendEmptyTransaction(
 func makeEmptyTransaction(keyStore KeyStore, nonce uint64, gasLimit uint64, gasPriceWei *big.Int, fromAddress common.Address, chainID *big.Int) (*gethTypes.Transaction, error) {
 	value := big.NewInt(0)
 	payload := []byte{}
-	tx := gethTypes.NewTransaction(nonce, fromAddress, value, gasLimit, gasPriceWei, payload)
+	tx := gethTypes.NewTransaction(nonce, fromAddress, value, gasLimit, gasPriceWei, nil, nil, nil, payload)
 	return keyStore.SignTx(fromAddress, tx, chainID)
 }
 
