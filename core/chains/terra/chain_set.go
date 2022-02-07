@@ -7,8 +7,8 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/multierr"
 
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra"
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 	"github.com/smartcontractkit/sqlx"
 
 	"github.com/smartcontractkit/chainlink/core/chains/terra/types"
@@ -72,7 +72,7 @@ type ChainSet interface {
 	ORM() types.ORM
 }
 
-//go:generate mockery --name ChainSet --srcpkg github.com/smartcontractkit/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
+//go:generate mockery --name ChainSet --srcpkg github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
 var _ ChainSet = (*chainSet)(nil)
 
 type chainSet struct {

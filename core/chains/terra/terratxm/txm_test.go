@@ -14,8 +14,8 @@ import (
 	wasmtypes "github.com/terra-money/core/x/wasm/types"
 	"gopkg.in/guregu/null.v4"
 
-	pkgterra "github.com/smartcontractkit/chainlink-terra/pkg/terra"
-	terraclient "github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
+	pkgterra "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
+	terraclient "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client"
 	"github.com/smartcontractkit/terra.go/msg"
 
 	"github.com/smartcontractkit/chainlink/core/chains/terra"
@@ -27,7 +27,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/pg"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	. "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	. "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 )
 
 func TestTxm_Integration(t *testing.T) {

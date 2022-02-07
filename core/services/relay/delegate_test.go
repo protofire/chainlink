@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/smartcontractkit/chainlink-solana/pkg/solana"
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra"
-	terradb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-solana/pkg/solana"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
+	terradb "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 	"github.com/smartcontractkit/sqlx"
 
 	chainsMock "github.com/smartcontractkit/chainlink/core/chains/evm/mocks"

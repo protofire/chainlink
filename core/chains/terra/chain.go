@@ -11,9 +11,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra"
-	terraclient "github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
+	terraclient "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 	"github.com/smartcontractkit/sqlx"
 
 	"github.com/smartcontractkit/chainlink/core/chains/terra/terratxm"
@@ -31,9 +31,9 @@ import (
 // So we set a fairly high timeout here.
 const DefaultRequestTimeout = 30 * time.Second
 
-//go:generate mockery --name MsgEnqueuer --srcpkg github.com/smartcontractkit/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
-//go:generate mockery --name Reader --srcpkg github.com/smartcontractkit/chainlink-terra/pkg/terra/client --output ./mocks/ --case=underscore
-//go:generate mockery --name Chain --srcpkg github.com/smartcontractkit/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
+//go:generate mockery --name MsgEnqueuer --srcpkg github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
+//go:generate mockery --name Reader --srcpkg github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client --output ./mocks/ --case=underscore
+//go:generate mockery --name Chain --srcpkg github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra --output ./mocks/ --case=underscore
 var _ terra.Chain = (*chain)(nil)
 
 type chain struct {

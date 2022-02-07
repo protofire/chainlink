@@ -12,7 +12,7 @@ import (
 	"github.com/urfave/cli"
 	null "gopkg.in/guregu/null.v4"
 
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 
 	"github.com/smartcontractkit/chainlink/core/cmd"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"

@@ -3,7 +3,7 @@ package presenters
 import (
 	"time"
 
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 )
 
 // TerraChainResource is an Terra chain JSONAPI resource.

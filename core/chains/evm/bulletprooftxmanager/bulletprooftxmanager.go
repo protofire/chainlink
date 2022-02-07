@@ -11,7 +11,7 @@ import (
 
 	"github.com/celo-org/celo-blockchain/common"
 	gethTypes "github.com/celo-org/celo-blockchain/core/types"
-	exchainutils "github.com/okex/exchain-ethereum-compatible/utils"
+	exchainutils "github.com/smartcontractkit/chainlink/core/external/exchain-celo-compatible/utils"
 	"github.com/pkg/errors"
 	uuid "github.com/satori/go.uuid"
 

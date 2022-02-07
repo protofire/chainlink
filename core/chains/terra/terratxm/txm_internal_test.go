@@ -17,10 +17,10 @@ import (
 	tmtypes "github.com/tendermint/tendermint/proto/tendermint/types"
 	wasmtypes "github.com/terra-money/core/x/wasm/types"
 
-	"github.com/smartcontractkit/chainlink-terra/pkg/terra"
-	terraclient "github.com/smartcontractkit/chainlink-terra/pkg/terra/client"
-	tcmocks "github.com/smartcontractkit/chainlink-terra/pkg/terra/client/mocks"
-	terradb "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	"github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
+	terraclient "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client"
+	tcmocks "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client/mocks"
+	terradb "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest"
 	"github.com/smartcontractkit/chainlink/core/internal/testutils/terratest"
@@ -28,7 +28,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/services/keystore"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	. "github.com/smartcontractkit/chainlink-terra/pkg/terra/db"
+	. "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/db"
 )
 
 func generateExecuteMsg(t *testing.T, msg []byte, from, to cosmostypes.AccAddress) []byte {

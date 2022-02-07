@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	terra "github.com/smartcontractkit/chainlink-terra/pkg/terra"
+	terra "github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra"
 	mock "github.com/stretchr/testify/mock"
 )
 
