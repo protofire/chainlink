@@ -1,0 +1,3297 @@
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core	4.954s
+=== RUN   TestAssets_NewLinkAndString
+=== PAUSE TestAssets_NewLinkAndString
+=== RUN   TestAssets_NewLinkAndLink
+=== PAUSE TestAssets_NewLinkAndLink
+=== RUN   TestAssets_Link_MarshalJson
+=== PAUSE TestAssets_Link_MarshalJson
+=== RUN   TestAssets_Link_UnmarshalJsonOk
+=== PAUSE TestAssets_Link_UnmarshalJsonOk
+=== RUN   TestAssets_Link_UnmarshalJsonError
+=== PAUSE TestAssets_Link_UnmarshalJsonError
+=== RUN   TestAssets_NewEthAndString
+=== PAUSE TestAssets_NewEthAndString
+=== RUN   TestAssets_Eth_IsZero
+=== PAUSE TestAssets_Eth_IsZero
+=== RUN   TestAssets_Eth_MarshalJson
+=== PAUSE TestAssets_Eth_MarshalJson
+=== RUN   TestAssets_Eth_UnmarshalJsonOk
+=== PAUSE TestAssets_Eth_UnmarshalJsonOk
+=== RUN   TestAssets_Eth_UnmarshalJsonError
+=== PAUSE TestAssets_Eth_UnmarshalJsonError
+=== CONT  TestAssets_NewLinkAndString
+--- PASS: TestAssets_NewLinkAndString (0.00s)
+=== CONT  TestAssets_NewEthAndString
+--- PASS: TestAssets_NewEthAndString (0.00s)
+=== CONT  TestAssets_Eth_MarshalJson
+--- PASS: TestAssets_Eth_MarshalJson (0.00s)
+=== CONT  TestAssets_Eth_IsZero
+--- PASS: TestAssets_Eth_IsZero (0.00s)
+=== CONT  TestAssets_Eth_UnmarshalJsonError
+--- PASS: TestAssets_Eth_UnmarshalJsonError (0.00s)
+=== CONT  TestAssets_Link_UnmarshalJsonOk
+--- PASS: TestAssets_Link_UnmarshalJsonOk (0.00s)
+=== CONT  TestAssets_Link_UnmarshalJsonError
+--- PASS: TestAssets_Link_UnmarshalJsonError (0.00s)
+=== CONT  TestAssets_Link_MarshalJson
+--- PASS: TestAssets_Link_MarshalJson (0.00s)
+=== CONT  TestAssets_NewLinkAndLink
+--- PASS: TestAssets_NewLinkAndLink (0.00s)
+=== CONT  TestAssets_Eth_UnmarshalJsonOk
+--- PASS: TestAssets_Eth_UnmarshalJsonOk (0.00s)
+PASS
+coverage: 47.7% of statements
+ok  	github.com/smartcontractkit/chainlink/core/assets	3.269s	coverage: 47.7% of statements
+?   	github.com/smartcontractkit/chainlink/core/auth	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/bridges	1.461s
+?   	github.com/smartcontractkit/chainlink/core/bridges/mocks	[no test files]
+=== RUN   Test_ParseCBOR
+=== PAUSE Test_ParseCBOR
+=== RUN   Test_autoAddMapDelimiters
+=== PAUSE Test_autoAddMapDelimiters
+=== RUN   TestCoerceInterfaceMapToStringMap
+=== PAUSE TestCoerceInterfaceMapToStringMap
+=== RUN   TestCoerceInterfaceMapToStringMap_BadInputs
+=== PAUSE TestCoerceInterfaceMapToStringMap_BadInputs
+=== RUN   TestJSON_CBOR
+=== PAUSE TestJSON_CBOR
+=== CONT  Test_ParseCBOR
+=== CONT  TestCoerceInterfaceMapToStringMap
+=== RUN   Test_ParseCBOR/hello_world
+=== RUN   TestCoerceInterfaceMapToStringMap/empty_map
+=== CONT  Test_autoAddMapDelimiters
+=== RUN   Test_autoAddMapDelimiters/map(0)
+=== RUN   TestCoerceInterfaceMapToStringMap/simple_map
+=== RUN   Test_autoAddMapDelimiters/map(1)_{"key":"value"}
+=== RUN   TestCoerceInterfaceMapToStringMap/int_map
+=== RUN   Test_autoAddMapDelimiters/array(0)
+=== CONT  TestCoerceInterfaceMapToStringMap_BadInputs
+=== RUN   TestCoerceInterfaceMapToStringMap/nested_string_map_map
+=== RUN   TestCoerceInterfaceMapToStringMap/nested_map_map
+=== RUN   Test_ParseCBOR/trailing_empty_bytes
+=== RUN   TestCoerceInterfaceMapToStringMap/nested_map_array
+=== RUN   TestCoerceInterfaceMapToStringMap/empty_array
+=== RUN   TestCoerceInterfaceMapToStringMap/simple_array
+=== RUN   TestCoerceInterfaceMapToStringMap/nested_array_map
+--- PASS: TestCoerceInterfaceMapToStringMap (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/empty_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/simple_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/int_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/nested_string_map_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/nested_map_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/nested_map_array (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/empty_array (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/simple_array (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap/nested_array_map (0.00s)
+=== CONT  TestJSON_CBOR
+=== RUN   TestJSON_CBOR/empty_object
+=== RUN   Test_ParseCBOR/nested_maps
+=== RUN   TestCoerceInterfaceMapToStringMap_BadInputs/error_map
+=== RUN   TestCoerceInterfaceMapToStringMap_BadInputs/error_array
+--- PASS: TestCoerceInterfaceMapToStringMap_BadInputs (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap_BadInputs/error_map (0.00s)
+    --- PASS: TestCoerceInterfaceMapToStringMap_BadInputs/error_array (0.00s)
+=== RUN   Test_autoAddMapDelimiters/map(*)_{"key":"value"}
+=== RUN   Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_open_delimiter
+=== RUN   Test_ParseCBOR/missing_initial_start_map_marker
+=== RUN   Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_closing_delimiter
+=== RUN   TestJSON_CBOR/array
+=== RUN   Test_ParseCBOR/bignums
+=== RUN   Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_both_delimiters
+=== RUN   Test_autoAddMapDelimiters/empty_input_adds_delimiters
+--- PASS: Test_autoAddMapDelimiters (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(0) (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(1)_{"key":"value"} (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/array(0) (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(*)_{"key":"value"} (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_open_delimiter (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_closing_delimiter (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/map(*)_{"key":"value"}_missing_both_delimiters (0.00s)
+    --- PASS: Test_autoAddMapDelimiters/empty_input_adds_delimiters (0.00s)
+=== RUN   Test_ParseCBOR/bignums#01
+=== RUN   TestJSON_CBOR/basic_object
+=== RUN   Test_ParseCBOR/empty_object
+=== RUN   TestJSON_CBOR/complex_object
+=== RUN   Test_ParseCBOR/empty_string
+=== RUN   Test_ParseCBOR/invalid_CBOR
+--- PASS: Test_ParseCBOR (0.00s)
+    --- PASS: Test_ParseCBOR/hello_world (0.00s)
+    --- PASS: Test_ParseCBOR/trailing_empty_bytes (0.00s)
+    --- PASS: Test_ParseCBOR/nested_maps (0.00s)
+    --- PASS: Test_ParseCBOR/missing_initial_start_map_marker (0.00s)
+    --- PASS: Test_ParseCBOR/bignums (0.00s)
+    --- PASS: Test_ParseCBOR/bignums#01 (0.00s)
+    --- PASS: Test_ParseCBOR/empty_object (0.00s)
+    --- PASS: Test_ParseCBOR/empty_string (0.00s)
+    --- PASS: Test_ParseCBOR/invalid_CBOR (0.00s)
+--- PASS: TestJSON_CBOR (0.00s)
+    --- PASS: TestJSON_CBOR/empty_object (0.00s)
+    --- PASS: TestJSON_CBOR/array (0.00s)
+    --- PASS: TestJSON_CBOR/basic_object (0.00s)
+    --- PASS: TestJSON_CBOR/complex_object (0.00s)
+PASS
+coverage: 82.4% of statements
+ok  	github.com/smartcontractkit/chainlink/core/cbor	0.461s	coverage: 82.4% of statements
+?   	github.com/smartcontractkit/chainlink/core/chains	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm	1.939s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/balancemonitor	2.903s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager	2.400s
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/bulletprooftxmanager/mocks	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/client	3.629s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/config	2.367s
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/config/mocks	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/gas	2.392s
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/gas/mocks	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/headtracker	3.320s
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/mocks	[no test files]
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/headtracker/types	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/log	2.841s
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/log/mocks	[no test files]
+?   	github.com/smartcontractkit/chainlink/core/chains/evm/mocks	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/evm/types	3.661s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/terra	1.934s
+?   	github.com/smartcontractkit/chainlink/core/chains/terra/mocks	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/chains/terra/terratxm	2.980s
+?   	github.com/smartcontractkit/chainlink/core/chains/terra/types	[no test files]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/cmd	2.171s
+?   	github.com/smartcontractkit/chainlink/core/cmd/mocks	[no test files]
+=== RUN   TestGeneralConfig_Defaults
+--- PASS: TestGeneralConfig_Defaults (0.00s)
+=== RUN   TestGeneralConfig_GlobalOCRDatabaseTimeout
+--- PASS: TestGeneralConfig_GlobalOCRDatabaseTimeout (0.00s)
+=== RUN   TestGeneralConfig_GlobalOCRObservationGracePeriod
+--- PASS: TestGeneralConfig_GlobalOCRObservationGracePeriod (0.00s)
+=== RUN   TestGeneralConfig_GlobalOCRContractTransmitterTransmitTimeout
+--- PASS: TestGeneralConfig_GlobalOCRContractTransmitterTransmitTimeout (0.00s)
+=== RUN   TestGeneralConfig_sessionSecret
+=== PAUSE TestGeneralConfig_sessionSecret
+=== RUN   TestConfig_readFromFile
+--- PASS: TestConfig_readFromFile (0.00s)
+=== RUN   TestStore_bigIntParser
+--- PASS: TestStore_bigIntParser (0.00s)
+=== RUN   TestStore_levelParser
+--- PASS: TestStore_levelParser (0.00s)
+=== RUN   TestStore_urlParser
+=== RUN   TestStore_urlParser/valid_URL
+=== RUN   TestStore_urlParser/invalid_URL
+=== RUN   TestStore_urlParser/empty_URL
+--- PASS: TestStore_urlParser (0.00s)
+    --- PASS: TestStore_urlParser/valid_URL (0.00s)
+    --- PASS: TestStore_urlParser/invalid_URL (0.00s)
+    --- PASS: TestStore_urlParser/empty_URL (0.00s)
+=== RUN   TestStore_boolParser
+--- PASS: TestStore_boolParser (0.00s)
+=== RUN   TestNewConfigPrinter
+--- PASS: TestNewConfigPrinter (0.00s)
+=== CONT  TestGeneralConfig_sessionSecret
+--- PASS: TestGeneralConfig_sessionSecret (0.00s)
+PASS
+coverage: 27.4% of statements
+ok  	github.com/smartcontractkit/chainlink/core/config	2.507s	coverage: 27.4% of statements
+=== RUN   TestConfigSchema
+--- PASS: TestConfigSchema (0.08s)
+PASS
+coverage: 17.2% of statements
+ok  	github.com/smartcontractkit/chainlink/core/config/envvar	1.506s	coverage: 17.2% of statements
+?   	github.com/smartcontractkit/chainlink/core/config/mocks	[no test files]
+?   	github.com/smartcontractkit/chainlink/core/config/parse	[no test files]
+=== RUN   TestEncodeDecode_AcceptOwnership
+=== RUN   TestEncodeDecode_AcceptOwnership/AcceptOwnership0
+--- PASS: TestEncodeDecode_AcceptOwnership (0.00s)
+    --- PASS: TestEncodeDecode_AcceptOwnership/AcceptOwnership0 (0.00s)
+=== RUN   TestEncodeDecode_AddAccess
+=== RUN   TestEncodeDecode_AddAccess/AddAccess0
+--- PASS: TestEncodeDecode_AddAccess (0.00s)
+    --- PASS: TestEncodeDecode_AddAccess/AddAccess0 (0.00s)
+=== RUN   TestEncodeDecode_Initialize
+=== RUN   TestEncodeDecode_Initialize/Initialize0
+--- PASS: TestEncodeDecode_Initialize (0.00s)
+    --- PASS: TestEncodeDecode_Initialize/Initialize0 (0.00s)
+=== RUN   TestEncodeDecode_RemoveAccess
+=== RUN   TestEncodeDecode_RemoveAccess/RemoveAccess0
+--- PASS: TestEncodeDecode_RemoveAccess (0.00s)
+    --- PASS: TestEncodeDecode_RemoveAccess/RemoveAccess0 (0.00s)
+=== RUN   TestEncodeDecode_TransferOwnership
+=== RUN   TestEncodeDecode_TransferOwnership/TransferOwnership0
+--- PASS: TestEncodeDecode_TransferOwnership (0.00s)
+    --- PASS: TestEncodeDecode_TransferOwnership/TransferOwnership0 (0.00s)
+PASS
+coverage: 6.9% of statements
+ok  	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/contracts/generated/access_controller	1.931s	coverage: 6.9% of statements
+=== RUN   TestEncodeDecode_AcceptOwnership
+=== RUN   TestEncodeDecode_AcceptOwnership/AcceptOwnership0
+--- PASS: TestEncodeDecode_AcceptOwnership (0.00s)
+    --- PASS: TestEncodeDecode_AcceptOwnership/AcceptOwnership0 (0.00s)
+=== RUN   TestEncodeDecode_AcceptPayeeship
+=== RUN   TestEncodeDecode_AcceptPayeeship/AcceptPayeeship0
+--- PASS: TestEncodeDecode_AcceptPayeeship (0.00s)
+    --- PASS: TestEncodeDecode_AcceptPayeeship/AcceptPayeeship0 (0.00s)
+=== RUN   TestEncodeDecode_BeginOffchainConfig
+=== RUN   TestEncodeDecode_BeginOffchainConfig/BeginOffchainConfig0
+--- PASS: TestEncodeDecode_BeginOffchainConfig (0.00s)
+    --- PASS: TestEncodeDecode_BeginOffchainConfig/BeginOffchainConfig0 (0.00s)
+=== RUN   TestEncodeDecode_Close
+=== RUN   TestEncodeDecode_Close/Close0
+--- PASS: TestEncodeDecode_Close (0.00s)
+    --- PASS: TestEncodeDecode_Close/Close0 (0.00s)
+=== RUN   TestEncodeDecode_CommitOffchainConfig
+=== RUN   TestEncodeDecode_CommitOffchainConfig/CommitOffchainConfig0
+--- PASS: TestEncodeDecode_CommitOffchainConfig (0.00s)
+    --- PASS: TestEncodeDecode_CommitOffchainConfig/CommitOffchainConfig0 (0.00s)
+=== RUN   TestEncodeDecode_Initialize
+=== RUN   TestEncodeDecode_Initialize/Initialize0
+--- PASS: TestEncodeDecode_Initialize (0.00s)
+    --- PASS: TestEncodeDecode_Initialize/Initialize0 (0.00s)
+=== RUN   TestEncodeDecode_PayOracles
+=== RUN   TestEncodeDecode_PayOracles/PayOracles0
+--- PASS: TestEncodeDecode_PayOracles (0.00s)
+    --- PASS: TestEncodeDecode_PayOracles/PayOracles0 (0.00s)
+=== RUN   TestEncodeDecode_PayRemaining
+=== RUN   TestEncodeDecode_PayRemaining/PayRemaining0
+--- PASS: TestEncodeDecode_PayRemaining (0.00s)
+    --- PASS: TestEncodeDecode_PayRemaining/PayRemaining0 (0.00s)
+=== RUN   TestEncodeDecode_RequestNewRound
+=== RUN   TestEncodeDecode_RequestNewRound/RequestNewRound0
+--- PASS: TestEncodeDecode_RequestNewRound (0.00s)
+    --- PASS: TestEncodeDecode_RequestNewRound/RequestNewRound0 (0.00s)
+=== RUN   TestEncodeDecode_SetBillingAccessController
+=== RUN   TestEncodeDecode_SetBillingAccessController/SetBillingAccessController0
+--- PASS: TestEncodeDecode_SetBillingAccessController (0.00s)
+    --- PASS: TestEncodeDecode_SetBillingAccessController/SetBillingAccessController0 (0.00s)
+=== RUN   TestEncodeDecode_SetBilling
+=== RUN   TestEncodeDecode_SetBilling/SetBilling0
+--- PASS: TestEncodeDecode_SetBilling (0.00s)
+    --- PASS: TestEncodeDecode_SetBilling/SetBilling0 (0.00s)
+=== RUN   TestEncodeDecode_SetConfig
+=== RUN   TestEncodeDecode_SetConfig/SetConfig0
+--- PASS: TestEncodeDecode_SetConfig (0.00s)
+    --- PASS: TestEncodeDecode_SetConfig/SetConfig0 (0.00s)
+=== RUN   TestEncodeDecode_SetPayees
+=== RUN   TestEncodeDecode_SetPayees/SetPayees0
+--- PASS: TestEncodeDecode_SetPayees (0.00s)
+    --- PASS: TestEncodeDecode_SetPayees/SetPayees0 (0.00s)
+=== RUN   TestEncodeDecode_SetRequesterAccessController
+=== RUN   TestEncodeDecode_SetRequesterAccessController/SetRequesterAccessController0
+--- PASS: TestEncodeDecode_SetRequesterAccessController (0.00s)
+    --- PASS: TestEncodeDecode_SetRequesterAccessController/SetRequesterAccessController0 (0.00s)
+=== RUN   TestEncodeDecode_TransferOwnership
+=== RUN   TestEncodeDecode_TransferOwnership/TransferOwnership0
+--- PASS: TestEncodeDecode_TransferOwnership (0.00s)
+    --- PASS: TestEncodeDecode_TransferOwnership/TransferOwnership0 (0.00s)
+=== RUN   TestEncodeDecode_TransferPayeeship
+=== RUN   TestEncodeDecode_TransferPayeeship/TransferPayeeship0
+--- PASS: TestEncodeDecode_TransferPayeeship (0.00s)
+    --- PASS: TestEncodeDecode_TransferPayeeship/TransferPayeeship0 (0.00s)
+=== RUN   TestEncodeDecode_WithdrawFunds
+=== RUN   TestEncodeDecode_WithdrawFunds/WithdrawFunds0
+--- PASS: TestEncodeDecode_WithdrawFunds (0.00s)
+    --- PASS: TestEncodeDecode_WithdrawFunds/WithdrawFunds0 (0.00s)
+=== RUN   TestEncodeDecode_WithdrawPayment
+=== RUN   TestEncodeDecode_WithdrawPayment/WithdrawPayment0
+--- PASS: TestEncodeDecode_WithdrawPayment (0.00s)
+    --- PASS: TestEncodeDecode_WithdrawPayment/WithdrawPayment0 (0.00s)
+=== RUN   TestEncodeDecode_WriteOffchainConfig
+=== RUN   TestEncodeDecode_WriteOffchainConfig/WriteOffchainConfig0
+--- PASS: TestEncodeDecode_WriteOffchainConfig (0.00s)
+    --- PASS: TestEncodeDecode_WriteOffchainConfig/WriteOffchainConfig0 (0.00s)
+PASS
+coverage: 7.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/contracts/generated/ocr2	2.611s	coverage: 7.6% of statements
+=== RUN   TestEncodeDecode_AcceptOwnership
+=== RUN   TestEncodeDecode_AcceptOwnership/AcceptOwnership0
+--- PASS: TestEncodeDecode_AcceptOwnership (0.00s)
+    --- PASS: TestEncodeDecode_AcceptOwnership/AcceptOwnership0 (0.00s)
+=== RUN   TestEncodeDecode_CloseFeed
+=== RUN   TestEncodeDecode_CloseFeed/CloseFeed0
+--- PASS: TestEncodeDecode_CloseFeed (0.00s)
+    --- PASS: TestEncodeDecode_CloseFeed/CloseFeed0 (0.00s)
+=== RUN   TestEncodeDecode_CreateFeed
+=== RUN   TestEncodeDecode_CreateFeed/CreateFeed0
+--- PASS: TestEncodeDecode_CreateFeed (0.00s)
+    --- PASS: TestEncodeDecode_CreateFeed/CreateFeed0 (0.00s)
+=== RUN   TestEncodeDecode_Initialize
+=== RUN   TestEncodeDecode_Initialize/Initialize0
+--- PASS: TestEncodeDecode_Initialize (0.00s)
+    --- PASS: TestEncodeDecode_Initialize/Initialize0 (0.00s)
+=== RUN   TestEncodeDecode_LowerFlags
+=== RUN   TestEncodeDecode_LowerFlags/LowerFlags0
+--- PASS: TestEncodeDecode_LowerFlags (0.00s)
+    --- PASS: TestEncodeDecode_LowerFlags/LowerFlags0 (0.00s)
+=== RUN   TestEncodeDecode_Query
+=== RUN   TestEncodeDecode_Query/Query0
+    Query_test.go:34: 
+        	Error Trace:	Query_test.go:34
+        	Error:      	Not equal: 
+        	            	expected: &store.Query{Scope:(*store.Version)(0xc00011fd79), AccountMetaSlice:solana.AccountMetaSlice(nil)}
+        	            	actual  : &store.Query{Scope:(*store.Version)(0xc00011fda0), AccountMetaSlice:solana.AccountMetaSlice(nil)}
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1,3 +1,3 @@
+        	            	 (*store.Query)({
+        	            	- Scope: (*store.Version)(246),
+        	            	+ Scope: (*store.Version)(0),
+        	            	  AccountMetaSlice: (solana.AccountMetaSlice) <nil>
+        	Test:       	TestEncodeDecode_Query/Query0
+--- FAIL: TestEncodeDecode_Query (0.00s)
+    --- FAIL: TestEncodeDecode_Query/Query0 (0.00s)
+=== RUN   TestEncodeDecode_SetLoweringAccessController
+=== RUN   TestEncodeDecode_SetLoweringAccessController/SetLoweringAccessController0
+--- PASS: TestEncodeDecode_SetLoweringAccessController (0.00s)
+    --- PASS: TestEncodeDecode_SetLoweringAccessController/SetLoweringAccessController0 (0.00s)
+=== RUN   TestEncodeDecode_SetValidatorConfig
+=== RUN   TestEncodeDecode_SetValidatorConfig/SetValidatorConfig0
+--- PASS: TestEncodeDecode_SetValidatorConfig (0.00s)
+    --- PASS: TestEncodeDecode_SetValidatorConfig/SetValidatorConfig0 (0.00s)
+=== RUN   TestEncodeDecode_SetWriter
+=== RUN   TestEncodeDecode_SetWriter/SetWriter0
+--- PASS: TestEncodeDecode_SetWriter (0.00s)
+    --- PASS: TestEncodeDecode_SetWriter/SetWriter0 (0.00s)
+=== RUN   TestEncodeDecode_Submit
+=== RUN   TestEncodeDecode_Submit/Submit0
+--- PASS: TestEncodeDecode_Submit (0.00s)
+    --- PASS: TestEncodeDecode_Submit/Submit0 (0.00s)
+=== RUN   TestEncodeDecode_TransferOwnership
+=== RUN   TestEncodeDecode_TransferOwnership/TransferOwnership0
+--- PASS: TestEncodeDecode_TransferOwnership (0.00s)
+    --- PASS: TestEncodeDecode_TransferOwnership/TransferOwnership0 (0.00s)
+FAIL
+coverage: 12.2% of statements
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/contracts/generated/store	2.748s
+=== RUN   TestConfigDigester
+--- PASS: TestConfigDigester (0.01s)
+=== RUN   TestLatestBlockHeight
+2022-02-07T19:37:10Z [WARN]  could not parse polling interval using default 1s  solana/client.go:44              logger=TestLatestBlockHeight 
+2022-02-07T19:37:10Z [WARN]  could not parse polling context duration using default 2x polling interval solana/client.go:51              logger=TestLatestBlockHeight 
+    config_tracker_test.go:19: 
+        	Error Trace:	config_tracker_test.go:19
+        	Error:      	Received unexpected error:
+        	            	rpc call getSlot() on https://api.devnet.solana.com: Post "https://api.devnet.solana.com": dial tcp 109.230.214.107:443: connect: operation timed out
+        	Test:       	TestLatestBlockHeight
+    config_tracker_test.go:20: 
+        	Error Trace:	config_tracker_test.go:20
+        	Error:      	Should be true
+        	Test:       	TestLatestBlockHeight
+--- FAIL: TestLatestBlockHeight (75.91s)
+=== RUN   TestGetState
+--- PASS: TestGetState (0.01s)
+=== RUN   TestGetLatestTransmission
+--- PASS: TestGetLatestTransmission (0.01s)
+=== RUN   TestStatePolling
+2022-02-07T19:38:26Z [WARN]  could not parse polling interval using default 1s  solana/client.go:44              logger=TestStatePolling 
+2022-02-07T19:38:26Z [WARN]  could not parse polling context duration using default 2x polling interval solana/client.go:51              logger=TestStatePolling 
+--- PASS: TestStatePolling (5.00s)
+=== RUN   TestBuildReport
+--- PASS: TestBuildReport (0.00s)
+=== RUN   TestMedianFromReport
+--- PASS: TestMedianFromReport (0.00s)
+=== RUN   TestHashReport
+--- PASS: TestHashReport (0.00s)
+=== RUN   TestState_Decode
+--- PASS: TestState_Decode (0.00s)
+FAIL
+coverage: 59.6% of statements
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/pkg/solana	82.180s
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/tests/e2e/chaos [build failed]
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-solana/tests/e2e/smoke [build failed]
+=== RUN   TestConfigDigester
+--- PASS: TestConfigDigester (0.00s)
+=== RUN   TestConfig
+--- PASS: TestConfig (0.00s)
+=== RUN   TestBuildReport
+--- PASS: TestBuildReport (0.00s)
+=== RUN   TestMedianFromReport
+--- PASS: TestMedianFromReport (0.00s)
+=== RUN   TestHexToByteArray
+=== RUN   TestHexToByteArray/success
+=== RUN   TestHexToByteArray/empty
+=== RUN   TestHexToByteArray/fail-invalid-char
+--- PASS: TestHexToByteArray (0.00s)
+    --- PASS: TestHexToByteArray/success (0.00s)
+    --- PASS: TestHexToByteArray/empty (0.00s)
+    --- PASS: TestHexToByteArray/fail-invalid-char (0.00s)
+=== RUN   TestHexToConfigDigest
+=== RUN   TestHexToConfigDigest/success
+=== RUN   TestHexToConfigDigest/fail-empty
+=== RUN   TestHexToConfigDigest/fail-too-short
+=== RUN   TestHexToConfigDigest/fail-invalid-char
+--- PASS: TestHexToConfigDigest (0.00s)
+    --- PASS: TestHexToConfigDigest/success (0.00s)
+    --- PASS: TestHexToConfigDigest/fail-empty (0.00s)
+    --- PASS: TestHexToConfigDigest/fail-too-short (0.00s)
+    --- PASS: TestHexToConfigDigest/fail-invalid-char (0.00s)
+=== RUN   TestHexToArray
+=== RUN   TestHexToArray/success-single
+=== RUN   TestHexToArray/success-short
+=== RUN   TestHexToArray/success
+=== RUN   TestHexToArray/success-string
+=== RUN   TestHexToArray/success-account
+=== RUN   TestHexToArray/fail-invalid-length
+=== RUN   TestHexToArray/fail-invalid-char
+--- PASS: TestHexToArray (0.00s)
+    --- PASS: TestHexToArray/success-single (0.00s)
+    --- PASS: TestHexToArray/success-short (0.00s)
+    --- PASS: TestHexToArray/success (0.00s)
+    --- PASS: TestHexToArray/success-string (0.00s)
+    --- PASS: TestHexToArray/success-account (0.00s)
+    --- PASS: TestHexToArray/fail-invalid-length (0.00s)
+    --- PASS: TestHexToArray/fail-invalid-char (0.00s)
+=== RUN   TestRawMessageStringIntToInt
+=== RUN   TestRawMessageStringIntToInt/success
+=== RUN   TestRawMessageStringIntToInt/fail-invalid
+=== RUN   TestRawMessageStringIntToInt/fail-unmarshal
+--- PASS: TestRawMessageStringIntToInt (0.00s)
+    --- PASS: TestRawMessageStringIntToInt/success (0.00s)
+    --- PASS: TestRawMessageStringIntToInt/fail-invalid (0.00s)
+    --- PASS: TestRawMessageStringIntToInt/fail-unmarshal (0.00s)
+=== RUN   TestContractConfigToOCRConfig
+=== RUN   TestContractConfigToOCRConfig/valid_input
+=== RUN   TestContractConfigToOCRConfig/invalid_input
+--- PASS: TestContractConfigToOCRConfig (0.00s)
+    --- PASS: TestContractConfigToOCRConfig/valid_input (0.00s)
+    --- PASS: TestContractConfigToOCRConfig/invalid_input (0.00s)
+PASS
+coverage: 35.0% of statements
+ok  	github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra	1.506s	coverage: 35.0% of statements
+=== RUN   TestErrMatch
+--- PASS: TestErrMatch (0.00s)
+=== RUN   TestBatchSim
+    test_helpers.go:48: /var/folders/n0/jmdjmp1172n19207b4nj77g80000gn/T/integration-test347994573
+    test_helpers.go:50: 
+        	Error Trace:	test_helpers.go:50
+        	            				client_test.go:29
+        	Error:      	Received unexpected error:
+        	            	exec: "terrad": executable file not found in $PATH
+        	Test:       	TestBatchSim
+--- FAIL: TestBatchSim (0.00s)
+=== RUN   TestTerraClient
+    test_helpers.go:48: /var/folders/n0/jmdjmp1172n19207b4nj77g80000gn/T/integration-test131820574
+    test_helpers.go:50: 
+        	Error Trace:	test_helpers.go:50
+        	            				client_test.go:114
+        	Error:      	Received unexpected error:
+        	            	exec: "terrad": executable file not found in $PATH
+        	Test:       	TestTerraClient
+--- FAIL: TestTerraClient (0.00s)
+=== RUN   TestGasPriceEstimators
+=== RUN   TestGasPriceEstimators/fixed
+=== RUN   TestGasPriceEstimators/fcd
+    gas_price_estimator_test.go:36: 
+        	Error Trace:	gas_price_estimator_test.go:36
+        	Error:      	Received unexpected error:
+        	            	Get "https://fcd.terra.dev:443/v1/txs/gas_prices": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+        	Test:       	TestGasPriceEstimators/fcd
+=== RUN   TestGasPriceEstimators/caching
+=== RUN   TestGasPriceEstimators/closure
+=== RUN   TestGasPriceEstimators/composed
+--- FAIL: TestGasPriceEstimators (15.43s)
+    --- PASS: TestGasPriceEstimators/fixed (0.00s)
+    --- FAIL: TestGasPriceEstimators/fcd (10.00s)
+    --- PASS: TestGasPriceEstimators/caching (4.53s)
+    --- PASS: TestGasPriceEstimators/closure (0.00s)
+    --- PASS: TestGasPriceEstimators/composed (0.90s)
+FAIL
+coverage: 24.8% of statements
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra/client	16.661s
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-terra/tests/e2e/chaos [build failed]
+FAIL	github.com/smartcontractkit/chainlink/core/external/chainlink-terra/tests/e2e/smoke [build failed]
+=== RUN   TestClient
+[38;5;9mGinkgo detected configuration issues:[0m
+[1m[38;5;9mUse of go test -parallel[0m
+  Go test's implementation of parallelization does not actually parallelize
+  Ginkgo specs.  Please use the ginkgo cli and `ginkgo -p` or `ginkgo -procs=N`
+  instead.
+
+FAIL	github.com/smartcontractkit/chainlink/core/external/integrations-framework/client	1.830s
+=== RUN   TestFrameworkConfig
+=== PAUSE TestFrameworkConfig
+=== RUN   TestNetworkConfig
+=== PAUSE TestNetworkConfig
+=== RUN   TestChartCreation
+=== PAUSE TestChartCreation
+=== CONT  TestFrameworkConfig
+=== CONT  TestChartCreation
+=== CONT  TestNetworkConfig
+--- PASS: TestChartCreation (0.00s)
+{"level":"info","File":"/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/config/test_framework_config.yml","Directory Used":"/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/config/","Hint":"If this is an unexpected file or path, it's likely that the provided one was unable to resolve and so a default was used","time":"2022-02-07T20:37:28+01:00","message":"Loaded framework config file"}
+{"level":"info","File":"/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/config/test_networks_config.yml","time":"2022-02-07T20:37:28+01:00","message":"Loaded networks config file"}
+--- PASS: TestFrameworkConfig (0.00s)
+--- PASS: TestNetworkConfig (0.00s)
+PASS
+coverage: 67.9% of statements
+ok  	github.com/smartcontractkit/chainlink/core/external/integrations-framework/config	0.874s	coverage: 67.9% of statements
+=== RUN   Test_Suite
+[90m8:37PM[0m [32mINF[0m Loaded framework config file [36mDirectory Used=[0m/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/ [36mFile=[0m/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/framework.yaml [36mHint=[0m"If this is an unexpected file or path, it's likely that the provided one was unable to resolve and so a default was used"
+[90m8:37PM[0m [32mINF[0m Loaded networks config file [36mFile=[0m/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/integrations-framework/networks.yaml
+[38;5;9mGinkgo detected configuration issues:[0m
+[1m[38;5;9mUse of go test -parallel[0m
+  Go test's implementation of parallelization does not actually parallelize
+  Ginkgo specs.  Please use the ginkgo cli and `ginkgo -p` or `ginkgo -procs=N`
+  instead.
+
+FAIL	github.com/smartcontractkit/chainlink/core/external/integrations-framework/suite/smoke	2.013s
+FAIL	github.com/smartcontractkit/chainlink/core/internal [build failed]
+some solidity artifacts missing ([../../../contracts/solc/v0.6/BlockhashStore.abi ../../../contracts/solc/v0.7/Consumer.abi ../../../contracts/solc/v0.6/Flags.abi ../../../contracts/solc/v0.6/FluxAggregator.abi ../../../contracts/solc/v0.7/KeeperRegistry.abi ../../../contracts/solc/v0.7/MultiWordConsumer.abi ../../../contracts/solc/v0.7/Operator.abi ../../../contracts/solc/v0.6/Oracle.abi ../../../contracts/solc/v0.6/VRFConsumer.abi ../../../contracts/solc/v0.8/VRFConsumer.abi ../../../contracts/solc/v0.6/VRFCoordinator.abi ../../../contracts/solc/v0.6/VRFRequestIDBaseTestHelper.abi ../../../contracts/solc/v0.8/VRFRequestIDBaseTestHelper.abi ../../../contracts/solc/v0.8/VRFTestHelper.abi ../../../contracts/solc/v0.6/VRFTestHelper.abi ../../../contracts/solc/v0.7/UpkeepPerformCounterRestrictive.abi ../../../contracts/solc/v0.8/VRFConsumerV2.abi ../../../contracts/solc/v0.8/VRFCoordinatorV2.abi ../../../contracts/solc/v0.8/VRFExternalSubOwnerExample.abi ../../../contracts/solc/v0.8/VRFMaliciousConsumerV2.abi ../../../contracts/solc/v0.8/VRFOwnerlessConsumerExample.abi ../../../contracts/solc/v0.8/VRFSingleConsumerExample.abi ../../../contracts/solc/v0.8/VRFV2RevertingExample.abi]); rebuilding.../Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/contracts/scripts
+Requirement already satisfied: solc-select==0.2.0 in /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages (from -r /Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/contracts/scripts/requirements.txt (line 1)) (0.2.0)
+WARNING: You are using pip version 20.1.1; however, version 22.0.3 is available.
+You should consider upgrading via the '/usr/local/bin/python3 -m pip install --upgrade pip' command.
+../../../contracts/scripts/native_solc_compile_all: line 8: solc-select: command not found
+panic: exit status 127
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/gethwrappers.init.1()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/gethwrappers/go_generate_test.go:132 +0x345
+FAIL	github.com/smartcontractkit/chainlink/core/internal/gethwrappers	4.296s
+=== RUN   TestConfig
+--- PASS: TestConfig (0.00s)
+=== RUN   TestTestLogger
+2022-02-07T19:37:43Z [WARN]  Test message                                       logger/test_logger_test.go:37    logger=TestTestLogger 
+2022-02-07T19:37:43Z [DEBUG] Service message                                    logger/test_logger_test.go:49    key=value logger=TestTestLogger.ServiceName 
+2022-02-07T19:37:43Z [INFO]  Did some work                                      logger/test_logger_test.go:63    logger=TestTestLogger.ServiceName.WorkerName result=success workerId=42 
+2022-02-07T19:37:43Z [CRIT]  Critical error                                     logger/test_logger_test.go:71    logger=TestTestLogger stacktrace=github.com/smartcontractkit/chainlink/core/logger.TestTestLogger
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/logger/test_logger_test.go:71
+testing.tRunner
+	/usr/local/go/src/testing/testing.go:1259 
+--- PASS: TestTestLogger (0.00s)
+=== RUN   TestTrace
+--- PASS: TestTrace (0.00s)
+=== RUN   Test_toMap
+=== RUN   Test_toMap/with_even_number_of_keys/values
+=== RUN   Test_toMap/with_odd_number_of_keys/values,_drops_the_last_one
+--- PASS: Test_toMap (0.00s)
+    --- PASS: Test_toMap/with_even_number_of_keys/values (0.00s)
+    --- PASS: Test_toMap/with_odd_number_of_keys/values,_drops_the_last_one (0.00s)
+PASS
+coverage: 28.2% of statements
+ok  	github.com/smartcontractkit/chainlink/core/logger	0.441s	coverage: 28.2% of statements
+=== RUN   TestPrettyConsole_Write
+=== RUN   TestPrettyConsole_Write/headline
+=== RUN   TestPrettyConsole_Write/details
+=== RUN   TestPrettyConsole_Write/blacklist
+=== RUN   TestPrettyConsole_Write/error
+--- PASS: TestPrettyConsole_Write (0.00s)
+    --- PASS: TestPrettyConsole_Write/headline (0.00s)
+    --- PASS: TestPrettyConsole_Write/details (0.00s)
+    --- PASS: TestPrettyConsole_Write/blacklist (0.00s)
+    --- PASS: TestPrettyConsole_Write/error (0.00s)
+PASS
+coverage: [no statements]
+ok  	github.com/smartcontractkit/chainlink/core/logger/internal/colortest	1.162s	coverage: [no statements]
+=== RUN   TestInt64From
+=== RUN   TestInt64From/12345
+=== RUN   TestInt64From/0
+--- PASS: TestInt64From (0.00s)
+    --- PASS: TestInt64From/12345 (0.00s)
+    --- PASS: TestInt64From/0 (0.00s)
+=== RUN   TestUnmarshalInt64_Valid
+=== RUN   TestUnmarshalInt64_Valid/int_json
+=== RUN   TestUnmarshalInt64_Valid/int_string_json
+--- PASS: TestUnmarshalInt64_Valid (0.00s)
+    --- PASS: TestUnmarshalInt64_Valid/int_json (0.00s)
+    --- PASS: TestUnmarshalInt64_Valid/int_string_json (0.00s)
+=== RUN   TestUnmarshalInt64_Invalid
+=== RUN   TestUnmarshalInt64_Invalid/blank_json_string
+=== RUN   TestUnmarshalInt64_Invalid/null_json
+--- PASS: TestUnmarshalInt64_Invalid (0.00s)
+    --- PASS: TestUnmarshalInt64_Invalid/blank_json_string (0.00s)
+    --- PASS: TestUnmarshalInt64_Invalid/null_json (0.00s)
+=== RUN   TestUnmarshalInt64_Error
+=== RUN   TestUnmarshalInt64_Error/wrong_type_json
+=== RUN   TestUnmarshalInt64_Error/invalid_json
+=== RUN   TestUnmarshalInt64_Error/float
+--- PASS: TestUnmarshalInt64_Error (0.00s)
+    --- PASS: TestUnmarshalInt64_Error/wrong_type_json (0.00s)
+    --- PASS: TestUnmarshalInt64_Error/invalid_json (0.00s)
+    --- PASS: TestUnmarshalInt64_Error/float (0.00s)
+=== RUN   TestUnmarshalUint64Overflow
+--- PASS: TestUnmarshalUint64Overflow (0.00s)
+=== RUN   TestTextUnmarshalInt64_Valid
+--- PASS: TestTextUnmarshalInt64_Valid (0.00s)
+=== RUN   TestTextUnmarshalInt64_Invalid
+=== RUN   TestTextUnmarshalInt64_Invalid/empty
+=== RUN   TestTextUnmarshalInt64_Invalid/null
+--- PASS: TestTextUnmarshalInt64_Invalid (0.00s)
+    --- PASS: TestTextUnmarshalInt64_Invalid/empty (0.00s)
+    --- PASS: TestTextUnmarshalInt64_Invalid/null (0.00s)
+=== RUN   TestMarshalInt64
+--- PASS: TestMarshalInt64 (0.00s)
+=== RUN   TestMarshalInt64Text
+--- PASS: TestMarshalInt64Text (0.00s)
+=== RUN   TestInt64SetValid
+--- PASS: TestInt64SetValid (0.00s)
+=== RUN   TestInt64Scan
+--- PASS: TestInt64Scan (0.00s)
+=== RUN   TestUint32From
+=== RUN   TestUint32From/12345
+=== RUN   TestUint32From/0
+--- PASS: TestUint32From (0.00s)
+    --- PASS: TestUint32From/12345 (0.00s)
+    --- PASS: TestUint32From/0 (0.00s)
+=== RUN   TestUnmarshalUint32_Valid
+=== RUN   TestUnmarshalUint32_Valid/int_json
+=== RUN   TestUnmarshalUint32_Valid/int_string_json
+--- PASS: TestUnmarshalUint32_Valid (0.00s)
+    --- PASS: TestUnmarshalUint32_Valid/int_json (0.00s)
+    --- PASS: TestUnmarshalUint32_Valid/int_string_json (0.00s)
+=== RUN   TestUnmarshalUint32_Invalid
+=== RUN   TestUnmarshalUint32_Invalid/blank_json_string
+=== RUN   TestUnmarshalUint32_Invalid/null_json
+--- PASS: TestUnmarshalUint32_Invalid (0.00s)
+    --- PASS: TestUnmarshalUint32_Invalid/blank_json_string (0.00s)
+    --- PASS: TestUnmarshalUint32_Invalid/null_json (0.00s)
+=== RUN   TestUnmarshalUint32_Error
+=== RUN   TestUnmarshalUint32_Error/wrong_type_json
+=== RUN   TestUnmarshalUint32_Error/invalid_json
+=== RUN   TestUnmarshalUint32_Error/float
+--- PASS: TestUnmarshalUint32_Error (0.00s)
+    --- PASS: TestUnmarshalUint32_Error/wrong_type_json (0.00s)
+    --- PASS: TestUnmarshalUint32_Error/invalid_json (0.00s)
+    --- PASS: TestUnmarshalUint32_Error/float (0.00s)
+=== RUN   TestUnmarshalUint32Overflow
+--- PASS: TestUnmarshalUint32Overflow (0.00s)
+=== RUN   TestTextUnmarshalInt_Valid
+--- PASS: TestTextUnmarshalInt_Valid (0.00s)
+=== RUN   TestTextUnmarshalInt_Invalid
+=== RUN   TestTextUnmarshalInt_Invalid/empty
+=== RUN   TestTextUnmarshalInt_Invalid/null
+--- PASS: TestTextUnmarshalInt_Invalid (0.00s)
+    --- PASS: TestTextUnmarshalInt_Invalid/empty (0.00s)
+    --- PASS: TestTextUnmarshalInt_Invalid/null (0.00s)
+=== RUN   TestMarshalInt
+--- PASS: TestMarshalInt (0.00s)
+=== RUN   TestMarshalIntText
+--- PASS: TestMarshalIntText (0.00s)
+=== RUN   TestUint32SetValid
+--- PASS: TestUint32SetValid (0.00s)
+=== RUN   TestUint32Scan
+--- PASS: TestUint32Scan (0.00s)
+PASS
+coverage: 90.7% of statements
+ok  	github.com/smartcontractkit/chainlink/core/null	0.235s	coverage: 90.7% of statements
+=== RUN   TestCheck
+--- PASS: TestCheck (0.00s)
+PASS
+coverage: 16.9% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services	0.517s	coverage: 16.9% of statements
+=== RUN   TestFeeder
+=== RUN   TestFeeder/single_unfulfilled_request
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/single_unfulfilled_request unfulfilledReqIDs=["request"] 
+=== RUN   TestFeeder/single_fulfilled_request
+=== RUN   TestFeeder/single_already_fulfilled
+2022-02-07T19:37:52Z [INFO]  Blockhash already stored                           blockhashstore/feeder.go:147     block=150 latestBlock=200 logger=TestFeeder/single_already_fulfilled unfulfilledReqIDs=["request"] 
+=== RUN   TestFeeder/error_checking_if_stored,_store_anyway
+2022-02-07T19:37:52Z [ERROR] Failed to check if block is already stored, attempting to store anyway blockhashstore/feeder.go:142     block=150 error=error checking if stored errorVerbose=error checking if stored
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*testBHS).IsStored
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:306
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*Feeder).Run
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder.go:140
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.TestFeeder.func1
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:210
+testing.tRunner
+	/usr/local/go/src/testing/testing.go:1259
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1581 logger=TestFeeder/error_checking_if_stored,_store_anyway stacktrace=github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*Feeder).Run
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder.go:142
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.TestFeeder.func1
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:210
+testing.tRunner
+	/usr/local/go/src/testing/testing.go:1259 
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/error_checking_if_stored,_store_anyway unfulfilledReqIDs=["request"] 
+=== RUN   TestFeeder/error_storing,_continue_to_next_block_anyway
+2022-02-07T19:37:52Z [ERROR] Failed to store block                              blockhashstore/feeder.go:157     block=150 error=error storing errorVerbose=error storing
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*testBHS).Store
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:295
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*Feeder).Run
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder.go:155
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.TestFeeder.func1
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:210
+testing.tRunner
+	/usr/local/go/src/testing/testing.go:1259
+runtime.goexit
+	/usr/local/go/src/runtime/asm_amd64.s:1581 logger=TestFeeder/error_storing,_continue_to_next_block_anyway stacktrace=github.com/smartcontractkit/chainlink/core/services/blockhashstore.(*Feeder).Run
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder.go:157
+github.com/smartcontractkit/chainlink/core/services/blockhashstore.TestFeeder.func1
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/blockhashstore/feeder_test.go:210
+testing.tRunner
+	/usr/local/go/src/testing/testing.go:1259 
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=151 latestBlock=200 logger=TestFeeder/error_storing,_continue_to_next_block_anyway unfulfilledReqIDs=["request"] 
+=== RUN   TestFeeder/multiple_requests_same_block,_some_fulfilled
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/multiple_requests_same_block,_some_fulfilled unfulfilledReqIDs=["request2"] 
+=== RUN   TestFeeder/multiple_requests_same_block,_all_fulfilled
+=== RUN   TestFeeder/fulfillment_no_matching_request_no_error
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/fulfillment_no_matching_request_no_error unfulfilledReqIDs=["request"] 
+=== RUN   TestFeeder/multiple_unfulfilled_requests
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/multiple_unfulfilled_requests unfulfilledReqIDs=["request1"] 
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=151 latestBlock=200 logger=TestFeeder/multiple_unfulfilled_requests unfulfilledReqIDs=["request2"] 
+=== RUN   TestFeeder/multiple_fulfilled_requests
+=== RUN   TestFeeder/recent_unfulfilled_request_do_not_store
+=== RUN   TestFeeder/old_unfulfilled_request_do_not_store
+=== RUN   TestFeeder/mixed
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=150 latestBlock=200 logger=TestFeeder/mixed unfulfilledReqIDs=["request3"] 
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=153 latestBlock=200 logger=TestFeeder/mixed unfulfilledReqIDs=["request6"] 
+=== RUN   TestFeeder/lookback_before_0th_block
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=20 latestBlock=50 logger=TestFeeder/lookback_before_0th_block unfulfilledReqIDs=["request"] 
+--- PASS: TestFeeder (0.00s)
+    --- PASS: TestFeeder/single_unfulfilled_request (0.00s)
+    --- PASS: TestFeeder/single_fulfilled_request (0.00s)
+    --- PASS: TestFeeder/single_already_fulfilled (0.00s)
+    --- PASS: TestFeeder/error_checking_if_stored,_store_anyway (0.00s)
+    --- PASS: TestFeeder/error_storing,_continue_to_next_block_anyway (0.00s)
+    --- PASS: TestFeeder/multiple_requests_same_block,_some_fulfilled (0.00s)
+    --- PASS: TestFeeder/multiple_requests_same_block,_all_fulfilled (0.00s)
+    --- PASS: TestFeeder/fulfillment_no_matching_request_no_error (0.00s)
+    --- PASS: TestFeeder/multiple_unfulfilled_requests (0.00s)
+    --- PASS: TestFeeder/multiple_fulfilled_requests (0.00s)
+    --- PASS: TestFeeder/recent_unfulfilled_request_do_not_store (0.00s)
+    --- PASS: TestFeeder/old_unfulfilled_request_do_not_store (0.00s)
+    --- PASS: TestFeeder/mixed (0.00s)
+    --- PASS: TestFeeder/lookback_before_0th_block (0.00s)
+=== RUN   TestFeeder_CachesStoredBlocks
+2022-02-07T19:37:52Z [INFO]  Stored blockhash                                   blockhashstore/feeder.go:162     block=100 latestBlock=250 logger=TestFeeder_CachesStoredBlocks unfulfilledReqIDs=["request"] 
+--- PASS: TestFeeder_CachesStoredBlocks (0.00s)
+=== RUN   TestValidate
+=== RUN   TestValidate/valid
+=== RUN   TestValidate/defaults
+=== RUN   TestValidate/v1_only
+=== RUN   TestValidate/v2_only
+=== RUN   TestValidate/invalid_no_coordinators
+=== RUN   TestValidate/invalid_no_blockhashstore
+=== RUN   TestValidate/invalid_no_chain_ID
+=== RUN   TestValidate/invalid_waitBlocks_too_high
+=== RUN   TestValidate/invalid_lookbackBlocks_too_high
+=== RUN   TestValidate/invalid_waitBlocks_higher_than_lookbackBlocks
+=== RUN   TestValidate/invalid_toml
+=== RUN   TestValidate/toml_wrong_type_for_spec
+=== RUN   TestValidate/toml_wrong_type_for_job
+--- PASS: TestValidate (0.00s)
+    --- PASS: TestValidate/valid (0.00s)
+    --- PASS: TestValidate/defaults (0.00s)
+    --- PASS: TestValidate/v1_only (0.00s)
+    --- PASS: TestValidate/v2_only (0.00s)
+    --- PASS: TestValidate/invalid_no_coordinators (0.00s)
+    --- PASS: TestValidate/invalid_no_blockhashstore (0.00s)
+    --- PASS: TestValidate/invalid_no_chain_ID (0.00s)
+    --- PASS: TestValidate/invalid_waitBlocks_too_high (0.00s)
+    --- PASS: TestValidate/invalid_lookbackBlocks_too_high (0.00s)
+    --- PASS: TestValidate/invalid_waitBlocks_higher_than_lookbackBlocks (0.00s)
+    --- PASS: TestValidate/invalid_toml (0.00s)
+    --- PASS: TestValidate/toml_wrong_type_for_spec (0.00s)
+    --- PASS: TestValidate/toml_wrong_type_for_job (0.00s)
+PASS
+coverage: 38.7% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/blockhashstore	0.999s	coverage: 38.7% of statements
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/cron	2.193s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/directrequest	1.963s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/feeds	2.139s
+FAIL	github.com/smartcontractkit/chainlink/core/services/fluxmonitorv2 [build failed]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/job	1.851s
+FAIL	github.com/smartcontractkit/chainlink/core/services/keeper [build failed]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/keystore	2.212s
+=== RUN   Test_New
+--- PASS: Test_New (0.00s)
+=== RUN   Test_Unlock
+--- PASS: Test_Unlock (0.00s)
+=== RUN   Test_GetPrivateKey
+--- PASS: Test_GetPrivateKey (0.00s)
+PASS
+coverage: 21.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/keystore/keys/csakey	1.289s	coverage: 21.6% of statements
+=== RUN   TestEIP55Address
+=== PAUSE TestEIP55Address
+=== RUN   TestValidateEIP55Address
+=== PAUSE TestValidateEIP55Address
+=== CONT  TestEIP55Address
+=== CONT  TestValidateEIP55Address
+--- PASS: TestEIP55Address (0.00s)
+=== RUN   TestValidateEIP55Address/valid_address
+=== RUN   TestValidateEIP55Address/lowercase_address
+=== RUN   TestValidateEIP55Address/invalid_checksum
+=== RUN   TestValidateEIP55Address/no_leading_0x
+=== RUN   TestValidateEIP55Address/non_hex_character
+=== RUN   TestValidateEIP55Address/wrong_length
+--- PASS: TestValidateEIP55Address (0.00s)
+    --- PASS: TestValidateEIP55Address/valid_address (0.00s)
+    --- PASS: TestValidateEIP55Address/lowercase_address (0.00s)
+    --- PASS: TestValidateEIP55Address/invalid_checksum (0.00s)
+    --- PASS: TestValidateEIP55Address/no_leading_0x (0.00s)
+    --- PASS: TestValidateEIP55Address/non_hex_character (0.00s)
+    --- PASS: TestValidateEIP55Address/wrong_length (0.00s)
+PASS
+coverage: 19.2% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/keystore/keys/ethkey	2.976s	coverage: 19.2% of statements
+=== RUN   TestTerraKeyRing_Sign_Verify
+--- PASS: TestTerraKeyRing_Sign_Verify (0.00s)
+=== RUN   TestOCR2keys_New
+=== PAUSE TestOCR2keys_New
+=== CONT  TestOCR2keys_New
+--- PASS: TestOCR2keys_New (0.00s)
+PASS
+coverage: 28.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocr2key	1.077s	coverage: 28.6% of statements
+=== RUN   TestOCRKeys_New
+=== PAUSE TestOCRKeys_New
+=== RUN   TestOCRKeys_NewBundleIDMatchesOld
+=== PAUSE TestOCRKeys_NewBundleIDMatchesOld
+=== RUN   TestOCRKeys_Raw_Key
+=== PAUSE TestOCRKeys_Raw_Key
+=== RUN   TestOCR_OffchainPublicKey_MarshalJSON
+=== PAUSE TestOCR_OffchainPublicKey_MarshalJSON
+=== RUN   TestOCR_OffchainPublicKey_UnmarshalJSON_Happy
+=== PAUSE TestOCR_OffchainPublicKey_UnmarshalJSON_Happy
+=== RUN   TestOCR_OffchainPublicKey_UnmarshalJSON_Error
+=== PAUSE TestOCR_OffchainPublicKey_UnmarshalJSON_Error
+=== RUN   TestOCR_OnChainSigningAddress_String
+=== PAUSE TestOCR_OnChainSigningAddress_String
+=== CONT  TestOCRKeys_New
+--- PASS: TestOCRKeys_New (0.00s)
+=== CONT  TestOCR_OffchainPublicKey_UnmarshalJSON_Happy
+--- PASS: TestOCR_OffchainPublicKey_UnmarshalJSON_Happy (0.00s)
+=== CONT  TestOCR_OnChainSigningAddress_String
+--- PASS: TestOCR_OnChainSigningAddress_String (0.00s)
+=== CONT  TestOCR_OffchainPublicKey_UnmarshalJSON_Error
+--- PASS: TestOCR_OffchainPublicKey_UnmarshalJSON_Error (0.00s)
+=== CONT  TestOCRKeys_Raw_Key
+--- PASS: TestOCRKeys_Raw_Key (0.00s)
+=== CONT  TestOCR_OffchainPublicKey_MarshalJSON
+--- PASS: TestOCR_OffchainPublicKey_MarshalJSON (0.00s)
+=== CONT  TestOCRKeys_NewBundleIDMatchesOld
+--- PASS: TestOCRKeys_NewBundleIDMatchesOld (0.00s)
+PASS
+coverage: 34.0% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/keystore/keys/ocrkey	1.388s	coverage: 34.0% of statements
+=== RUN   TestVRF_IsSquare
+--- PASS: TestVRF_IsSquare (0.00s)
+=== RUN   TestVRF_SquareRoot
+--- PASS: TestVRF_SquareRoot (0.00s)
+=== RUN   TestVRF_YSquared
+--- PASS: TestVRF_YSquared (0.00s)
+=== RUN   TestVRF_IsCurveXOrdinate
+--- PASS: TestVRF_IsCurveXOrdinate (0.00s)
+=== RUN   TestVRF_VerifyProof
+--- PASS: TestVRF_VerifyProof (0.00s)
+=== RUN   TestValueScanIdentityPointSet
+--- PASS: TestValueScanIdentityPointSet (0.00s)
+=== RUN   TestHash
+--- PASS: TestHash (0.00s)
+PASS
+coverage: 36.0% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/keystore/keys/vrfkey	1.009s	coverage: 36.0% of statements
+=== RUN   TestValidateBootstrapSpec
+=== RUN   TestValidateBootstrapSpec/decodes_valid_bootstrap_spec_toml
+=== RUN   TestValidateBootstrapSpec/raises_error_on_missing_key
+=== RUN   TestValidateBootstrapSpec/raises_error_on_unexpected_key
+--- PASS: TestValidateBootstrapSpec (0.00s)
+    --- PASS: TestValidateBootstrapSpec/decodes_valid_bootstrap_spec_toml (0.00s)
+    --- PASS: TestValidateBootstrapSpec/raises_error_on_missing_key (0.00s)
+    --- PASS: TestValidateBootstrapSpec/raises_error_on_unexpected_key (0.00s)
+PASS
+coverage: 26.5% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/ocrbootstrap	4.659s	coverage: 26.5% of statements
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/ocrcommon	2.582s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/offchainreporting	2.628s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/offchainreporting2	2.298s
+=== RUN   TestPeriodicBackup_RunBackup
+    backup_test.go:30: 
+        	Error Trace:	backup_test.go:30
+        	Error:      	Received unexpected error:
+        	            	exec: "pg_dump": executable file not found in $PATH
+        	            	pg_dump failed
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.(*databaseBackup).runBackup
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup.go:197
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.TestPeriodicBackup_RunBackup
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup_test.go:29
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1259
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1581
+        	Test:       	TestPeriodicBackup_RunBackup
+        	Messages:   	error not nil for backup
+--- FAIL: TestPeriodicBackup_RunBackup (0.00s)
+=== RUN   TestPeriodicBackup_RunBackupInLiteMode
+    backup_test.go:50: 
+        	Error Trace:	backup_test.go:50
+        	Error:      	Received unexpected error:
+        	            	exec: "pg_dump": executable file not found in $PATH
+        	            	pg_dump failed
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.(*databaseBackup).runBackup
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup.go:197
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.TestPeriodicBackup_RunBackupInLiteMode
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup_test.go:49
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1259
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1581
+        	Test:       	TestPeriodicBackup_RunBackupInLiteMode
+        	Messages:   	error not nil for backup
+--- FAIL: TestPeriodicBackup_RunBackupInLiteMode (0.00s)
+=== RUN   TestPeriodicBackup_RunBackupWithoutVersion
+    backup_test.go:70: 
+        	Error Trace:	backup_test.go:70
+        	Error:      	Received unexpected error:
+        	            	exec: "pg_dump": executable file not found in $PATH
+        	            	pg_dump failed
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.(*databaseBackup).runBackup
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup.go:197
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.TestPeriodicBackup_RunBackupWithoutVersion
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup_test.go:69
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1259
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1581
+        	Test:       	TestPeriodicBackup_RunBackupWithoutVersion
+        	Messages:   	error not nil for backup
+--- FAIL: TestPeriodicBackup_RunBackupWithoutVersion (0.00s)
+=== RUN   TestPeriodicBackup_RunBackupViaAltUrlAndMaskPassword
+--- PASS: TestPeriodicBackup_RunBackupViaAltUrlAndMaskPassword (0.00s)
+=== RUN   TestPeriodicBackup_FrequencyTooSmall
+--- PASS: TestPeriodicBackup_FrequencyTooSmall (0.00s)
+=== RUN   TestPeriodicBackup_AlternativeOutputDir
+    backup_test.go:109: 
+        	Error Trace:	backup_test.go:109
+        	Error:      	Received unexpected error:
+        	            	exec: "pg_dump": executable file not found in $PATH
+        	            	pg_dump failed
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.(*databaseBackup).runBackup
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup.go:197
+        	            	github.com/smartcontractkit/chainlink/core/services/periodicbackup.TestPeriodicBackup_AlternativeOutputDir
+        	            		/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/periodicbackup/backup_test.go:108
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1259
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1581
+        	Test:       	TestPeriodicBackup_AlternativeOutputDir
+        	Messages:   	error not nil for backup
+--- FAIL: TestPeriodicBackup_AlternativeOutputDir (0.00s)
+FAIL
+coverage: 44.3% of statements
+FAIL	github.com/smartcontractkit/chainlink/core/services/periodicbackup	1.526s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/pg	2.253s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/pipeline	2.072s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/promreporter	2.784s
+=== RUN   TestNewOCR2Provider
+=== RUN   TestNewOCR2Provider/solana
+=== RUN   TestNewOCR2Provider/terra
+=== RUN   TestNewOCR2Provider/terra#01
+=== RUN   TestNewOCR2Provider/solana#01
+=== RUN   TestNewOCR2Provider/terra#02
+--- FAIL: TestNewOCR2Provider (0.00s)
+    --- PASS: TestNewOCR2Provider/solana (0.00s)
+    --- PASS: TestNewOCR2Provider/terra (0.00s)
+    --- PASS: TestNewOCR2Provider/terra#01 (0.00s)
+    --- PASS: TestNewOCR2Provider/solana#01 (0.00s)
+    --- FAIL: TestNewOCR2Provider/terra#02 (0.00s)
+panic: interface conversion: *mocks.Reader is not client.Reader: missing method TxsEvents [recovered]
+	panic: interface conversion: *mocks.Reader is not client.Reader: missing method TxsEvents
+
+goroutine 88 [running]:
+testing.tRunner.func1.2({0x5bcdf60, 0xc001f4df80})
+	/usr/local/go/src/testing/testing.go:1209 +0x24e
+testing.tRunner.func1()
+	/usr/local/go/src/testing/testing.go:1212 +0x218
+panic({0x5bcdf60, 0xc001f4df80})
+	/usr/local/go/src/runtime/panic.go:1038 +0x215
+github.com/smartcontractkit/chainlink/core/chains/terra/mocks.(*Chain).Reader(0xc001f47270, {0x0, 0x0})
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/chains/terra/mocks/chain.go:100 +0x105
+github.com/smartcontractkit/chainlink/core/external/chainlink-terra/pkg/terra.(*Relayer).NewOCR2Provider(0xc001e41240, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...}, ...)
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/external/chainlink-terra/pkg/terra/relay.go:91 +0x172
+github.com/smartcontractkit/chainlink/core/services/relay.delegate.NewOCR2Provider({0xc001f4d200, {0x6745ab0, 0xc001f47220}}, {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...}, ...)
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/relay/delegate.go:190 +0x3f5
+github.com/smartcontractkit/chainlink/core/services/relay_test.TestNewOCR2Provider.func2(0x4006db9)
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/services/relay/delegate_test.go:92 +0x9f
+testing.tRunner(0xc001fa6d00, 0xc001fc4678)
+	/usr/local/go/src/testing/testing.go:1259 +0x102
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1306 +0x35a
+FAIL	github.com/smartcontractkit/chainlink/core/services/relay	3.578s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/relay/evm	4.443s
+=== RUN   TestDSSNew
+--- PASS: TestDSSNew (0.00s)
+=== RUN   TestDSSPartialSigs
+--- PASS: TestDSSPartialSigs (0.02s)
+=== RUN   TestDSSSignature
+--- PASS: TestDSSSignature (0.07s)
+=== RUN   TestPartialSig_Hash
+--- PASS: TestPartialSig_Hash (0.00s)
+PASS
+coverage: 97.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/signatures/ethdss	3.508s	coverage: 97.6% of statements
+=== RUN   TestShortSchnorr_SignAndVerify
+--- PASS: TestShortSchnorr_SignAndVerify (0.03s)
+=== RUN   TestShortSchnorr_NewSignature
+--- PASS: TestShortSchnorr_NewSignature (0.00s)
+=== RUN   TestShortSchnorr_ChallengeHash
+--- PASS: TestShortSchnorr_ChallengeHash (0.00s)
+PASS
+coverage: 90.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/signatures/ethschnorr	1.470s	coverage: 90.6% of statements
+=== RUN   TestSecp256k1_String
+--- PASS: TestSecp256k1_String (0.00s)
+=== RUN   TestSecp256k1_Constructors
+--- PASS: TestSecp256k1_Constructors (0.00s)
+=== RUN   TestField_SetIntAndEqual
+--- PASS: TestField_SetIntAndEqual (0.00s)
+=== RUN   TestField_String
+--- PASS: TestField_String (0.00s)
+=== RUN   TestField_Equal
+--- PASS: TestField_Equal (0.00s)
+=== RUN   TestField_Set
+--- PASS: TestField_Set (0.00s)
+=== RUN   TestFieldEltFromInt
+--- PASS: TestFieldEltFromInt (0.00s)
+=== RUN   TestField_SmokeTestPick
+--- PASS: TestField_SmokeTestPick (0.00s)
+=== RUN   TestField_Neg
+--- PASS: TestField_Neg (0.00s)
+=== RUN   TestField_Sub
+--- PASS: TestField_Sub (0.00s)
+=== RUN   TestField_Clone
+--- PASS: TestField_Clone (0.00s)
+=== RUN   TestField_SetBytesAndBytes
+--- PASS: TestField_SetBytesAndBytes (0.00s)
+=== RUN   TestField_MaybeSquareRootInField
+--- PASS: TestField_MaybeSquareRootInField (0.00s)
+=== RUN   TestField_RightHandSide
+--- PASS: TestField_RightHandSide (0.00s)
+=== RUN   TestPoint_String
+--- PASS: TestPoint_String (0.00s)
+=== RUN   TestPoint_CloneAndEqual
+--- PASS: TestPoint_CloneAndEqual (0.00s)
+=== RUN   TestPoint_NullAndAdd
+--- PASS: TestPoint_NullAndAdd (0.00s)
+=== RUN   TestPoint_Set
+--- PASS: TestPoint_Set (0.00s)
+=== RUN   TestPoint_Embed
+--- PASS: TestPoint_Embed (0.00s)
+=== RUN   TestPoint_AddSubAndNeg
+--- PASS: TestPoint_AddSubAndNeg (0.00s)
+=== RUN   TestPoint_Mul
+--- PASS: TestPoint_Mul (0.00s)
+=== RUN   TestPoint_Marshal
+--- PASS: TestPoint_Marshal (0.00s)
+=== RUN   TestPoint_BaseTakesCopy
+--- PASS: TestPoint_BaseTakesCopy (0.00s)
+=== RUN   TestPoint_EthereumAddress
+--- PASS: TestPoint_EthereumAddress (0.00s)
+=== RUN   TestIsSecp256k1Point
+--- PASS: TestIsSecp256k1Point (0.00s)
+=== RUN   TestCoordinates
+--- PASS: TestCoordinates (0.00s)
+=== RUN   TestValidPublicKey
+--- PASS: TestValidPublicKey (0.00s)
+=== RUN   TestGenerate
+--- PASS: TestGenerate (0.00s)
+=== RUN   TestScalar_SetAndEqual
+--- PASS: TestScalar_SetAndEqual (0.00s)
+=== RUN   TestNewScalar
+--- PASS: TestNewScalar (0.00s)
+=== RUN   TestScalar_SmokeTestPick
+--- PASS: TestScalar_SmokeTestPick (0.00s)
+=== RUN   TestScalar_Neg
+--- PASS: TestScalar_Neg (0.00s)
+=== RUN   TestScalar_Sub
+--- PASS: TestScalar_Sub (0.00s)
+=== RUN   TestScalar_Clone
+--- PASS: TestScalar_Clone (0.00s)
+=== RUN   TestScalar_Marshal
+--- PASS: TestScalar_Marshal (0.00s)
+=== RUN   TestScalar_MulDivInv
+--- PASS: TestScalar_MulDivInv (0.00s)
+=== RUN   TestScalar_AllowVarTime
+--- PASS: TestScalar_AllowVarTime (0.00s)
+=== RUN   TestScalar_String
+--- PASS: TestScalar_String (0.00s)
+=== RUN   TestScalar_SetInt64
+--- PASS: TestScalar_SetInt64 (0.00s)
+=== RUN   TestScalar_DivPanicsOnZeroDivisor
+--- PASS: TestScalar_DivPanicsOnZeroDivisor (0.00s)
+=== RUN   TestScalar_InvPanicsOnZero
+--- PASS: TestScalar_InvPanicsOnZero (0.00s)
+=== RUN   TestScalar_SetBytes
+--- PASS: TestScalar_SetBytes (0.00s)
+=== RUN   TestScalar_IsSecp256k1Scalar
+--- PASS: TestScalar_IsSecp256k1Scalar (0.01s)
+=== RUN   TestScalar_IntToScalar
+--- PASS: TestScalar_IntToScalar (0.00s)
+=== RUN   TestSuite
+--- PASS: TestSuite (0.00s)
+PASS
+coverage: 73.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/services/signatures/secp256k1	3.519s	coverage: 73.6% of statements
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/synchronization	3.624s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/versioning	2.703s
+FAIL	github.com/smartcontractkit/chainlink/core/services/vrf [build failed]
+FAIL	github.com/smartcontractkit/chainlink/core/services/vrf/proof [build failed]
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/services/webhook	3.305s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/sessions	5.400s
+=== RUN   TestHandleShutdown
+=== RUN   TestHandleShutdown/SIGINT
+=== RUN   TestHandleShutdown/SIGTERM
+--- PASS: TestHandleShutdown (2.00s)
+    --- PASS: TestHandleShutdown/SIGINT (1.00s)
+    --- PASS: TestHandleShutdown/SIGTERM (1.00s)
+PASS
+coverage: 100.0% of statements
+ok  	github.com/smartcontractkit/chainlink/core/shutdown	2.366s	coverage: 100.0% of statements
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/store/models	2.467s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/utils	2.774s
+=== RUN   Test_EncryptedPrivateKey
+=== PAUSE Test_EncryptedPrivateKey
+=== RUN   Test_EncryptedPrivateKey_Decrypt
+=== PAUSE Test_EncryptedPrivateKey_Decrypt
+=== RUN   Test_EncryptedPrivateKey_Scan
+=== PAUSE Test_EncryptedPrivateKey_Scan
+=== RUN   Test_EncryptedPrivateKey_Value
+=== PAUSE Test_EncryptedPrivateKey_Value
+=== RUN   Test_PublicKey_String
+=== PAUSE Test_PublicKey_String
+=== RUN   Test_PublicKey_MarshalJSON
+=== PAUSE Test_PublicKey_MarshalJSON
+=== RUN   Test_PublicKey_UnmarshalJSON
+=== PAUSE Test_PublicKey_UnmarshalJSON
+=== RUN   Test_PublicKey_Scan
+--- PASS: Test_PublicKey_Scan (0.01s)
+=== RUN   Test_PublicKey_Value
+--- PASS: Test_PublicKey_Value (0.00s)
+=== CONT  Test_EncryptedPrivateKey
+--- PASS: Test_EncryptedPrivateKey (0.00s)
+=== CONT  Test_PublicKey_UnmarshalJSON
+=== CONT  Test_EncryptedPrivateKey_Value
+--- PASS: Test_PublicKey_UnmarshalJSON (0.00s)
+=== CONT  Test_EncryptedPrivateKey_Scan
+--- PASS: Test_EncryptedPrivateKey_Value (0.00s)
+=== CONT  Test_PublicKey_MarshalJSON
+--- PASS: Test_PublicKey_MarshalJSON (0.00s)
+=== CONT  Test_PublicKey_String
+--- PASS: Test_EncryptedPrivateKey_Scan (0.00s)
+=== CONT  Test_EncryptedPrivateKey_Decrypt
+--- PASS: Test_PublicKey_String (0.00s)
+--- PASS: Test_EncryptedPrivateKey_Decrypt (0.00s)
+PASS
+coverage: 74.3% of statements
+ok  	github.com/smartcontractkit/chainlink/core/utils/crypto	2.274s	coverage: 74.3% of statements
+=== RUN   TestStringUtils_ToInt64
+=== PAUSE TestStringUtils_ToInt64
+=== RUN   TestStringUtils_FromInt64
+=== PAUSE TestStringUtils_FromInt64
+=== RUN   TestStringUtils_ToInt32
+=== PAUSE TestStringUtils_ToInt32
+=== RUN   TestStringUtils_FromInt32
+=== PAUSE TestStringUtils_FromInt32
+=== CONT  TestStringUtils_ToInt64
+=== CONT  TestStringUtils_ToInt32
+--- PASS: TestStringUtils_ToInt32 (0.00s)
+--- PASS: TestStringUtils_ToInt64 (0.00s)
+=== CONT  TestStringUtils_FromInt64
+--- PASS: TestStringUtils_FromInt64 (0.00s)
+=== CONT  TestStringUtils_FromInt32
+--- PASS: TestStringUtils_FromInt32 (0.00s)
+PASS
+coverage: 85.7% of statements
+ok  	github.com/smartcontractkit/chainlink/core/utils/stringutils	2.286s	coverage: 85.7% of statements
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/web	2.990s
+panic: you must provide a DATABASE_URL environment variable
+
+goroutine 1 [running]:
+github.com/smartcontractkit/chainlink/core/internal/testutils/pgtest.init.0()
+	/Users/ceejay/Documents/Projects/Altoros/protofire/chainlink/core/internal/testutils/pgtest/txdb.go:37 +0x24e
+FAIL	github.com/smartcontractkit/chainlink/core/web/auth	4.356s
+=== RUN   TestLoader_Chains
+=== PAUSE TestLoader_Chains
+=== RUN   TestLoader_Nodes
+=== PAUSE TestLoader_Nodes
+=== RUN   TestLoader_FeedsManagers
+=== PAUSE TestLoader_FeedsManagers
+=== RUN   TestLoader_JobProposals
+=== PAUSE TestLoader_JobProposals
+=== RUN   TestLoader_JobRuns
+=== PAUSE TestLoader_JobRuns
+=== RUN   TestLoader_JobsByPipelineSpecIDs
+=== PAUSE TestLoader_JobsByPipelineSpecIDs
+=== RUN   TestLoader_EthTransactionsAttempts
+=== PAUSE TestLoader_EthTransactionsAttempts
+=== CONT  TestLoader_Chains
+=== CONT  TestLoader_JobRuns
+=== CONT  TestLoader_EthTransactionsAttempts
+=== CONT  TestLoader_JobRuns
+    loader_test.go:221: PASS:	JobORM()
+    loader_test.go:221: PASS:	FindPipelineRunsByIDs([]int64)
+--- PASS: TestLoader_JobRuns (0.00s)
+=== CONT  TestLoader_JobsByPipelineSpecIDs
+=== CONT  TestLoader_EthTransactionsAttempts
+    loader_test.go:311: PASS:	BPTXMORM()
+=== RUN   TestLoader_JobsByPipelineSpecIDs/with_out_errors
+=== PAUSE TestLoader_JobsByPipelineSpecIDs/with_out_errors
+=== CONT  TestLoader_EthTransactionsAttempts
+    loader_test.go:311: PASS:	FindEthTxAttemptsByEthTxIDs([]int64)
+--- PASS: TestLoader_EthTransactionsAttempts (0.00s)
+=== CONT  TestLoader_FeedsManagers
+=== RUN   TestLoader_JobsByPipelineSpecIDs/with_errors
+=== PAUSE TestLoader_JobsByPipelineSpecIDs/with_errors
+=== CONT  TestLoader_JobsByPipelineSpecIDs/with_out_errors
+=== CONT  TestLoader_FeedsManagers
+    loader_test.go:135: PASS:	GetFeedsService()
+=== CONT  TestLoader_JobsByPipelineSpecIDs/with_out_errors
+    loader_test.go:255: PASS:	JobORM()
+    loader_test.go:255: PASS:	FindJobsByPipelineSpecIDs([]int32)
+=== CONT  TestLoader_JobsByPipelineSpecIDs/with_errors
+=== CONT  TestLoader_FeedsManagers
+    loader_test.go:135: PASS:	ListManagersByIDs([]int64)
+--- PASS: TestLoader_FeedsManagers (0.00s)
+=== CONT  TestLoader_JobProposals
+=== CONT  TestLoader_JobsByPipelineSpecIDs/with_errors
+    loader_test.go:286: PASS:	JobORM()
+    loader_test.go:286: PASS:	FindJobsByPipelineSpecIDs([]int32)
+--- PASS: TestLoader_JobsByPipelineSpecIDs (0.00s)
+    --- PASS: TestLoader_JobsByPipelineSpecIDs/with_out_errors (0.00s)
+    --- PASS: TestLoader_JobsByPipelineSpecIDs/with_errors (0.00s)
+=== CONT  TestLoader_JobProposals
+    loader_test.go:178: PASS:	GetFeedsService()
+    loader_test.go:178: PASS:	ListJobProposalsByManagersIDs([]int64)
+--- PASS: TestLoader_JobProposals (0.00s)
+=== CONT  TestLoader_Nodes
+    loader_test.go:85: PASS:	EVMORM()
+    loader_test.go:85: PASS:	GetNodesByChainIDs([]utils.Big)
+--- PASS: TestLoader_Nodes (0.00s)
+=== CONT  TestLoader_Chains
+    loader_test.go:34: PASS:	EVMORM()
+    loader_test.go:34: PASS:	GetChainsByIDs([]utils.Big)
+--- PASS: TestLoader_Chains (0.00s)
+PASS
+coverage: 53.8% of statements
+ok  	github.com/smartcontractkit/chainlink/core/web/loader	5.028s	coverage: 53.8% of statements
+=== RUN   TestBridgeResource
+=== PAUSE TestBridgeResource
+=== RUN   TestCSAKeyResource
+--- PASS: TestCSAKeyResource (0.00s)
+=== RUN   TestETHKeyResource
+--- PASS: TestETHKeyResource (0.00s)
+=== RUN   TestEthTxResource
+=== PAUSE TestEthTxResource
+=== RUN   TestP2PKeyResource
+--- PASS: TestP2PKeyResource (0.00s)
+=== RUN   TestUserResource
+--- PASS: TestUserResource (0.00s)
+=== RUN   TestJob
+=== RUN   TestJob/direct_request_spec
+=== PAUSE TestJob/direct_request_spec
+=== RUN   TestJob/fluxmonitor_spec
+=== PAUSE TestJob/fluxmonitor_spec
+=== RUN   TestJob/ocr_spec
+=== PAUSE TestJob/ocr_spec
+=== RUN   TestJob/keeper_spec
+=== PAUSE TestJob/keeper_spec
+=== RUN   TestJob/cron_spec
+=== PAUSE TestJob/cron_spec
+=== RUN   TestJob/webhook_spec
+=== PAUSE TestJob/webhook_spec
+=== RUN   TestJob/blockhash_store_spec
+=== PAUSE TestJob/blockhash_store_spec
+=== RUN   TestJob/bootstrap_spec
+=== PAUSE TestJob/bootstrap_spec
+=== RUN   TestJob/with_errors
+=== PAUSE TestJob/with_errors
+=== CONT  TestJob/direct_request_spec
+=== CONT  TestJob/webhook_spec
+=== CONT  TestJob/with_errors
+=== CONT  TestJob/bootstrap_spec
+=== CONT  TestJob/keeper_spec
+=== CONT  TestJob/cron_spec
+=== CONT  TestJob/ocr_spec
+=== CONT  TestJob/fluxmonitor_spec
+=== CONT  TestJob/blockhash_store_spec
+--- PASS: TestJob (0.00s)
+    --- PASS: TestJob/direct_request_spec (0.00s)
+    --- PASS: TestJob/webhook_spec (0.00s)
+    --- PASS: TestJob/keeper_spec (0.00s)
+    --- PASS: TestJob/cron_spec (0.00s)
+    --- PASS: TestJob/ocr_spec (0.00s)
+    --- PASS: TestJob/fluxmonitor_spec (0.00s)
+    --- PASS: TestJob/with_errors (0.00s)
+    --- PASS: TestJob/bootstrap_spec (0.00s)
+    --- PASS: TestJob/blockhash_store_spec (0.00s)
+=== CONT  TestBridgeResource
+--- PASS: TestBridgeResource (0.00s)
+=== CONT  TestEthTxResource
+--- PASS: TestEthTxResource (0.00s)
+PASS
+coverage: 39.6% of statements
+ok  	github.com/smartcontractkit/chainlink/core/web/presenters	2.104s	coverage: 39.6% of statements
+=== RUN   TestResolver_CreateAPIToken
+=== PAUSE TestResolver_CreateAPIToken
+=== RUN   TestResolver_DeleteAPIToken
+=== PAUSE TestResolver_DeleteAPIToken
+=== RUN   Test_Bridges
+=== PAUSE Test_Bridges
+=== RUN   Test_Bridge
+=== PAUSE Test_Bridge
+=== RUN   Test_CreateBridge
+=== PAUSE Test_CreateBridge
+=== RUN   Test_UpdateBridge
+=== PAUSE Test_UpdateBridge
+=== RUN   Test_DeleteBridgeMutation
+=== PAUSE Test_DeleteBridgeMutation
+=== RUN   TestResolver_Config
+=== PAUSE TestResolver_Config
+=== RUN   Test_CSAKeysQuery
+=== RUN   Test_CSAKeysQuery/not_authorized
+=== PAUSE Test_CSAKeysQuery/not_authorized
+=== RUN   Test_CSAKeysQuery/success
+=== PAUSE Test_CSAKeysQuery/success
+=== CONT  Test_CSAKeysQuery/not_authorized
+=== CONT  Test_CSAKeysQuery/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetAll()
+    resolver_test.go:115: PASS:	CSA()
+--- PASS: Test_CSAKeysQuery (0.00s)
+    --- PASS: Test_CSAKeysQuery/not_authorized (0.01s)
+    --- PASS: Test_CSAKeysQuery/success (0.01s)
+=== RUN   Test_CreateCSAKey
+=== RUN   Test_CreateCSAKey/not_authorized
+=== PAUSE Test_CreateCSAKey/not_authorized
+=== RUN   Test_CreateCSAKey/success
+=== PAUSE Test_CreateCSAKey/success
+=== RUN   Test_CreateCSAKey/csa_key_exists_error
+=== PAUSE Test_CreateCSAKey/csa_key_exists_error
+=== CONT  Test_CreateCSAKey/not_authorized
+=== CONT  Test_CreateCSAKey/success
+=== CONT  Test_CreateCSAKey/csa_key_exists_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Create()
+    resolver_test.go:115: PASS:	CSA()
+=== CONT  Test_CreateCSAKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Create()
+    resolver_test.go:115: PASS:	CSA()
+--- PASS: Test_CreateCSAKey (0.00s)
+    --- PASS: Test_CreateCSAKey/csa_key_exists_error (0.02s)
+    --- PASS: Test_CreateCSAKey/not_authorized (0.02s)
+    --- PASS: Test_CreateCSAKey/success (0.02s)
+=== RUN   Test_DeleteCSAKey
+=== RUN   Test_DeleteCSAKey/not_authorized
+=== PAUSE Test_DeleteCSAKey/not_authorized
+=== RUN   Test_DeleteCSAKey/success
+=== PAUSE Test_DeleteCSAKey/success
+=== RUN   Test_DeleteCSAKey/not_found_error
+=== PAUSE Test_DeleteCSAKey/not_found_error
+=== CONT  Test_DeleteCSAKey/not_authorized
+=== CONT  Test_DeleteCSAKey/not_found_error
+=== CONT  Test_DeleteCSAKey/success
+=== CONT  Test_DeleteCSAKey/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+=== CONT  Test_DeleteCSAKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	CSA()
+=== CONT  Test_DeleteCSAKey/not_found_error
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	CSA()
+--- PASS: Test_DeleteCSAKey (0.00s)
+    --- PASS: Test_DeleteCSAKey/not_authorized (0.01s)
+    --- PASS: Test_DeleteCSAKey/success (0.01s)
+    --- PASS: Test_DeleteCSAKey/not_found_error (0.01s)
+=== RUN   TestResolver_ETHKeys
+=== PAUSE TestResolver_ETHKeys
+=== RUN   TestResolver_EthTransaction
+=== PAUSE TestResolver_EthTransaction
+=== RUN   TestResolver_EthTransactions
+=== PAUSE TestResolver_EthTransactions
+=== RUN   TestResolver_EthTransactionsAttempts
+=== PAUSE TestResolver_EthTransactionsAttempts
+=== RUN   TestResolver_Chains
+=== RUN   TestResolver_Chains/not_authorized
+=== PAUSE TestResolver_Chains/not_authorized
+=== RUN   TestResolver_Chains/success
+=== PAUSE TestResolver_Chains/success
+=== CONT  TestResolver_Chains/not_authorized
+=== CONT  TestResolver_Chains/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Chains(int,int)
+    resolver_test.go:115: PASS:	GetNodesByChainIDs([]utils.Big)
+--- PASS: TestResolver_Chains (0.00s)
+    --- PASS: TestResolver_Chains/not_authorized (0.01s)
+    --- PASS: TestResolver_Chains/success (0.03s)
+=== RUN   TestResolver_Chain
+=== RUN   TestResolver_Chain/not_authorized
+=== PAUSE TestResolver_Chain/not_authorized
+=== RUN   TestResolver_Chain/success
+=== PAUSE TestResolver_Chain/success
+=== RUN   TestResolver_Chain/not_found_error
+=== PAUSE TestResolver_Chain/not_found_error
+=== CONT  TestResolver_Chain/not_authorized
+=== CONT  TestResolver_Chain/not_found_error
+=== CONT  TestResolver_Chain/success
+=== CONT  TestResolver_Chain/not_found_error
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Chain(utils.Big)
+=== CONT  TestResolver_Chain/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Chain(utils.Big)
+    resolver_test.go:115: PASS:	GetNodesByChainIDs([]utils.Big)
+--- PASS: TestResolver_Chain (0.00s)
+    --- PASS: TestResolver_Chain/not_authorized (0.01s)
+    --- PASS: TestResolver_Chain/not_found_error (0.01s)
+    --- PASS: TestResolver_Chain/success (0.03s)
+=== RUN   TestResolver_CreateChain
+=== PAUSE TestResolver_CreateChain
+=== RUN   TestResolver_DeleteChain
+=== PAUSE TestResolver_DeleteChain
+=== RUN   TestResolver_UpdateChain
+=== PAUSE TestResolver_UpdateChain
+=== RUN   Test_ToFeatures
+=== RUN   Test_ToFeatures/not_authorized
+=== PAUSE Test_ToFeatures/not_authorized
+=== RUN   Test_ToFeatures/success
+=== PAUSE Test_ToFeatures/success
+=== CONT  Test_ToFeatures/not_authorized
+=== CONT  Test_ToFeatures/success
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	FeatureUICSAKeys()
+    resolver_test.go:115: PASS:	FeatureFeedsManager()
+--- PASS: Test_ToFeatures (0.00s)
+    --- PASS: Test_ToFeatures/not_authorized (0.01s)
+    --- PASS: Test_ToFeatures/success (0.01s)
+=== RUN   Test_ToJobType
+=== PAUSE Test_ToJobType
+=== RUN   Test_FromJobType
+=== PAUSE Test_FromJobType
+=== RUN   Test_FeedsManagers
+=== RUN   Test_FeedsManagers/not_authorized
+=== PAUSE Test_FeedsManagers/not_authorized
+=== RUN   Test_FeedsManagers/success
+=== PAUSE Test_FeedsManagers/success
+=== CONT  Test_FeedsManagers/not_authorized
+=== CONT  Test_FeedsManagers/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	ListJobProposalsByManagersIDs([]int64)
+    resolver_test.go:115: PASS:	ListManagers()
+--- PASS: Test_FeedsManagers (0.00s)
+    --- PASS: Test_FeedsManagers/not_authorized (0.01s)
+    --- PASS: Test_FeedsManagers/success (0.03s)
+=== RUN   Test_FeedsManager
+=== RUN   Test_FeedsManager/not_authorized
+=== PAUSE Test_FeedsManager/not_authorized
+=== RUN   Test_FeedsManager/success
+=== PAUSE Test_FeedsManager/success
+=== RUN   Test_FeedsManager/not_found
+=== PAUSE Test_FeedsManager/not_found
+=== CONT  Test_FeedsManager/not_authorized
+=== CONT  Test_FeedsManager/not_found
+=== CONT  Test_FeedsManager/success
+=== CONT  Test_FeedsManager/not_found
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	GetManager(int64)
+=== CONT  Test_FeedsManager/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	GetManager(int64)
+--- PASS: Test_FeedsManager (0.00s)
+    --- PASS: Test_FeedsManager/not_authorized (0.01s)
+    --- PASS: Test_FeedsManager/not_found (0.01s)
+    --- PASS: Test_FeedsManager/success (0.01s)
+=== RUN   Test_CreateFeedsManager
+=== RUN   Test_CreateFeedsManager/not_authorized
+=== PAUSE Test_CreateFeedsManager/not_authorized
+=== RUN   Test_CreateFeedsManager/success
+=== PAUSE Test_CreateFeedsManager/success
+=== RUN   Test_CreateFeedsManager/single_feeds_manager_error
+=== PAUSE Test_CreateFeedsManager/single_feeds_manager_error
+=== RUN   Test_CreateFeedsManager/not_found
+=== PAUSE Test_CreateFeedsManager/not_found
+=== RUN   Test_CreateFeedsManager/invalid_input_public_key
+=== PAUSE Test_CreateFeedsManager/invalid_input_public_key
+=== CONT  Test_CreateFeedsManager/not_authorized
+=== CONT  Test_CreateFeedsManager/not_found
+=== CONT  Test_CreateFeedsManager/invalid_input_public_key
+=== CONT  Test_CreateFeedsManager/single_feeds_manager_error
+=== CONT  Test_CreateFeedsManager/success
+=== CONT  Test_CreateFeedsManager/single_feeds_manager_error
+    resolver_test.go:115: PASS:	GetFeedsService()
+=== CONT  Test_CreateFeedsManager/not_found
+    resolver_test.go:115: PASS:	GetFeedsService()
+=== CONT  Test_CreateFeedsManager/single_feeds_manager_error
+    resolver_test.go:115: PASS:	RegisterManager(*mock.IsTypeArgument)
+=== CONT  Test_CreateFeedsManager/not_found
+    resolver_test.go:115: PASS:	RegisterManager(*mock.IsTypeArgument)
+    resolver_test.go:115: PASS:	GetManager(int64)
+=== CONT  Test_CreateFeedsManager/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	RegisterManager(*feeds.FeedsManager)
+    resolver_test.go:115: PASS:	GetManager(int64)
+--- PASS: Test_CreateFeedsManager (0.00s)
+    --- PASS: Test_CreateFeedsManager/not_authorized (0.01s)
+    --- PASS: Test_CreateFeedsManager/invalid_input_public_key (0.01s)
+    --- PASS: Test_CreateFeedsManager/single_feeds_manager_error (0.01s)
+    --- PASS: Test_CreateFeedsManager/not_found (0.01s)
+    --- PASS: Test_CreateFeedsManager/success (0.01s)
+=== RUN   Test_UpdateFeedsManager
+=== RUN   Test_UpdateFeedsManager/not_authorized
+=== PAUSE Test_UpdateFeedsManager/not_authorized
+=== RUN   Test_UpdateFeedsManager/success
+=== PAUSE Test_UpdateFeedsManager/success
+=== RUN   Test_UpdateFeedsManager/not_found
+=== PAUSE Test_UpdateFeedsManager/not_found
+=== RUN   Test_UpdateFeedsManager/invalid_input_public_key
+=== PAUSE Test_UpdateFeedsManager/invalid_input_public_key
+=== CONT  Test_UpdateFeedsManager/not_authorized
+=== CONT  Test_UpdateFeedsManager/success
+=== CONT  Test_UpdateFeedsManager/invalid_input_public_key
+=== CONT  Test_UpdateFeedsManager/not_found
+=== CONT  Test_UpdateFeedsManager/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	UpdateManager(string,feeds.FeedsManager)
+    resolver_test.go:115: PASS:	GetManager(int64)
+=== CONT  Test_UpdateFeedsManager/not_found
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	UpdateManager(string,*mock.IsTypeArgument)
+    resolver_test.go:115: PASS:	GetManager(int64)
+--- PASS: Test_UpdateFeedsManager (0.00s)
+    --- PASS: Test_UpdateFeedsManager/success (0.01s)
+    --- PASS: Test_UpdateFeedsManager/invalid_input_public_key (0.01s)
+    --- PASS: Test_UpdateFeedsManager/not_found (0.01s)
+    --- PASS: Test_UpdateFeedsManager/not_authorized (0.01s)
+=== RUN   TestResolver_JobErrors
+=== RUN   TestResolver_JobErrors/success
+=== PAUSE TestResolver_JobErrors/success
+=== CONT  TestResolver_JobErrors/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_JobErrors (0.00s)
+    --- PASS: TestResolver_JobErrors/success (0.01s)
+=== RUN   TestResolver_DismissJobError
+=== PAUSE TestResolver_DismissJobError
+=== RUN   TestResolver_ApproveJobProposalSpec
+=== PAUSE TestResolver_ApproveJobProposalSpec
+=== RUN   TestResolver_CancelJobProposalSpec
+=== PAUSE TestResolver_CancelJobProposalSpec
+=== RUN   TestResolver_RejectJobProposalSpec
+=== PAUSE TestResolver_RejectJobProposalSpec
+=== RUN   TestResolver_UpdateJobProposalSpecDefinition
+=== PAUSE TestResolver_UpdateJobProposalSpecDefinition
+=== RUN   TestResolver_GetJobProposal_Spec
+=== PAUSE TestResolver_GetJobProposal_Spec
+=== RUN   TestResolver_GetJobProposal
+=== PAUSE TestResolver_GetJobProposal
+=== RUN   TestQuery_PaginatedJobRuns
+=== PAUSE TestQuery_PaginatedJobRuns
+=== RUN   TestResolver_JobRun
+=== PAUSE TestResolver_JobRun
+=== RUN   TestResolver_RunJob
+=== PAUSE TestResolver_RunJob
+=== RUN   TestResolver_Jobs
+=== RUN   TestResolver_Jobs/not_authorized
+=== PAUSE TestResolver_Jobs/not_authorized
+=== RUN   TestResolver_Jobs/get_jobs_success
+=== PAUSE TestResolver_Jobs/get_jobs_success
+=== CONT  TestResolver_Jobs/not_authorized
+=== CONT  TestResolver_Jobs/get_jobs_success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobs(int,int)
+    resolver_test.go:115: PASS:	FindPipelineRunIDsByJobID(int32,int,int)
+    resolver_test.go:115: PASS:	FindPipelineRunsByIDs([]int64)
+    resolver_test.go:115: PASS:	CountPipelineRunsByJobID(int32)
+--- PASS: TestResolver_Jobs (0.00s)
+    --- PASS: TestResolver_Jobs/not_authorized (0.02s)
+    --- PASS: TestResolver_Jobs/get_jobs_success (0.04s)
+=== RUN   TestResolver_Job
+=== RUN   TestResolver_Job/not_authorized
+=== PAUSE TestResolver_Job/not_authorized
+=== RUN   TestResolver_Job/success
+=== PAUSE TestResolver_Job/success
+=== RUN   TestResolver_Job/not_found
+=== PAUSE TestResolver_Job/not_found
+=== CONT  TestResolver_Job/not_authorized
+=== CONT  TestResolver_Job/not_found
+=== CONT  TestResolver_Job/success
+=== CONT  TestResolver_Job/not_found
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_Job/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+    resolver_test.go:115: PASS:	FindPipelineRunIDsByJobID(int32,int,int)
+    resolver_test.go:115: PASS:	FindPipelineRunsByIDs([]int64)
+    resolver_test.go:115: PASS:	CountPipelineRunsByJobID(int32)
+--- PASS: TestResolver_Job (0.00s)
+    --- PASS: TestResolver_Job/not_found (0.01s)
+    --- PASS: TestResolver_Job/not_authorized (0.01s)
+    --- PASS: TestResolver_Job/success (0.03s)
+=== RUN   TestResolver_CreateJob
+=== PAUSE TestResolver_CreateJob
+=== RUN   TestResolver_DeleteJob
+=== PAUSE TestResolver_DeleteJob
+=== RUN   TestResolver_SetServiceLogLevel
+=== PAUSE TestResolver_SetServiceLogLevel
+=== RUN   TestResolver_SetSQLLogging
+=== PAUSE TestResolver_SetSQLLogging
+=== RUN   TestResolver_SQLLogging
+=== PAUSE TestResolver_SQLLogging
+=== RUN   TestResolver_GlobalLogLevel
+=== PAUSE TestResolver_GlobalLogLevel
+=== RUN   TestResolver_SetGlobalLogLevel
+=== PAUSE TestResolver_SetGlobalLogLevel
+=== RUN   TestResolver_Nodes
+=== PAUSE TestResolver_Nodes
+=== RUN   Test_NodeQuery
+=== PAUSE Test_NodeQuery
+=== RUN   Test_CreateNodeMutation
+=== PAUSE Test_CreateNodeMutation
+=== RUN   Test_DeleteNodeMutation
+=== PAUSE Test_DeleteNodeMutation
+=== RUN   TestResolver_GetOCR2KeyBundles
+=== PAUSE TestResolver_GetOCR2KeyBundles
+=== RUN   TestResolver_CreateOCR2KeyBundle
+=== PAUSE TestResolver_CreateOCR2KeyBundle
+=== RUN   TestResolver_DeleteOCR2KeyBundle
+=== PAUSE TestResolver_DeleteOCR2KeyBundle
+=== RUN   TestResolver_GetOCRKeyBundles
+=== PAUSE TestResolver_GetOCRKeyBundles
+=== RUN   TestResolver_OCRCreateBundle
+=== PAUSE TestResolver_OCRCreateBundle
+=== RUN   TestResolver_OCRDeleteBundle
+=== PAUSE TestResolver_OCRDeleteBundle
+=== RUN   TestResolver_GetP2PKeys
+=== PAUSE TestResolver_GetP2PKeys
+=== RUN   TestResolver_CreateP2PKey
+=== PAUSE TestResolver_CreateP2PKey
+=== RUN   TestResolver_DeleteP2PKey
+=== PAUSE TestResolver_DeleteP2PKey
+=== RUN   TestResolver_SolanaKeys
+=== PAUSE TestResolver_SolanaKeys
+=== RUN   TestResolver_CronSpec
+=== RUN   TestResolver_CronSpec/cron_spec_success
+=== PAUSE TestResolver_CronSpec/cron_spec_success
+=== CONT  TestResolver_CronSpec/cron_spec_success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_CronSpec (0.00s)
+    --- PASS: TestResolver_CronSpec/cron_spec_success (0.01s)
+=== RUN   TestResolver_DirectRequestSpec
+=== RUN   TestResolver_DirectRequestSpec/direct_request_spec_success
+=== PAUSE TestResolver_DirectRequestSpec/direct_request_spec_success
+=== CONT  TestResolver_DirectRequestSpec/direct_request_spec_success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_DirectRequestSpec (0.00s)
+    --- PASS: TestResolver_DirectRequestSpec/direct_request_spec_success (0.01s)
+=== RUN   TestResolver_FluxMonitorSpec
+=== RUN   TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers
+=== PAUSE TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers
+=== RUN   TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat
+=== PAUSE TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers
+    resolver_test.go:115: PASS:	JobORM()
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat
+    resolver_test.go:115: PASS:	JobORM()
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_FluxMonitorSpec (0.00s)
+    --- PASS: TestResolver_FluxMonitorSpec/flux_monitor_spec_with_standard_timers (0.01s)
+    --- PASS: TestResolver_FluxMonitorSpec/flux_monitor_spec_with_drumbeat (0.01s)
+=== RUN   TestResolver_KeeperSpec
+=== RUN   TestResolver_KeeperSpec/keeper_spec
+=== PAUSE TestResolver_KeeperSpec/keeper_spec
+=== CONT  TestResolver_KeeperSpec/keeper_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_KeeperSpec (0.00s)
+    --- PASS: TestResolver_KeeperSpec/keeper_spec (0.01s)
+=== RUN   TestResolver_OCRSpec
+=== RUN   TestResolver_OCRSpec/OCR_spec
+=== PAUSE TestResolver_OCRSpec/OCR_spec
+=== CONT  TestResolver_OCRSpec/OCR_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_OCRSpec (0.00s)
+    --- PASS: TestResolver_OCRSpec/OCR_spec (0.01s)
+=== RUN   TestResolver_OCR2Spec
+=== RUN   TestResolver_OCR2Spec/OCR_2_spec
+=== PAUSE TestResolver_OCR2Spec/OCR_2_spec
+=== CONT  TestResolver_OCR2Spec/OCR_2_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_OCR2Spec (0.00s)
+    --- PASS: TestResolver_OCR2Spec/OCR_2_spec (0.01s)
+=== RUN   TestResolver_VRFSpec
+=== RUN   TestResolver_VRFSpec/vrf_spec
+=== PAUSE TestResolver_VRFSpec/vrf_spec
+=== CONT  TestResolver_VRFSpec/vrf_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_VRFSpec (0.00s)
+    --- PASS: TestResolver_VRFSpec/vrf_spec (0.01s)
+=== RUN   TestResolver_WebhookSpec
+=== RUN   TestResolver_WebhookSpec/webhook_spec
+=== PAUSE TestResolver_WebhookSpec/webhook_spec
+=== CONT  TestResolver_WebhookSpec/webhook_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_WebhookSpec (0.00s)
+    --- PASS: TestResolver_WebhookSpec/webhook_spec (0.01s)
+=== RUN   TestResolver_BlockhashStoreSpec
+=== RUN   TestResolver_BlockhashStoreSpec/blockhash_store_spec
+=== PAUSE TestResolver_BlockhashStoreSpec/blockhash_store_spec
+=== CONT  TestResolver_BlockhashStoreSpec/blockhash_store_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_BlockhashStoreSpec (0.00s)
+    --- PASS: TestResolver_BlockhashStoreSpec/blockhash_store_spec (0.01s)
+=== RUN   TestResolver_BootstrapSpec
+=== RUN   TestResolver_BootstrapSpec/Bootstrap_spec
+=== PAUSE TestResolver_BootstrapSpec/Bootstrap_spec
+=== CONT  TestResolver_BootstrapSpec/Bootstrap_spec
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_BootstrapSpec (0.00s)
+    --- PASS: TestResolver_BootstrapSpec/Bootstrap_spec (0.01s)
+=== RUN   TestResolver_UpdateUserPassword
+=== PAUSE TestResolver_UpdateUserPassword
+=== RUN   TestResolver_GetVRFKey
+=== PAUSE TestResolver_GetVRFKey
+=== RUN   TestResolver_GetVRFKeys
+=== PAUSE TestResolver_GetVRFKeys
+=== RUN   TestResolver_CreateVRFKey
+=== PAUSE TestResolver_CreateVRFKey
+=== RUN   TestResolver_DeleteVRFKey
+=== PAUSE TestResolver_DeleteVRFKey
+=== CONT  TestResolver_CreateAPIToken
+=== RUN   TestResolver_CreateAPIToken/not_authorized
+=== PAUSE TestResolver_CreateAPIToken/not_authorized
+=== RUN   TestResolver_CreateAPIToken/success
+=== PAUSE TestResolver_CreateAPIToken/success
+=== RUN   TestResolver_CreateAPIToken/input_errors
+=== PAUSE TestResolver_CreateAPIToken/input_errors
+=== RUN   TestResolver_CreateAPIToken/failed_to_find_user
+=== PAUSE TestResolver_CreateAPIToken/failed_to_find_user
+=== RUN   TestResolver_CreateAPIToken/failed_to_generate_token
+=== PAUSE TestResolver_CreateAPIToken/failed_to_generate_token
+=== CONT  TestResolver_CreateAPIToken/not_authorized
+=== CONT  TestResolver_JobRun
+=== RUN   TestResolver_JobRun/not_authorized
+=== PAUSE TestResolver_JobRun/not_authorized
+=== RUN   TestResolver_JobRun/success
+=== PAUSE TestResolver_JobRun/success
+=== RUN   TestResolver_JobRun/not_found_error
+=== PAUSE TestResolver_JobRun/not_found_error
+=== RUN   TestResolver_JobRun/generic_error_on_FindPipelineRunByID()
+=== PAUSE TestResolver_JobRun/generic_error_on_FindPipelineRunByID()
+=== RUN   TestResolver_JobRun/invalid_ID_error
+=== PAUSE TestResolver_JobRun/invalid_ID_error
+=== CONT  TestResolver_JobRun/not_authorized
+=== CONT  TestResolver_EthTransactionsAttempts
+=== RUN   TestResolver_EthTransactionsAttempts/not_authorized
+=== PAUSE TestResolver_EthTransactionsAttempts/not_authorized
+=== RUN   TestResolver_EthTransactionsAttempts/success
+=== PAUSE TestResolver_EthTransactionsAttempts/success
+=== RUN   TestResolver_EthTransactionsAttempts/success_with_nil_values
+=== PAUSE TestResolver_EthTransactionsAttempts/success_with_nil_values
+=== RUN   TestResolver_EthTransactionsAttempts/generic_error
+=== PAUSE TestResolver_EthTransactionsAttempts/generic_error
+=== CONT  TestResolver_EthTransactionsAttempts/not_authorized
+=== CONT  TestResolver_DeleteVRFKey
+=== RUN   TestResolver_DeleteVRFKey/not_authorized
+=== PAUSE TestResolver_DeleteVRFKey/not_authorized
+=== RUN   TestResolver_DeleteVRFKey/success
+=== PAUSE TestResolver_DeleteVRFKey/success
+=== RUN   TestResolver_DeleteVRFKey/not_found_error
+=== PAUSE TestResolver_DeleteVRFKey/not_found_error
+=== CONT  TestQuery_PaginatedJobRuns
+=== RUN   TestQuery_PaginatedJobRuns/not_authorized
+=== PAUSE TestQuery_PaginatedJobRuns/not_authorized
+=== RUN   TestQuery_PaginatedJobRuns/success
+=== PAUSE TestQuery_PaginatedJobRuns/success
+=== RUN   TestQuery_PaginatedJobRuns/generic_error_on_PipelineRuns()
+=== PAUSE TestQuery_PaginatedJobRuns/generic_error_on_PipelineRuns()
+=== CONT  TestResolver_GetJobProposal
+=== RUN   TestResolver_GetJobProposal/not_authorized
+=== PAUSE TestResolver_GetJobProposal/not_authorized
+=== RUN   TestResolver_GetJobProposal/success
+=== PAUSE TestResolver_GetJobProposal/success
+=== RUN   TestResolver_GetJobProposal/not_found_error
+=== PAUSE TestResolver_GetJobProposal/not_found_error
+=== CONT  TestResolver_GetJobProposal_Spec
+=== RUN   TestResolver_GetJobProposal_Spec/not_authorized
+=== PAUSE TestResolver_GetJobProposal_Spec/not_authorized
+=== RUN   TestResolver_GetJobProposal_Spec/success
+=== PAUSE TestResolver_GetJobProposal_Spec/success
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition
+=== RUN   TestResolver_UpdateJobProposalSpecDefinition/not_authorized
+=== PAUSE TestResolver_UpdateJobProposalSpecDefinition/not_authorized
+=== RUN   TestResolver_UpdateJobProposalSpecDefinition/success
+=== PAUSE TestResolver_UpdateJobProposalSpecDefinition/success
+=== RUN   TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_update
+=== PAUSE TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_update
+=== RUN   TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_fetch
+=== PAUSE TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_fetch
+=== CONT  TestResolver_RejectJobProposalSpec
+=== RUN   TestResolver_RejectJobProposalSpec/not_authorized
+=== PAUSE TestResolver_RejectJobProposalSpec/not_authorized
+=== RUN   TestResolver_RejectJobProposalSpec/success
+=== PAUSE TestResolver_RejectJobProposalSpec/success
+=== RUN   TestResolver_RejectJobProposalSpec/not_found_error_on_reject
+=== PAUSE TestResolver_RejectJobProposalSpec/not_found_error_on_reject
+=== RUN   TestResolver_RejectJobProposalSpec/not_found_error_on_fetch
+=== PAUSE TestResolver_RejectJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_CancelJobProposalSpec
+=== RUN   TestResolver_CancelJobProposalSpec/not_authorized
+=== PAUSE TestResolver_CancelJobProposalSpec/not_authorized
+=== RUN   TestResolver_CancelJobProposalSpec/success
+=== PAUSE TestResolver_CancelJobProposalSpec/success
+=== RUN   TestResolver_CancelJobProposalSpec/not_found_error_on_cancel
+=== PAUSE TestResolver_CancelJobProposalSpec/not_found_error_on_cancel
+=== RUN   TestResolver_CancelJobProposalSpec/not_found_error_on_fetch
+=== PAUSE TestResolver_CancelJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_ApproveJobProposalSpec
+=== RUN   TestResolver_ApproveJobProposalSpec/not_authorized
+=== PAUSE TestResolver_ApproveJobProposalSpec/not_authorized
+=== RUN   TestResolver_ApproveJobProposalSpec/success
+=== PAUSE TestResolver_ApproveJobProposalSpec/success
+=== RUN   TestResolver_ApproveJobProposalSpec/not_found_error_on_approval
+=== PAUSE TestResolver_ApproveJobProposalSpec/not_found_error_on_approval
+=== RUN   TestResolver_ApproveJobProposalSpec/not_found_error_on_fetch
+=== PAUSE TestResolver_ApproveJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_DismissJobError
+=== RUN   TestResolver_DismissJobError/not_authorized
+=== PAUSE TestResolver_DismissJobError/not_authorized
+=== RUN   TestResolver_DismissJobError/success
+=== PAUSE TestResolver_DismissJobError/success
+=== RUN   TestResolver_DismissJobError/not_found_on_FindSpecError()
+=== PAUSE TestResolver_DismissJobError/not_found_on_FindSpecError()
+=== RUN   TestResolver_DismissJobError/not_found_on_DismissError()
+=== PAUSE TestResolver_DismissJobError/not_found_on_DismissError()
+=== RUN   TestResolver_DismissJobError/generic_error_on_FindSpecError()
+=== PAUSE TestResolver_DismissJobError/generic_error_on_FindSpecError()
+=== RUN   TestResolver_DismissJobError/generic_error_on_DismissError()
+=== PAUSE TestResolver_DismissJobError/generic_error_on_DismissError()
+=== RUN   TestResolver_DismissJobError/error_on_ID_parsing
+=== PAUSE TestResolver_DismissJobError/error_on_ID_parsing
+=== CONT  Test_FromJobType
+--- PASS: Test_FromJobType (0.00s)
+=== CONT  TestResolver_EthTransactions
+=== RUN   TestResolver_EthTransactions/not_authorized
+=== PAUSE TestResolver_EthTransactions/not_authorized
+=== RUN   TestResolver_EthTransactions/success
+=== PAUSE TestResolver_EthTransactions/success
+=== RUN   TestResolver_EthTransactions/generic_error
+=== PAUSE TestResolver_EthTransactions/generic_error
+=== CONT  Test_ToJobType
+--- PASS: Test_ToJobType (0.00s)
+=== CONT  TestResolver_EthTransaction
+=== RUN   TestResolver_EthTransaction/not_authorized
+=== PAUSE TestResolver_EthTransaction/not_authorized
+=== RUN   TestResolver_EthTransaction/success
+=== PAUSE TestResolver_EthTransaction/success
+=== RUN   TestResolver_EthTransaction/success_without_nil_values
+=== PAUSE TestResolver_EthTransaction/success_without_nil_values
+=== RUN   TestResolver_EthTransaction/not_found_error
+=== PAUSE TestResolver_EthTransaction/not_found_error
+=== RUN   TestResolver_EthTransaction/generic_error
+=== PAUSE TestResolver_EthTransaction/generic_error
+=== CONT  TestResolver_UpdateChain
+=== RUN   TestResolver_UpdateChain/not_authorized
+=== PAUSE TestResolver_UpdateChain/not_authorized
+=== RUN   TestResolver_UpdateChain/success
+=== PAUSE TestResolver_UpdateChain/success
+=== RUN   TestResolver_UpdateChain/input_errors
+=== PAUSE TestResolver_UpdateChain/input_errors
+=== RUN   TestResolver_UpdateChain/not_found_error
+=== PAUSE TestResolver_UpdateChain/not_found_error
+=== RUN   TestResolver_UpdateChain/generic_error_on_update
+=== PAUSE TestResolver_UpdateChain/generic_error_on_update
+=== CONT  TestResolver_ETHKeys
+=== RUN   TestResolver_ETHKeys/not_authorized
+=== PAUSE TestResolver_ETHKeys/not_authorized
+=== RUN   TestResolver_ETHKeys/success_on_dev
+=== PAUSE TestResolver_ETHKeys/success_on_dev
+=== RUN   TestResolver_ETHKeys/success_on_prod
+=== PAUSE TestResolver_ETHKeys/success_on_prod
+=== RUN   TestResolver_ETHKeys/success_with_no_chains
+=== PAUSE TestResolver_ETHKeys/success_with_no_chains
+=== RUN   TestResolver_ETHKeys/generic_error_on_GetAll()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_GetAll()
+=== RUN   TestResolver_ETHKeys/generic_error_on_SendingKeys()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_SendingKeys()
+=== RUN   TestResolver_ETHKeys/generic_error_on_GetStatesForKeys()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_GetStatesForKeys()
+=== RUN   TestResolver_ETHKeys/generic_error_on_Get()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_Get()
+=== RUN   TestResolver_ETHKeys/generic_error_on_#chainSet.Get()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_#chainSet.Get()
+=== RUN   TestResolver_ETHKeys/generic_error_on_GetLINKBalance()
+=== PAUSE TestResolver_ETHKeys/generic_error_on_GetLINKBalance()
+=== RUN   TestResolver_ETHKeys/success_with_no_eth_balance
+=== PAUSE TestResolver_ETHKeys/success_with_no_eth_balance
+=== CONT  TestResolver_Config
+=== RUN   TestResolver_Config/not_authorized
+=== PAUSE TestResolver_Config/not_authorized
+=== RUN   TestResolver_Config/success
+=== PAUSE TestResolver_Config/success
+=== CONT  Test_DeleteBridgeMutation
+=== RUN   Test_DeleteBridgeMutation/not_authorized
+=== PAUSE Test_DeleteBridgeMutation/not_authorized
+=== RUN   Test_DeleteBridgeMutation/success
+=== PAUSE Test_DeleteBridgeMutation/success
+=== RUN   Test_DeleteBridgeMutation/invalid_bridge_type_name
+=== PAUSE Test_DeleteBridgeMutation/invalid_bridge_type_name
+=== RUN   Test_DeleteBridgeMutation/invalid_bridge_type_name#01
+=== PAUSE Test_DeleteBridgeMutation/invalid_bridge_type_name#01
+=== RUN   Test_DeleteBridgeMutation/bridge_with_jobs_associated
+=== PAUSE Test_DeleteBridgeMutation/bridge_with_jobs_associated
+=== CONT  Test_UpdateBridge
+=== RUN   Test_UpdateBridge/not_authorized
+=== PAUSE Test_UpdateBridge/not_authorized
+=== RUN   Test_UpdateBridge/success
+=== PAUSE Test_UpdateBridge/success
+=== RUN   Test_UpdateBridge/not_found
+=== PAUSE Test_UpdateBridge/not_found
+=== CONT  Test_CreateBridge
+=== RUN   Test_CreateBridge/not_authorized
+=== PAUSE Test_CreateBridge/not_authorized
+=== RUN   Test_CreateBridge/success
+=== PAUSE Test_CreateBridge/success
+=== CONT  Test_Bridge
+=== RUN   Test_Bridge/not_authorized
+=== PAUSE Test_Bridge/not_authorized
+=== RUN   Test_Bridge/success
+=== PAUSE Test_Bridge/success
+=== RUN   Test_Bridge/not_found
+=== PAUSE Test_Bridge/not_found
+=== CONT  Test_Bridges
+=== RUN   Test_Bridges/not_authorized
+=== PAUSE Test_Bridges/not_authorized
+=== RUN   Test_Bridges/success
+=== PAUSE Test_Bridges/success
+=== CONT  TestResolver_DeleteAPIToken
+=== RUN   TestResolver_DeleteAPIToken/not_authorized
+=== PAUSE TestResolver_DeleteAPIToken/not_authorized
+=== RUN   TestResolver_DeleteAPIToken/success
+=== PAUSE TestResolver_DeleteAPIToken/success
+=== RUN   TestResolver_DeleteAPIToken/input_errors
+=== PAUSE TestResolver_DeleteAPIToken/input_errors
+=== RUN   TestResolver_DeleteAPIToken/failed_to_find_user
+=== PAUSE TestResolver_DeleteAPIToken/failed_to_find_user
+=== RUN   TestResolver_DeleteAPIToken/failed_to_delete_token
+=== PAUSE TestResolver_DeleteAPIToken/failed_to_delete_token
+=== CONT  TestResolver_CreateAPIToken/failed_to_generate_token
+=== CONT  TestResolver_CreateAPIToken/failed_to_find_user
+=== CONT  TestResolver_CreateAPIToken/input_errors
+=== CONT  TestResolver_DeleteChain
+=== RUN   TestResolver_DeleteChain/not_authorized
+=== PAUSE TestResolver_DeleteChain/not_authorized
+=== RUN   TestResolver_DeleteChain/success
+=== PAUSE TestResolver_DeleteChain/success
+=== RUN   TestResolver_DeleteChain/not_found_error
+=== PAUSE TestResolver_DeleteChain/not_found_error
+=== RUN   TestResolver_DeleteChain/generic_error_on_delete
+=== PAUSE TestResolver_DeleteChain/generic_error_on_delete
+=== CONT  TestResolver_CreateAPIToken/success
+=== CONT  TestResolver_CreateAPIToken/input_errors
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+=== CONT  TestResolver_CreateChain
+=== RUN   TestResolver_CreateChain/not_authorized
+=== PAUSE TestResolver_CreateChain/not_authorized
+=== RUN   TestResolver_CreateChain/success
+=== PAUSE TestResolver_CreateChain/success
+=== RUN   TestResolver_CreateChain/input_errors
+=== PAUSE TestResolver_CreateChain/input_errors
+=== RUN   TestResolver_CreateChain/create_chain_generic_error
+=== PAUSE TestResolver_CreateChain/create_chain_generic_error
+=== CONT  TestResolver_EthTransactionsAttempts/generic_error
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EthTxAttempts(int,int)
+=== CONT  TestResolver_EthTransactionsAttempts/success_with_nil_values
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EthTxAttempts(int,int)
+=== CONT  TestResolver_DeleteVRFKey/not_authorized
+=== CONT  TestResolver_CreateVRFKey
+=== RUN   TestResolver_CreateVRFKey/not_authorized
+=== PAUSE TestResolver_CreateVRFKey/not_authorized
+=== RUN   TestResolver_CreateVRFKey/success
+=== PAUSE TestResolver_CreateVRFKey/success
+=== CONT  TestResolver_GetVRFKeys
+=== RUN   TestResolver_GetVRFKeys/not_authorized
+=== PAUSE TestResolver_GetVRFKeys/not_authorized
+=== RUN   TestResolver_GetVRFKeys/success
+=== PAUSE TestResolver_GetVRFKeys/success
+=== CONT  TestResolver_GetVRFKey
+=== RUN   TestResolver_GetVRFKey/not_authorized
+=== PAUSE TestResolver_GetVRFKey/not_authorized
+=== RUN   TestResolver_GetVRFKey/success
+=== PAUSE TestResolver_GetVRFKey/success
+=== RUN   TestResolver_GetVRFKey/not_found_error
+=== PAUSE TestResolver_GetVRFKey/not_found_error
+=== CONT  TestResolver_UpdateUserPassword
+=== RUN   TestResolver_UpdateUserPassword/not_authorized
+=== PAUSE TestResolver_UpdateUserPassword/not_authorized
+=== RUN   TestResolver_UpdateUserPassword/success
+=== PAUSE TestResolver_UpdateUserPassword/success
+=== RUN   TestResolver_UpdateUserPassword/update_password_match_error
+=== PAUSE TestResolver_UpdateUserPassword/update_password_match_error
+=== RUN   TestResolver_UpdateUserPassword/failed_to_clear_session_error
+=== PAUSE TestResolver_UpdateUserPassword/failed_to_clear_session_error
+=== RUN   TestResolver_UpdateUserPassword/failed_to_update_current_user_password_error
+=== PAUSE TestResolver_UpdateUserPassword/failed_to_update_current_user_password_error
+=== CONT  TestResolver_SetGlobalLogLevel
+=== RUN   TestResolver_SetGlobalLogLevel/not_authorized
+=== PAUSE TestResolver_SetGlobalLogLevel/not_authorized
+=== RUN   TestResolver_SetGlobalLogLevel/success
+=== PAUSE TestResolver_SetGlobalLogLevel/success
+=== RUN   TestResolver_SetGlobalLogLevel/generic_error_on_SetLogLevel
+=== PAUSE TestResolver_SetGlobalLogLevel/generic_error_on_SetLogLevel
+=== CONT  TestResolver_SolanaKeys
+=== RUN   TestResolver_SolanaKeys/not_authorized
+=== PAUSE TestResolver_SolanaKeys/not_authorized
+=== RUN   TestResolver_SolanaKeys/success
+=== PAUSE TestResolver_SolanaKeys/success
+=== RUN   TestResolver_SolanaKeys/generic_error_on_GetAll
+=== PAUSE TestResolver_SolanaKeys/generic_error_on_GetAll
+=== CONT  TestResolver_DeleteP2PKey
+=== RUN   TestResolver_DeleteP2PKey/not_authorized
+=== PAUSE TestResolver_DeleteP2PKey/not_authorized
+=== RUN   TestResolver_DeleteP2PKey/success
+=== PAUSE TestResolver_DeleteP2PKey/success
+=== RUN   TestResolver_DeleteP2PKey/not_found_error
+=== PAUSE TestResolver_DeleteP2PKey/not_found_error
+=== CONT  TestResolver_CreateP2PKey
+=== RUN   TestResolver_CreateP2PKey/not_authorized
+=== PAUSE TestResolver_CreateP2PKey/not_authorized
+=== RUN   TestResolver_CreateP2PKey/success
+=== PAUSE TestResolver_CreateP2PKey/success
+=== CONT  TestResolver_GetP2PKeys
+=== RUN   TestResolver_GetP2PKeys/not_authorized
+=== PAUSE TestResolver_GetP2PKeys/not_authorized
+=== RUN   TestResolver_GetP2PKeys/success
+=== PAUSE TestResolver_GetP2PKeys/success
+=== CONT  TestResolver_GlobalLogLevel
+=== RUN   TestResolver_GlobalLogLevel/not_authorized
+=== PAUSE TestResolver_GlobalLogLevel/not_authorized
+=== RUN   TestResolver_GlobalLogLevel/success
+=== PAUSE TestResolver_GlobalLogLevel/success
+=== CONT  TestResolver_SQLLogging
+=== RUN   TestResolver_SQLLogging/not_authorized
+=== PAUSE TestResolver_SQLLogging/not_authorized
+=== RUN   TestResolver_SQLLogging/success
+=== PAUSE TestResolver_SQLLogging/success
+=== CONT  TestResolver_SetSQLLogging
+=== RUN   TestResolver_SetSQLLogging/not_authorized
+=== PAUSE TestResolver_SetSQLLogging/not_authorized
+=== RUN   TestResolver_SetSQLLogging/success
+=== PAUSE TestResolver_SetSQLLogging/success
+=== CONT  TestResolver_SetServiceLogLevel
+=== RUN   TestResolver_SetServiceLogLevel/not_authorized
+=== PAUSE TestResolver_SetServiceLogLevel/not_authorized
+=== RUN   TestResolver_SetServiceLogLevel/success
+=== PAUSE TestResolver_SetServiceLogLevel/success
+=== RUN   TestResolver_SetServiceLogLevel/general_service_log_level_error
+=== PAUSE TestResolver_SetServiceLogLevel/general_service_log_level_error
+=== CONT  TestResolver_DeleteJob
+=== RUN   TestResolver_DeleteJob/not_authorized
+=== PAUSE TestResolver_DeleteJob/not_authorized
+=== RUN   TestResolver_DeleteJob/success
+=== PAUSE TestResolver_DeleteJob/success
+=== RUN   TestResolver_DeleteJob/not_found_on_FindJob()
+=== PAUSE TestResolver_DeleteJob/not_found_on_FindJob()
+=== RUN   TestResolver_DeleteJob/not_found_on_DeleteJob()
+=== PAUSE TestResolver_DeleteJob/not_found_on_DeleteJob()
+=== RUN   TestResolver_DeleteJob/generic_error_on_FindJob()
+=== PAUSE TestResolver_DeleteJob/generic_error_on_FindJob()
+=== RUN   TestResolver_DeleteJob/generic_error_on_DeleteJob()
+=== PAUSE TestResolver_DeleteJob/generic_error_on_DeleteJob()
+=== RUN   TestResolver_DeleteJob/error_on_ID_parsing
+=== PAUSE TestResolver_DeleteJob/error_on_ID_parsing
+=== CONT  TestResolver_CreateJob
+=== RUN   TestResolver_CreateJob/not_authorized
+=== PAUSE TestResolver_CreateJob/not_authorized
+=== RUN   TestResolver_CreateJob/success
+=== PAUSE TestResolver_CreateJob/success
+=== RUN   TestResolver_CreateJob/invalid_TOML_error
+=== PAUSE TestResolver_CreateJob/invalid_TOML_error
+=== RUN   TestResolver_CreateJob/generic_error_when_adding_the_job
+=== PAUSE TestResolver_CreateJob/generic_error_when_adding_the_job
+=== CONT  TestResolver_RunJob
+=== RUN   TestResolver_RunJob/not_authorized
+=== PAUSE TestResolver_RunJob/not_authorized
+=== RUN   TestResolver_RunJob/success_without_body
+=== PAUSE TestResolver_RunJob/success_without_body
+=== RUN   TestResolver_RunJob/invalid_ID_error
+=== PAUSE TestResolver_RunJob/invalid_ID_error
+=== RUN   TestResolver_RunJob/not_found_job_error
+=== PAUSE TestResolver_RunJob/not_found_job_error
+=== RUN   TestResolver_RunJob/generic_error_on_RunJobV2
+=== PAUSE TestResolver_RunJob/generic_error_on_RunJobV2
+=== RUN   TestResolver_RunJob/generic_error_on_FindRun
+=== PAUSE TestResolver_RunJob/generic_error_on_FindRun
+=== CONT  TestResolver_JobRun/invalid_ID_error
+=== CONT  TestResolver_JobRun/generic_error_on_FindPipelineRunByID()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindPipelineRunByID(int64)
+=== CONT  TestResolver_JobRun/not_found_error
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindPipelineRunByID(int64)
+=== CONT  TestResolver_JobRun/success
+=== CONT  TestResolver_CreateAPIToken/failed_to_find_user
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+=== CONT  TestResolver_OCRDeleteBundle
+=== RUN   TestResolver_OCRDeleteBundle/not_authorized
+=== PAUSE TestResolver_OCRDeleteBundle/not_authorized
+=== RUN   TestResolver_OCRDeleteBundle/success
+=== PAUSE TestResolver_OCRDeleteBundle/success
+=== RUN   TestResolver_OCRDeleteBundle/not_found_error
+=== PAUSE TestResolver_OCRDeleteBundle/not_found_error
+=== CONT  TestResolver_OCRCreateBundle
+=== RUN   TestResolver_OCRCreateBundle/not_authorized
+=== PAUSE TestResolver_OCRCreateBundle/not_authorized
+=== RUN   TestResolver_OCRCreateBundle/success
+=== PAUSE TestResolver_OCRCreateBundle/success
+=== CONT  TestResolver_GetOCRKeyBundles
+=== RUN   TestResolver_GetOCRKeyBundles/not_authorized
+=== PAUSE TestResolver_GetOCRKeyBundles/not_authorized
+=== RUN   TestResolver_GetOCRKeyBundles/success
+=== PAUSE TestResolver_GetOCRKeyBundles/success
+=== CONT  TestResolver_DeleteOCR2KeyBundle
+=== RUN   TestResolver_DeleteOCR2KeyBundle/not_authorized
+=== PAUSE TestResolver_DeleteOCR2KeyBundle/not_authorized
+=== RUN   TestResolver_DeleteOCR2KeyBundle/success
+=== PAUSE TestResolver_DeleteOCR2KeyBundle/success
+=== RUN   TestResolver_DeleteOCR2KeyBundle/not_found_error
+=== PAUSE TestResolver_DeleteOCR2KeyBundle/not_found_error
+=== RUN   TestResolver_DeleteOCR2KeyBundle/generic_error_on_Delete()
+=== PAUSE TestResolver_DeleteOCR2KeyBundle/generic_error_on_Delete()
+=== CONT  TestResolver_CreateOCR2KeyBundle
+=== RUN   TestResolver_CreateOCR2KeyBundle/not_authorized
+=== PAUSE TestResolver_CreateOCR2KeyBundle/not_authorized
+=== RUN   TestResolver_CreateOCR2KeyBundle/success
+=== PAUSE TestResolver_CreateOCR2KeyBundle/success
+=== RUN   TestResolver_CreateOCR2KeyBundle/generic_error_on_Create()
+=== PAUSE TestResolver_CreateOCR2KeyBundle/generic_error_on_Create()
+=== CONT  TestResolver_GetOCR2KeyBundles
+=== RUN   TestResolver_GetOCR2KeyBundles/not_authorized
+=== PAUSE TestResolver_GetOCR2KeyBundles/not_authorized
+=== RUN   TestResolver_GetOCR2KeyBundles/success
+=== PAUSE TestResolver_GetOCR2KeyBundles/success
+=== RUN   TestResolver_GetOCR2KeyBundles/generic_error_on_GetAll()
+=== PAUSE TestResolver_GetOCR2KeyBundles/generic_error_on_GetAll()
+=== CONT  Test_DeleteNodeMutation
+=== RUN   Test_DeleteNodeMutation/not_authorized
+=== PAUSE Test_DeleteNodeMutation/not_authorized
+=== RUN   Test_DeleteNodeMutation/success
+=== PAUSE Test_DeleteNodeMutation/success
+=== RUN   Test_DeleteNodeMutation/not_found_error_on_fetch
+=== PAUSE Test_DeleteNodeMutation/not_found_error_on_fetch
+=== RUN   Test_DeleteNodeMutation/not_found_error_on_delete
+=== PAUSE Test_DeleteNodeMutation/not_found_error_on_delete
+=== CONT  Test_CreateNodeMutation
+=== RUN   Test_CreateNodeMutation/not_authorized
+=== PAUSE Test_CreateNodeMutation/not_authorized
+=== RUN   Test_CreateNodeMutation/success
+=== PAUSE Test_CreateNodeMutation/success
+=== CONT  Test_NodeQuery
+=== RUN   Test_NodeQuery/not_authorized
+=== PAUSE Test_NodeQuery/not_authorized
+=== RUN   Test_NodeQuery/success
+=== PAUSE Test_NodeQuery/success
+=== RUN   Test_NodeQuery/not_found_error
+=== PAUSE Test_NodeQuery/not_found_error
+=== CONT  TestResolver_Nodes
+=== RUN   TestResolver_Nodes/not_authorized
+=== PAUSE TestResolver_Nodes/not_authorized
+=== RUN   TestResolver_Nodes/success
+=== PAUSE TestResolver_Nodes/success
+=== RUN   TestResolver_Nodes/generic_error
+=== PAUSE TestResolver_Nodes/generic_error
+=== CONT  TestResolver_DeleteVRFKey/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	Delete(string)
+=== CONT  TestResolver_DeleteVRFKey/success
+=== CONT  TestResolver_JobRun/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindPipelineRunByID(int64)
+    resolver_test.go:115: PASS:	FindJobsByPipelineSpecIDs([]int32)
+--- PASS: TestResolver_JobRun (0.00s)
+    --- PASS: TestResolver_JobRun/not_authorized (0.01s)
+    --- PASS: TestResolver_JobRun/invalid_ID_error (0.01s)
+    --- PASS: TestResolver_JobRun/generic_error_on_FindPipelineRunByID() (0.01s)
+    --- PASS: TestResolver_JobRun/not_found_error (0.01s)
+    --- PASS: TestResolver_JobRun/success (0.04s)
+=== CONT  TestResolver_EthTransactionsAttempts/success
+=== CONT  TestResolver_DeleteVRFKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	Delete(string)
+--- PASS: TestResolver_DeleteVRFKey (0.00s)
+    --- PASS: TestResolver_DeleteVRFKey/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteVRFKey/not_found_error (0.02s)
+    --- PASS: TestResolver_DeleteVRFKey/success (0.02s)
+=== CONT  TestQuery_PaginatedJobRuns/not_authorized
+=== CONT  TestResolver_EthTransactionsAttempts/success
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EthTxAttempts(int,int)
+--- PASS: TestResolver_EthTransactionsAttempts (0.00s)
+    --- PASS: TestResolver_EthTransactionsAttempts/not_authorized (0.01s)
+    --- PASS: TestResolver_EthTransactionsAttempts/generic_error (0.01s)
+    --- PASS: TestResolver_EthTransactionsAttempts/success_with_nil_values (0.01s)
+    --- PASS: TestResolver_EthTransactionsAttempts/success (0.02s)
+=== CONT  TestQuery_PaginatedJobRuns/generic_error_on_PipelineRuns()
+=== CONT  TestResolver_GetJobProposal/not_authorized
+=== CONT  TestQuery_PaginatedJobRuns/generic_error_on_PipelineRuns()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	PipelineRuns(*int32,int,int)
+=== CONT  TestQuery_PaginatedJobRuns/success
+=== CONT  TestResolver_GetJobProposal_Spec/not_authorized
+=== CONT  TestResolver_GetJobProposal/not_found_error
+=== CONT  TestQuery_PaginatedJobRuns/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	PipelineRuns(*int32,int,int)
+--- PASS: TestQuery_PaginatedJobRuns (0.00s)
+    --- PASS: TestQuery_PaginatedJobRuns/not_authorized (0.01s)
+    --- PASS: TestQuery_PaginatedJobRuns/generic_error_on_PipelineRuns() (0.01s)
+    --- PASS: TestQuery_PaginatedJobRuns/success (0.01s)
+=== CONT  TestResolver_GetJobProposal/success
+=== CONT  TestResolver_CreateAPIToken/failed_to_generate_token
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	CreateAndSetAuthToken(*sessions.User)
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/not_authorized
+=== CONT  TestResolver_GetJobProposal/not_found_error
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	GetJobProposal(int64)
+=== CONT  TestResolver_GetJobProposal_Spec/success
+=== CONT  TestResolver_CreateAPIToken/success
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	CreateAndSetAuthToken(*sessions.User)
+--- PASS: TestResolver_CreateAPIToken (0.00s)
+    --- PASS: TestResolver_CreateAPIToken/not_authorized (0.01s)
+    --- PASS: TestResolver_CreateAPIToken/input_errors (0.01s)
+    --- PASS: TestResolver_CreateAPIToken/failed_to_find_user (0.08s)
+    --- PASS: TestResolver_CreateAPIToken/failed_to_generate_token (0.16s)
+    --- PASS: TestResolver_CreateAPIToken/success (0.16s)
+=== CONT  TestResolver_RejectJobProposalSpec/not_authorized
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_fetch
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_update
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_fetch
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	UpdateSpecDefinition(string,int64,string)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/success
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_update
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	UpdateSpecDefinition(string,int64,string)
+=== CONT  TestResolver_CancelJobProposalSpec/not_authorized
+=== CONT  TestResolver_UpdateJobProposalSpecDefinition/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	UpdateSpecDefinition(string,int64,string)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+--- PASS: TestResolver_UpdateJobProposalSpecDefinition (0.00s)
+    --- PASS: TestResolver_UpdateJobProposalSpecDefinition/not_authorized (0.01s)
+    --- PASS: TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_fetch (0.01s)
+    --- PASS: TestResolver_UpdateJobProposalSpecDefinition/not_found_error_on_update (0.01s)
+    --- PASS: TestResolver_UpdateJobProposalSpecDefinition/success (0.01s)
+=== CONT  TestResolver_RejectJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_GetJobProposal/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	ListManagersByIDs([]int64)
+    resolver_test.go:115: PASS:	GetJobProposal(int64)
+=== CONT  TestResolver_RejectJobProposalSpec/not_found_error_on_reject
+--- PASS: TestResolver_GetJobProposal (0.00s)
+    --- PASS: TestResolver_GetJobProposal/not_authorized (0.01s)
+    --- PASS: TestResolver_GetJobProposal/not_found_error (0.01s)
+    --- PASS: TestResolver_GetJobProposal/success (0.03s)
+=== CONT  TestResolver_GetJobProposal_Spec/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	GetJobProposal(int64)
+    resolver_test.go:115: PASS:	ListSpecsByJobProposalIDs([]int64)
+--- PASS: TestResolver_GetJobProposal_Spec (0.00s)
+    --- PASS: TestResolver_GetJobProposal_Spec/not_authorized (0.01s)
+    --- PASS: TestResolver_GetJobProposal_Spec/success (0.03s)
+=== CONT  TestResolver_RejectJobProposalSpec/success
+=== CONT  TestResolver_RejectJobProposalSpec/not_found_error_on_reject
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	RejectSpec(string,int64)
+=== CONT  TestResolver_CancelJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_RejectJobProposalSpec/not_found_error_on_fetch
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	RejectSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+=== CONT  TestResolver_CancelJobProposalSpec/not_found_error_on_cancel
+=== CONT  TestResolver_ApproveJobProposalSpec/not_authorized
+=== CONT  TestResolver_RejectJobProposalSpec/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	RejectSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+--- PASS: TestResolver_RejectJobProposalSpec (0.00s)
+    --- PASS: TestResolver_RejectJobProposalSpec/not_authorized (0.01s)
+    --- PASS: TestResolver_RejectJobProposalSpec/not_found_error_on_reject (0.02s)
+    --- PASS: TestResolver_RejectJobProposalSpec/not_found_error_on_fetch (0.02s)
+    --- PASS: TestResolver_RejectJobProposalSpec/success (0.01s)
+=== CONT  TestResolver_CancelJobProposalSpec/success
+=== CONT  TestResolver_CancelJobProposalSpec/not_found_error_on_fetch
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	CancelSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+=== CONT  TestResolver_DismissJobError/not_authorized
+=== CONT  TestResolver_ApproveJobProposalSpec/not_found_error_on_fetch
+=== CONT  TestResolver_CancelJobProposalSpec/not_found_error_on_cancel
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	CancelSpec(string,int64)
+=== CONT  TestResolver_ApproveJobProposalSpec/not_found_error_on_approval
+=== CONT  TestResolver_ApproveJobProposalSpec/success
+=== CONT  TestResolver_CancelJobProposalSpec/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	CancelSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+--- PASS: TestResolver_CancelJobProposalSpec (0.00s)
+    --- PASS: TestResolver_CancelJobProposalSpec/not_authorized (0.02s)
+    --- PASS: TestResolver_CancelJobProposalSpec/not_found_error_on_fetch (0.01s)
+    --- PASS: TestResolver_CancelJobProposalSpec/not_found_error_on_cancel (0.01s)
+    --- PASS: TestResolver_CancelJobProposalSpec/success (0.01s)
+=== CONT  TestResolver_EthTransactions/not_authorized
+=== CONT  TestResolver_ApproveJobProposalSpec/not_found_error_on_fetch
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	ApproveSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+=== CONT  TestResolver_DismissJobError/error_on_ID_parsing
+=== CONT  TestResolver_ApproveJobProposalSpec/not_found_error_on_approval
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	ApproveSpec(string,int64)
+=== CONT  TestResolver_DismissJobError/generic_error_on_DismissError()
+=== CONT  TestResolver_DismissJobError/generic_error_on_FindSpecError()
+=== CONT  TestResolver_ApproveJobProposalSpec/success
+    resolver_test.go:115: PASS:	GetFeedsService()
+    resolver_test.go:115: PASS:	ApproveSpec(string,int64)
+    resolver_test.go:115: PASS:	GetSpec(int64)
+--- PASS: TestResolver_ApproveJobProposalSpec (0.00s)
+    --- PASS: TestResolver_ApproveJobProposalSpec/not_authorized (0.01s)
+    --- PASS: TestResolver_ApproveJobProposalSpec/not_found_error_on_fetch (0.01s)
+    --- PASS: TestResolver_ApproveJobProposalSpec/not_found_error_on_approval (0.01s)
+    --- PASS: TestResolver_ApproveJobProposalSpec/success (0.01s)
+=== CONT  TestResolver_DismissJobError/not_found_on_DismissError()
+=== CONT  TestResolver_DismissJobError/not_found_on_FindSpecError()
+=== CONT  TestResolver_DismissJobError/generic_error_on_DismissError()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindSpecError(int64)
+    resolver_test.go:115: PASS:	DismissError(string,int64)
+=== CONT  TestResolver_DismissJobError/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindSpecError(int64)
+    resolver_test.go:115: PASS:	DismissError(string,int64)
+=== CONT  TestResolver_EthTransaction/not_authorized
+=== CONT  TestResolver_DismissJobError/not_found_on_FindSpecError()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindSpecError(int64)
+=== CONT  TestResolver_EthTransactions/generic_error
+=== CONT  TestResolver_DismissJobError/generic_error_on_FindSpecError()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindSpecError(int64)
+=== CONT  TestResolver_EthTransactions/success
+=== CONT  TestResolver_DismissJobError/not_found_on_DismissError()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindSpecError(int64)
+    resolver_test.go:115: PASS:	DismissError(string,int64)
+--- PASS: TestResolver_DismissJobError (0.00s)
+    --- PASS: TestResolver_DismissJobError/not_authorized (0.01s)
+    --- PASS: TestResolver_DismissJobError/error_on_ID_parsing (0.01s)
+    --- PASS: TestResolver_DismissJobError/generic_error_on_DismissError() (0.01s)
+    --- PASS: TestResolver_DismissJobError/success (0.02s)
+    --- PASS: TestResolver_DismissJobError/not_found_on_FindSpecError() (0.03s)
+    --- PASS: TestResolver_DismissJobError/generic_error_on_FindSpecError() (0.03s)
+    --- PASS: TestResolver_DismissJobError/not_found_on_DismissError() (0.03s)
+=== CONT  TestResolver_UpdateChain/not_authorized
+=== CONT  TestResolver_EthTransaction/generic_error
+=== CONT  TestResolver_EthTransactions/generic_error
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EthTransactions(int,int)
+=== CONT  TestResolver_EthTransaction/not_found_error
+=== CONT  TestResolver_EthTransaction/success_without_nil_values
+=== CONT  TestResolver_EthTransaction/generic_error
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	FindEthTxByHash(common.Hash)
+=== CONT  TestResolver_EthTransaction/success
+=== CONT  TestResolver_EthTransaction/not_found_error
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	FindEthTxByHash(common.Hash)
+=== CONT  TestResolver_ETHKeys/not_authorized
+=== CONT  TestResolver_UpdateChain/generic_error_on_update
+=== CONT  TestResolver_EthTransactions/success
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EthTransactions(int,int)
+    resolver_test.go:115: PASS:	FindEthTxAttemptsByEthTxIDs([]int64)
+=== CONT  TestResolver_UpdateChain/not_found_error
+--- PASS: TestResolver_EthTransactions (0.00s)
+    --- PASS: TestResolver_EthTransactions/not_authorized (0.01s)
+    --- PASS: TestResolver_EthTransactions/generic_error (0.01s)
+    --- PASS: TestResolver_EthTransactions/success (0.03s)
+=== CONT  TestResolver_UpdateChain/generic_error_on_update
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Configure(*big.Int,bool,types.ChainCfg)
+=== CONT  TestResolver_UpdateChain/input_errors
+=== CONT  TestResolver_EthTransaction/success_without_nil_values
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	FindEthTxByHash(common.Hash)
+    resolver_test.go:115: PASS:	FindEthTxAttemptsByEthTxIDs([]int64)
+=== CONT  TestResolver_UpdateChain/success
+=== CONT  TestResolver_UpdateChain/not_found_error
+    resolver_test.go:115: PASS:	GetChains()
+=== CONT  TestResolver_Config/not_authorized
+=== CONT  TestResolver_UpdateChain/not_found_error
+    resolver_test.go:115: PASS:	Configure(*big.Int,bool,types.ChainCfg)
+=== CONT  TestResolver_ETHKeys/success_with_no_eth_balance
+=== CONT  TestResolver_UpdateChain/success
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Configure(*big.Int,bool,types.ChainCfg)
+--- PASS: TestResolver_UpdateChain (0.00s)
+    --- PASS: TestResolver_UpdateChain/not_authorized (0.01s)
+    --- PASS: TestResolver_UpdateChain/generic_error_on_update (0.01s)
+    --- PASS: TestResolver_UpdateChain/input_errors (0.01s)
+    --- PASS: TestResolver_UpdateChain/not_found_error (0.01s)
+    --- PASS: TestResolver_UpdateChain/success (0.02s)
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetLINKBalance()
+=== CONT  TestResolver_EthTransaction/success
+    resolver_test.go:115: PASS:	BPTXMORM()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	FindEthTxByHash(common.Hash)
+    resolver_test.go:115: PASS:	FindEthTxAttemptsByEthTxIDs([]int64)
+--- PASS: TestResolver_EthTransaction (0.00s)
+    --- PASS: TestResolver_EthTransaction/not_authorized (0.01s)
+    --- PASS: TestResolver_EthTransaction/generic_error (0.01s)
+    --- PASS: TestResolver_EthTransaction/not_found_error (0.01s)
+    --- PASS: TestResolver_EthTransaction/success_without_nil_values (0.02s)
+    --- PASS: TestResolver_EthTransaction/success (0.04s)
+=== CONT  TestResolver_ETHKeys/generic_error_on_#chainSet.Get()
+=== CONT  TestResolver_ETHKeys/generic_error_on_Get()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetStatesForKeys()
+=== CONT  TestResolver_ETHKeys/generic_error_on_#chainSet.Get()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	Get(*big.Int)
+=== CONT  TestResolver_ETHKeys/generic_error_on_SendingKeys()
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetStatesForKeys()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetAll()
+=== CONT  TestResolver_ETHKeys/generic_error_on_SendingKeys()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+=== CONT  TestResolver_ETHKeys/success_with_no_chains
+=== CONT  TestResolver_ETHKeys/success_with_no_eth_balance
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	LinkContractAddress()
+    resolver_test.go:115: PASS:	KeySpecificMaxGasPriceWei(common.Address)
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	Client()
+    resolver_test.go:115: PASS:	BalanceMonitor()
+    resolver_test.go:115: PASS:	Config()
+    resolver_test.go:115: PASS:	Get(*big.Int)
+    resolver_test.go:115: PASS:	GetLINKBalance(common.Address,common.Address)
+=== CONT  TestResolver_ETHKeys/success_on_prod
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetAll()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	GetAll()
+=== CONT  TestResolver_ETHKeys/success_on_dev
+=== CONT  TestResolver_ETHKeys/generic_error_on_GetLINKBalance()
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	LinkContractAddress()
+    resolver_test.go:115: PASS:	KeySpecificMaxGasPriceWei(common.Address)
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	Client()
+    resolver_test.go:115: PASS:	BalanceMonitor()
+    resolver_test.go:115: PASS:	Config()
+    resolver_test.go:115: PASS:	Get(*big.Int)
+    resolver_test.go:115: PASS:	GetLINKBalance(common.Address,common.Address)
+    resolver_test.go:115: PASS:	GetEthBalance(common.Address)
+=== CONT  Test_DeleteBridgeMutation/not_authorized
+=== CONT  TestResolver_Config/success
+=== CONT  TestResolver_ETHKeys/success_with_no_chains
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	Get(*big.Int)
+=== CONT  Test_UpdateBridge/not_authorized
+=== CONT  TestResolver_Config/success
+    resolver_test.go:115: PASS:	GetConfig()
+=== CONT  Test_DeleteBridgeMutation/bridge_with_jobs_associated
+--- PASS: TestResolver_Config (0.00s)
+    --- PASS: TestResolver_Config/not_authorized (0.02s)
+    --- PASS: TestResolver_Config/success (0.01s)
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	LinkContractAddress()
+    resolver_test.go:115: PASS:	KeySpecificMaxGasPriceWei(common.Address)
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	GetAll()
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	GetKeyStore()
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+    resolver_test.go:115: PASS:	Get(string)
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	Client()
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	BalanceMonitor()
+    resolver_test.go:115: PASS:	Config()
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	Dev()
+    resolver_test.go:115: PASS:	LinkContractAddress()
+    resolver_test.go:115: PASS:	KeySpecificMaxGasPriceWei(common.Address)
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	Get(*big.Int)
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	Eth()
+    resolver_test.go:115: PASS:	SendingKeys()
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	GetLINKBalance(common.Address,common.Address)
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	GetStatesForKeys([]ethkey.KeyV2)
+=== CONT  TestResolver_ETHKeys/success_on_dev
+    resolver_test.go:115: PASS:	GetEthBalance(common.Address)
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	Get(string)
+=== CONT  Test_DeleteBridgeMutation/invalid_bridge_type_name#01
+=== CONT  TestResolver_ETHKeys/success_on_prod
+    resolver_test.go:115: PASS:	Client()
+    resolver_test.go:115: PASS:	BalanceMonitor()
+    resolver_test.go:115: PASS:	Config()
+    resolver_test.go:115: PASS:	Get(*big.Int)
+    resolver_test.go:115: PASS:	GetLINKBalance(common.Address,common.Address)
+    resolver_test.go:115: PASS:	GetEthBalance(common.Address)
+--- PASS: TestResolver_ETHKeys (0.00s)
+    --- PASS: TestResolver_ETHKeys/not_authorized (0.01s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_Get() (0.01s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_#chainSet.Get() (0.01s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_GetStatesForKeys() (0.01s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_SendingKeys() (0.01s)
+    --- PASS: TestResolver_ETHKeys/success_with_no_eth_balance (0.04s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_GetAll() (0.01s)
+    --- PASS: TestResolver_ETHKeys/generic_error_on_GetLINKBalance() (0.03s)
+    --- PASS: TestResolver_ETHKeys/success_with_no_chains (0.02s)
+    --- PASS: TestResolver_ETHKeys/success_on_dev (0.02s)
+    --- PASS: TestResolver_ETHKeys/success_on_prod (0.03s)
+=== CONT  Test_DeleteBridgeMutation/invalid_bridge_type_name
+=== CONT  Test_DeleteBridgeMutation/bridge_with_jobs_associated
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+    resolver_test.go:115: PASS:	FindJobIDsWithBridge(string)
+=== CONT  Test_DeleteBridgeMutation/success
+=== CONT  Test_CreateBridge/not_authorized
+=== CONT  Test_DeleteBridgeMutation/invalid_bridge_type_name#01
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+=== CONT  Test_UpdateBridge/not_found
+=== CONT  Test_UpdateBridge/success
+=== CONT  Test_DeleteBridgeMutation/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+    resolver_test.go:115: PASS:	DeleteBridgeType(*bridges.BridgeType)
+    resolver_test.go:115: PASS:	FindJobIDsWithBridge(string)
+--- PASS: Test_DeleteBridgeMutation (0.00s)
+    --- PASS: Test_DeleteBridgeMutation/not_authorized (0.01s)
+    --- PASS: Test_DeleteBridgeMutation/bridge_with_jobs_associated (0.01s)
+    --- PASS: Test_DeleteBridgeMutation/invalid_bridge_type_name#01 (0.02s)
+    --- PASS: Test_DeleteBridgeMutation/invalid_bridge_type_name (0.02s)
+    --- PASS: Test_DeleteBridgeMutation/success (0.02s)
+=== CONT  Test_Bridge/not_authorized
+=== CONT  Test_CreateBridge/success
+=== CONT  Test_UpdateBridge/not_found
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+=== CONT  Test_Bridges/not_authorized
+=== CONT  Test_UpdateBridge/success
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+    resolver_test.go:115: PASS:	UpdateBridgeType(*mock.IsTypeArgument,*bridges.BridgeTypeRequest)
+--- PASS: Test_UpdateBridge (0.00s)
+    --- PASS: Test_UpdateBridge/not_authorized (0.03s)
+    --- PASS: Test_UpdateBridge/not_found (0.01s)
+    --- PASS: Test_UpdateBridge/success (0.01s)
+=== CONT  Test_Bridge/not_found
+=== CONT  Test_Bridge/success
+=== CONT  Test_CreateBridge/success
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+    resolver_test.go:115: PASS:	CreateBridgeType(*mock.IsTypeArgument)
+--- PASS: Test_CreateBridge (0.00s)
+    --- PASS: Test_CreateBridge/not_authorized (0.01s)
+    --- PASS: Test_CreateBridge/success (0.01s)
+=== CONT  TestResolver_DeleteAPIToken/not_authorized
+=== CONT  Test_Bridges/success
+=== CONT  Test_Bridge/not_found
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+=== CONT  TestResolver_DeleteChain/not_authorized
+=== CONT  Test_Bridge/success
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	FindBridge(bridges.TaskType)
+--- PASS: Test_Bridge (0.00s)
+    --- PASS: Test_Bridge/not_authorized (0.01s)
+    --- PASS: Test_Bridge/not_found (0.01s)
+    --- PASS: Test_Bridge/success (0.01s)
+=== CONT  TestResolver_CreateChain/not_authorized
+=== CONT  TestResolver_DeleteAPIToken/failed_to_delete_token
+=== CONT  Test_Bridges/success
+    resolver_test.go:115: PASS:	BridgeORM()
+    resolver_test.go:115: PASS:	BridgeTypes(int,int)
+--- PASS: Test_Bridges (0.00s)
+    --- PASS: Test_Bridges/not_authorized (0.01s)
+    --- PASS: Test_Bridges/success (0.01s)
+=== CONT  TestResolver_DeleteAPIToken/failed_to_find_user
+=== CONT  TestResolver_DeleteAPIToken/input_errors
+=== CONT  TestResolver_DeleteAPIToken/success
+=== CONT  TestResolver_DeleteAPIToken/input_errors
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+=== CONT  TestResolver_DeleteChain/generic_error_on_delete
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Chain(utils.Big)
+    resolver_test.go:115: PASS:	Remove(*big.Int)
+=== CONT  TestResolver_DeleteChain/not_found_error
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Chain(utils.Big)
+=== CONT  TestResolver_DeleteChain/success
+=== CONT  TestResolver_DeleteAPIToken/failed_to_find_user
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+=== CONT  TestResolver_CreateChain/create_chain_generic_error
+=== CONT  TestResolver_DeleteChain/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Chain(utils.Big)
+    resolver_test.go:115: PASS:	Remove(*big.Int)
+--- PASS: TestResolver_DeleteChain (0.00s)
+    --- PASS: TestResolver_DeleteChain/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteChain/generic_error_on_delete (0.02s)
+    --- PASS: TestResolver_DeleteChain/not_found_error (0.03s)
+    --- PASS: TestResolver_DeleteChain/success (0.01s)
+=== CONT  TestResolver_CreateChain/input_errors
+=== CONT  TestResolver_CreateChain/create_chain_generic_error
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Add(*big.Int,types.ChainCfg)
+=== CONT  TestResolver_CreateChain/success
+=== CONT  TestResolver_CreateVRFKey/not_authorized
+=== CONT  TestResolver_CreateChain/success
+    resolver_test.go:115: PASS:	GetChains()
+    resolver_test.go:115: PASS:	Add(*big.Int,types.ChainCfg)
+--- PASS: TestResolver_CreateChain (0.00s)
+    --- PASS: TestResolver_CreateChain/not_authorized (0.01s)
+    --- PASS: TestResolver_CreateChain/create_chain_generic_error (0.01s)
+    --- PASS: TestResolver_CreateChain/input_errors (0.01s)
+    --- PASS: TestResolver_CreateChain/success (0.01s)
+=== CONT  TestResolver_GetVRFKeys/not_authorized
+=== CONT  TestResolver_CreateVRFKey/success
+=== CONT  TestResolver_GetVRFKey/not_authorized
+=== CONT  TestResolver_CreateVRFKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	Create()
+--- PASS: TestResolver_CreateVRFKey (0.00s)
+    --- PASS: TestResolver_CreateVRFKey/not_authorized (0.01s)
+    --- PASS: TestResolver_CreateVRFKey/success (0.01s)
+=== CONT  TestResolver_GetVRFKeys/success
+=== CONT  TestResolver_UpdateUserPassword/not_authorized
+=== CONT  TestResolver_GetVRFKeys/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	GetAll()
+--- PASS: TestResolver_GetVRFKeys (0.00s)
+    --- PASS: TestResolver_GetVRFKeys/not_authorized (0.01s)
+    --- PASS: TestResolver_GetVRFKeys/success (0.01s)
+=== CONT  TestResolver_GetVRFKey/not_found_error
+=== CONT  TestResolver_GetVRFKey/success
+=== CONT  TestResolver_GetVRFKey/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	Get(string)
+=== CONT  TestResolver_SetGlobalLogLevel/not_authorized
+=== CONT  TestResolver_GetVRFKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	VRF()
+    resolver_test.go:115: PASS:	Get(string)
+--- PASS: TestResolver_GetVRFKey (0.00s)
+    --- PASS: TestResolver_GetVRFKey/not_authorized (0.01s)
+    --- PASS: TestResolver_GetVRFKey/not_found_error (0.01s)
+    --- PASS: TestResolver_GetVRFKey/success (0.01s)
+=== CONT  TestResolver_UpdateUserPassword/failed_to_update_current_user_password_error
+=== CONT  TestResolver_UpdateUserPassword/failed_to_clear_session_error
+=== CONT  TestResolver_DeleteAPIToken/success
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	DeleteAuthToken(*sessions.User)
+=== CONT  TestResolver_UpdateUserPassword/update_password_match_error
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+=== CONT  TestResolver_UpdateUserPassword/success
+=== CONT  TestResolver_DeleteAPIToken/failed_to_delete_token
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	DeleteAuthToken(*sessions.User)
+=== CONT  TestResolver_SolanaKeys/not_authorized
+--- PASS: TestResolver_DeleteAPIToken (0.00s)
+    --- PASS: TestResolver_DeleteAPIToken/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteAPIToken/input_errors (0.04s)
+    --- PASS: TestResolver_DeleteAPIToken/failed_to_find_user (0.09s)
+    --- PASS: TestResolver_DeleteAPIToken/success (0.19s)
+    --- PASS: TestResolver_DeleteAPIToken/failed_to_delete_token (0.22s)
+=== CONT  TestResolver_SetGlobalLogLevel/generic_error_on_SetLogLevel
+    resolver_test.go:115: PASS:	SetLogLevel(zapcore.Level)
+=== CONT  TestResolver_SetGlobalLogLevel/success
+    resolver_test.go:115: PASS:	SetLogLevel(zapcore.Level)
+--- PASS: TestResolver_SetGlobalLogLevel (0.00s)
+    --- PASS: TestResolver_SetGlobalLogLevel/not_authorized (0.02s)
+    --- PASS: TestResolver_SetGlobalLogLevel/generic_error_on_SetLogLevel (0.01s)
+    --- PASS: TestResolver_SetGlobalLogLevel/success (0.01s)
+=== CONT  TestResolver_DeleteP2PKey/not_authorized
+=== CONT  TestResolver_SolanaKeys/generic_error_on_GetAll
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Solana()
+    resolver_test.go:115: PASS:	GetAll()
+=== CONT  TestResolver_SolanaKeys/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Solana()
+    resolver_test.go:115: PASS:	GetAll()
+--- PASS: TestResolver_SolanaKeys (0.00s)
+    --- PASS: TestResolver_SolanaKeys/not_authorized (0.02s)
+    --- PASS: TestResolver_SolanaKeys/generic_error_on_GetAll (0.01s)
+    --- PASS: TestResolver_SolanaKeys/success (0.01s)
+=== CONT  TestResolver_CreateP2PKey/not_authorized
+=== CONT  TestResolver_DeleteP2PKey/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	P2P()
+    resolver_test.go:115: PASS:	Delete(p2pkey.PeerID)
+=== CONT  TestResolver_DeleteP2PKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	P2P()
+    resolver_test.go:115: PASS:	Delete(p2pkey.PeerID)
+--- PASS: TestResolver_DeleteP2PKey (0.00s)
+    --- PASS: TestResolver_DeleteP2PKey/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteP2PKey/not_found_error (0.01s)
+    --- PASS: TestResolver_DeleteP2PKey/success (0.01s)
+=== CONT  TestResolver_GetP2PKeys/not_authorized
+=== CONT  TestResolver_CreateP2PKey/success
+=== CONT  TestResolver_UpdateUserPassword/failed_to_update_current_user_password_error
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	ClearNonCurrentSessions(string)
+    resolver_test.go:115: PASS:	SetPassword(*sessions.User,string)
+=== CONT  TestResolver_GlobalLogLevel/not_authorized
+=== CONT  TestResolver_UpdateUserPassword/failed_to_clear_session_error
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	ClearNonCurrentSessions(string)
+=== CONT  TestResolver_GetP2PKeys/success
+=== CONT  TestResolver_CreateP2PKey/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	P2P()
+    resolver_test.go:115: PASS:	Create()
+--- PASS: TestResolver_CreateP2PKey (0.00s)
+    --- PASS: TestResolver_CreateP2PKey/not_authorized (0.01s)
+    --- PASS: TestResolver_CreateP2PKey/success (0.01s)
+=== CONT  TestResolver_SQLLogging/not_authorized
+=== CONT  TestResolver_GlobalLogLevel/success
+=== CONT  TestResolver_GetP2PKeys/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	P2P()
+    resolver_test.go:115: PASS:	GetAll()
+--- PASS: TestResolver_GetP2PKeys (0.00s)
+    --- PASS: TestResolver_GetP2PKeys/not_authorized (0.01s)
+    --- PASS: TestResolver_GetP2PKeys/success (0.01s)
+=== CONT  TestResolver_SetSQLLogging/not_authorized
+=== CONT  TestResolver_SQLLogging/success
+=== CONT  TestResolver_GlobalLogLevel/success
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	LogLevel()
+--- PASS: TestResolver_GlobalLogLevel (0.00s)
+    --- PASS: TestResolver_GlobalLogLevel/not_authorized (0.01s)
+    --- PASS: TestResolver_GlobalLogLevel/success (0.02s)
+=== CONT  TestResolver_SetServiceLogLevel/not_authorized
+=== CONT  TestResolver_UpdateUserPassword/success
+    resolver_test.go:115: PASS:	SessionORM()
+    resolver_test.go:115: PASS:	FindUser()
+    resolver_test.go:115: PASS:	SetPassword(*sessions.User,string)
+    resolver_test.go:115: PASS:	ClearNonCurrentSessions(string)
+--- PASS: TestResolver_UpdateUserPassword (0.00s)
+    --- PASS: TestResolver_UpdateUserPassword/not_authorized (0.01s)
+    --- PASS: TestResolver_UpdateUserPassword/update_password_match_error (0.01s)
+    --- PASS: TestResolver_UpdateUserPassword/failed_to_update_current_user_password_error (0.17s)
+    --- PASS: TestResolver_UpdateUserPassword/failed_to_clear_session_error (0.17s)
+    --- PASS: TestResolver_UpdateUserPassword/success (0.16s)
+=== CONT  TestResolver_DeleteJob/not_authorized
+=== CONT  TestResolver_SetSQLLogging/success
+=== CONT  TestResolver_SQLLogging/success
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	LogSQL()
+=== CONT  TestResolver_SetServiceLogLevel/general_service_log_level_error
+--- PASS: TestResolver_SQLLogging (0.00s)
+    --- PASS: TestResolver_SQLLogging/not_authorized (0.01s)
+    --- PASS: TestResolver_SQLLogging/success (0.03s)
+=== CONT  TestResolver_SetServiceLogLevel/success
+=== CONT  TestResolver_SetSQLLogging/success
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	SetLogSQL(bool)
+--- PASS: TestResolver_SetSQLLogging (0.00s)
+    --- PASS: TestResolver_SetSQLLogging/not_authorized (0.02s)
+    --- PASS: TestResolver_SetSQLLogging/success (0.01s)
+=== CONT  TestResolver_CreateJob/not_authorized
+=== CONT  TestResolver_DeleteJob/error_on_ID_parsing
+=== CONT  TestResolver_SetServiceLogLevel/general_service_log_level_error
+    resolver_test.go:115: PASS:	SetServiceLogLevel(string,string,zapcore.Level)
+=== CONT  TestResolver_DeleteJob/generic_error_on_DeleteJob()
+=== CONT  TestResolver_SetServiceLogLevel/success
+    resolver_test.go:115: PASS:	SetServiceLogLevel(string,string,zapcore.Level)
+=== CONT  TestResolver_SetServiceLogLevel/general_service_log_level_error
+    resolver_test.go:115: PASS:	SetServiceLogLevel(string,string,zapcore.Level)
+=== CONT  TestResolver_DeleteJob/generic_error_on_FindJob()
+=== CONT  TestResolver_SetServiceLogLevel/success
+    resolver_test.go:115: PASS:	SetServiceLogLevel(string,string,zapcore.Level)
+--- PASS: TestResolver_SetServiceLogLevel (0.00s)
+    --- PASS: TestResolver_SetServiceLogLevel/not_authorized (0.02s)
+    --- PASS: TestResolver_SetServiceLogLevel/general_service_log_level_error (0.01s)
+    --- PASS: TestResolver_SetServiceLogLevel/success (0.01s)
+=== CONT  TestResolver_DeleteJob/not_found_on_DeleteJob()
+=== CONT  TestResolver_DeleteJob/not_found_on_FindJob()
+=== CONT  TestResolver_DeleteJob/generic_error_on_FindJob()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_DeleteJob/generic_error_on_DeleteJob()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	DeleteJob(string,int32)
+=== CONT  TestResolver_DeleteJob/success
+=== CONT  TestResolver_DeleteJob/generic_error_on_DeleteJob()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_RunJob/not_authorized
+=== CONT  TestResolver_DeleteJob/not_found_on_DeleteJob()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	DeleteJob(string,int32)
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_CreateJob/generic_error_when_adding_the_job
+=== CONT  TestResolver_DeleteJob/not_found_on_FindJob()
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+=== CONT  TestResolver_CreateJob/invalid_TOML_error
+=== CONT  TestResolver_DeleteJob/success
+    resolver_test.go:115: PASS:	JobORM()
+    resolver_test.go:115: PASS:	DeleteJob(string,int32)
+    resolver_test.go:115: PASS:	FindJobTx(int32)
+--- PASS: TestResolver_DeleteJob (0.00s)
+    --- PASS: TestResolver_DeleteJob/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteJob/error_on_ID_parsing (0.01s)
+    --- PASS: TestResolver_DeleteJob/generic_error_on_FindJob() (0.01s)
+    --- PASS: TestResolver_DeleteJob/generic_error_on_DeleteJob() (0.01s)
+    --- PASS: TestResolver_DeleteJob/not_found_on_DeleteJob() (0.01s)
+    --- PASS: TestResolver_DeleteJob/not_found_on_FindJob() (0.01s)
+    --- PASS: TestResolver_DeleteJob/success (0.01s)
+=== CONT  TestResolver_CreateJob/success
+=== CONT  TestResolver_RunJob/generic_error_on_FindRun
+=== CONT  TestResolver_CreateJob/generic_error_when_adding_the_job
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	AddJobV2(string,*job.Job)
+=== CONT  TestResolver_RunJob/generic_error_on_RunJobV2
+=== CONT  TestResolver_RunJob/not_found_job_error
+=== CONT  TestResolver_RunJob/generic_error_on_RunJobV2
+    resolver_test.go:115: PASS:	RunJobV2(string,int32,map[string]interface {})
+=== CONT  TestResolver_RunJob/generic_error_on_FindRun
+    resolver_test.go:115: PASS:	RunJobV2(string,int32,map[string]interface {})
+    resolver_test.go:115: PASS:	PipelineORM()
+=== CONT  TestResolver_RunJob/invalid_ID_error
+=== CONT  TestResolver_RunJob/not_found_job_error
+    resolver_test.go:115: PASS:	RunJobV2(string,int32,map[string]interface {})
+=== CONT  TestResolver_RunJob/success_without_body
+=== CONT  TestResolver_RunJob/generic_error_on_FindRun
+    resolver_test.go:115: PASS:	FindRun(int64)
+=== CONT  TestResolver_OCRDeleteBundle/not_authorized
+=== CONT  TestResolver_CreateJob/success
+    resolver_test.go:115: PASS:	GetConfig()
+    resolver_test.go:115: PASS:	AddJobV2(string,*job.Job)
+--- PASS: TestResolver_CreateJob (0.00s)
+    --- PASS: TestResolver_CreateJob/not_authorized (0.01s)
+    --- PASS: TestResolver_CreateJob/generic_error_when_adding_the_job (0.01s)
+    --- PASS: TestResolver_CreateJob/invalid_TOML_error (0.02s)
+    --- PASS: TestResolver_CreateJob/success (0.03s)
+=== CONT  TestResolver_OCRCreateBundle/not_authorized
+=== CONT  TestResolver_OCRDeleteBundle/not_found_error
+=== CONT  TestResolver_RunJob/success_without_body
+    resolver_test.go:115: PASS:	RunJobV2(string,int32,map[string]interface {})
+    resolver_test.go:115: PASS:	PipelineORM()
+    resolver_test.go:115: PASS:	FindRun(int64)
+--- PASS: TestResolver_RunJob (0.00s)
+    --- PASS: TestResolver_RunJob/not_authorized (0.01s)
+    --- PASS: TestResolver_RunJob/generic_error_on_RunJobV2 (0.02s)
+    --- PASS: TestResolver_RunJob/not_found_job_error (0.02s)
+    --- PASS: TestResolver_RunJob/generic_error_on_FindRun (0.03s)
+    --- PASS: TestResolver_RunJob/invalid_ID_error (0.01s)
+    --- PASS: TestResolver_RunJob/success_without_body (0.01s)
+=== CONT  TestResolver_OCRDeleteBundle/success
+=== CONT  TestResolver_OCRCreateBundle/success
+=== CONT  TestResolver_OCRDeleteBundle/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	OCR()
+=== CONT  TestResolver_GetOCRKeyBundles/not_authorized
+=== CONT  TestResolver_GetOCRKeyBundles/success
+=== CONT  TestResolver_OCRDeleteBundle/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	OCR()
+--- PASS: TestResolver_OCRDeleteBundle (0.00s)
+    --- PASS: TestResolver_OCRDeleteBundle/not_authorized (0.01s)
+    --- PASS: TestResolver_OCRDeleteBundle/not_found_error (0.01s)
+    --- PASS: TestResolver_OCRDeleteBundle/success (0.01s)
+=== CONT  TestResolver_DeleteOCR2KeyBundle/not_authorized
+=== CONT  TestResolver_OCRCreateBundle/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Create()
+    resolver_test.go:115: PASS:	OCR()
+--- PASS: TestResolver_OCRCreateBundle (0.00s)
+    --- PASS: TestResolver_OCRCreateBundle/not_authorized (0.02s)
+    --- PASS: TestResolver_OCRCreateBundle/success (0.02s)
+=== CONT  TestResolver_DeleteOCR2KeyBundle/not_found_error
+=== CONT  TestResolver_DeleteOCR2KeyBundle/generic_error_on_Delete()
+=== CONT  TestResolver_GetOCRKeyBundles/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetAll()
+    resolver_test.go:115: PASS:	OCR()
+--- PASS: TestResolver_GetOCRKeyBundles (0.00s)
+    --- PASS: TestResolver_GetOCRKeyBundles/not_authorized (0.01s)
+    --- PASS: TestResolver_GetOCRKeyBundles/success (0.01s)
+=== CONT  TestResolver_DeleteOCR2KeyBundle/success
+=== CONT  TestResolver_CreateOCR2KeyBundle/not_authorized
+=== CONT  TestResolver_DeleteOCR2KeyBundle/not_found_error
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	OCR2()
+=== CONT  TestResolver_CreateOCR2KeyBundle/generic_error_on_Create()
+=== CONT  TestResolver_DeleteOCR2KeyBundle/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+=== CONT  TestResolver_DeleteOCR2KeyBundle/generic_error_on_Delete()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	OCR2()
+=== CONT  TestResolver_DeleteOCR2KeyBundle/success
+    resolver_test.go:115: PASS:	Delete(string)
+    resolver_test.go:115: PASS:	Get(string)
+    resolver_test.go:115: PASS:	OCR2()
+--- PASS: TestResolver_DeleteOCR2KeyBundle (0.00s)
+    --- PASS: TestResolver_DeleteOCR2KeyBundle/not_authorized (0.01s)
+    --- PASS: TestResolver_DeleteOCR2KeyBundle/not_found_error (0.01s)
+    --- PASS: TestResolver_DeleteOCR2KeyBundle/generic_error_on_Delete() (0.02s)
+    --- PASS: TestResolver_DeleteOCR2KeyBundle/success (0.02s)
+=== CONT  TestResolver_GetOCR2KeyBundles/not_authorized
+=== CONT  TestResolver_CreateOCR2KeyBundle/success
+=== CONT  TestResolver_CreateOCR2KeyBundle/generic_error_on_Create()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Create(chaintype.ChainType)
+    resolver_test.go:115: PASS:	OCR2()
+=== CONT  TestResolver_GetOCR2KeyBundles/generic_error_on_GetAll()
+=== CONT  TestResolver_GetOCR2KeyBundles/success
+=== CONT  Test_DeleteNodeMutation/not_authorized
+=== CONT  TestResolver_CreateOCR2KeyBundle/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	Create(chaintype.ChainType)
+    resolver_test.go:115: PASS:	OCR2()
+--- PASS: TestResolver_CreateOCR2KeyBundle (0.00s)
+    --- PASS: TestResolver_CreateOCR2KeyBundle/generic_error_on_Create() (0.02s)
+    --- PASS: TestResolver_CreateOCR2KeyBundle/not_authorized (0.03s)
+    --- PASS: TestResolver_CreateOCR2KeyBundle/success (0.02s)
+=== CONT  Test_DeleteNodeMutation/not_found_error_on_fetch
+=== CONT  TestResolver_GetOCR2KeyBundles/generic_error_on_GetAll()
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetAll()
+    resolver_test.go:115: PASS:	OCR2()
+=== CONT  Test_DeleteNodeMutation/not_found_error_on_delete
+=== CONT  Test_DeleteNodeMutation/success
+=== CONT  TestResolver_GetOCR2KeyBundles/success
+    resolver_test.go:115: PASS:	GetKeyStore()
+    resolver_test.go:115: PASS:	GetAll()
+    resolver_test.go:115: PASS:	OCR2()
+--- PASS: TestResolver_GetOCR2KeyBundles (0.00s)
+    --- PASS: TestResolver_GetOCR2KeyBundles/not_authorized (0.02s)
+    --- PASS: TestResolver_GetOCR2KeyBundles/generic_error_on_GetAll() (0.02s)
+    --- PASS: TestResolver_GetOCR2KeyBundles/success (0.01s)
+=== CONT  Test_CreateNodeMutation/not_authorized
+=== CONT  Test_DeleteNodeMutation/not_found_error_on_fetch
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Node(int32)
+=== CONT  Test_CreateNodeMutation/success
+=== CONT  Test_DeleteNodeMutation/not_found_error_on_delete
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Node(int32)
+    resolver_test.go:115: PASS:	DeleteNode(int64)
+=== CONT  Test_NodeQuery/not_authorized
+=== CONT  Test_NodeQuery/not_found_error
+=== CONT  Test_DeleteNodeMutation/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Node(int32)
+    resolver_test.go:115: PASS:	DeleteNode(int64)
+--- PASS: Test_DeleteNodeMutation (0.00s)
+    --- PASS: Test_DeleteNodeMutation/not_authorized (0.01s)
+    --- PASS: Test_DeleteNodeMutation/not_found_error_on_fetch (0.01s)
+    --- PASS: Test_DeleteNodeMutation/not_found_error_on_delete (0.01s)
+    --- PASS: Test_DeleteNodeMutation/success (0.01s)
+=== CONT  Test_NodeQuery/success
+=== CONT  TestResolver_Nodes/not_authorized
+=== CONT  Test_NodeQuery/not_found_error
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Node(int32)
+=== CONT  TestResolver_Nodes/generic_error
+=== CONT  Test_NodeQuery/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Node(int32)
+=== CONT  TestResolver_Nodes/success
+--- PASS: Test_NodeQuery (0.00s)
+    --- PASS: Test_NodeQuery/not_authorized (0.01s)
+    --- PASS: Test_NodeQuery/not_found_error (0.01s)
+    --- PASS: Test_NodeQuery/success (0.01s)
+=== CONT  TestResolver_Nodes/generic_error
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Nodes(int,int)
+=== CONT  Test_CreateNodeMutation/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	CreateNode(types.NewNode)
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+--- PASS: Test_CreateNodeMutation (0.00s)
+    --- PASS: Test_CreateNodeMutation/not_authorized (0.01s)
+    --- PASS: Test_CreateNodeMutation/success (0.03s)
+=== CONT  TestResolver_Nodes/success
+    resolver_test.go:115: PASS:	EVMORM()
+    resolver_test.go:115: PASS:	Nodes(int,int)
+    resolver_test.go:115: PASS:	GetChainsByIDs([]utils.Big)
+--- PASS: TestResolver_Nodes (0.00s)
+    --- PASS: TestResolver_Nodes/not_authorized (0.01s)
+    --- PASS: TestResolver_Nodes/generic_error (0.01s)
+    --- PASS: TestResolver_Nodes/success (0.02s)
+PASS
+coverage: 80.1% of statements
+ok  	github.com/smartcontractkit/chainlink/core/web/resolver	3.423s	coverage: 80.1% of statements

@@ -8,7 +8,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
@@ -20,7 +20,7 @@ import (
 var (
 	_ = big.NewInt
 	_ = strings.NewReader
-	_ = ethereum.NotFound
+	_ = celo.NotFound
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -1050,7 +1050,7 @@ type AccessControlledOffchainAggregatorAddedAccessIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1167,7 +1167,7 @@ type AccessControlledOffchainAggregatorAnswerUpdatedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1304,7 +1304,7 @@ type AccessControlledOffchainAggregatorBillingAccessControllerSetIterator struct
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1422,7 +1422,7 @@ type AccessControlledOffchainAggregatorBillingSetIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1543,7 +1543,7 @@ type AccessControlledOffchainAggregatorCheckAccessDisabledIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1659,7 +1659,7 @@ type AccessControlledOffchainAggregatorCheckAccessEnabledIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1775,7 +1775,7 @@ type AccessControlledOffchainAggregatorConfigSetIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1900,7 +1900,7 @@ type AccessControlledOffchainAggregatorLinkTokenSetIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2036,7 +2036,7 @@ type AccessControlledOffchainAggregatorNewRoundIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2173,7 +2173,7 @@ type AccessControlledOffchainAggregatorNewTransmissionIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2306,7 +2306,7 @@ type AccessControlledOffchainAggregatorOraclePaidIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2454,7 +2454,7 @@ type AccessControlledOffchainAggregatorOwnershipTransferRequestedIterator struct
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2590,7 +2590,7 @@ type AccessControlledOffchainAggregatorOwnershipTransferredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2726,7 +2726,7 @@ type AccessControlledOffchainAggregatorPayeeshipTransferRequestedIterator struct
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2871,7 +2871,7 @@ type AccessControlledOffchainAggregatorPayeeshipTransferredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -3016,7 +3016,7 @@ type AccessControlledOffchainAggregatorRemovedAccessIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -3133,7 +3133,7 @@ type AccessControlledOffchainAggregatorRequesterAccessControllerSetIterator stru
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -3251,7 +3251,7 @@ type AccessControlledOffchainAggregatorRoundRequestedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -3381,7 +3381,7 @@ type AccessControlledOffchainAggregatorValidatorConfigSetIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }

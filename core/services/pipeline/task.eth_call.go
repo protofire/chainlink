@@ -81,7 +81,7 @@ func (t *ETHCallTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, in
 		return Result{Error: errors.Wrapf(ErrBadInput, "data param must not be empty")}, runInfo
 	}
 
-	call := ethereum.CallMsg{
+	call := celo.CallMsg{
 		To:        (*common.Address)(&contractAddr),
 		Data:      []byte(data),
 		Gas:       uint64(gas),

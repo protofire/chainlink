@@ -3,12 +3,12 @@ package client
 import (
 	"math/big"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
 	"github.com/smartcontractkit/chainlink/core/utils"
 )
 
-var _ ethereum.Subscription = &chainIDSubForwarder{}
+var _ celo.Subscription = &chainIDSubForwarder{}
 
 // chainIDSubForwarder wraps a head subscription in order to intercept and augment each head with chainID before forwarding.
 type chainIDSubForwarder struct {
@@ -16,7 +16,7 @@ type chainIDSubForwarder struct {
 	destCh  chan<- *evmtypes.Head
 
 	srcCh  chan *evmtypes.Head
-	srcSub ethereum.Subscription
+	srcSub celo.Subscription
 
 	done  chan struct{}
 	err   chan error
@@ -35,7 +35,7 @@ func newChainIDSubForwarder(chainID *big.Int, ch chan<- *evmtypes.Head) *chainID
 }
 
 // start spawns the forwarding loop for sub.
-func (c *chainIDSubForwarder) start(sub ethereum.Subscription, err error) error {
+func (c *chainIDSubForwarder) start(sub celo.Subscription, err error) error {
 	if err != nil {
 		close(c.srcCh)
 		return err

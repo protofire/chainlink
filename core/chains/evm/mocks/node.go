@@ -10,7 +10,7 @@ import (
 
 	context "context"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 
 	mock "github.com/stretchr/testify/mock"
 
@@ -102,11 +102,11 @@ func (_m *Node) CallContext(ctx context.Context, result interface{}, method stri
 }
 
 // CallContract provides a mock function with given fields: ctx, msg, blockNumber
-func (_m *Node) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (_m *Node) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	ret := _m.Called(ctx, msg, blockNumber)
 
 	var r0 []byte
-	if rf, ok := ret.Get(0).(func(context.Context, ethereum.CallMsg, *big.Int) []byte); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, celo.CallMsg, *big.Int) []byte); ok {
 		r0 = rf(ctx, msg, blockNumber)
 	} else {
 		if ret.Get(0) != nil {
@@ -115,7 +115,7 @@ func (_m *Node) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNum
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context, ethereum.CallMsg, *big.Int) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, celo.CallMsg, *big.Int) error); ok {
 		r1 = rf(ctx, msg, blockNumber)
 	} else {
 		r1 = ret.Error(1)
@@ -190,18 +190,18 @@ func (_m *Node) Dial(ctx context.Context) error {
 }
 
 // EstimateGas provides a mock function with given fields: ctx, call
-func (_m *Node) EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error) {
+func (_m *Node) EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error) {
 	ret := _m.Called(ctx, call)
 
 	var r0 uint64
-	if rf, ok := ret.Get(0).(func(context.Context, ethereum.CallMsg) uint64); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, celo.CallMsg) uint64); ok {
 		r0 = rf(ctx, call)
 	} else {
 		r0 = ret.Get(0).(uint64)
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context, ethereum.CallMsg) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, celo.CallMsg) error); ok {
 		r1 = rf(ctx, call)
 	} else {
 		r1 = ret.Error(1)
@@ -211,18 +211,18 @@ func (_m *Node) EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64,
 }
 
 // EthSubscribe provides a mock function with given fields: ctx, channel, args
-func (_m *Node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
+func (_m *Node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error) {
 	var _ca []interface{}
 	_ca = append(_ca, ctx, channel)
 	_ca = append(_ca, args...)
 	ret := _m.Called(_ca...)
 
-	var r0 ethereum.Subscription
-	if rf, ok := ret.Get(0).(func(context.Context, interface{}, ...interface{}) ethereum.Subscription); ok {
+	var r0 celo.Subscription
+	if rf, ok := ret.Get(0).(func(context.Context, interface{}, ...interface{}) celo.Subscription); ok {
 		r0 = rf(ctx, channel, args...)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(ethereum.Subscription)
+			r0 = ret.Get(0).(celo.Subscription)
 		}
 	}
 
@@ -237,11 +237,11 @@ func (_m *Node) EthSubscribe(ctx context.Context, channel interface{}, args ...i
 }
 
 // FilterLogs provides a mock function with given fields: ctx, q
-func (_m *Node) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error) {
+func (_m *Node) FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error) {
 	ret := _m.Called(ctx, q)
 
 	var r0 []types.Log
-	if rf, ok := ret.Get(0).(func(context.Context, ethereum.FilterQuery) []types.Log); ok {
+	if rf, ok := ret.Get(0).(func(context.Context, celo.FilterQuery) []types.Log); ok {
 		r0 = rf(ctx, q)
 	} else {
 		if ret.Get(0) != nil {
@@ -250,7 +250,7 @@ func (_m *Node) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context, ethereum.FilterQuery) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, celo.FilterQuery) error); ok {
 		r1 = rf(ctx, q)
 	} else {
 		r1 = ret.Error(1)
@@ -390,20 +390,20 @@ func (_m *Node) String() string {
 }
 
 // SubscribeFilterLogs provides a mock function with given fields: ctx, q, ch
-func (_m *Node) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error) {
+func (_m *Node) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error) {
 	ret := _m.Called(ctx, q, ch)
 
-	var r0 ethereum.Subscription
-	if rf, ok := ret.Get(0).(func(context.Context, ethereum.FilterQuery, chan<- types.Log) ethereum.Subscription); ok {
+	var r0 celo.Subscription
+	if rf, ok := ret.Get(0).(func(context.Context, celo.FilterQuery, chan<- types.Log) celo.Subscription); ok {
 		r0 = rf(ctx, q, ch)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(ethereum.Subscription)
+			r0 = ret.Get(0).(celo.Subscription)
 		}
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context, ethereum.FilterQuery, chan<- types.Log) error); ok {
+	if rf, ok := ret.Get(1).(func(context.Context, celo.FilterQuery, chan<- types.Log) error); ok {
 		r1 = rf(ctx, q, ch)
 	} else {
 		r1 = ret.Error(1)

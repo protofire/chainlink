@@ -351,7 +351,7 @@ func (t *ContractTracker) LatestConfigDetails(ctx context.Context) (changedInBlo
 // Return the latest configuration
 func (t *ContractTracker) LatestConfig(ctx context.Context, changedInBlock uint64) (ocrtypes.ContractConfig, error) {
 	fromBlock, toBlock := t.blockTranslator.NumberToQueryRange(ctx, changedInBlock)
-	q := ethereum.FilterQuery{
+	q := celo.FilterQuery{
 		FromBlock: fromBlock,
 		ToBlock:   toBlock,
 		Addresses: []gethCommon.Address{t.contract.Address()},

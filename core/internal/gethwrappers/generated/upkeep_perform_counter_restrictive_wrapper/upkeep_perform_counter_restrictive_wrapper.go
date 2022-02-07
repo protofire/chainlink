@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
@@ -22,7 +22,7 @@ var (
 	_ = errors.New
 	_ = big.NewInt
 	_ = strings.NewReader
-	_ = ethereum.NotFound
+	_ = celo.NotFound
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -368,7 +368,7 @@ type UpkeepPerformCounterRestrictivePerformingUpkeepIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }

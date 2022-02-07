@@ -122,7 +122,7 @@ func Test_UpkeepExecuter_PerformsUpkeep_Happy(t *testing.T) {
 		registryMock := cltest.NewContractMockReceiver(t, ethMock, keeper.RegistryABI, registry.ContractAddress.Address())
 		registryMock.MockMatchedResponse(
 			"checkUpkeep",
-			func(callArgs ethereum.CallMsg) bool {
+			func(callArgs celo.CallMsg) bool {
 				return bigmath.Equal(callArgs.GasPrice, gasPrice) &&
 					callArgs.Gas == 650_000
 			},
@@ -156,7 +156,7 @@ func Test_UpkeepExecuter_PerformsUpkeep_Happy(t *testing.T) {
 		registryMock := cltest.NewContractMockReceiver(t, ethMock, keeper.RegistryABI, registry.ContractAddress.Address())
 		registryMock.MockMatchedResponse(
 			"checkUpkeep",
-			func(callArgs ethereum.CallMsg) bool {
+			func(callArgs celo.CallMsg) bool {
 				return bigmath.Equal(callArgs.GasPrice, gasPrice) &&
 					callArgs.Gas == 650_000
 			},

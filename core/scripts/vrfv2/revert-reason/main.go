@@ -26,7 +26,7 @@ func main() {
 	panicErr(err)
 	fmt.Println(re.Status, re.GasUsed, re.CumulativeGasUsed)
 	requester := gethCommon.HexToAddress("9ca9d2d5e04012c9ed24c0e513c9bfaa4a2dd77f")
-	call := ethereum.CallMsg{
+	call := celo.CallMsg{
 		From:     requester,
 		To:       tx.To(),
 		Data:     tx.Data(),

@@ -11,7 +11,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/logger"
 	"github.com/smartcontractkit/chainlink/core/utils"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/common/hexutil"
 	"github.com/celo-org/celo-blockchain/core/types"
@@ -22,7 +22,7 @@ import (
 //go:generate mockery --name Client --output ../mocks/ --case=underscore
 //go:generate mockery --name Subscription --output ../mocks/ --case=underscore
 
-// Client is the interface used to interact with an ethereum node.
+// Client is the interface used to interact with an celo node.
 type Client interface {
 	Dial(ctx context.Context) error
 	Close()
@@ -42,7 +42,7 @@ type Client interface {
 	// running on Kovan.  We have to return our own wrapper type to capture the
 	// correct hash from the RPC response.
 	HeadByNumber(ctx context.Context, n *big.Int) (*evmtypes.Head, error)
-	SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (ethereum.Subscription, error)
+	SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (celo.Subscription, error)
 
 	// Wrapped Geth client methods
 	SendTransaction(ctx context.Context, tx *types.Transaction) error
@@ -52,11 +52,11 @@ type Client interface {
 	TransactionReceipt(ctx context.Context, txHash common.Hash) (*types.Receipt, error)
 	BlockByNumber(ctx context.Context, number *big.Int) (*types.Block, error)
 	BalanceAt(ctx context.Context, account common.Address, blockNumber *big.Int) (*big.Int, error)
-	FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error)
-	SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error)
-	EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error)
+	FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error)
+	SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error)
+	EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error)
 	SuggestGasPrice(ctx context.Context) (*big.Int, error)
-	CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error)
+	CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error)
 	CodeAt(ctx context.Context, account common.Address, blockNumber *big.Int) ([]byte, error)
 
 	// bind.ContractBackend methods
@@ -65,7 +65,7 @@ type Client interface {
 }
 
 // This interface only exists so that we can generate a mock for it.  It is
-// identical to `ethereum.Subscription`.
+// identical to `celo.Subscription`.
 type Subscription interface {
 	Err() <-chan error
 	Unsubscribe()
@@ -165,7 +165,7 @@ func (client *client) TransactionReceipt(ctx context.Context, txHash common.Hash
 	receipt, err = client.pool.TransactionReceipt(ctx, txHash)
 
 	if err != nil && strings.Contains(err.Error(), "missing required field") {
-		return nil, ethereum.NotFound
+		return nil, celo.NotFound
 	}
 	return
 }
@@ -195,7 +195,7 @@ func (client *client) PendingCodeAt(ctx context.Context, account common.Address)
 	return client.pool.PendingCodeAt(ctx, account)
 }
 
-func (client *client) EstimateGas(ctx context.Context, call ethereum.CallMsg) (gas uint64, err error) {
+func (client *client) EstimateGas(ctx context.Context, call celo.CallMsg) (gas uint64, err error) {
 	return client.pool.EstimateGas(ctx, call)
 }
 
@@ -203,7 +203,7 @@ func (client *client) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	return client.pool.SuggestGasPrice(ctx)
 }
 
-func (client *client) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (client *client) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	return client.pool.CallContract(ctx, msg, blockNumber)
 }
 
@@ -222,7 +222,7 @@ func (client *client) HeadByNumber(ctx context.Context, number *big.Int) (head *
 		return nil, err
 	}
 	if head == nil {
-		err = ethereum.NotFound
+		err = celo.NotFound
 		return
 	}
 	head.EVMChainID = utils.NewBig(client.ChainID())
@@ -240,18 +240,18 @@ func (client *client) BalanceAt(ctx context.Context, account common.Address, blo
 	return client.pool.BalanceAt(ctx, account, blockNumber)
 }
 
-func (client *client) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error) {
+func (client *client) FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error) {
 	return client.pool.FilterLogs(ctx, q)
 }
 
-func (client *client) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error) {
+func (client *client) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error) {
 	client.logger.Debugw("evmclient.Client#SubscribeFilterLogs(...)",
 		"q", q,
 	)
 	return client.pool.SubscribeFilterLogs(ctx, q, ch)
 }
 
-func (client *client) SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (ethereum.Subscription, error) {
+func (client *client) SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (celo.Subscription, error) {
 	csf := newChainIDSubForwarder(client.ChainID(), ch)
 	err := csf.start(client.pool.EthSubscribe(ctx, csf.srcCh, "newHeads"))
 	if err != nil {
@@ -260,7 +260,7 @@ func (client *client) SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.
 	return csf, nil
 }
 
-func (client *client) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
+func (client *client) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error) {
 	return client.pool.EthSubscribe(ctx, channel, args...)
 }
 

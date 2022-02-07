@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
@@ -22,7 +22,7 @@ var (
 	_ = errors.New
 	_ = big.NewInt
 	_ = strings.NewReader
-	_ = ethereum.NotFound
+	_ = celo.NotFound
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -547,7 +547,7 @@ type OperatorAuthorizedSendersChangedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -665,7 +665,7 @@ type OperatorCancelOracleRequestIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -792,7 +792,7 @@ type OperatorOracleRequestIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -927,7 +927,7 @@ type OperatorOracleResponseIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1054,7 +1054,7 @@ type OperatorOwnableContractAcceptedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1181,7 +1181,7 @@ type OperatorOwnershipTransferRequestedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1317,7 +1317,7 @@ type OperatorOwnershipTransferredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1453,7 +1453,7 @@ type OperatorTargetsUpdatedAuthorizedSendersIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }

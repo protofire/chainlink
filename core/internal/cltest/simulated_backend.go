@@ -38,7 +38,7 @@ import (
 )
 
 func NewSimulatedBackend(t *testing.T, alloc core.GenesisAlloc, gasLimit uint64) *backends.SimulatedBackend {
-	backend := backends.NewSimulatedBackend(alloc, gasLimit)
+	backend := backends.NewSimulatedBackend(alloc)
 	// NOTE: Make sure to finish closing any application/client before
 	// backend.Close or they can hang
 	t.Cleanup(func() {
@@ -49,11 +49,11 @@ func NewSimulatedBackend(t *testing.T, alloc core.GenesisAlloc, gasLimit uint64)
 
 const SimulatedBackendEVMChainID int64 = 1337
 
-// newIdentity returns a go-ethereum abstraction of an ethereum account for
+// newIdentity returns a go-celo abstraction of an celo account for
 // interacting with contract golang wrappers
 func NewSimulatedBackendIdentity(t *testing.T) *bind.TransactOpts {
 	key, err := crypto.GenerateKey()
-	require.NoError(t, err, "failed to generate ethereum identity")
+	require.NoError(t, err, "failed to generate celo identity")
 	return MustNewSimulatedBackendKeyedTransactor(t, key)
 }
 
@@ -144,7 +144,7 @@ func (c *SimulatedBackendClient) checkEthCallArgs(
 	return &callArgs, blockNumber, nil
 }
 
-// Call mocks the ethereum client RPC calls used by chainlink, copying the
+// Call mocks the celo client RPC calls used by chainlink, copying the
 // return value into result.
 func (c *SimulatedBackendClient) CallContext(ctx context.Context, result interface{}, method string, args ...interface{}) error {
 	switch method {
@@ -153,7 +153,7 @@ func (c *SimulatedBackendClient) CallContext(ctx context.Context, result interfa
 		if err != nil {
 			return err
 		}
-		callMsg := ethereum.CallMsg{To: &callArgs.To, Data: callArgs.Data}
+		callMsg := celo.CallMsg{To: &callArgs.To, Data: callArgs.Data}
 		b, err := c.b.CallContract(ctx, callMsg, nil /* always latest block */)
 		if err != nil {
 			return errors.Wrapf(err, "while calling contract at address %x with "+
@@ -179,13 +179,13 @@ func (c *SimulatedBackendClient) CallContext(ctx context.Context, result interfa
 }
 
 // FilterLogs returns all logs that respect the passed filter query.
-func (c *SimulatedBackendClient) FilterLogs(ctx context.Context, q ethereum.FilterQuery) (logs []types.Log, err error) {
+func (c *SimulatedBackendClient) FilterLogs(ctx context.Context, q celo.FilterQuery) (logs []types.Log, err error) {
 	return c.b.FilterLogs(ctx, q)
 }
 
 // SubscribeToLogs registers a subscription for push notifications of logs
 // from a given address.
-func (c *SimulatedBackendClient) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, channel chan<- types.Log) (ethereum.Subscription, error) {
+func (c *SimulatedBackendClient) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, channel chan<- types.Log) (celo.Subscription, error) {
 	return c.b.SubscribeFilterLogs(ctx, q, channel)
 }
 
@@ -238,7 +238,7 @@ func (c *SimulatedBackendClient) GetERC20Balance(address common.Address, contrac
 		return nil, errors.Wrapf(err, "while seeking the ERC20 balance of %s on %s",
 			address, contractAddress)
 	}
-	b, err := c.b.CallContract(context.Background(), ethereum.CallMsg{
+	b, err := c.b.CallContract(context.Background(), celo.CallMsg{
 		To: &contractAddress, Data: callData},
 		c.currentBlockNumber())
 	if err != nil {
@@ -297,7 +297,7 @@ func (c *SimulatedBackendClient) HeadByNumber(ctx context.Context, n *big.Int) (
 	if err != nil {
 		return nil, err
 	} else if header == nil {
-		return nil, ethereum.NotFound
+		return nil, celo.NotFound
 	}
 	return &evmtypes.Head{
 		EVMChainID: utils.NewBigI(SimulatedBackendEVMChainID),
@@ -311,7 +311,7 @@ func (c *SimulatedBackendClient) BlockByNumber(ctx context.Context, n *big.Int) 
 	return c.b.BlockByNumber(ctx, n)
 }
 
-// GetChainID returns the ethereum ChainID.
+// GetChainID returns the celo ChainID.
 func (c *SimulatedBackendClient) ChainID() *big.Int {
 	return c.chainId
 }
@@ -330,10 +330,10 @@ func (c *SimulatedBackendClient) BalanceAt(ctx context.Context, account common.A
 
 type headSubscription struct {
 	unSub        chan chan struct{}
-	subscription ethereum.Subscription
+	subscription celo.Subscription
 }
 
-var _ ethereum.Subscription = (*headSubscription)(nil)
+var _ celo.Subscription = (*headSubscription)(nil)
 
 func (h *headSubscription) Unsubscribe() {
 	done := make(chan struct{})
@@ -349,7 +349,7 @@ func (h *headSubscription) Err() <-chan error { return h.subscription.Err() }
 func (c *SimulatedBackendClient) SubscribeNewHead(
 	ctx context.Context,
 	channel chan<- *evmtypes.Head,
-) (ethereum.Subscription, error) {
+) (celo.Subscription, error) {
 	subscription := &headSubscription{unSub: make(chan chan struct{})}
 	ch := make(chan *types.Header)
 
@@ -415,7 +415,7 @@ func (c *SimulatedBackendClient) Call(result interface{}, method string, args ..
 	return c.CallContext(context.Background(), result, method, args)
 }
 
-func (c *SimulatedBackendClient) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (c *SimulatedBackendClient) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	return c.b.CallContract(ctx, msg, blockNumber)
 }
 
@@ -427,7 +427,7 @@ func (c *SimulatedBackendClient) PendingCodeAt(ctx context.Context, account comm
 	return c.b.PendingCodeAt(ctx, account)
 }
 
-func (c *SimulatedBackendClient) EstimateGas(ctx context.Context, call ethereum.CallMsg) (gas uint64, err error) {
+func (c *SimulatedBackendClient) EstimateGas(ctx context.Context, call celo.CallMsg) (gas uint64, err error) {
 	return c.b.EstimateGas(ctx, call)
 }
 

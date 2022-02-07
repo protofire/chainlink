@@ -4,7 +4,7 @@ import (
 	"context"
 	"math/big"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/rpc"
@@ -67,15 +67,15 @@ func (e *erroringNode) BalanceAt(ctx context.Context, account common.Address, bl
 	return nil, errors.New(e.errMsg)
 }
 
-func (e *erroringNode) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error) {
+func (e *erroringNode) FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error) {
 	return nil, errors.New(e.errMsg)
 }
 
-func (e *erroringNode) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error) {
+func (e *erroringNode) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error) {
 	return nil, errors.New(e.errMsg)
 }
 
-func (e *erroringNode) EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error) {
+func (e *erroringNode) EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error) {
 	return 0, errors.New(e.errMsg)
 }
 
@@ -83,7 +83,7 @@ func (e *erroringNode) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	return nil, errors.New(e.errMsg)
 }
 
-func (e *erroringNode) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (e *erroringNode) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	return nil, errors.New(e.errMsg)
 }
 
@@ -99,7 +99,7 @@ func (e *erroringNode) SuggestGasTipCap(ctx context.Context) (*big.Int, error) {
 	return nil, errors.New(e.errMsg)
 }
 
-func (e *erroringNode) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
+func (e *erroringNode) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error) {
 	return nil, errors.New(e.errMsg)
 }
 

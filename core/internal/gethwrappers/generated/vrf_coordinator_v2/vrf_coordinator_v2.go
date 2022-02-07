@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
@@ -22,7 +22,7 @@ var (
 	_ = errors.New
 	_ = big.NewInt
 	_ = strings.NewReader
-	_ = ethereum.NotFound
+	_ = celo.NotFound
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -868,7 +868,7 @@ type VRFCoordinatorV2ConfigSetIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -990,7 +990,7 @@ type VRFCoordinatorV2FundsRecoveredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1108,7 +1108,7 @@ type VRFCoordinatorV2OwnershipTransferRequestedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1244,7 +1244,7 @@ type VRFCoordinatorV2OwnershipTransferredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1380,7 +1380,7 @@ type VRFCoordinatorV2ProvingKeyDeregisteredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1508,7 +1508,7 @@ type VRFCoordinatorV2ProvingKeyRegisteredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1636,7 +1636,7 @@ type VRFCoordinatorV2RandomWordsFulfilledIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1766,7 +1766,7 @@ type VRFCoordinatorV2RandomWordsRequestedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -1920,7 +1920,7 @@ type VRFCoordinatorV2SubscriptionCanceledIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2049,7 +2049,7 @@ type VRFCoordinatorV2SubscriptionConsumerAddedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2177,7 +2177,7 @@ type VRFCoordinatorV2SubscriptionConsumerRemovedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2305,7 +2305,7 @@ type VRFCoordinatorV2SubscriptionCreatedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2433,7 +2433,7 @@ type VRFCoordinatorV2SubscriptionFundedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2562,7 +2562,7 @@ type VRFCoordinatorV2SubscriptionOwnerTransferRequestedIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }
@@ -2691,7 +2691,7 @@ type VRFCoordinatorV2SubscriptionOwnerTransferredIterator struct {
 	event    string
 
 	logs chan types.Log
-	sub  ethereum.Subscription
+	sub  celo.Subscription
 	done bool
 	fail error
 }

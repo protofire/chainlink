@@ -65,7 +65,7 @@ func estimateGas(t *testing.T, backend *backends.SimulatedBackend,
 	rawData, err := abi.Pack(method, args...)
 	require.NoError(t, err, "failed to construct raw %s transaction with args %s",
 		method, args)
-	callMsg := ethereum.CallMsg{From: from, To: &to, Data: rawData}
+	callMsg := celo.CallMsg{From: from, To: &to, Data: rawData}
 	estimate, err := backend.EstimateGas(context.TODO(), callMsg)
 	require.NoError(t, err, "failed to estimate gas from %s call with args %s",
 		method, args)

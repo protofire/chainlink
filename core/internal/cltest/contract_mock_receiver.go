@@ -46,7 +46,7 @@ func (receiver contractMockReceiver) MockResponse(funcName string, responseArgs 
 		On(
 			"CallContract",
 			mock.Anything,
-			mock.MatchedBy(func(callArgs ethereum.CallMsg) bool {
+			mock.MatchedBy(func(callArgs celo.CallMsg) bool {
 				return *callArgs.To == receiver.address &&
 					hexutil.Encode(callArgs.Data)[0:funcSigLength] == funcSig
 			}),
@@ -54,7 +54,7 @@ func (receiver contractMockReceiver) MockResponse(funcName string, responseArgs 
 		Return(encoded, nil)
 }
 
-func (receiver contractMockReceiver) MockMatchedResponse(funcName string, matcher func(callArgs ethereum.CallMsg) bool, responseArgs ...interface{}) *mock.Call {
+func (receiver contractMockReceiver) MockMatchedResponse(funcName string, matcher func(callArgs celo.CallMsg) bool, responseArgs ...interface{}) *mock.Call {
 	funcSig := hexutil.Encode(receiver.abi.Methods[funcName].ID)
 	if len(funcSig) != funcSigLength {
 		receiver.t.Fatalf("Unable to find Registry contract function with name %s", funcName)
@@ -66,7 +66,7 @@ func (receiver contractMockReceiver) MockMatchedResponse(funcName string, matche
 		On(
 			"CallContract",
 			mock.Anything,
-			mock.MatchedBy(func(callArgs ethereum.CallMsg) bool {
+			mock.MatchedBy(func(callArgs celo.CallMsg) bool {
 				return *callArgs.To == receiver.address &&
 					hexutil.Encode(callArgs.Data)[0:funcSigLength] == funcSig &&
 					matcher(callArgs)
@@ -85,7 +85,7 @@ func (receiver contractMockReceiver) MockRevertResponse(funcName string) *mock.C
 		On(
 			"CallContract",
 			mock.Anything,
-			mock.MatchedBy(func(callArgs ethereum.CallMsg) bool {
+			mock.MatchedBy(func(callArgs celo.CallMsg) bool {
 				return *callArgs.To == receiver.address &&
 					hexutil.Encode(callArgs.Data)[0:funcSigLength] == funcSig
 			}),

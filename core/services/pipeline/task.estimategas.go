@@ -32,7 +32,7 @@ type EstimateGasLimitTask struct {
 }
 
 type GasEstimator interface {
-	EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error)
+	EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error)
 }
 
 var (
@@ -67,7 +67,7 @@ func (t *EstimateGasLimitTask) Run(_ context.Context, lggr logger.Logger, vars V
 	}
 	maximumGasLimit := chain.Config().EvmGasLimitDefault()
 	to := common.Address(toAddr)
-	gasLimit, err := chain.Client().EstimateGas(context.Background(), ethereum.CallMsg{
+	gasLimit, err := chain.Client().EstimateGas(context.Background(), celo.CallMsg{
 		From: common.Address(fromAddr),
 		To:   &to,
 		Data: data,

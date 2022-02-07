@@ -4,7 +4,7 @@ import (
 	"context"
 	"math/big"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/rpc"
@@ -88,12 +88,12 @@ func (ns *nullSubscription) Err() <-chan error {
 	return nil
 }
 
-func (nc *NullClient) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error) {
+func (nc *NullClient) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error) {
 	nc.lggr.Debug("SubscribeFilterLogs")
 	return newNullSubscription(nc.lggr), nil
 }
 
-func (nc *NullClient) SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (ethereum.Subscription, error) {
+func (nc *NullClient) SubscribeNewHead(ctx context.Context, ch chan<- *evmtypes.Head) (celo.Subscription, error) {
 	nc.lggr.Debug("SubscribeNewHead")
 	return newNullSubscription(nc.lggr), nil
 }
@@ -150,12 +150,12 @@ func (nc *NullClient) BalanceAt(ctx context.Context, account common.Address, blo
 	return big.NewInt(0), nil
 }
 
-func (nc *NullClient) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error) {
+func (nc *NullClient) FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error) {
 	nc.lggr.Debug("FilterLogs")
 	return nil, nil
 }
 
-func (nc *NullClient) EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error) {
+func (nc *NullClient) EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error) {
 	nc.lggr.Debug("EstimateGas")
 	return 0, nil
 }
@@ -165,7 +165,7 @@ func (nc *NullClient) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	return big.NewInt(0), nil
 }
 
-func (nc *NullClient) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (nc *NullClient) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	nc.lggr.Debug("CallContract")
 	return nil, nil
 }

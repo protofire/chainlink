@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/accounts/abi"
 	"github.com/celo-org/celo-blockchain/accounts/abi/bind"
 	"github.com/celo-org/celo-blockchain/common"
@@ -19,7 +19,7 @@ import (
 var (
 	_ = big.NewInt
 	_ = strings.NewReader
-	_ = ethereum.NotFound
+	_ = celo.NotFound
 	_ = bind.Bind
 	_ = common.Big1
 	_ = types.BloomLookup
@@ -606,7 +606,7 @@ type MockV3AggregatorContractAnswerUpdatedIterator struct {
 	event    string              // Event name to use for unpacking event data
 
 	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	sub  celo.Subscription // Subscription for errors, completion and termination
 	done bool                  // Whether the subscription completed delivering logs
 	fail error                 // Occurred error to stop iteration
 }
@@ -760,7 +760,7 @@ type MockV3AggregatorContractNewRoundIterator struct {
 	event    string              // Event name to use for unpacking event data
 
 	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	sub  celo.Subscription // Subscription for errors, completion and termination
 	done bool                  // Whether the subscription completed delivering logs
 	fail error                 // Occurred error to stop iteration
 }

@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/rpc"
@@ -220,15 +220,15 @@ func (p *Pool) BalanceAt(ctx context.Context, account common.Address, blockNumbe
 	return p.getRoundRobin().BalanceAt(ctx, account, blockNumber)
 }
 
-func (p *Pool) FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error) {
+func (p *Pool) FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error) {
 	return p.getRoundRobin().FilterLogs(ctx, q)
 }
 
-func (p *Pool) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error) {
+func (p *Pool) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error) {
 	return p.getRoundRobin().SubscribeFilterLogs(ctx, q, ch)
 }
 
-func (p *Pool) EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error) {
+func (p *Pool) EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error) {
 	return p.getRoundRobin().EstimateGas(ctx, call)
 }
 
@@ -236,7 +236,7 @@ func (p *Pool) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	return p.getRoundRobin().SuggestGasPrice(ctx)
 }
 
-func (p *Pool) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error) {
+func (p *Pool) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error) {
 	return p.getRoundRobin().CallContract(ctx, msg, blockNumber)
 }
 
@@ -253,6 +253,6 @@ func (p *Pool) SuggestGasTipCap(ctx context.Context) (*big.Int, error) {
 	return p.getRoundRobin().SuggestGasTipCap(ctx)
 }
 
-func (p *Pool) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
+func (p *Pool) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error) {
 	return p.getRoundRobin().EthSubscribe(ctx, channel, args...)
 }

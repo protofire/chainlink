@@ -1090,7 +1090,7 @@ func TestBroadcaster_Register_ResubscribesToMostRecentlySeenBlock(t *testing.T) 
 
 	ethClient.On("FilterLogs", mock.Anything, mock.Anything).
 		Run(func(args mock.Arguments) {
-			query := args.Get(1).(ethereum.FilterQuery)
+			query := args.Get(1).(celo.FilterQuery)
 			require.Equal(t, big.NewInt(expectedBlock), query.FromBlock)
 			require.Contains(t, query.Addresses, contract0.Address())
 			require.Len(t, query.Addresses, 1)
@@ -1100,7 +1100,7 @@ func TestBroadcaster_Register_ResubscribesToMostRecentlySeenBlock(t *testing.T) 
 
 	ethClient.On("FilterLogs", mock.Anything, mock.Anything).
 		Run(func(args mock.Arguments) {
-			query := args.Get(1).(ethereum.FilterQuery)
+			query := args.Get(1).(celo.FilterQuery)
 			require.Equal(t, big.NewInt(expectedBlock), query.FromBlock)
 			require.Contains(t, query.Addresses, contract0.Address())
 			require.Contains(t, query.Addresses, contract1.Address())
@@ -1111,7 +1111,7 @@ func TestBroadcaster_Register_ResubscribesToMostRecentlySeenBlock(t *testing.T) 
 
 	ethClient.On("FilterLogs", mock.Anything, mock.Anything).
 		Run(func(args mock.Arguments) {
-			query := args.Get(1).(ethereum.FilterQuery)
+			query := args.Get(1).(celo.FilterQuery)
 			require.Equal(t, big.NewInt(expectedBlock), query.FromBlock)
 			require.Contains(t, query.Addresses, contract0.Address())
 			require.Contains(t, query.Addresses, contract1.Address())
@@ -1321,8 +1321,8 @@ func TestBroadcaster_ReceivesAllLogsWhenResubscribing(t *testing.T) {
 			combinedLogs := append(pickLogs(logsA, test.backfillableLogs), pickLogs(logsB, test.backfillableLogs)...)
 			call := helper.mockEth.ethClient.On("FilterLogs", mock.Anything, mock.Anything).Return(combinedLogs, nil).Once()
 			call.Run(func(args mock.Arguments) {
-				// Validate that the ethereum.FilterQuery is specified correctly for the backfill that we expect
-				fromBlock := args.Get(1).(ethereum.FilterQuery).FromBlock
+				// Validate that the celo.FilterQuery is specified correctly for the backfill that we expect
+				fromBlock := args.Get(1).(celo.FilterQuery).FromBlock
 				expected := big.NewInt(0)
 
 				blockNumber := helper.lb.BackfillBlockNumber()

@@ -50,7 +50,7 @@ func TestETHCallTask(t *testing.T) {
 			func(ethClient *evmmocks.Client, config *pipelinemocks.Config) {
 				contractAddr := common.HexToAddress("0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF")
 				ethClient.
-					On("CallContract", mock.Anything, ethereum.CallMsg{To: &contractAddr, Data: []byte("foo bar")}, (*big.Int)(nil)).
+					On("CallContract", mock.Anything, celo.CallMsg{To: &contractAddr, Data: []byte("foo bar")}, (*big.Int)(nil)).
 					Return([]byte("baz quux"), nil)
 			},
 			[]byte("baz quux"), nil, "",
@@ -116,7 +116,7 @@ func TestETHCallTask(t *testing.T) {
 			func(ethClient *evmmocks.Client, config *pipelinemocks.Config) {
 				contractAddr := common.HexToAddress("0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF")
 				ethClient.
-					On("CallContract", mock.Anything, ethereum.CallMsg{To: &contractAddr, Data: []byte("foo bar")}, (*big.Int)(nil)).
+					On("CallContract", mock.Anything, celo.CallMsg{To: &contractAddr, Data: []byte("foo bar")}, (*big.Int)(nil)).
 					Return([]byte("baz quux"), nil)
 			},
 			nil, nil, "chain not found",

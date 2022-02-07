@@ -411,7 +411,7 @@ func newMockEthClient(t *testing.T, chchRawLogs chan<- chan<- types.Log, blockHe
 	if expectedCalls.FilterLogs > 0 {
 		mockEth.ethClient.On("FilterLogs", mock.Anything, mock.Anything).
 			Run(func(args mock.Arguments) {
-				filterQuery := args.Get(1).(ethereum.FilterQuery)
+				filterQuery := args.Get(1).(celo.FilterQuery)
 				fromBlock := filterQuery.FromBlock.Int64()
 				toBlock := filterQuery.ToBlock.Int64()
 				if mockEth.checkFilterLogs != nil {

@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"sync"
 
-	ethereum "github.com/celo-org/celo-blockchain"
+	celo "github.com/celo-org/celo-blockchain"
 	"github.com/celo-org/celo-blockchain/common"
 	"github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/ethclient"
@@ -34,15 +34,15 @@ type Node interface {
 	TransactionReceipt(ctx context.Context, txHash common.Hash) (*types.Receipt, error)
 	BlockByNumber(ctx context.Context, number *big.Int) (*types.Block, error)
 	BalanceAt(ctx context.Context, account common.Address, blockNumber *big.Int) (*big.Int, error)
-	FilterLogs(ctx context.Context, q ethereum.FilterQuery) ([]types.Log, error)
-	SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (ethereum.Subscription, error)
-	EstimateGas(ctx context.Context, call ethereum.CallMsg) (uint64, error)
+	FilterLogs(ctx context.Context, q celo.FilterQuery) ([]types.Log, error)
+	SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (celo.Subscription, error)
+	EstimateGas(ctx context.Context, call celo.CallMsg) (uint64, error)
 	SuggestGasPrice(ctx context.Context) (*big.Int, error)
-	CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) ([]byte, error)
+	CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) ([]byte, error)
 	CodeAt(ctx context.Context, account common.Address, blockNumber *big.Int) ([]byte, error)
 	HeaderByNumber(context.Context, *big.Int) (*types.Header, error)
 	SuggestGasTipCap(ctx context.Context) (*big.Int, error)
-	EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error)
+	EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error)
 	ChainID(ctx context.Context) (chainID *big.Int, err error)
 
 	String() string
@@ -65,7 +65,7 @@ const (
 	NodeStateClosed
 )
 
-// Node represents one ethereum node.
+// Node represents one celo node.
 // It must have a ws url and may have a http url
 type node struct {
 	ws   rawclient
@@ -236,7 +236,7 @@ func (n *node) BatchCallContext(ctx context.Context, b []rpc.BatchElem) error {
 	return n.wrapWS(n.ws.rpc.BatchCallContext(ctx, b))
 }
 
-func (n *node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (ethereum.Subscription, error) {
+func (n *node) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (celo.Subscription, error) {
 	ctx, cancel := DefaultQueryCtx(ctx)
 	defer cancel()
 
@@ -372,7 +372,7 @@ func (n *node) CodeAt(ctx context.Context, account common.Address, blockNumber *
 	return
 }
 
-func (n *node) EstimateGas(ctx context.Context, call ethereum.CallMsg) (gas uint64, err error) {
+func (n *node) EstimateGas(ctx context.Context, call celo.CallMsg) (gas uint64, err error) {
 	ctx, cancel := DefaultQueryCtx(ctx)
 	defer cancel()
 
@@ -400,7 +400,7 @@ func (n *node) SuggestGasPrice(ctx context.Context) (price *big.Int, err error) 
 	return
 }
 
-func (n *node) CallContract(ctx context.Context, msg ethereum.CallMsg, blockNumber *big.Int) (val []byte, err error) {
+func (n *node) CallContract(ctx context.Context, msg celo.CallMsg, blockNumber *big.Int) (val []byte, err error) {
 	ctx, cancel := DefaultQueryCtx(ctx)
 	defer cancel()
 
@@ -455,7 +455,7 @@ func (n *node) BalanceAt(ctx context.Context, account common.Address, blockNumbe
 	return
 }
 
-func (n *node) FilterLogs(ctx context.Context, q ethereum.FilterQuery) (l []types.Log, err error) {
+func (n *node) FilterLogs(ctx context.Context, q celo.FilterQuery) (l []types.Log, err error) {
 	ctx, cancel := DefaultQueryCtx(ctx)
 	defer cancel()
 
@@ -473,7 +473,7 @@ func (n *node) FilterLogs(ctx context.Context, q ethereum.FilterQuery) (l []type
 	return
 }
 
-func (n *node) SubscribeFilterLogs(ctx context.Context, q ethereum.FilterQuery, ch chan<- types.Log) (sub ethereum.Subscription, err error) {
+func (n *node) SubscribeFilterLogs(ctx context.Context, q celo.FilterQuery, ch chan<- types.Log) (sub celo.Subscription, err error) {
 	ctx, cancel := DefaultQueryCtx(ctx)
 	defer cancel()
 

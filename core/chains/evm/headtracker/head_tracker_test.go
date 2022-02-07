@@ -627,7 +627,7 @@ func TestHeadTracker_Backfill(t *testing.T) {
 	t.Parallel()
 
 	// Heads are arranged as follows:
-	// headN indicates an unpersisted ethereum header
+	// headN indicates an unpersisted celo header
 	// hN indicates a persisted head record
 	//
 	// (1)->(H0)
@@ -852,7 +852,7 @@ func TestHeadTracker_Backfill(t *testing.T) {
 			Return(&head10, nil).
 			Once()
 		ethClient.On("HeadByNumber", mock.Anything, big.NewInt(8)).
-			Return(nil, ethereum.NotFound).
+			Return(nil, celo.NotFound).
 			Once()
 
 		ht := createHeadTrackerWithNeverSleeper(t, ethClient, cfg, orm)
