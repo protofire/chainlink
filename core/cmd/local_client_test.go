@@ -11,7 +11,6 @@ import (
 	"testing"
 	"time"
 
-	gethTypes "github.com/celo-org/celo-blockchain/core/types"
 
 	"github.com/smartcontractkit/chainlink/core/cmd"
 	cmdMocks "github.com/smartcontractkit/chainlink/core/cmd/mocks"

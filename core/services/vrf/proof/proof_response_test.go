@@ -45,7 +45,7 @@ func TestMarshaledProof(t *testing.T) {
 	require.NoError(t, err)
 	genesisData := core.GenesisAlloc{auth.From: {Balance: assets.Ether(100)}}
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
+	gasLimit := ethconfig.Defaults.RPCGasCap
 	backend := cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 	_, _, verifier, err := solidity_vrf_verifier_wrapper.DeployVRFTestHelper(auth, backend)
 	if err != nil {

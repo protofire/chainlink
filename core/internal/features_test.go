@@ -29,6 +29,7 @@ import (
 	"github.com/smartcontractkit/chainlink/core/assets"
 	"github.com/smartcontractkit/chainlink/core/auth"
 
+	"github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"github.com/smartcontractkit/chainlink/core/bridges"
 	evmtypes "github.com/smartcontractkit/chainlink/core/chains/evm/types"
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
@@ -54,11 +55,11 @@ import (
 	"github.com/smartcontractkit/chainlink/core/utils"
 	"github.com/smartcontractkit/chainlink/core/web"
 
-	webauth "github.com/smartcontractkit/chainlink/core/web/auth"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/offchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/gethwrappers/testoffchainaggregator"
 	"github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/confighelper"
 	ocrtypes "github.com/smartcontractkit/chainlink/core/external/libocr/offchainreporting/types"
+	webauth "github.com/smartcontractkit/chainlink/core/web/auth"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
@@ -289,7 +290,7 @@ func setupOperatorContracts(t *testing.T) OperatorContracts {
 		user.From: {Balance: assets.Ether(1000)},
 	}
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
+	gasLimit := ethconfig.Defaults.RPCGasCap * 2
 	b := cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 	linkTokenAddress, _, linkContract, err := link_token_interface.DeployLinkToken(user, b)
 	require.NoError(t, err)
@@ -364,7 +365,16 @@ func TestIntegration_DirectRequest(t *testing.T) {
 			// Fund node account with ETH.
 			n, err := b.NonceAt(context.Background(), operatorContracts.user.From, nil)
 			require.NoError(t, err)
-			tx = types.NewTransaction(n, sendingKeys[0].Address.Address(), assets.Ether(100), 21000, big.NewInt(1000000000), nil)
+			//tx = types.NewTransaction(n, sendingKeys[0].Address.Address(), assets.Ether(100), 21000, big.NewInt(1000000000), nil)
+			to := sendingKeys[0].Address.Address()
+			tx = types.NewTx(&types.LegacyTx{
+				Nonce:         uint64(n),
+				To:            &to,
+				Value:  	   assets.Ether(100),
+				Gas:           uint64(21000),
+				GasPrice:      big.NewInt(1000000000),
+				EthCompatible: true,
+			})
 			signedTx, err := operatorContracts.user.Signer(operatorContracts.user.From, tx)
 			require.NoError(t, err)
 			err = b.SendTransaction(context.Background(), signedTx)
@@ -458,7 +468,7 @@ func setupOCRContracts(t *testing.T) (*bind.TransactOpts, *backends.SimulatedBac
 		owner.From: {Balance: sb},
 	}
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
+	gasLimit := ethconfig.Defaults.RPCGasCap * 2
 	b := cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 	linkTokenAddress, _, linkContract, err := link_token_interface.DeployLinkToken(owner, b)
 	require.NoError(t, err)
@@ -518,8 +528,15 @@ func setupNode(t *testing.T, owner *bind.TransactOpts, port int, dbName string, 
 	n, err := b.NonceAt(context.Background(), owner.From, nil)
 	require.NoError(t, err)
 
-
-	tx := types.NewTransaction(n, transmitter, assets.Ether(100), 21000, big.NewInt(1000000000), nil)
+	//tx := types.NewTransaction(n, transmitter, assets.Ether(100), 21000, big.NewInt(1000000000), nil)
+	tx := types.NewTx(&types.LegacyTx{
+		Nonce:         uint64(n),
+		To:            &transmitter,
+		Value:  	   assets.Ether(100),
+		Gas:           uint64(21000),
+		GasPrice:      big.NewInt(1000000000),
+		EthCompatible: true,
+	})
 	signedTx, err := owner.Signer(owner.From, tx)
 	require.NoError(t, err)
 	err = b.SendTransaction(context.Background(), signedTx)

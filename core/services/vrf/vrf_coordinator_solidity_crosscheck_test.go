@@ -107,7 +107,7 @@ func newVRFCoordinatorUniverse(t *testing.T, key ethkey.KeyV2) coordinatorUniver
 		carol.From:   {Balance: assets.Ether(1000)},
 		nallory.From: {Balance: assets.Ether(1000)},
 	}
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
+	gasLimit := ethconfig.Defaults.RPCGasCap
 	consumerABI, err := abi.JSON(strings.NewReader(
 		solidity_vrf_consumer_interface.VRFConsumerABI))
 	require.NoError(t, err)

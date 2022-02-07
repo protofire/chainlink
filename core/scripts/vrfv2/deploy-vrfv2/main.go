@@ -40,8 +40,6 @@ func sendEth(chainID int64, ec ethclient.Client, to common.Address, amount int) 
 	panicErr(err)
 	gasPrice, err := ec.SuggestGasPrice(context.Background())
 	panicErr(err)
-	//tx := types.NewTransaction(nonce, to, big.NewInt(0).Mul(big.NewInt(int64(amount)), big.NewInt(1000000000000000000)), uint64(21000), gasPrice, nil)
-	//value := big.NewInt(0).Mul(big.NewInt(int64(amount))
 	tx := types.NewTx(&types.LegacyTx{
 		Nonce:         uint64(nonce),
 		To:            &to,

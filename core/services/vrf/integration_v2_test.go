@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	gethtypes "github.com/celo-org/celo-blockchain/core/types"
 	"github.com/celo-org/celo-blockchain/eth/ethconfig"
 	"math/big"
 	"strconv"
@@ -115,7 +116,7 @@ func newVRFCoordinatorV2Universe(t *testing.T, key ethkey.KeyV2, numConsumers in
 	}
 
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil
+	gasLimit := ethconfig.Defaults.RPCGasCap
 	consumerABI, err := abi.JSON(strings.NewReader(
 		vrf_consumer_v2.VRFConsumerV2ABI))
 	require.NoError(t, err)
@@ -475,7 +476,7 @@ func TestExternalOwnerConsumerExample(t *testing.T) {
 	genesisData := core.GenesisAlloc{
 		owner.From: {Balance: assets.Ether(10)},
 	}
-	backend := cltest.NewSimulatedBackend(t, genesisData, ethconfig.Defaults.Miner.GasCeil)
+	backend := cltest.NewSimulatedBackend(t, genesisData, ethconfig.Defaults.RPCGasCap)
 	linkAddress, _, linkContract, err := link_token_interface.DeployLinkToken(
 		owner, backend)
 	require.NoError(t, err)
@@ -523,7 +524,7 @@ func TestSimpleConsumerExample(t *testing.T) {
 	genesisData := core.GenesisAlloc{
 		owner.From: {Balance: assets.Ether(10)},
 	}
-	backend := cltest.NewSimulatedBackend(t, genesisData, ethconfig.Defaults.Miner.GasCeil)
+	backend := cltest.NewSimulatedBackend(t, genesisData, ethconfig.Defaults.RPCGasCap)
 	linkAddress, _, linkContract, err := link_token_interface.DeployLinkToken(
 		owner, backend)
 	require.NoError(t, err)

@@ -70,7 +70,7 @@ commands:
 
             # Get temporary credentials to access resoures available to specific role
             temporaryCredentials=$(
-              aws sts assume-role \
+              aws sts assume-role \./tools/bin/go_core_tests
                 --role-arn "${AWS_ROLE_TO_ASSUME}" \
                 --role-session-name "cirlceci-${CIRCLE_PROJECT_REPONAME}-${CIRCLE_TAG}"
             )

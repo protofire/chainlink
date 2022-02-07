@@ -21,12 +21,12 @@ import (
 	"github.com/celo-org/celo-blockchain/core"
 	"github.com/celo-org/celo-blockchain/crypto"
 	// that package doesn't exist in celo-blockchain: "github.com/celo-org/celo-blockchain/eth/ethconfig"
-	"github.com/smartcontractkit/chainlink/core/celoextended"
-"github.com/onsi/gomega"
-"github.com/smartcontractkit/chainlink/core/assets"
-"github.com/smartcontractkit/chainlink/core/bridges"
-"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
-"github.com/smartcontractkit/sqlx"
+	//"github.com/smartcontractkit/chainlink/core/celoextended"
+	"github.com/onsi/gomega"
+	"github.com/smartcontractkit/chainlink/core/assets"
+	"github.com/smartcontractkit/chainlink/core/bridges"
+	"github.com/smartcontractkit/chainlink/core/internal/cltest/heavyweight"
+	"github.com/smartcontractkit/sqlx"
 
 
 	"github.com/smartcontractkit/chainlink/core/internal/cltest"
@@ -133,7 +133,7 @@ func setupFluxAggregatorUniverse(t *testing.T, configOptions ...func(cfg *fluxAg
 		f.nallory.From: {Balance: assets.Ether(1000)},
 	}
 
-	gasLimit := ethconfig.Defaults.Miner.GasCeil * 2
+	gasLimit := ethconfig.Defaults.RPCGasCap * 2
 	f.backend = cltest.NewSimulatedBackend(t, genesisData, gasLimit)
 
 	var err error
