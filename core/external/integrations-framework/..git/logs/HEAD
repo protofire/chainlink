@@ -1,0 +1,54 @@
+0000000000000000000000000000000000000000 6ea5a98ed8f93e646fdbbf882ff586b5580a53a8 Ceejay <chokey2nv@gmail.com> 1640623763 +0100	clone: from github.com:smartcontractkit/integrations-framework.git
+6ea5a98ed8f93e646fdbbf882ff586b5580a53a8 f801ab74369cab620c0f064c6edc223abfe810d4 Ceejay <chokey2nv@gmail.com> 1640870880 +0100	commit: working changines for GKE
+f801ab74369cab620c0f064c6edc223abfe810d4 f801ab74369cab620c0f064c6edc223abfe810d4 Ceejay <chokey2nv@gmail.com> 1640870893 +0100	checkout: moving from main to 1_TEST
+f801ab74369cab620c0f064c6edc223abfe810d4 b7dc93ef73de52e18a8d1b101b8e96eb4a6eab36 Ceejay <chokey2nv@gmail.com> 1641392044 +0100	commit: completed error wrap function and testing for validation
+b7dc93ef73de52e18a8d1b101b8e96eb4a6eab36 03a23f6af664d1edf7251cf66c19b6a7c57d5db8 Ceejay <chokey2nv@gmail.com> 1642027763 +0100	commit: Added few test cases for geth standard errorsf
+03a23f6af664d1edf7251cf66c19b6a7c57d5db8 d68bd5da5aabecf6c2dd5d81de589f3196ee51bc Ceejay <chokey2nv@gmail.com> 1642105856 +0100	pull: Fast-forward
+d68bd5da5aabecf6c2dd5d81de589f3196ee51bc 547053f936df74bf2b71976591e1f8af249a6af3 Ceejay <chokey2nv@gmail.com> 1642148202 +0100	commit: resolved lint issues
+547053f936df74bf2b71976591e1f8af249a6af3 2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b Ceejay <chokey2nv@gmail.com> 1642224547 +0100	commit: fixing lint for merge
+2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b f801ab74369cab620c0f064c6edc223abfe810d4 Ceejay <chokey2nv@gmail.com> 1642224560 +0100	checkout: moving from 1_TEST to main
+f801ab74369cab620c0f064c6edc223abfe810d4 f053c5ae8c40d3af2bc51848bf55ca039d9cc654 Ceejay <chokey2nv@gmail.com> 1642225412 +0100	commit (merge): merge
+f053c5ae8c40d3af2bc51848bf55ca039d9cc654 9926353af865bbc554e47ae528532b73c3f82b58 Ceejay <chokey2nv@gmail.com> 1642225422 +0100	pull (start): checkout 9926353af865bbc554e47ae528532b73c3f82b58
+9926353af865bbc554e47ae528532b73c3f82b58 c3853ed62fbec42f0a24eae22cab3de0c20375c9 Ceejay <chokey2nv@gmail.com> 1642225604 +0100	commit: merge
+c3853ed62fbec42f0a24eae22cab3de0c20375c9 62f2e39bee678958a3457de85f85849747bdb149 Ceejay <chokey2nv@gmail.com> 1642225789 +0100	commit: merge main branch
+62f2e39bee678958a3457de85f85849747bdb149 f053c5ae8c40d3af2bc51848bf55ca039d9cc654 Ceejay <chokey2nv@gmail.com> 1642225884 +0100	checkout: moving from 62f2e39bee678958a3457de85f85849747bdb149 to main
+f053c5ae8c40d3af2bc51848bf55ca039d9cc654 2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b Ceejay <chokey2nv@gmail.com> 1642226044 +0100	checkout: moving from main to 1_TEST
+2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b eed5c33c4f58a89f302f85ced0f522c699b6864b Ceejay <chokey2nv@gmail.com> 1642226056 +0100	merge main: Merge made by the 'recursive' strategy.
+eed5c33c4f58a89f302f85ced0f522c699b6864b bd725fc8bd7d448f1124dbd0b696a765ea40c235 Ceejay <chokey2nv@gmail.com> 1642433026 +0100	commit: changed assert package to github.com/stretchr/testify/require
+bd725fc8bd7d448f1124dbd0b696a765ea40c235 e9e768312a2a5d87767e9fa98e1f82bb7e07c9d6 Ceejay <chokey2nv@gmail.com> 1642455858 +0100	commit: add more error scenarios - exceeds block gas limit, intrinsic gas too low, tx fee exceeds the configured cap
+e9e768312a2a5d87767e9fa98e1f82bb7e07c9d6 16ee132d3724ec5559722bf769a9abebc1cf6b13 Ceejay <chokey2nv@gmail.com> 1642526775 +0100	commit: resolving lint error
+16ee132d3724ec5559722bf769a9abebc1cf6b13 1cb877e61c3e7d3207aa031a058cfad9e449a385 Ceejay <chokey2nv@gmail.com> 1642530827 +0100	commit: removed private keys
+1cb877e61c3e7d3207aa031a058cfad9e449a385 0e781bd9690d52869a8d0ec068e9b94cea392948 Ceejay <chokey2nv@gmail.com> 1642646861 +0100	commit: moved geth error designs to ginkgo suite
+0e781bd9690d52869a8d0ec068e9b94cea392948 0e781bd9690d52869a8d0ec068e9b94cea392948 Ceejay <chokey2nv@gmail.com> 1642647098 +0100	checkout: moving from 1_TEST to improvement/test_standard_geth_error_return_scenarios
+0e781bd9690d52869a8d0ec068e9b94cea392948 c150911dd2b8b885de77688af741e3bc94098d2c Ceejay <chokey2nv@gmail.com> 1642647373 +0100	commit: edited description
+c150911dd2b8b885de77688af741e3bc94098d2c 62f4e64ce8e0d0ed2840d61c274206f80ed07417 Ceejay <chokey2nv@gmail.com> 1643038430 +0100	commit: clean up
+62f4e64ce8e0d0ed2840d61c274206f80ed07417 f053c5ae8c40d3af2bc51848bf55ca039d9cc654 Ceejay <chokey2nv@gmail.com> 1643038491 +0100	checkout: moving from improvement/test_standard_geth_error_return_scenarios to main
+f053c5ae8c40d3af2bc51848bf55ca039d9cc654 9db3e4801175a7756a8c35dafa5a3d8fcbd64684 Ceejay <chokey2nv@gmail.com> 1643041266 +0100	commit (merge): merged
+9db3e4801175a7756a8c35dafa5a3d8fcbd64684 62f4e64ce8e0d0ed2840d61c274206f80ed07417 Ceejay <chokey2nv@gmail.com> 1643041275 +0100	checkout: moving from main to improvement/test_standard_geth_error_return_scenarios
+62f4e64ce8e0d0ed2840d61c274206f80ed07417 35b10b1f94682d9d36eb8fd40f316daf82052964 Ceejay <chokey2nv@gmail.com> 1643052498 +0100	commit: clean up
+35b10b1f94682d9d36eb8fd40f316daf82052964 6217a7ce93a9fe27a3d85ff1ccb3098f660ba196 Ceejay <chokey2nv@gmail.com> 1643062089 +0100	commit (merge): -
+6217a7ce93a9fe27a3d85ff1ccb3098f660ba196 9db3e4801175a7756a8c35dafa5a3d8fcbd64684 Ceejay <chokey2nv@gmail.com> 1643062115 +0100	checkout: moving from improvement/test_standard_geth_error_return_scenarios to main
+9db3e4801175a7756a8c35dafa5a3d8fcbd64684 6217a7ce93a9fe27a3d85ff1ccb3098f660ba196 Ceejay <chokey2nv@gmail.com> 1643062147 +0100	checkout: moving from main to improvement/test_standard_geth_error_return_scenarios
+6217a7ce93a9fe27a3d85ff1ccb3098f660ba196 6cd70a7a7678c85297a1b907bb77df32eabd097f Ceejay <chokey2nv@gmail.com> 1643062280 +0100	commit (merge): -
+6cd70a7a7678c85297a1b907bb77df32eabd097f 6cd70a7a7678c85297a1b907bb77df32eabd097f Ceejay <chokey2nv@gmail.com> 1643191857 +0100	checkout: moving from improvement/test_standard_geth_error_return_scenarios to integration/celo
+6cd70a7a7678c85297a1b907bb77df32eabd097f 9db3e4801175a7756a8c35dafa5a3d8fcbd64684 Ceejay <chokey2nv@gmail.com> 1643192407 +0100	checkout: moving from integration/celo to main
+9db3e4801175a7756a8c35dafa5a3d8fcbd64684 55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 Ceejay <chokey2nv@gmail.com> 1643192413 +0100	checkout: moving from main to celo-network-exclusive-ver1Fixes_optimismLessons
+55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 Ceejay <chokey2nv@gmail.com> 1643193574 +0100	checkout: moving from celo-network-exclusive-ver1Fixes_optimismLessons to improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay
+55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 ab00f321b5ea73e6ad759d926baace00113b43c3 Ceejay <chokey2nv@gmail.com> 1643194344 +0100	commit (merge): merge main branch
+ab00f321b5ea73e6ad759d926baace00113b43c3 388aeb41d92d0ca6e2db7e5f8880e6db94778377 Ceejay <chokey2nv@gmail.com> 1643194872 +0100	commit: merge2
+388aeb41d92d0ca6e2db7e5f8880e6db94778377 55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 Ceejay <chokey2nv@gmail.com> 1643195055 +0100	checkout: moving from improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay to celo-network-exclusive-ver1Fixes_optimismLessons
+55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 Ceejay <chokey2nv@gmail.com> 1643195097 +0100	checkout: moving from celo-network-exclusive-ver1Fixes_optimismLessons to improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay
+55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 897ded90c7a64d1d83423ad3a664da0dce6c836c Ceejay <chokey2nv@gmail.com> 1643211976 +0100	commit (merge): completed merging to main branch
+897ded90c7a64d1d83423ad3a664da0dce6c836c a97c8739dccc03a30e4e032f722626ed8a227719 Ceejay <chokey2nv@gmail.com> 1643252801 +0100	commit: clean up
+a97c8739dccc03a30e4e032f722626ed8a227719 10e30712775e15f063003c65fad7c3a7301bed96 Ceejay <chokey2nv@gmail.com> 1643256566 +0100	commit: total ethereum module removal
+10e30712775e15f063003c65fad7c3a7301bed96 a75fd2754863e295b2e786c5f2d8c871811f5364 Ceejay <chokey2nv@gmail.com> 1643258484 +0100	commit: -
+a75fd2754863e295b2e786c5f2d8c871811f5364 b0878daf32772baf907e330402ebf8c8ed7d1b6c Ceejay <chokey2nv@gmail.com> 1643258988 +0100	commit: remove libocr go.mod go.sum
+b0878daf32772baf907e330402ebf8c8ed7d1b6c b0878daf32772baf907e330402ebf8c8ed7d1b6c Ceejay <chokey2nv@gmail.com> 1643407568 +0100	checkout: moving from improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay to modified
+b0878daf32772baf907e330402ebf8c8ed7d1b6c b0878daf32772baf907e330402ebf8c8ed7d1b6c Ceejay <chokey2nv@gmail.com> 1643407584 +0100	checkout: moving from modified to improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay
+b0878daf32772baf907e330402ebf8c8ed7d1b6c f919df0fa723f59095710e12e0b1832b5a87424f Ceejay <chokey2nv@gmail.com> 1643407594 +0100	pull: Fast-forward
+f919df0fa723f59095710e12e0b1832b5a87424f f919df0fa723f59095710e12e0b1832b5a87424f Ceejay <chokey2nv@gmail.com> 1643654085 +0100	checkout: moving from improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay to improvemenet/hemlenv_inclusion
+f919df0fa723f59095710e12e0b1832b5a87424f 7d7100baf315918ee22b827eb8dc7276ea6e3935 Ceejay <chokey2nv@gmail.com> 1643654111 +0100	commit: just before modifying helmenv
+7d7100baf315918ee22b827eb8dc7276ea6e3935 7d7100baf315918ee22b827eb8dc7276ea6e3935 Ceejay <chokey2nv@gmail.com> 1643734099 +0100	checkout: moving from improvemenet/hemlenv_inclusion to celo_workover_experiment
+7d7100baf315918ee22b827eb8dc7276ea6e3935 4f8b87d2b401cd35f754e71b00afc2784d1cfc6f Ceejay <chokey2nv@gmail.com> 1643734622 +0100	commit: pull dev dependences inside
+4f8b87d2b401cd35f754e71b00afc2784d1cfc6f f919df0fa723f59095710e12e0b1832b5a87424f Ceejay <chokey2nv@gmail.com> 1643754994 +0100	checkout: moving from celo_workover_experiment to improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay
+f919df0fa723f59095710e12e0b1832b5a87424f 50cdcf746cb26be682aeb8bc3618a8f541512222 Ceejay <chokey2nv@gmail.com> 1643755412 +0100	commit: changed valid network type

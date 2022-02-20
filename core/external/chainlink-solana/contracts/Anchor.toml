@@ -1,0 +1,26 @@
+anchor_version = "0.20.1"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+# wallet = "~/.config/solana/id.json"
+wallet = "id.json"
+
+[scripts]
+test = "yarn run test"
+
+# [programs.mainnet]
+# TODO: add pubkeys
+
+# [programs.testnet]
+# TODO: add pubkeys
+
+# [programs.devnet]
+# TODO: add pubkeys
+
+[programs.localnet]
+ocr2 = "CF13pnKGJ1WJZeEgVAtFdUi4MMndXm9hneiHs8azUaZt"
+access_controller = "2F5NEkMnCRkmahEAcQfTQcZv1xtGgrWFfjENtTwHLuKg"
+store = "A7Jh2nb1hZHwqEofm4N8SXbKTj82rx7KUfjParQXUyMQ"

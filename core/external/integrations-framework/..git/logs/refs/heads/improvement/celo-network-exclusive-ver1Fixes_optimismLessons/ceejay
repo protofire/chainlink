@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 Ceejay <chokey2nv@gmail.com> 1643195097 +0100	branch: Created from HEAD
+55beff5519d0e2d7db4f6d40c61b4157dc0bbaf3 897ded90c7a64d1d83423ad3a664da0dce6c836c Ceejay <chokey2nv@gmail.com> 1643211976 +0100	commit (merge): completed merging to main branch
+897ded90c7a64d1d83423ad3a664da0dce6c836c a97c8739dccc03a30e4e032f722626ed8a227719 Ceejay <chokey2nv@gmail.com> 1643252801 +0100	commit: clean up
+a97c8739dccc03a30e4e032f722626ed8a227719 10e30712775e15f063003c65fad7c3a7301bed96 Ceejay <chokey2nv@gmail.com> 1643256566 +0100	commit: total ethereum module removal
+10e30712775e15f063003c65fad7c3a7301bed96 a75fd2754863e295b2e786c5f2d8c871811f5364 Ceejay <chokey2nv@gmail.com> 1643258484 +0100	commit: -
+a75fd2754863e295b2e786c5f2d8c871811f5364 b0878daf32772baf907e330402ebf8c8ed7d1b6c Ceejay <chokey2nv@gmail.com> 1643258988 +0100	commit: remove libocr go.mod go.sum
+b0878daf32772baf907e330402ebf8c8ed7d1b6c f919df0fa723f59095710e12e0b1832b5a87424f Ceejay <chokey2nv@gmail.com> 1643407594 +0100	pull: Fast-forward
+f919df0fa723f59095710e12e0b1832b5a87424f 50cdcf746cb26be682aeb8bc3618a8f541512222 Ceejay <chokey2nv@gmail.com> 1643755412 +0100	commit: changed valid network type

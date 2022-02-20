@@ -1,0 +1,46 @@
+# pack-refs with: peeled fully-peeled sorted 
+a9810157c2fa78075b7c44354fe6350d809c597b refs/remotes/origin/0.1.x
+8a9d2fd76f307b8f9e7179852f467bc09e4f42cf refs/remotes/origin/SOM-promauto
+21a31de6350ce1d8f42595f879396aff37f60f11 refs/remotes/origin/dependabot/npm_and_yarn/gauntlet/follow-redirects-1.14.7
+de4541207fdf98150d545cc370486e3103f10001 refs/remotes/origin/develop
+11bb15901e021a822ce11ebd6962f371c497f4a6 refs/remotes/origin/devnet-contracts
+42c00ea883207ecdb50d7e2f9b2f1facc98162e8 refs/remotes/origin/fetch-contracts-from-release
+1e0f786b533ab50111d3f2f2fce7b9185277428c refs/remotes/origin/fix-default-ledger-path
+6553d1bba4571d15e52aacf410890b9dea62b3fc refs/remotes/origin/fix-e2e-tests-networks-yaml
+0715f6f4df7cdc927466cd1526ebfab0166f24ff refs/remotes/origin/fix-ops-local-env
+bf83327c17d37f3f91250bf70b0b5ba30a6f3a9a refs/remotes/origin/fix-write-config-multisig
+03033ac72915131585ae7bec965470d96a6c2c03 refs/remotes/origin/fix/example-spec
+af3fa1905ec86c22ba3966bd8232bd163a0ee86b refs/remotes/origin/fixes
+ada97af1a9c577bcc3991e1458f0e6bbda86a196 refs/remotes/origin/gauntlet-allocate-account
+15e426c4bde19055da7f19f4b44b77f22754cbea refs/remotes/origin/gauntlet-close-command
+961807d94c5830b566aa2042bd7c6106bc010fb4 refs/remotes/origin/go-plugin
+73c628ec7251e220998e48aab81dc58be85b5089 refs/remotes/origin/master
+61cea3acbffcde28b9c24a707308a873a309aab9 refs/remotes/origin/misc/potentially-useful-scripts
+63364f456ac4a1277bd8dd9bc4c77f92e2ff26df refs/remotes/origin/monitor-ballance
+53f167c18de53aaf2ec36826571aca2db79a9f6f refs/remotes/origin/more-metrics
+10929c90c2aa1678b3f4269e2bf70eab91c77f0b refs/remotes/origin/multisig-tx-simulation
+39844e0cadbbbc57975a73b72595f3c3c8f322a8 refs/remotes/origin/onchain-monitoring
+1516009e065fc1c51a6804ea50bf5fca347fce53 refs/remotes/origin/restructure-config
+0248c38d4dc8763169e3421b7ffb66aed4f447aa refs/remotes/origin/small-fixes
+c3459be1e4f7daa18c1a67704500ded665a88e71 refs/remotes/origin/temp-state-owners
+19fcf7da084d9766c93a866a7dd15aa7a48dfd25 refs/remotes/origin/transmissions-layout
+f4bce0d08c13c395ec6d78fc3f3902e2e20d5d20 refs/remotes/origin/tre_gauntlet_test
+f8973592d832d9f00af228be4cc93f776379a47b refs/remotes/origin/ts
+51bf3219bc23b1143aadfe1bfccdb9f7194e0707 refs/tags/v0.1.0
+87d158fa9367f0d09f7b2c2ea0eeb4ae2eb0e29b refs/tags/v0.1.1
+47bbab4f8fc9eb0ff358b938e063aecedebd8a9a refs/tags/v0.1.2
+^90a04fd4f3b4055faeabc75ef0885b06a17219f9
+a9810157c2fa78075b7c44354fe6350d809c597b refs/tags/v0.1.3
+94fb6f7837c2e35fb905c61a226ecacc18a58db0 refs/tags/v0.2.0
+7efcfaab0998d1bb59da54e219e9334d32493c71 refs/tags/v0.2.1
+6b221412f36595310d1b86ded1af346f75665177 refs/tags/v0.2.2
+5b4d7cdb0ba245654894036369a35898f8284751 refs/tags/v0.2.3
+73c628ec7251e220998e48aab81dc58be85b5089 refs/tags/v0.2.4
+2ef6641589d0ea0ee48fa7200088ec0285930a4e refs/tags/v0.2.5
+7c431e4b837f598699b5c97ad12a6c0623361f8b refs/tags/v0.2.6
+7c431e4b837f598699b5c97ad12a6c0623361f8b refs/tags/v0.2.7
+827c07e708d2279de999dd4e396ec4145c02a57d refs/tags/v0.2.8-g
+8a0bb2da9c33070e8582d36a897e99eda9263565 refs/tags/v0.2.8-rc1
+^0536b40aa18e5fadd12eec315c7906e9c26a863c
+23a896c657ecd6a07b94dab53ff250c32c5fb48d refs/tags/v0.2.8-rc2
+^41bc04a342d73aeb30454278ba5f8c36a314f443

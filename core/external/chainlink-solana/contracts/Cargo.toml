@@ -1,0 +1,19 @@
+[workspace]
+members = [
+  "programs/*",
+  "crates/*",
+]
+
+# exclude = ["programs/flux-aggregator"]
+
+# [patch.crates-io]
+# anchor-lang = { path = '../../anchor/lang' }
+
+[profile.dev]
+overflow-checks = true
+
+[profile.release]
+overflow-checks = true
+
+[profile.test]
+overflow-checks = true

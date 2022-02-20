@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 f801ab74369cab620c0f064c6edc223abfe810d4 Ceejay <chokey2nv@gmail.com> 1640870893 +0100	branch: Created from HEAD
+f801ab74369cab620c0f064c6edc223abfe810d4 b7dc93ef73de52e18a8d1b101b8e96eb4a6eab36 Ceejay <chokey2nv@gmail.com> 1641392044 +0100	commit: completed error wrap function and testing for validation
+b7dc93ef73de52e18a8d1b101b8e96eb4a6eab36 03a23f6af664d1edf7251cf66c19b6a7c57d5db8 Ceejay <chokey2nv@gmail.com> 1642027763 +0100	commit: Added few test cases for geth standard errorsf
+03a23f6af664d1edf7251cf66c19b6a7c57d5db8 d68bd5da5aabecf6c2dd5d81de589f3196ee51bc Ceejay <chokey2nv@gmail.com> 1642105856 +0100	pull: Fast-forward
+d68bd5da5aabecf6c2dd5d81de589f3196ee51bc 547053f936df74bf2b71976591e1f8af249a6af3 Ceejay <chokey2nv@gmail.com> 1642148202 +0100	commit: resolved lint issues
+547053f936df74bf2b71976591e1f8af249a6af3 2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b Ceejay <chokey2nv@gmail.com> 1642224547 +0100	commit: fixing lint for merge
+2ff5ecd04d29d76ed6e5dfa8c040b7d1c165f13b eed5c33c4f58a89f302f85ced0f522c699b6864b Ceejay <chokey2nv@gmail.com> 1642226056 +0100	merge main: Merge made by the 'recursive' strategy.
+eed5c33c4f58a89f302f85ced0f522c699b6864b bd725fc8bd7d448f1124dbd0b696a765ea40c235 Ceejay <chokey2nv@gmail.com> 1642433026 +0100	commit: changed assert package to github.com/stretchr/testify/require
+bd725fc8bd7d448f1124dbd0b696a765ea40c235 e9e768312a2a5d87767e9fa98e1f82bb7e07c9d6 Ceejay <chokey2nv@gmail.com> 1642455858 +0100	commit: add more error scenarios - exceeds block gas limit, intrinsic gas too low, tx fee exceeds the configured cap
+e9e768312a2a5d87767e9fa98e1f82bb7e07c9d6 16ee132d3724ec5559722bf769a9abebc1cf6b13 Ceejay <chokey2nv@gmail.com> 1642526775 +0100	commit: resolving lint error
+16ee132d3724ec5559722bf769a9abebc1cf6b13 1cb877e61c3e7d3207aa031a058cfad9e449a385 Ceejay <chokey2nv@gmail.com> 1642530827 +0100	commit: removed private keys
+1cb877e61c3e7d3207aa031a058cfad9e449a385 0e781bd9690d52869a8d0ec068e9b94cea392948 Ceejay <chokey2nv@gmail.com> 1642646861 +0100	commit: moved geth error designs to ginkgo suite

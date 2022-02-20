@@ -1,0 +1,30 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:protofire/integrations-framework.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "1_TEST"]
+	remote = origin
+	merge = refs/heads/1_TEST
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[pull]
+	rebase = false
+[branch "improvement/test_standard_geth_error_return_scenarios"]
+	remote = origin
+	merge = refs/heads/improvement/test_standard_geth_error_return_scenarios
+[branch "celo-network-exclusive-ver1Fixes_optimismLessons"]
+	remote = origin
+	merge = refs/heads/celo-network-exclusive-ver1Fixes_optimismLessons
+[branch "improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay"]
+	remote = origin
+	merge = refs/heads/improvement/celo-network-exclusive-ver1Fixes_optimismLessons/ceejay
+[branch "celo_workover_experiment"]
+	remote = origin
+	merge = refs/heads/celo_workover_experiment
