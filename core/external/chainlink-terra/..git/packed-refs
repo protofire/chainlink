@@ -1,0 +1,18 @@
+# pack-refs with: peeled fully-peeled sorted 
+d7e401e1ee0c8b6e3935f984b5ae383a0ce90287 refs/remotes/origin/abci-query-rate-limiting
+73121deb4c235ed4cd45febef9412895270ecb5d refs/remotes/origin/add-tom
+3266ea8597c650ed892c1240a4a9c1fcd1a8814e refs/remotes/origin/fix/example-spec
+3026d3a2271043be3bc5e01fa210e920f2d13425 refs/remotes/origin/gauntlet-inspection-command
+2b45cb0afcbd1108fe1903971c86115459ad6c6b refs/remotes/origin/gauntlet_e2e_tests
+d3ee756ec7931a3f0dc2ec55b25ae771c8b13d44 refs/remotes/origin/main
+396859cad21517c510d0ee6651416e4176d850f9 refs/remotes/origin/main-build-artifacts
+5f34623bfed359d6f05b4bdd8d51736ec3e24ee6 refs/remotes/origin/multisig
+b0107495be781f71dcb38df280d924b8f8ceb1a8 refs/remotes/origin/nvm_use
+06a6abeba828f8d31df7b1bab6d2b4e9ccf885eb refs/remotes/origin/tx-mgr-part2-noncing
+ded2d644b7c7e326a89abe95a4713b6bf1a57651 refs/remotes/origin/update-chainlink-relay
+570ecc6500d9a64ad2a48fb8907f0fa5b2771b7f refs/remotes/origin/validate_set_billing
+a4c79982ab6e101503ea05ce7dceb3960db6307d refs/remotes/origin/wait-for-config
+208e2c3a157d4d7a0cc51563167e14b443484349 refs/remotes/origin/wip
+05d4c332bf7a73ee271501b900102b7e97858fa9 refs/tags/v0.0.3
+b00a4e8424f7864b4c550ff4a676e84508e9d10a refs/tags/v0.0.4
+10a4b0705c5577ee05c39462e28974f5aa0c2b47 refs/tags/v0.0.5
