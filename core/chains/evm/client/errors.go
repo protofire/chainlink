@@ -139,7 +139,15 @@ var harmony = ClientErrors{
 	Fatal:                   harmonyFatal,
 }
 
-var clients = []ClientErrors{parity, geth, arbitrum, optimism, substrate, avalanche, nethermind, harmony}
+// Cosmos SDK
+// https://github.com/cosmos/cosmos-sdk/blob/main/types/errors/errors.go
+var cosmosFatal = regexp.MustCompile("(: |^)(internal logic error|conflict|Internal IO error|failed packing protobuf message to Any|failed unpacking protobuf message from Any)$")
+var cosmos = ClientErrors{
+	NonceTooLow: regexp.MustCompile(`(: |^)invalid sequence$`),
+	Fatal:       cosmosFatal,
+}
+
+var clients = []ClientErrors{parity, geth, arbitrum, optimism, substrate, avalanche, nethermind, harmony, cosmos}
 
 func (s *SendError) is(errorType int) bool {
 	if s == nil || s.err == nil {
