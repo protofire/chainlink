@@ -315,10 +315,7 @@ func setChainSpecificConfigDefaultSets() {
 	harmonyTestnet.linkContractAddress = "0x8b12Ac23BFe11cAb03a634C1F117D64a7f2cFD3e"
 
 	// OKExChain
-	// (stubbed so that the ChainType is autoset for known IDs)
 	okxMainnet := fallbackDefaultSet
-	okxMainnet.chainType = chains.ExChain
-
 	okxTestnet := okxMainnet
 
 	chainSpecificConfigDefaultSets = make(map[int64]chainSpecificConfigDefaultSet)
