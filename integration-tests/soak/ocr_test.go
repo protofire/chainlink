@@ -88,7 +88,20 @@ func SetupOCRSoakEnv(t *testing.T) (*environment.Environment, blockchain.EVMNetw
 	require.NoError(t, err, "Error creating chainlink deployment")
 	testEnvironment := environment.New(baseEnvironmentConfig).
 		AddHelm(mockservercfg.New(nil)).
-		AddHelm(mockserver.New(nil)).
+		AddHelm(mockserver.New(map[string]any{
+			"app": map[string]any{
+				"resources": map[string]interface{}{
+					"requests": map[string]interface{}{
+						"cpu":    "1000m",
+						"memory": "1024Mi",
+					},
+					"limits": map[string]interface{}{
+						"cpu":    "1000m",
+						"memory": "4096Mi",
+					},
+				},
+			},
+		})).
 		AddHelm(ethereum.New(&ethereum.Props{
 			NetworkName: network.Name,
 			Simulated:   network.Simulated,
