@@ -208,6 +208,9 @@ func runRmnTestCase(t *testing.T, tc rmnTestCase) {
 		})
 
 		if rmnNodeInfo.isSigner {
+			if rmnNodeInfo.id < 0 {
+				t.Fatalf("node id is negative: %d", rmnNodeInfo.id)
+			}
 			rmnRemoteSigners = append(rmnRemoteSigners, rmn_remote.RMNRemoteSigner{
 				OnchainPublicKey: rmn.RMN.EVMOnchainPublicKey,
 				NodeIndex:        uint64(rmnNodeInfo.id),
@@ -217,6 +220,9 @@ func runRmnTestCase(t *testing.T, tc rmnTestCase) {
 
 	var rmnHomeSourceChains []rmn_home.RMNHomeSourceChain
 	for remoteChainIdx, remoteF := range tc.homeChainConfig.f {
+		if remoteF < 0 {
+			t.Fatalf("negative remote F: %d", remoteF)
+		}
 		// configure remote chain details on the home contract
 		rmnHomeSourceChains = append(rmnHomeSourceChains, rmn_home.RMNHomeSourceChain{
 			ChainSelector:       chainSelectors[remoteChainIdx],
@@ -288,6 +294,9 @@ func runRmnTestCase(t *testing.T, tc rmnTestCase) {
 		remoteSel := chainSelectors[remoteCfg.chainIdx]
 		chState, ok := onChainState.Chains[remoteSel]
 		require.True(t, ok)
+		if remoteCfg.f < 0 {
+			t.Fatalf("negative F: %d", remoteCfg.f)
+		}
 		rmnRemoteConfig := rmn_remote.RMNRemoteConfig{
 			RmnHomeContractConfigDigest: activeDigest,
 			Signers:                     rmnRemoteSigners,
