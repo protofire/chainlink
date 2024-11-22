@@ -217,6 +217,7 @@ func transferAndWaitForSuccess(
 ) {
 	startBlocks := make(map[uint64]*uint64)
 	expectedSeqNum := make(map[changeset.SourceDestPair]uint64)
+	expectedSeqNumExec := make(map[changeset.SourceDestPair][]uint64)
 
 	latesthdr, err := env.Chains[destChain].Client.HeaderByNumber(testcontext.Get(t), nil)
 	require.NoError(t, err)
@@ -234,12 +235,16 @@ func transferAndWaitForSuccess(
 		SourceChainSelector: sourceChain,
 		DestChainSelector:   destChain,
 	}] = msgSentEvent.SequenceNumber
+	expectedSeqNumExec[changeset.SourceDestPair{
+		SourceChainSelector: sourceChain,
+		DestChainSelector:   destChain,
+	}] = []uint64{msgSentEvent.SequenceNumber}
 
 	// Wait for all commit reports to land.
 	changeset.ConfirmCommitForAllWithExpectedSeqNums(t, env, state, expectedSeqNum, startBlocks)
 
 	// Wait for all exec reports to land
-	changeset.ConfirmExecWithSeqNrForAll(t, env, state, expectedSeqNum, startBlocks)
+	changeset.ConfirmExecWithSeqNrsForAll(t, env, state, expectedSeqNumExec, startBlocks)
 }
 
 func waitForTheTokenBalance(

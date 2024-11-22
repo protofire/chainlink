@@ -49,6 +49,7 @@ import (
 	"github.com/smartcontractkit/chainlink/v2/core/gethwrappers/generated/aggregator_v3_interface"
 	"github.com/smartcontractkit/chainlink/v2/core/gethwrappers/generated/mock_ethusd_aggregator_wrapper"
 	"github.com/smartcontractkit/chainlink/v2/core/gethwrappers/shared/generated/burn_mint_erc677"
+	"github.com/smartcontractkit/chainlink/v2/core/services/ocr2/plugins/ccip/abihelpers"
 )
 
 const (
@@ -59,6 +60,8 @@ const (
 var (
 	// bytes4 public constant EVM_EXTRA_ARGS_V2_TAG = 0x181dcf10;
 	evmExtraArgsV2Tag = hexutil.MustDecode("0x181dcf10")
+
+	routerABI = abihelpers.MustParseABI(router.RouterABI)
 )
 
 // Context returns a context with the test's deadline, if available.
@@ -406,6 +409,25 @@ func CCIPSendRequest(
 	return tx, blockNum, nil
 }
 
+// CCIPSendCalldata packs the calldata for the Router's ccipSend method.
+// This is expected to be used in Multicall scenarios (i.e multiple ccipSend calls
+// in a single transaction).
+func CCIPSendCalldata(
+	destChainSelector uint64,
+	evm2AnyMessage router.ClientEVM2AnyMessage,
+) ([]byte, error) {
+	calldata, err := routerABI.Methods["ccipSend"].Inputs.Pack(
+		destChainSelector,
+		evm2AnyMessage,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("pack ccipSend calldata: %w", err)
+	}
+
+	calldata = append(routerABI.Methods["ccipSend"].ID, calldata...)
+	return calldata, nil
+}
+
 func TestSendRequest(
 	t *testing.T,
 	e deployment.Environment,
@@ -617,22 +639,22 @@ func ConfirmRequestOnSourceAndDest(t *testing.T, env deployment.Environment, sta
 
 	fmt.Printf("Request sent for seqnr %d", msgSentEvent.SequenceNumber)
 	require.NoError(t,
-		ConfirmCommitWithExpectedSeqNumRange(t, env.Chains[sourceCS], env.Chains[destCS], state.Chains[destCS].OffRamp, &startBlock, cciptypes.SeqNumRange{
+		commonutils.JustError(ConfirmCommitWithExpectedSeqNumRange(t, env.Chains[sourceCS], env.Chains[destCS], state.Chains[destCS].OffRamp, &startBlock, cciptypes.SeqNumRange{
 			cciptypes.SeqNum(msgSentEvent.SequenceNumber),
 			cciptypes.SeqNum(msgSentEvent.SequenceNumber),
-		}))
+		})))
 
 	fmt.Printf("Commit confirmed for seqnr %d", msgSentEvent.SequenceNumber)
 	require.NoError(
 		t,
 		commonutils.JustError(
-			ConfirmExecWithSeqNr(
+			ConfirmExecWithSeqNrs(
 				t,
 				env.Chains[sourceCS],
 				env.Chains[destCS],
 				state.Chains[destCS].OffRamp,
 				&startBlock,
-				msgSentEvent.SequenceNumber,
+				[]uint64{msgSentEvent.SequenceNumber},
 			),
 		),
 	)
