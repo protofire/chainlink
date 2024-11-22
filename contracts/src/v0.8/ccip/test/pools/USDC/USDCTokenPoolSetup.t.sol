@@ -1,22 +1,22 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.8.24;
 
-import {IBurnMintERC20} from "../../../../../shared/token/ERC20/IBurnMintERC20.sol";
+import {IBurnMintERC20} from "../../../../shared/token/ERC20/IBurnMintERC20.sol";
 
-import {BurnMintERC20} from "../../../../../shared/token/ERC20/BurnMintERC20.sol";
-import {Router} from "../../../../Router.sol";
-import {TokenPool} from "../../../../pools/TokenPool.sol";
-import {USDCTokenPool} from "../../../../pools/USDC/USDCTokenPool.sol";
-import {BaseTest} from "../../../BaseTest.t.sol";
-import {USDCTokenPoolHelper} from "../../../helpers/USDCTokenPoolHelper.sol";
-import {MockE2EUSDCTransmitter} from "../../../mocks/MockE2EUSDCTransmitter.sol";
-import {MockUSDCTokenMessenger} from "../../../mocks/MockUSDCTokenMessenger.sol";
+import {BurnMintERC677} from "../../../../shared/token/ERC677/BurnMintERC677.sol";
+import {Router} from "../../../Router.sol";
+import {TokenPool} from "../../../pools/TokenPool.sol";
+import {HybridLockReleaseUSDCTokenPool} from "../../../pools/USDC/HybridLockReleaseUSDCTokenPool.sol";
+import {USDCTokenPool} from "../../../pools/USDC/USDCTokenPool.sol";
+import {BaseTest} from "../../BaseTest.t.sol";
+import {MockE2EUSDCTransmitter} from "../../mocks/MockE2EUSDCTransmitter.sol";
+import {MockUSDCTokenMessenger} from "../../mocks/MockUSDCTokenMessenger.sol";
 
-contract USDCTokenPoolSetup is BaseTest {
+contract HybridLockReleaseUSDCTokenPoolSetup is BaseTest {
   IBurnMintERC20 internal s_token;
   MockUSDCTokenMessenger internal s_mockUSDC;
   MockE2EUSDCTransmitter internal s_mockUSDCTransmitter;
-  uint32 internal constant USDC_DEST_TOKEN_GAS = 150_000;
+  uint32 internal constant USDC_DEST_TOKEN_GAS = 180_000;
 
   struct USDCMessage {
     uint32 version;
@@ -41,13 +41,13 @@ contract USDCTokenPoolSetup is BaseTest {
   address internal s_routerAllowedOffRamp = address(234);
   Router internal s_router;
 
-  USDCTokenPoolHelper internal s_usdcTokenPool;
-  USDCTokenPoolHelper internal s_usdcTokenPoolWithAllowList;
+  HybridLockReleaseUSDCTokenPool internal s_usdcTokenPool;
+  HybridLockReleaseUSDCTokenPool internal s_usdcTokenPoolTransferLiquidity;
   address[] internal s_allowedList;
 
   function setUp() public virtual override {
     BaseTest.setUp();
-    BurnMintERC20 usdcToken = new BurnMintERC20("LINK", "LNK", 18, 0, 0);
+    BurnMintERC677 usdcToken = new BurnMintERC677("LINK", "LNK", 18, 0);
     s_token = usdcToken;
     deal(address(s_token), OWNER, type(uint256).max);
     _setUpRamps();
@@ -58,12 +58,13 @@ contract USDCTokenPoolSetup is BaseTest {
     usdcToken.grantMintAndBurnRoles(address(s_mockUSDCTransmitter));
 
     s_usdcTokenPool =
-      new USDCTokenPoolHelper(s_mockUSDC, s_token, new address[](0), address(s_mockRMN), address(s_router));
-    usdcToken.grantMintAndBurnRoles(address(s_mockUSDC));
+      new HybridLockReleaseUSDCTokenPool(s_mockUSDC, s_token, new address[](0), address(s_mockRMN), address(s_router));
 
-    s_allowedList.push(USER_1);
-    s_usdcTokenPoolWithAllowList =
-      new USDCTokenPoolHelper(s_mockUSDC, s_token, s_allowedList, address(s_mockRMN), address(s_router));
+    s_usdcTokenPoolTransferLiquidity =
+      new HybridLockReleaseUSDCTokenPool(s_mockUSDC, s_token, new address[](0), address(s_mockRMN), address(s_router));
+
+    usdcToken.grantMintAndBurnRoles(address(s_mockUSDC));
+    usdcToken.grantMintAndBurnRoles(address(s_usdcTokenPool));
 
     bytes[] memory sourcePoolAddresses = new bytes[](1);
     sourcePoolAddresses[0] = abi.encode(SOURCE_CHAIN_USDC_POOL);
@@ -88,7 +89,6 @@ contract USDCTokenPoolSetup is BaseTest {
     });
 
     s_usdcTokenPool.applyChainUpdates(new uint64[](0), chainUpdates);
-    s_usdcTokenPoolWithAllowList.applyChainUpdates(new uint64[](0), chainUpdates);
 
     USDCTokenPool.DomainUpdate[] memory domains = new USDCTokenPool.DomainUpdate[](1);
     domains[0] = USDCTokenPool.DomainUpdate({
@@ -99,7 +99,12 @@ contract USDCTokenPoolSetup is BaseTest {
     });
 
     s_usdcTokenPool.setDomains(domains);
-    s_usdcTokenPoolWithAllowList.setDomains(domains);
+
+    vm.expectEmit();
+    emit HybridLockReleaseUSDCTokenPool.LiquidityProviderSet(address(0), OWNER, DEST_CHAIN_SELECTOR);
+
+    s_usdcTokenPool.setLiquidityProvider(DEST_CHAIN_SELECTOR, OWNER);
+    s_usdcTokenPool.setLiquidityProvider(SOURCE_CHAIN_SELECTOR, OWNER);
   }
 
   function _setUpRamps() internal {
