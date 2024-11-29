@@ -259,8 +259,9 @@ func mockAttestationResponse() *httptest.Server {
 }
 
 type TestConfigs struct {
-	IsUSDC       bool
-	IsMultiCall3 bool
+	IsUSDC            bool
+	IsMultiCall3      bool
+	OCRConfigOverride func(CCIPOCRParams) CCIPOCRParams
 }
 
 func NewMemoryEnvironmentWithJobsAndContracts(t *testing.T, lggr logger.Logger, numChains int, numNodes int, tCfg *TestConfigs) DeployedEnv {
