@@ -198,7 +198,7 @@ func NewLocalDevEnvironment(
 	var tokenDataProviders []pluginconfig.TokenDataObserverConfig
 	if len(usdcChains) > 0 {
 		var endpoint string
-		err = ccipactions.SetMockServerWithUSDCAttestation(testEnv.MockAdapter, nil)
+		err = ccipactions.SetMockServerWithUSDCAttestation(testEnv.MockAdapter, nil, tCfg.IsUSDCAttestationMissing)
 		require.NoError(t, err)
 		endpoint = testEnv.MockAdapter.InternalEndpoint
 		cctpContracts := make(map[cciptypes.ChainSelector]pluginconfig.USDCCCTPTokenConfig)
