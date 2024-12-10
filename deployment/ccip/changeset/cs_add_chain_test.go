@@ -80,10 +80,23 @@ func TestAddChainInbound(t *testing.T) {
 	for _, chain := range initialDeploy {
 		chainConfig[chain] = DefaultOCRParams(e.FeedChainSel, nil, nil)
 	}
-	err = deployCCIPContracts(e.Env, newAddresses, NewChainsConfig{
+	newChainCfg := NewChainsConfig{
 		HomeChainSel:       e.HomeChainSel,
 		FeedChainSel:       e.FeedChainSel,
 		ChainConfigByChain: chainConfig,
+	}
+	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, nil, []commonchangeset.ChangesetApplication{
+		{
+			Changeset: commonchangeset.WrapChangeSet(DeployChainContracts),
+			Config: DeployChainContractsConfig{
+				ChainSelectors:    newChainCfg.Chains(),
+				HomeChainSelector: newChainCfg.HomeChainSel,
+			},
+		},
+		{
+			Changeset: commonchangeset.WrapChangeSet(ConfigureNewChains),
+			Config:    newChainCfg,
+		},
 	})
 	require.NoError(t, err)
 
