@@ -1,6 +1,7 @@
 package changeset
 
 import (
+	"encoding/binary"
 	"fmt"
 	"math/big"
 	"time"
@@ -155,9 +156,13 @@ type TransferToDeployerConfig struct {
 // back to the deployer key. It's effectively the rollback function of transferring
 // to the timelock.
 func TransferToDeployer(e deployment.Environment, cfg TransferToDeployerConfig) (deployment.ChangesetOutput, error) {
-	_, ownable, err := LoadOwnableContract(cfg.ContractAddress, e.Chains[cfg.ChainSel].Client)
+	owner, ownable, err := LoadOwnableContract(cfg.ContractAddress, e.Chains[cfg.ChainSel].Client)
 	if err != nil {
 		return deployment.ChangesetOutput{}, err
+	}
+	if owner == e.Chains[cfg.ChainSel].DeployerKey.From {
+		e.Logger.Infof("Contract %s already owned by deployer", cfg.ContractAddress)
+		return deployment.ChangesetOutput{}, nil
 	}
 	tx, err := ownable.TransferOwnership(deployment.SimTransactOpts(), e.Chains[cfg.ChainSel].DeployerKey.From)
 	if err != nil {
@@ -178,7 +183,9 @@ func TransferToDeployer(e deployment.Environment, cfg TransferToDeployerConfig) 
 			Value:  big.NewInt(0),
 		},
 	}
-	tx, err = tls.Timelock.ScheduleBatch(e.Chains[cfg.ChainSel].DeployerKey, calls, [32]byte{}, [32]byte{}, big.NewInt(0))
+	var salt [32]byte
+	binary.BigEndian.PutUint32(salt[:], uint32(time.Now().Unix()))
+	tx, err = tls.Timelock.ScheduleBatch(e.Chains[cfg.ChainSel].DeployerKey, calls, [32]byte{}, salt, big.NewInt(0))
 	if _, err = deployment.ConfirmIfNoError(e.Chains[cfg.ChainSel], tx, err); err != nil {
 		return deployment.ChangesetOutput{}, err
 	}
@@ -188,7 +195,7 @@ func TransferToDeployer(e deployment.Environment, cfg TransferToDeployerConfig) 
 		return deployment.ChangesetOutput{}, fmt.Errorf("error creating timelock executor proxy: %w", err)
 	}
 	tx, err = timelockExecutorProxy.ExecuteBatch(
-		e.Chains[cfg.ChainSel].DeployerKey, calls, [32]byte{}, [32]byte{})
+		e.Chains[cfg.ChainSel].DeployerKey, calls, [32]byte{}, salt)
 	if err != nil {
 		return deployment.ChangesetOutput{}, fmt.Errorf("error executing batch: %w", err)
 	}
