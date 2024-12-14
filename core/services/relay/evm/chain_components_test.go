@@ -27,6 +27,7 @@ import (
 	commontestutils "github.com/smartcontractkit/chainlink-common/pkg/loop/testutils"
 	clcommontypes "github.com/smartcontractkit/chainlink-common/pkg/types"
 	"github.com/smartcontractkit/chainlink-common/pkg/types/interfacetests"
+	"github.com/smartcontractkit/chainlink-common/pkg/utils/tests"
 
 	htMocks "github.com/smartcontractkit/chainlink/v2/common/headtracker/mocks"
 	"github.com/smartcontractkit/chainlink/v2/core/chains/evm/assets"
@@ -227,7 +228,7 @@ func TestChainReader_HealthReport(t *testing.T) {
 }
 
 func TestChainComponents(t *testing.T) {
-	testutils.SkipFlakey(t, "https://smartcontract-it.atlassian.net/browse/BCFR-1083")
+	tests.SkipFlakey(t, "https://smartcontract-it.atlassian.net/browse/BCFR-1083")
 	t.Parallel()
 	it := &EVMChainComponentsInterfaceTester[*testing.T]{Helper: &helper{}}
 	// TODO, generated binding tests are broken
