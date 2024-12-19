@@ -337,6 +337,7 @@ FinalizedBlockOffset = 0
 NoNewFinalizedHeadsThreshold = '15m0s'
 
 [EVM.Transactions]
+Enabled = true
 ForwardersEnabled = true
 MaxInFlight = 19
 MaxQueued = 99
