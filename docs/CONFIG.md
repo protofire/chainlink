@@ -7369,9 +7369,9 @@ Enabled = true
 
 [GasEstimator]
 Mode = 'BlockHistory'
-PriceDefault = '25 gwei'
+PriceDefault = '1 gwei'
 PriceMax = '115792089237316195423570985008687907853269984665.640564039457584007913129639935 tether'
-PriceMin = '25 gwei'
+PriceMin = '1 gwei'
 LimitDefault = 500000
 LimitMax = 500000
 LimitMultiplier = '1'
@@ -7474,9 +7474,9 @@ Enabled = true
 
 [GasEstimator]
 Mode = 'BlockHistory'
-PriceDefault = '25 gwei'
+PriceDefault = '1 gwei'
 PriceMax = '115792089237316195423570985008687907853269984665.640564039457584007913129639935 tether'
-PriceMin = '25 gwei'
+PriceMin = '1 gwei'
 LimitDefault = 500000
 LimitMax = 500000
 LimitMultiplier = '1'
