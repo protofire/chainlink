@@ -459,7 +459,7 @@ func NewEnvironmentWithJobsAndContracts(t *testing.T, tEnv TestEnvironment) Depl
 	})
 	require.NoError(t, err)
 	tEnv.UpdateDeployedEnvironment(e)
-	e = AddCCIPContractsToEnvironment(t, e.Env.AllChainSelectors(), tEnv)
+	e = AddCCIPContractsToEnvironment(t, e.Env.AllChainSelectors(), tEnv, true, true, false)
 	// now we update RMNProxy to point to RMNRemote
 	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, nil, []commonchangeset.ChangesetApplication{
 		{
@@ -473,15 +473,17 @@ func NewEnvironmentWithJobsAndContracts(t *testing.T, tEnv TestEnvironment) Depl
 	return e
 }
 
-func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEnvironment) DeployedEnv {
+func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEnvironment, deployJobs, deployHomeChain, mcmsEnabled bool) DeployedEnv {
 	tc := tEnv.TestConfigs()
 	e := tEnv.DeployedEnvironment()
 	envNodes, err := deployment.NodeInfo(e.Env.NodeIDs, e.Env.Offchain)
 	require.NoError(t, err)
+
 	// Need to deploy prerequisites first so that we can form the USDC config
 	// no proposals to be made, timelock can be passed as nil here
-	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, nil, []commonchangeset.ChangesetApplication{
-		{
+	var apps []commonchangeset.ChangesetApplication
+	if deployHomeChain {
+		apps = append(apps, commonchangeset.ChangesetApplication{
 			Changeset: commonchangeset.WrapChangeSet(changeset.DeployHomeChainChangeset),
 			Config: changeset.DeployHomeChainConfig{
 				HomeChainSel:     e.HomeChainSel,
@@ -492,15 +494,16 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 					TestNodeOperator: envNodes.NonBootstraps().PeerIDs(),
 				},
 			},
-		},
-		{
-			Changeset: commonchangeset.WrapChangeSet(changeset.DeployChainContractsChangeset),
-			Config: changeset.DeployChainContractsConfig{
-				ChainSelectors:    allChains,
-				HomeChainSelector: e.HomeChainSel,
-			},
+		})
+	}
+	apps = append(apps, commonchangeset.ChangesetApplication{
+		Changeset: commonchangeset.WrapChangeSet(changeset.DeployChainContractsChangeset),
+		Config: changeset.DeployChainContractsConfig{
+			ChainSelectors:    allChains,
+			HomeChainSelector: e.HomeChainSel,
 		},
 	})
+	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, nil, apps)
 	require.NoError(t, err)
 
 	state, err := changeset.LoadOnchainState(e.Env)
@@ -570,14 +573,25 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 			},
 		}
 	}
-	// Deploy second set of changesets to deploy and configure the CCIP contracts.
-	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, timelockContractsPerChain, []commonchangeset.ChangesetApplication{
+	timelockContractsPerChain[e.HomeChainSel] = &proposalutils.TimelockExecutionContracts{
+		Timelock:  state.Chains[e.HomeChainSel].Timelock,
+		CallProxy: state.Chains[e.HomeChainSel].CallProxy,
+	}
+	// Apply second set of changesets to configure the CCIP contracts.
+	var mcmsConfig *changeset.MCMSConfig
+	if mcmsEnabled {
+		mcmsConfig = &changeset.MCMSConfig{
+			MinDelay: 0,
+		}
+	}
+	apps = []commonchangeset.ChangesetApplication{
 		{
 			// Add the chain configs for the new chains.
 			Changeset: commonchangeset.WrapChangeSet(changeset.UpdateChainConfigChangeset),
 			Config: changeset.UpdateChainConfigConfig{
 				HomeChainSelector: e.HomeChainSel,
 				RemoteChainAdds:   chainConfigs,
+				MCMS:              mcmsConfig,
 			},
 		},
 		{
@@ -587,6 +601,7 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 				SetCandidateConfigBase: changeset.SetCandidateConfigBase{
 					HomeChainSelector: e.HomeChainSel,
 					FeedChainSelector: e.FeedChainSel,
+					MCMS:              mcmsConfig,
 				},
 				PluginInfo: changeset.SetCandidatePluginInfo{
 					OCRConfigPerRemoteChainSelector: ocrConfigs,
@@ -601,6 +616,7 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 				SetCandidateConfigBase: changeset.SetCandidateConfigBase{
 					HomeChainSelector: e.HomeChainSel,
 					FeedChainSelector: e.FeedChainSel,
+					MCMS:              mcmsConfig,
 				},
 				PluginInfo: []changeset.SetCandidatePluginInfo{
 					{
@@ -625,6 +641,7 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 						RemoteChainSelectors: allChains,
 					},
 				},
+				MCMS: mcmsConfig,
 			},
 		},
 		{
@@ -635,10 +652,13 @@ func AddCCIPContractsToEnvironment(t *testing.T, allChains []uint64, tEnv TestEn
 				RemoteChainSels: allChains,
 			},
 		},
-		{
+	}
+	if deployJobs {
+		apps = append(apps, commonchangeset.ChangesetApplication{
 			Changeset: commonchangeset.WrapChangeSet(changeset.CCIPCapabilityJobspecChangeset),
-		},
-	})
+		})
+	}
+	e.Env, err = commonchangeset.ApplyChangesets(t, e.Env, timelockContractsPerChain, apps)
 	require.NoError(t, err)
 
 	ReplayLogs(t, e.Env.Offchain, e.ReplayBlocks)
