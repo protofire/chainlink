@@ -1,7 +1,7 @@
-ChainID = '168587773'
+ChainID = '17000'
 
 [GasEstimator.BlockHistory]
-# Default is 24, which leads to bumpy gas prices. In CCIP
+# Default is 4!?, which leads to bumpy gas prices. In CCIP
 # we want to smooth out the gas prices, so we increase the sample size.
 BlockHistorySize = 200
 # The formula for FeeCap is (current block base fee * (1.125 ^ EIP1559FeeCapBufferBlocks) + tipcap)
