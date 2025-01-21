@@ -953,6 +953,7 @@ func newOnChainContractTransmitter(ctx context.Context, lggr logger.Logger, rarg
 		transmitter,
 		configWatcher.chain.LogPoller(),
 		lggr,
+		ethKeystore,
 		ocrTransmitterOpts...,
 	)
 }
@@ -972,6 +973,7 @@ func newOnChainDualContractTransmitter(ctx context.Context, lggr logger.Logger, 
 		transmitter,
 		configWatcher.chain.LogPoller(),
 		lggr,
+		ethKeystore,
 		ocrTransmitterOpts...,
 	)
 }
@@ -1039,6 +1041,7 @@ func generateTransmitterFrom(ctx context.Context, rargs commontypes.RelayArgs, e
 	switch commontypes.OCR2PluginType(rargs.ProviderType) {
 	case commontypes.Median:
 		transmitter, err = ocrcommon.NewOCR2FeedsTransmitter(
+			ctx,
 			configWatcher.chain.TxManager(),
 			fromAddresses,
 			common.HexToAddress(rargs.ContractID),
