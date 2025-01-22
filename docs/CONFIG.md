@@ -14559,6 +14559,7 @@ SelectionMode = 'PriorityLevel' # Default
 SyncThreshold = 5 # Default
 NodeIsSyncingEnabled = false # Default
 LeaseDuration = '1m0s' # Default
+NewHeadsPollInterval = '10s' # Default
 FinalizedBlockPollInterval = '10s' # Default
 EnforceRepeatableRead = true # Default
 DeathDeclarationDelay = '10s' # Default
@@ -14611,6 +14612,12 @@ NodeIsSyncingEnabled enables the feature to avoid sending transactions to nodes 
 LeaseDuration = '1m0s' # Default
 ```
 LeaseDuration is the max duration a node can be leased for.
+
+### NewHeadsPollInterval
+```toml
+NewHeadsPollInterval = '10s' # Default
+```
+NewHeadsPollInterval is the rate to poll for new heads.
 
 ### FinalizedBlockPollInterval
 ```toml
