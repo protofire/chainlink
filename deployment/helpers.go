@@ -205,3 +205,14 @@ func ChainInfo(cs uint64) (chain_selectors.ChainDetails, error) {
 	}
 	return info, nil
 }
+
+func ValidateSelectorsInEnvironment(e Environment, chains []uint64) error {
+	for _, chain := range chains {
+		_, evmOk := e.Chains[chain]
+		_, solOk := e.SolChains[chain]
+		if !evmOk && !solOk {
+			return fmt.Errorf("chain %d not found in environment", chain)
+		}
+	}
+	return nil
+}
