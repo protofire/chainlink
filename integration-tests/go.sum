@@ -634,6 +634,8 @@ github.com/go-webauthn/webauthn v0.9.4 h1:YxvHSqgUyc5AK2pZbqkWWR55qKeDPhP8zLDr6l
 github.com/go-webauthn/webauthn v0.9.4/go.mod h1:LqupCtzSef38FcxzaklmOn7AykGKhAhr9xlRbdbgnTw=
 github.com/go-webauthn/x v0.1.5 h1:V2TCzDU2TGLd0kSZOXdrqDVV5JB9ILnKxA9S53CSBw0=
 github.com/go-webauthn/x v0.1.5/go.mod h1:qbzWwcFcv4rTwtCLOZd+icnr6B7oSsAGZJqlt8cukqY=
+github.com/go-yaml/yaml v2.1.0+incompatible h1:RYi2hDdss1u4YE7GwixGzWwVo47T8UQwnTLB6vQiq+o=
+github.com/go-yaml/yaml v2.1.0+incompatible/go.mod h1:w2MrLa16VYP0jy6N7M5kHaCkaLENm+P+Tv+MfurjSw0=
 github.com/go-zookeeper/zk v1.0.3 h1:7M2kwOsc//9VeeFiPtf+uSJlVpU66x9Ba5+8XK7/TDg=
 github.com/go-zookeeper/zk v1.0.3/go.mod h1:nOB03cncLtlp4t+UAkGSV+9beXP/akpekBwL+UX1Qcw=
 github.com/goccy/go-json v0.10.3 h1:KZ5WoDbxAIgm2HNbYckL0se1fHD6rz5j4ywS6ebzDqA=
@@ -1452,8 +1454,8 @@ github.com/smartcontractkit/chainlink-testing-framework/lib v1.50.19 h1:9PMwKNqF
 github.com/smartcontractkit/chainlink-testing-framework/lib v1.50.19/go.mod h1:ag7LEgejsVtPXaUNkcoFPpAoDkl1J8V2HSbqVUxfEtk=
 github.com/smartcontractkit/chainlink-testing-framework/lib/grafana v1.50.0 h1:VIxK8u0Jd0Q/VuhmsNm6Bls6Tb31H/sA3A/rbc5hnhg=
 github.com/smartcontractkit/chainlink-testing-framework/lib/grafana v1.50.0/go.mod h1:lyAu+oMXdNUzEDScj2DXB2IueY+SDXPPfyl/kb63tMM=
-github.com/smartcontractkit/chainlink-testing-framework/seth v1.50.9 h1:yB1x5UXvpZNka+5h57yo1/GrKfXKCqMzChCISpldZx4=
-github.com/smartcontractkit/chainlink-testing-framework/seth v1.50.9/go.mod h1:lJk0atEJ5Zyo3Tqrmf1Pl9jUEe79EgDb9bD3K5OTUBI=
+github.com/smartcontractkit/chainlink-testing-framework/seth v1.50.10 h1:Yf+n3T/fnUWcYyfe7bsygV4sWAkNo0QhN58APJFIKIc=
+github.com/smartcontractkit/chainlink-testing-framework/seth v1.50.10/go.mod h1:05duR85P8YHuIfIkA7sn2bvrhKo/pDpFKV2rliYHNOo=
 github.com/smartcontractkit/chainlink-testing-framework/wasp v1.50.2 h1:7bCdbTUWzyczQg+kwHCxlx6y07zE8HNB8+ntTne6qd8=
 github.com/smartcontractkit/chainlink-testing-framework/wasp v1.50.2/go.mod h1:MltlNu3jcXm/DyLN98I5TFNtu/o1NNAcaPAFKMXWk70=
 github.com/smartcontractkit/grpc-proxy v0.0.0-20240830132753-a7e17fec5ab7 h1:12ijqMM9tvYVEm+nR826WsrNi6zCKpwBhuApq127wHs=
